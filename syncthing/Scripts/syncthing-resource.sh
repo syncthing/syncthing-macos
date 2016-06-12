@@ -1,13 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
 # Download and unpack syncthing into ${PRODUCT_NAME}.app/Contents/Resources
 SYNCTHING_ARCH="amd64"
 SYNCTHING_VERSION="0.13.6"
-SYNCTHING_TARBALL_URL=https://github.com/syncthing/syncthing/releases/download/v${SYNCTHING_VERSION}/syncthing-macosx-${SYNCTHING_ARCH}-${SYNCTHING_VERSION}.tar.gz"
+SYNCTHING_DIST_URL="https://github.com/syncthing/syncthing/releases/download"
+SYNCTHING_TARBALL_URL="${SYNCTHING_DIST_URL}/v${SYNCTHING_VERSION}/syncthing-macosx-${SYNCTHING_ARCH}-v${SYNCTHING_VERSION}.tar.gz"
 
 CURL_ARGS="--connect-timeout 5 --max-time 10 --retry 5 --retry-delay 3 --retry-max-time 60"
 DL_DIR="${BUILT_PRODUCTS_DIR}/dl"
-TAR_DIR="${APP_RESOURCES_DIR}/syncthing"
 SYNCTHING_TARBALL="${DL_DIR}/syncthing-${SYNCTHING_VERSION}.tar.gz"
 APP_RESOURCES_DIR="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources"
+TAR_DIR="${APP_RESOURCES_DIR}/syncthing"
 
 # Download syncthing tarball
 if [ -f "${SYNCTHING_TARBALL}" ]; then
@@ -23,7 +27,7 @@ else
 fi
 
 # Unpack to .app Resources folder
-if [ -d "${TAR_DIR}" ]; then
+if [ -d "${TAR_DIR}/syncthing" ]; then
     echo "-- Syncthing already unpacked"
     echo "   > ${TAR_DIR}"
 else
