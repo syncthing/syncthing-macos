@@ -221,7 +221,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
+			shellPath = /bin/sh;
 			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh";
 			showEnvVarsInLog = 0;
 		};

@@ -1,12 +1,13 @@
 # Download and unpack syncthing into ${PRODUCT_NAME}.app/Contents/Resources
 SYNCTHING_ARCH="amd64"
-SYNCTHING_URL="https://api.github.com/repos/syncthing/syncthing/releases/latest"
-APP_RESOURCES_DIR="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources"
+SYNCTHING_VERSION="0.13.6"
+SYNCTHING_TARBALL_URL=https://github.com/syncthing/syncthing/releases/download/v${SYNCTHING_VERSION}/syncthing-macosx-${SYNCTHING_ARCH}-${SYNCTHING_VERSION}.tar.gz"
 
+CURL_ARGS="--connect-timeout 5 --max-time 10 --retry 5 --retry-delay 3 --retry-max-time 60"
 DL_DIR="${BUILT_PRODUCTS_DIR}/dl"
 TAR_DIR="${APP_RESOURCES_DIR}/syncthing"
-SYNCTHING_TARBALL="${DL_DIR}/syncthing.tar.gz"
-CURL_ARGS="--connect-timeout 5 --max-time 10 --retry 5 --retry-delay 3 --retry-max-time 60"
+SYNCTHING_TARBALL="${DL_DIR}/syncthing-${SYNCTHING_VERSION}.tar.gz"
+APP_RESOURCES_DIR="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources"
 
 # Download syncthing tarball
 if [ -f "${SYNCTHING_TARBALL}" ]; then
@@ -14,9 +15,6 @@ if [ -f "${SYNCTHING_TARBALL}" ]; then
     echo "   > ${SYNCTHING_TARBALL}"
 else
     echo "-- Downloading syncthing"
-
-    SYNCTHING_TARBALL_URL=`curl ${CURL_ARGS} -s -L ${SYNCTHING_URL} | grep macosx-${SYNCTHING_ARCH} | grep browser_download_url | sed -e 's/.*"https\(.*\)"/https\1/'`
-
     echo "   From > ${SYNCTHING_TARBALL_URL}"
     echo "     To > ${SYNCTHING_TARBALL}"
 
