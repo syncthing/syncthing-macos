@@ -16,6 +16,7 @@
 		C4A415681D0D579D00DC6018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415671D0D579D00DC6018 /* main.m */; };
 		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
 		C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4156B1D0D579D00DC6018 /* STApplication.xib */; };
+		C4D896131D0DF90900D42F73 /* syncthing-resource.sh in Resources */ = {isa = PBXBuildFile; fileRef = C4D896121D0DF90900D42F73 /* syncthing-resource.sh */; };
 		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		C4A4156C1D0D579D00DC6018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STApplication.xib; sourceTree = "<group>"; };
 		C4A4156E1D0D579D00DC6018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D6DD581D0D93D80024D20A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4D896121D0DF90900D42F73 /* syncthing-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-resource.sh"; path = "syncthing/Scripts/syncthing-resource.sh"; sourceTree = "<group>"; };
 		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
 		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -62,6 +64,7 @@
 		C4A415571D0D579D00DC6018 = {
 			isa = PBXGroup;
 			children = (
+				C4D896141D0DF90E00D42F73 /* Scripts */,
 				C4460A881D0DE58B00200C21 /* Docs */,
 				C4FFB0621D0D7E360015D14A /* Library */,
 				C4A415621D0D579D00DC6018 /* Sources */,
@@ -119,6 +122,14 @@
 				C4A4156B1D0D579D00DC6018 /* STApplication.xib */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		C4D896141D0DF90E00D42F73 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				C4D896121D0DF90900D42F73 /* syncthing-resource.sh */,
+			);
+			name = Scripts;
 			sourceTree = "<group>";
 		};
 		C4FFB0621D0D7E360015D14A /* Library */ = {
@@ -190,6 +201,7 @@
 			files = (
 				C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */,
 				C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */,
+				C4D896131D0DF90900D42F73 /* syncthing-resource.sh in Resources */,
 				C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */,
 				C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */,
 				C44262771D0DEF9F005340C2 /* LICENSE in Resources */,
@@ -210,7 +222,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "# Download and unpack syncthing into ${PRODUCT_NAME}.app/Contents/Resources\nSYNCTHING_ARCH=\"amd64\"\nSYNCTHING_URL=\"https://api.github.com/repos/syncthing/syncthing/releases/latest\"\nAPP_RESOURCES_DIR=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources\"\n\nDL_DIR=\"${BUILT_PRODUCTS_DIR}/dl\"\nTAR_DIR=\"${APP_RESOURCES_DIR}/syncthing\"\nSYNCTHING_TARBALL=\"${DL_DIR}/syncthing.tar.gz\"\nCURL_ARGS=\"--connect-timeout 5 --max-time 10 --retry 5 --retry-delay 3 --retry-max-time 60\"\n\n# Download syncthing tarball\nif [ -f \"${SYNCTHING_TARBALL}\" ]; then\n    echo \"-- Syncthing already downloaded\"\n    echo \"   > ${SYNCTHING_TARBALL}\"\nelse\n    echo \"-- Downloading syncthing\"\n\nSYNCTHING_TARBALL_URL=`curl ${CURL_ARGS} -s -L ${SYNCTHING_URL} | grep macosx-${SYNCTHING_ARCH} | grep browser_download_url | sed -e 's/.*\"https\\(.*\\)\"/https\\1/'`\n\n    echo \"   From > ${SYNCTHING_TARBALL_URL}\"\n    echo \"     To > ${SYNCTHING_TARBALL}\"\n\n    mkdir -p \"${DL_DIR}\"\n    curl ${CURL_ARGS} -s -L -o ${SYNCTHING_TARBALL} ${SYNCTHING_TARBALL_URL}\nfi\n\n# Unpack to .app Resources folder\nif [ -d \"${TAR_DIR}\" ]; then\n    echo \"-- Syncthing already unpacked\"\n    echo \"   > ${TAR_DIR}\"\nelse\n    echo \"-- Unpacking syncthing\"\n    echo \"   > ${TAR_DIR}\"\n    mkdir -p \"${TAR_DIR}\"\n    tar -xf \"${SYNCTHING_TARBALL}\" -C \"${TAR_DIR}\" --strip-components=1\nfi";
+			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
