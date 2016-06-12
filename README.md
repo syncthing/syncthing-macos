@@ -8,6 +8,12 @@
 xcodebuild
 ```
 
+# Syncthing ApiKey
+
+Fetch your current API key and load it into the prefences and restart the tray.
+
+`sed -n 's:.*<apikey>\(.*\)</apikey>.*:\1:p' $HOME/Library/Application\ Support/Syncthing/config.xml`
+
 # Configuration and defaults
 
 Writing defaults is handled by OS X and can be set from the GUI or console.
