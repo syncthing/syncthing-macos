@@ -1,0 +1,378 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C44262771D0DEF9F005340C2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C44262761D0DEF9F005340C2 /* LICENSE */; };
+		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
+		C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */; };
+		C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */; };
+		C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */ = {isa = PBXBuildFile; fileRef = C47F6C391D0DE68D00F36CF6 /* syncthing.icns */; };
+		C4A415651D0D579D00DC6018 /* STApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415641D0D579D00DC6018 /* STApplication.m */; };
+		C4A415681D0D579D00DC6018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415671D0D579D00DC6018 /* main.m */; };
+		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
+		C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4156B1D0D579D00DC6018 /* STApplication.xib */; };
+		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
+		C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesWindowController.m; path = Controllers/STPreferencesWindowController.m; sourceTree = "<group>"; };
+		C4460A7E1D0DD2D500200C21 /* STStatusBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStatusBarController.h; path = Controllers/STStatusBarController.h; sourceTree = "<group>"; };
+		C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStatusBarController.m; path = Controllers/STStatusBarController.m; sourceTree = "<group>"; };
+		C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesWindow.xib; path = UI/STPreferencesWindow.xib; sourceTree = "<group>"; };
+		C47F6C391D0DE68D00F36CF6 /* syncthing.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = syncthing.icns; sourceTree = "<group>"; };
+		C4A415601D0D579D00DC6018 /* Syncthing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncthing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4A415631D0D579D00DC6018 /* STApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STApplication.h; sourceTree = "<group>"; };
+		C4A415641D0D579D00DC6018 /* STApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STApplication.m; sourceTree = "<group>"; };
+		C4A415671D0D579D00DC6018 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C4A415691D0D579D00DC6018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4A4156C1D0D579D00DC6018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STApplication.xib; sourceTree = "<group>"; };
+		C4A4156E1D0D579D00DC6018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4D6DD581D0D93D80024D20A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
+		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4A4155D1D0D579D00DC6018 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C4460A881D0DE58B00200C21 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				C44262761D0DEF9F005340C2 /* LICENSE */,
+				C4D6DD581D0D93D80024D20A /* README.md */,
+			);
+			name = Docs;
+			sourceTree = "<group>";
+		};
+		C4A415571D0D579D00DC6018 = {
+			isa = PBXGroup;
+			children = (
+				C4460A881D0DE58B00200C21 /* Docs */,
+				C4FFB0621D0D7E360015D14A /* Library */,
+				C4A415621D0D579D00DC6018 /* Sources */,
+				C4A415611D0D579D00DC6018 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4A415611D0D579D00DC6018 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4A415601D0D579D00DC6018 /* Syncthing.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4A415621D0D579D00DC6018 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C4D6DD601D0DB18A0024D20A /* UI */,
+				C4D6DD5F1D0DAF530024D20A /* Controllers */,
+				C4A415631D0D579D00DC6018 /* STApplication.h */,
+				C4A415641D0D579D00DC6018 /* STApplication.m */,
+				C4A415691D0D579D00DC6018 /* Assets.xcassets */,
+				C4A4156E1D0D579D00DC6018 /* Info.plist */,
+				C4A415661D0D579D00DC6018 /* Supporting Files */,
+			);
+			name = Sources;
+			path = syncthing;
+			sourceTree = "<group>";
+		};
+		C4A415661D0D579D00DC6018 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C47F6C391D0DE68D00F36CF6 /* syncthing.icns */,
+				C4A415671D0D579D00DC6018 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4D6DD5F1D0DAF530024D20A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */,
+				C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */,
+				C4460A7E1D0DD2D500200C21 /* STStatusBarController.h */,
+				C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C4D6DD601D0DB18A0024D20A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */,
+				C4A4156B1D0D579D00DC6018 /* STApplication.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		C4FFB0621D0D7E360015D14A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */,
+				C4FFB0631D0D7E440015D14A /* XGSyncthing.h */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4A4155F1D0D579D00DC6018 /* syncthing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4A415711D0D579D00DC6018 /* Build configuration list for PBXNativeTarget "syncthing" */;
+			buildPhases = (
+				C4A4155C1D0D579D00DC6018 /* Sources */,
+				C4A4155D1D0D579D00DC6018 /* Frameworks */,
+				C4A4155E1D0D579D00DC6018 /* Resources */,
+				C4460A841D0DD58700200C21 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = syncthing;
+			productName = syncthing;
+			productReference = C4A415601D0D579D00DC6018 /* Syncthing.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4A415581D0D579D00DC6018 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Jerry Jacobs";
+				TargetAttributes = {
+					C4A4155F1D0D579D00DC6018 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = C4A4155B1D0D579D00DC6018 /* Build configuration list for PBXProject "syncthing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4A415571D0D579D00DC6018;
+			productRefGroup = C4A415611D0D579D00DC6018 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4A4155F1D0D579D00DC6018 /* syncthing */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4A4155E1D0D579D00DC6018 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */,
+				C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */,
+				C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */,
+				C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */,
+				C44262771D0DEF9F005340C2 /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C4460A841D0DD58700200C21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "# Download and unpack syncthing into ${PRODUCT_NAME}.app/Contents/Resources\nSYNCTHING_ARCH=\"amd64\"\nSYNCTHING_URL=\"https://api.github.com/repos/syncthing/syncthing/releases/latest\"\nAPP_RESOURCES_DIR=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources\"\n\nDL_DIR=\"${BUILT_PRODUCTS_DIR}/dl\"\nTAR_DIR=\"${APP_RESOURCES_DIR}/syncthing\"\nSYNCTHING_TARBALL=\"${DL_DIR}/syncthing.tar.gz\"\nCURL_ARGS=\"--connect-timeout 5 --max-time 10 --retry 5 --retry-delay 3 --retry-max-time 60\"\n\n# Download syncthing tarball\nif [ -f \"${SYNCTHING_TARBALL}\" ]; then\n    echo \"-- Syncthing already downloaded\"\n    echo \"   > ${SYNCTHING_TARBALL}\"\nelse\n    echo \"-- Downloading syncthing\"\n\nSYNCTHING_TARBALL_URL=`curl ${CURL_ARGS} -s -L ${SYNCTHING_URL} | grep macosx-${SYNCTHING_ARCH} | grep browser_download_url | sed -e 's/.*\"https\\(.*\\)\"/https\\1/'`\n\n    echo \"   From > ${SYNCTHING_TARBALL_URL}\"\n    echo \"     To > ${SYNCTHING_TARBALL}\"\n\n    mkdir -p \"${DL_DIR}\"\n    curl ${CURL_ARGS} -s -L -o ${SYNCTHING_TARBALL} ${SYNCTHING_TARBALL_URL}\nfi\n\n# Unpack to .app Resources folder\nif [ -d \"${TAR_DIR}\" ]; then\n    echo \"-- Syncthing already unpacked\"\n    echo \"   > ${TAR_DIR}\"\nelse\n    echo \"-- Unpacking syncthing\"\n    echo \"   > ${TAR_DIR}\"\n    mkdir -p \"${TAR_DIR}\"\n    tar -xf \"${SYNCTHING_TARBALL}\" -C \"${TAR_DIR}\" --strip-components=1\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4A4155C1D0D579D00DC6018 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */,
+				C4A415681D0D579D00DC6018 /* main.m in Sources */,
+				C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */,
+				C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */,
+				C4A415651D0D579D00DC6018 /* STApplication.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C4A4156B1D0D579D00DC6018 /* STApplication.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4A4156C1D0D579D00DC6018 /* Base */,
+			);
+			name = STApplication.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4A4156F1D0D579D00DC6018 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C4A415701D0D579D00DC6018 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C4A415721D0D579D00DC6018 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = syncthing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
+				PRODUCT_NAME = Syncthing;
+				SEPARATE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		C4A415731D0D579D00DC6018 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = syncthing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
+				PRODUCT_NAME = Syncthing;
+				SEPARATE_STRIP = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4A4155B1D0D579D00DC6018 /* Build configuration list for PBXProject "syncthing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4A4156F1D0D579D00DC6018 /* Debug */,
+				C4A415701D0D579D00DC6018 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4A415711D0D579D00DC6018 /* Build configuration list for PBXNativeTarget "syncthing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4A415721D0D579D00DC6018 /* Debug */,
+				C4A415731D0D579D00DC6018 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4A415581D0D579D00DC6018 /* Project object */;
+}
