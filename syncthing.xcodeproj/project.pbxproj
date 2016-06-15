@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C44262771D0DEF9F005340C2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C44262761D0DEF9F005340C2 /* LICENSE */; };
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
 		C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */; };
 		C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */; };
+		C4576BE41D11E43C0031BCFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576BE31D11E43C0031BCFD /* main.m */; };
+		C4576BE61D11E79F0031BCFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4576BE51D11E79F0031BCFD /* Foundation.framework */; };
+		C4576BEA1D11E7E10031BCFD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */; };
+		C4576BEB1D11E9280031BCFD /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
 		C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */ = {isa = PBXBuildFile; fileRef = C47F6C391D0DE68D00F36CF6 /* syncthing.icns */; };
 		C4A415651D0D579D00DC6018 /* STApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415641D0D579D00DC6018 /* STApplication.m */; };
 		C4A415681D0D579D00DC6018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415671D0D579D00DC6018 /* main.m */; };
 		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
 		C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4156B1D0D579D00DC6018 /* STApplication.xib */; };
-		C4D896131D0DF90900D42F73 /* syncthing-resource.sh in Resources */ = {isa = PBXBuildFile; fileRef = C4D896121D0DF90900D42F73 /* syncthing-resource.sh */; };
 		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C4576BD91D11E3BB0031BCFD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -27,6 +41,13 @@
 		C4460A7E1D0DD2D500200C21 /* STStatusBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStatusBarController.h; path = Controllers/STStatusBarController.h; sourceTree = "<group>"; };
 		C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStatusBarController.m; path = Controllers/STStatusBarController.m; sourceTree = "<group>"; };
 		C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesWindow.xib; path = UI/STPreferencesWindow.xib; sourceTree = "<group>"; };
+		C4576BD51D11E3210031BCFD /* create-dmg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "create-dmg.sh"; path = "syncthing/Scripts/create-dmg.sh"; sourceTree = "<group>"; };
+		C4576BDB1D11E3BB0031BCFD /* xgsyncthing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xgsyncthing; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4576BDD1D11E3BB0031BCFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C4576BE31D11E43C0031BCFD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = syncthing/Tests/main.m; sourceTree = "<group>"; };
+		C4576BE51D11E79F0031BCFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C4576BE71D11E7C00031BCFD /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = usr/lib/libobjc.tbd; sourceTree = SDKROOT; };
+		C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C47F6C391D0DE68D00F36CF6 /* syncthing.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = syncthing.icns; sourceTree = "<group>"; };
 		C4A415601D0D579D00DC6018 /* Syncthing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncthing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A415631D0D579D00DC6018 /* STApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STApplication.h; sourceTree = "<group>"; };
@@ -42,6 +63,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C4576BD81D11E3BB0031BCFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4576BEA1D11E7E10031BCFD /* CoreFoundation.framework in Frameworks */,
+				C4576BE61D11E79F0031BCFD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4A4155D1D0D579D00DC6018 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -61,13 +91,33 @@
 			name = Docs;
 			sourceTree = "<group>";
 		};
+		C4576BDC1D11E3BB0031BCFD /* xgsyncthing */ = {
+			isa = PBXGroup;
+			children = (
+				C4576BDD1D11E3BB0031BCFD /* main.m */,
+			);
+			path = xgsyncthing;
+			sourceTree = "<group>";
+		};
+		C4576BE21D11E40E0031BCFD /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C4576BE31D11E43C0031BCFD /* main.m */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		C4A415571D0D579D00DC6018 = {
 			isa = PBXGroup;
 			children = (
+				C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */,
+				C4576BE71D11E7C00031BCFD /* libobjc.tbd */,
+				C4576BE51D11E79F0031BCFD /* Foundation.framework */,
 				C4D896141D0DF90E00D42F73 /* Scripts */,
 				C4460A881D0DE58B00200C21 /* Docs */,
 				C4FFB0621D0D7E360015D14A /* Library */,
 				C4A415621D0D579D00DC6018 /* Sources */,
+				C4576BDC1D11E3BB0031BCFD /* xgsyncthing */,
 				C4A415611D0D579D00DC6018 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C4A415601D0D579D00DC6018 /* Syncthing.app */,
+				C4576BDB1D11E3BB0031BCFD /* xgsyncthing */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +178,7 @@
 		C4D896141D0DF90E00D42F73 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				C4576BD51D11E3210031BCFD /* create-dmg.sh */,
 				C4D896121D0DF90900D42F73 /* syncthing-resource.sh */,
 			);
 			name = Scripts;
@@ -135,6 +187,7 @@
 		C4FFB0621D0D7E360015D14A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				C4576BE21D11E40E0031BCFD /* Test */,
 				C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */,
 				C4FFB0631D0D7E440015D14A /* XGSyncthing.h */,
 			);
@@ -144,6 +197,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C4576BDA1D11E3BB0031BCFD /* xgsyncthing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4576BDF1D11E3BB0031BCFD /* Build configuration list for PBXNativeTarget "xgsyncthing" */;
+			buildPhases = (
+				C4576BD71D11E3BB0031BCFD /* Sources */,
+				C4576BD81D11E3BB0031BCFD /* Frameworks */,
+				C4576BD91D11E3BB0031BCFD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xgsyncthing;
+			productName = xgsyncthing;
+			productReference = C4576BDB1D11E3BB0031BCFD /* xgsyncthing */;
+			productType = "com.apple.product-type.tool";
+		};
 		C4A4155F1D0D579D00DC6018 /* syncthing */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4A415711D0D579D00DC6018 /* Build configuration list for PBXNativeTarget "syncthing" */;
@@ -171,6 +241,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Jerry Jacobs";
 				TargetAttributes = {
+					C4576BDA1D11E3BB0031BCFD = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					C4A4155F1D0D579D00DC6018 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -190,6 +263,7 @@
 			projectRoot = "";
 			targets = (
 				C4A4155F1D0D579D00DC6018 /* syncthing */,
+				C4576BDA1D11E3BB0031BCFD /* xgsyncthing */,
 			);
 		};
 /* End PBXProject section */
@@ -201,10 +275,8 @@
 			files = (
 				C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */,
 				C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */,
-				C4D896131D0DF90900D42F73 /* syncthing-resource.sh in Resources */,
 				C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */,
 				C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */,
-				C44262771D0DEF9F005340C2 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,12 +294,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh";
+			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n#${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C4576BD71D11E3BB0031BCFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4576BEB1D11E9280031BCFD /* XGSyncthing.m in Sources */,
+				C4576BE41D11E43C0031BCFD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4A4155C1D0D579D00DC6018 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -254,10 +335,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C4576BE01D11E3BB0031BCFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				OTHER_CFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C4576BE11D11E3BB0031BCFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C4A4156F1D0D579D00DC6018 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -274,6 +375,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -291,6 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/syncthing/Test";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -301,7 +404,7 @@
 		C4A415701D0D579D00DC6018 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -318,6 +421,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -330,6 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/syncthing/Test";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -346,6 +451,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
 				PRODUCT_NAME = Syncthing;
 				SEPARATE_STRIP = NO;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -359,12 +465,21 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
 				PRODUCT_NAME = Syncthing;
 				SEPARATE_STRIP = YES;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C4576BDF1D11E3BB0031BCFD /* Build configuration list for PBXNativeTarget "xgsyncthing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4576BE01D11E3BB0031BCFD /* Debug */,
+				C4576BE11D11E3BB0031BCFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C4A4155B1D0D579D00DC6018 /* Build configuration list for PBXProject "syncthing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -25,6 +25,16 @@
                         <action selector="clickedOpen:" target="Voe-Tx-rLC" id="7Cv-q4-hhD"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Folders" id="Gbh-kn-bEe">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Folders" id="0Tt-4w-4MD">
+                        <items>
+                            <menuItem title="None" id="8nY-KP-Cjq">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="t35-2r-DDO"/>
                 <menuItem title="Preferences" keyEquivalent="," id="lgT-yX-bGZ">
                     <connections>

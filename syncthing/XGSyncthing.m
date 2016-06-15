@@ -40,22 +40,15 @@
     
 	[theRequest setHTTPMethod:@"GET"];
 	[theRequest setValue:_apiKey forHTTPHeaderField:@"X-API-Key"];
-
-    NSLog(@"Request %@", _URI);
-    NSLog(@"ApiKey  %@", _apiKey);
     
 	serverData = [NSURLConnection sendSynchronousRequest:theRequest
                                        returningResponse:&serverResponse error:&myError];
 
-    if (myError) {
-        NSLog(@"HTTP Request error");
+    if (myError)
         return false;
-    }
     
 	id json = [NSJSONSerialization JSONObjectWithData:serverData options:
 		NSJSONReadingMutableContainers error:&myError];
-
-	NSLog(@"JSON: %@", json);
 
 	if ([[json objectForKey:@"ping"] isEqualToString:@"pong"])
 		return true;
@@ -74,23 +67,41 @@
     [theRequest setHTTPMethod:@"GET"];
     [theRequest setValue:_apiKey forHTTPHeaderField:@"X-API-Key"];
     
-    NSLog(@"Request %@", _URI);
-    NSLog(@"ApiKey  %@", _apiKey);
-    
     serverData = [NSURLConnection sendSynchronousRequest:theRequest
                                        returningResponse:&serverResponse error:&myError];
     
-    if (myError) {
-        NSLog(@"HTTP Request error");
+    if (myError)
         return false;
-    }
     
     id json = [NSJSONSerialization JSONObjectWithData:serverData options:
                NSJSONReadingMutableContainers error:&myError];
     
-    NSLog(@"JSON: %@", json);
-    
     return [json objectForKey:@"uptime"];
 }
+
+- (id)getFolders
+{
+    NSData *serverData = nil;
+    NSError *myError = nil;
+    NSURLResponse *serverResponse = nil;
+    NSMutableURLRequest *theRequest=[NSMutableURLRequest
+                                     requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", _URI, @"/rest/system/config"]]
+                                     cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
+    
+    [theRequest setHTTPMethod:@"GET"];
+    [theRequest setValue:_apiKey forHTTPHeaderField:@"X-API-Key"];
+    
+    serverData = [NSURLConnection sendSynchronousRequest:theRequest
+                                       returningResponse:&serverResponse error:&myError];
+    
+    if (myError)
+        return nil;
+    
+    id json = [NSJSONSerialization JSONObjectWithData:serverData options:
+               NSJSONReadingMutableContainers error:&myError];
+    
+    return [json objectForKey:@"folders"];
+}
+
 
 @end

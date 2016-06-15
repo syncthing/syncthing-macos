@@ -22,4 +22,6 @@
 - (bool)ping;
 - (id)getUptime;
 
+- (id)getFolders;
+
 @end
