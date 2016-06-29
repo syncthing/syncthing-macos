@@ -18,20 +18,6 @@
     [self applicationLoadConfiguration];
     [self.syncthing runExecutable];
     
-    NSMenu *foldersItems = [[NSMenu alloc] init];
-    NSMenuItem *folders = [self.Menu itemAtIndex:[self.Menu indexOfItemWithTitle:@"Folders"]];
-    
-    for (id dir in [self.syncthing getFolders]) {
-        NSLog(@"id: %@", [dir objectForKey:@"id"]);
-        NSMenuItem *item = [[NSMenuItem alloc] init];
-        [item setTitle:[dir objectForKey:@"id"]];
-        [item setRepresentedObject:[dir objectForKey:@"path"]];
-        [item setAction:@selector(clickedFolder:)];
-        [foldersItems addItem:item];
-    }
-    
-    folders.submenu = foldersItems;
-    
     self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateStatusFromTimer) userInfo:nil repeats:YES];
 }
 
@@ -113,6 +99,22 @@
 {
     NSURL *URL = [NSURL URLWithString:[self.syncthing URI]];
     [[NSWorkspace sharedWorkspace] openURL:URL];
+}
+
+-(void)menuWillOpen:(NSMenu *)menu{
+	if([[menu title] isEqualToString:@"Folders"]){
+		[menu removeAllItems];
+		
+		for (id dir in [self.syncthing getFolders]) {
+			NSLog(@"id: %@", [dir objectForKey:@"id"]);
+			NSMenuItem *item = [[NSMenuItem alloc] init];
+			[item setTitle:[dir objectForKey:@"id"]];
+			[item setRepresentedObject:[dir objectForKey:@"path"]];
+			[item setAction:@selector(clickedFolder:)];
+			[item setToolTip:[dir objectForKey:@"path"]];
+			[menu addItem:item];
+		}
+	}
 }
 
 - (IBAction)clickedQuit:(id)sender

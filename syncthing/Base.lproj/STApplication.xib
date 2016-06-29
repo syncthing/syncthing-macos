@@ -33,6 +33,9 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                         </items>
+                        <connections>
+                            <outlet property="delegate" destination="Voe-Tx-rLC" id="YxH-QH-bOa"/>
+                        </connections>
                     </menu>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="t35-2r-DDO"/>
