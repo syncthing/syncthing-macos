@@ -11,7 +11,7 @@ DMG_TEMPLATE_DIR="${SOURCE_ROOT}/syncthing/Templates/DMG"
 
 if [ -f "${SYNCTHING_DMG}" ]; then
 	echo "-- Syncthing dmg already created"
-	echi "   > ${SYNCTHING_DMG}"
+	echo "   > ${SYNCTHING_DMG}"
 else
 	echo "-- Creating syncthing dmg"
 	echo "   > ${SYNCTHING_DMG}"

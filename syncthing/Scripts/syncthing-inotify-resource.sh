@@ -34,6 +34,5 @@ else
     echo "-- Unpacking syncthing"
     echo "   > ${TAR_DIR}"
     mkdir -p "${TAR_DIR}"
-	echo "${SYNCTHING_INOTIFY_TARBALL}"
-    tar -xf "${SYNCTHING_INOTIFY_TARBALL}" -C "${TAR_DIR}" --strip-components=1
+    tar -xf "${SYNCTHING_INOTIFY_TARBALL}" -C "${TAR_DIR}"
 fi
