@@ -294,7 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n#${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh";
+			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/syncthing-inotify-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -479,6 +479,7 @@
 				C4576BE11D11E3BB0031BCFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4A4155B1D0D579D00DC6018 /* Build configuration list for PBXProject "syncthing" */ = {
 			isa = XCConfigurationList;
