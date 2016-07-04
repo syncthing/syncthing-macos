@@ -8,6 +8,7 @@ Native systray application for Mac OS X 10.10 and higher.
 * Shows syncthing icon status (connected/not-connected)
 * Tray menu
   * Open syncthing web-gui
+  * Local folders, viewable from finder
   * Preferences pane
     * URI
     * API-key
