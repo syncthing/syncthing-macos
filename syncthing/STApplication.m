@@ -77,7 +77,8 @@
 
 - (void) updateStatusIcon:(NSString *) icon
 {
-    self.statusItem.button.image = [NSImage imageNamed:icon];
+	self.statusItem.button.image = [NSImage imageNamed:icon];
+	[self.statusItem.button.image setTemplate:YES];
 }
 
 - (void)updateStatusFromTimer
