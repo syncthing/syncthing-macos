@@ -5,7 +5,10 @@
 
 Native systray application for Mac OS X 10.10 and higher.
 
-* Shows syncthing icon status (connected/not-connected)
+<img width="401" alt="screen shot 2016-07-15 at 12 33 10" src="https://cloud.githubusercontent.com/assets/1050166/16871829/65a8ceb2-4a89-11e6-8a42-e11be129be5d.png">
+<img width="196" alt="screen shot 2016-07-15 at 12 34 07" src="https://cloud.githubusercontent.com/assets/1050166/16871828/65a53b12-4a89-11e6-9318-c8697ee5f72f.png">
+
+* Shows syncthing icon status (connected/not-connected) in monochrome (from PDF iconset)
 * Tray menu
   * Open syncthing web-gui
   * Local folders, viewable from finder
