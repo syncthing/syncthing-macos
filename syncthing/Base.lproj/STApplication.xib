@@ -19,7 +19,7 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="FYW-KQ-yxY">
             <items>
-                <menuItem title="Open" id="euz-4I-RQa">
+                <menuItem title="Open" toolTip="Open Syncthing Web GUI" id="euz-4I-RQa">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="clickedOpen:" target="Voe-Tx-rLC" id="7Cv-q4-hhD"/>
@@ -39,13 +39,15 @@
                     </menu>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="t35-2r-DDO"/>
-                <menuItem title="Preferences" keyEquivalent="," id="lgT-yX-bGZ">
+                <menuItem title="Preferences..." id="lgT-yX-bGZ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="clickedPreferences:" target="Voe-Tx-rLC" id="nAN-bU-JlB"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="ghy-2s-RVl"/>
-                <menuItem title="Quit" keyEquivalent="q" id="1wN-cb-7w4">
+                <menuItem title="Quit Syncthing" id="1wN-cb-7w4">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="clickedQuit:" target="Voe-Tx-rLC" id="Y11-Nd-yq9"/>
                     </connections>
