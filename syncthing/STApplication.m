@@ -137,6 +137,7 @@
 {
     self.preferencesWindow = [[STPreferencesWindowController alloc] init];
     [self.preferencesWindow.window setLevel:NSFloatingWindowLevel];
+    [NSApp activateIgnoringOtherApps:YES];
     [self.preferencesWindow showWindow:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(preferencesWillClose:)
