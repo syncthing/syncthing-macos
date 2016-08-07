@@ -1,4 +1,4 @@
 all:
-	xcodebuild
+	xcodebuild -configuration Debug
 clean:
 	rm -Rf build

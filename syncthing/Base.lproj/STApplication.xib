@@ -147,5 +147,6 @@
                 </menuItem>
             </items>
         </menu>
+        <customObject id="LNQ-zz-nO6" customClass="SUUpdater"/>
     </objects>
 </document>
