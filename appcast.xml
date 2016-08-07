@@ -5,17 +5,9 @@
 		<link>https://xor-gate.github.io/syncthing-macosx/appcast.xml</link>
 		<description>Most recent changes with links to updates.</description>
 		<language>en</language>
-		<item><title>Version 0.14.3-2</title>
-			<description>
-				<![CDATA[
-					<h3>Changes</h3>
-					<p>For a complete list of changes see <a href="https://github.com/xor-gate/syncthing-macosx/compare/0.14.3-1...0.14.3-2" class="commit-link"><tt>0.14.3-1...0.14.3-2</tt></a></p>
-					<h4>General</h4>
-					<ul>
-					<li>initial integration of automatic update framework (Sparkle)</li>
-					</ul>
-				]]>
-			</description>
+		<item>
+			<title>Version 0.14.3-2</title>
+			<sparkle:releaseNotesLink>https://xor-gate.github.io/syncthing-macosx/releases/0.14.3-2.html</sparkle:releaseNotesLink>
 			<pubDate>Sun, 7 Aug 2016 22:25:00 GMT+2</pubDate>
 			<enclosure url="https://github.com/xor-gate/syncthing-macosx/releases/download/0.14.3-2/Syncthing-0.14.3-2.dmg" sparkle:shortVersionString="0.14.3-2" sparkle:version="0.14.3-2" type="application/octet-stream" />
 		</item>
