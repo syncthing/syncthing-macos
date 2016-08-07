@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 		<title>Synthing for Mac OS X Changelog</title>
-		<link>https://syncthing-macosx.github.io/appcast.xml</link>
+		<link>https://xor-gate.github.io/syncthing-macosx/appcast.xml</link>
 		<description>Most recent changes with links to updates.</description>
 		<language>en</language>
 		<item><title>Version 0.14.3-2</title>
@@ -16,7 +16,7 @@
 					</ul>
 				]]>
 			</description>
-			<pubDate>Sun, 7 Aug 2016 22:15:00 GMT+2</pubDate>
+			<pubDate>Sun, 7 Aug 2016 22:25:00 GMT+2</pubDate>
 			<enclosure url="https://github.com/xor-gate/syncthing-macosx/releases/download/0.14.3-2/Syncthing-0.14.3-2.dmg" sparkle:shortVersionString="0.14.3-2" sparkle:version="0.14.3-2" type="application/octet-stream" />
 		</item>
 	</channel>
