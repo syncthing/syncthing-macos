@@ -55,5 +55,97 @@
             </items>
             <point key="canvasLocation" x="140.5" y="343.5"/>
         </menu>
+        <menu title="Main Menu" systemMenu="main" id="LRK-4Q-J2a">
+            <items>
+                <menuItem title="Syncthing" id="ViC-de-Xi1">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Syncthing" systemMenu="apple" id="O1r-v6-dVJ">
+                        <items>
+                            <menuItem title="About Syncthing" hidden="YES" id="T6A-UC-JFu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-1" id="8yJ-MI-PaF"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="5VK-j4-NH2"/>
+                            <menuItem title="Preferences…" hidden="YES" keyEquivalent="," id="2w6-8D-HkC"/>
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="UFs-1p-StG"/>
+                            <menuItem title="Services" id="AFf-af-IFf">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Services" systemMenu="services" id="gfk-4l-R3B"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="pPq-Yg-B8I"/>
+                            <menuItem title="Hide Syncthing" keyEquivalent="h" id="YKH-Qv-TtB">
+                                <connections>
+                                    <action selector="hide:" target="-1" id="4gU-V4-teG"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="zoV-do-igb">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-1" id="ZMK-AE-56K"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="C77-xM-kbM">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-1" id="ULb-1Q-IoB"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="2xw-tW-XXd"/>
+                            <menuItem title="Quit Syncthing" keyEquivalent="q" id="42h-qg-75M">
+                                <connections>
+                                    <action selector="terminate:" target="-1" id="11j-7w-23u"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Edit" id="HiV-0K-6gI">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Edit" id="BIk-A1-DsB">
+                        <items>
+                            <menuItem title="Undo" keyEquivalent="z" id="aRj-ou-O6a">
+                                <connections>
+                                    <action selector="undo:" target="-1" id="mtc-LM-5it"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Redo" keyEquivalent="Z" id="aOH-1O-Idh">
+                                <connections>
+                                    <action selector="redo:" target="-1" id="L2P-e6-veZ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="iuL-Tv-oDj"/>
+                            <menuItem title="Cut" keyEquivalent="x" id="Kac-nG-ccL">
+                                <connections>
+                                    <action selector="cut:" target="-1" id="Ny7-dh-aL0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copy" keyEquivalent="c" id="ygR-tH-H8e">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="gOt-0I-jNl"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste" keyEquivalent="v" id="HRl-Yj-JKY">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="xhb-AG-qJb"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Delete" id="09B-Fd-kIg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="delete:" target="-1" id="ewu-el-0as"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Select All" keyEquivalent="a" id="uO2-Lw-6R3">
+                                <connections>
+                                    <action selector="selectAll:" target="-1" id="kGo-fb-4BN"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
 </document>
