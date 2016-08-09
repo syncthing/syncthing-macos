@@ -17,6 +17,8 @@
 		C4576BEA1D11E7E10031BCFD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */; };
 		C4576BEB1D11E9280031BCFD /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
 		C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */ = {isa = PBXBuildFile; fileRef = C47F6C391D0DE68D00F36CF6 /* syncthing.icns */; };
+		C4946B011D5877F2008447A2 /* STAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4946B001D5877F2008447A2 /* STAboutWindow.xib */; };
+		C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4946B021D587878008447A2 /* STAboutWindowController.m */; };
 		C4A415651D0D579D00DC6018 /* STApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415641D0D579D00DC6018 /* STApplication.m */; };
 		C4A415681D0D579D00DC6018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415671D0D579D00DC6018 /* main.m */; };
 		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
@@ -64,6 +66,9 @@
 		C4576BE71D11E7C00031BCFD /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = usr/lib/libobjc.tbd; sourceTree = SDKROOT; };
 		C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C47F6C391D0DE68D00F36CF6 /* syncthing.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = syncthing.icns; sourceTree = "<group>"; };
+		C4946B001D5877F2008447A2 /* STAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STAboutWindow.xib; path = UI/STAboutWindow.xib; sourceTree = "<group>"; };
+		C4946B021D587878008447A2 /* STAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAboutWindowController.m; path = Controllers/STAboutWindowController.m; sourceTree = "<group>"; };
+		C4946B041D587907008447A2 /* STAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAboutWindowController.h; path = Controllers/STAboutWindowController.h; sourceTree = "<group>"; };
 		C4A415601D0D579D00DC6018 /* Syncthing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncthing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A415631D0D579D00DC6018 /* STApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STApplication.h; sourceTree = "<group>"; };
 		C4A415641D0D579D00DC6018 /* STApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STApplication.m; sourceTree = "<group>"; };
@@ -191,6 +196,8 @@
 				C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */,
 				C4460A7E1D0DD2D500200C21 /* STStatusBarController.h */,
 				C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */,
+				C4946B021D587878008447A2 /* STAboutWindowController.m */,
+				C4946B041D587907008447A2 /* STAboutWindowController.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 			children = (
 				C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */,
 				C4A4156B1D0D579D00DC6018 /* STApplication.xib */,
+				C4946B001D5877F2008447A2 /* STAboutWindow.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -250,8 +258,8 @@
 				C4A4155C1D0D579D00DC6018 /* Sources */,
 				C4A4155D1D0D579D00DC6018 /* Frameworks */,
 				C4A4155E1D0D579D00DC6018 /* Resources */,
-				C4460A841D0DD58700200C21 /* ShellScript */,
 				C462613D1D57944400B16BC6 /* Copy Files */,
+				C4946AFF1D5876AF008447A2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -308,15 +316,16 @@
 				C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */,
 				C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */,
 				C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */,
+				C4946B011D5877F2008447A2 /* STAboutWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C4460A841D0DD58700200C21 /* ShellScript */ = {
+		C4946AFF1D5876AF008447A2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
@@ -325,7 +334,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/syncthing-inotify-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh";
+			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/syncthing-inotify-resource.sh";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -347,6 +356,7 @@
 				C4D567A21D3A8DFE002AD881 /* STLoginItem.m in Sources */,
 				C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */,
 				C4A415681D0D579D00DC6018 /* main.m in Sources */,
+				C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */,
 				C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */,
 				C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */,
 				C4A415651D0D579D00DC6018 /* STApplication.m in Sources */,

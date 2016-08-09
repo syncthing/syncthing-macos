@@ -48,7 +48,7 @@
 	}
 }
 
-- (IBAction)clickedOk:(id)sender {
+- (IBAction)clickedDone:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:[self.Syncthing_URI stringValue] forKey:@"URI"];

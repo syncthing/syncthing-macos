@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.14.3-2</string>
+	<string>0.14.3-3</string>
 	<key>CFBundleVersion</key>
 	<string>0</string>
 	<key>LSApplicationCategoryType</key>
@@ -39,6 +39,10 @@
 	<string>STApplication</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>STBundleName</key>
+	<string>syncthing-macosx</string>
+	<key>STProjectHomepageURL</key>
+	<string>https://github.com/xor-gate/syncthing-macosx</string>
 	<key>SUFeedURL</key>
 	<string>https://xor-gate.github.io/syncthing-macosx/appcast.xml</string>
 </dict>

@@ -45,6 +45,13 @@
                         <action selector="clickedPreferences:" target="Voe-Tx-rLC" id="nAN-bU-JlB"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="8xd-5E-q58"/>
+                <menuItem title="About" id="dst-j8-d2d">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="clickedAbout:" target="Voe-Tx-rLC" id="p8O-aU-oe3"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="ghy-2s-RVl"/>
                 <menuItem title="Quit Syncthing" id="1wN-cb-7w4">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -53,7 +60,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="140.5" y="343.5"/>
+            <point key="canvasLocation" x="193" y="308.5"/>
         </menu>
         <menu title="Main Menu" systemMenu="main" id="LRK-4Q-J2a">
             <items>

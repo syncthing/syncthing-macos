@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import "XGSyncthing.h"
+#import "Controllers/STAboutWindowController.h"
 #import "Controllers/STPreferencesWindowController.h"
 
 @interface STAppDelegate : NSObject <NSApplicationDelegate>

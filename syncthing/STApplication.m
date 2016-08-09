@@ -7,17 +7,16 @@
 @property (nonatomic, strong, readwrite) NSTimer *updateTimer;
 @property (nonatomic, strong, readwrite) XGSyncthing *syncthing;
 @property (strong) STPreferencesWindowController *preferencesWindow;
+@property (strong) STAboutWindowController *aboutWindow;
 
 @end
 
 @implementation STAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-/** @TODO testing...
 SUUpdater *updater = [SUUpdater updaterForBundle:[NSBundle mainBundle]];
 [updater checkForUpdates:nil];
 [updater installUpdatesIfAvailable];
-*/
 
     self.syncthing = [[XGSyncthing alloc] init];
     
@@ -149,6 +148,18 @@ SUUpdater *updater = [SUUpdater updaterForBundle:[NSBundle mainBundle]];
                                              selector:@selector(preferencesWillClose:)
                                                  name:NSWindowWillCloseNotification
                                                object:[self.preferencesWindow window]];
+}
+
+- (IBAction)clickedAbout:(NSMenuItem *)sender
+{
+	self.aboutWindow = [[STAboutWindowController alloc] init];
+	[self.aboutWindow.window setLevel:NSFloatingWindowLevel];
+	[NSApp activateIgnoringOtherApps:YES];
+	[self.aboutWindow showWindow:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(preferencesWillClose:)
+												 name:NSWindowWillCloseNotification
+											   object:[self.aboutWindow window]];
 }
 
 - (void)preferencesWillClose:(NSNotification *)notification {
