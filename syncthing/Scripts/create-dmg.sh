@@ -1,7 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-SYNCTHING_DMG="${BUILT_PRODUCTS_DIR}/Syncthing.dmg"
+SYNCTHING_DMG_VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${PROJECT_DIR}/${INFOPLIST_FILE}")
+SYNCTHING_DMG="${BUILT_PRODUCTS_DIR}/Syncthing-${SYNCTHING_DMG_VERSION}.dmg"
 SYNCTHING_APP="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app"
 SYNCTHING_APP_RESOURCES="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources"
 
