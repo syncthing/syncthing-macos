@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Sparkle/Sparkle.h>
 #import "STAboutWindowController.h"
 
 @interface STAboutWindowController ()
@@ -70,8 +71,10 @@
 	
 }
 
-- (IBAction)clickedOk:(id)sender {
-	[self close];
+- (IBAction)clickedCheckForUpdates:(id)sender {
+	SUUpdater *updater = [SUUpdater updaterForBundle:[NSBundle mainBundle]];
+	[updater checkForUpdates:nil];
+	[updater installUpdatesIfAvailable];
 }
 
 @end

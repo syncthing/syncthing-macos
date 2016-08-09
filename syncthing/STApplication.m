@@ -1,5 +1,4 @@
 #import "STApplication.h"
-#import <Sparkle/Sparkle.h>
 
 @interface STAppDelegate ()
 
@@ -14,10 +13,6 @@
 @implementation STAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-SUUpdater *updater = [SUUpdater updaterForBundle:[NSBundle mainBundle]];
-[updater checkForUpdates:nil];
-[updater installUpdatesIfAvailable];
-
     self.syncthing = [[XGSyncthing alloc] init];
     
     [self applicationLoadConfiguration];

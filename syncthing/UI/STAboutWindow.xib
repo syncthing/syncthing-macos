@@ -6,7 +6,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="STAboutWindowController">
             <connections>
-                <outlet property="OkButton" destination="l2o-7L-fz7" id="Sng-Th-8VS"/>
                 <outlet property="appHomepageURL" destination="fSp-vI-EXn" id="ux8-Qp-wNg"/>
                 <outlet property="appImageView" destination="zUs-0D-dcI" id="BmX-T6-TA0"/>
                 <outlet property="appNameLabel" destination="bR5-1y-bb8" id="tZ3-gB-jRB"/>
@@ -18,10 +17,10 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="About Syncthing" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <rect key="contentRect" x="196" y="240" width="244" height="144"/>
+            <rect key="contentRect" x="196" y="240" width="252" height="144"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="244" height="144"/>
+                <rect key="frame" x="0.0" y="0.0" width="252" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bR5-1y-bb8">
@@ -52,19 +51,19 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l2o-7L-fz7">
-                        <rect key="frame" x="173" y="13" width="57" height="32"/>
-                        <buttonCell key="cell" type="push" title="Ok" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FU3-VM-Olb">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lg6-qP-cD7">
+                        <rect key="frame" x="86" y="13" width="152" height="32"/>
+                        <buttonCell key="cell" type="push" title="Check for updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Eed-GH-Oia">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="clickedOk:" target="-2" id="PPf-Jl-2La"/>
+                            <action selector="clickedCheckForUpdates:" target="-2" id="kO6-5z-UDx"/>
                         </connections>
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="16" y="175"/>
+            <point key="canvasLocation" x="20" y="175"/>
         </window>
     </objects>
 </document>
