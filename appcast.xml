@@ -9,7 +9,12 @@
 			<title>Version 0.14.3-4</title>
 			<sparkle:releaseNotesLink>https://xor-gate.github.io/syncthing-macosx/releases/0.14.3-4.html</sparkle:releaseNotesLink>
 			<pubDate>Tue, 9 Aug 2016 13:30:00 GMT+2</pubDate>
-			<enclosure url="https://github.com/xor-gate/syncthing-macosx/releases/download/0.14.3-4/Syncthing-0.14.3-4.dmg" sparkle:shortVersionString="0.14.3-4" sparkle:version="0140304" type="application/octet-stream" />
+			<enclosure
+				   sparkle:shortVersionString="0.14.3-4"
+				   sparkle:version="0140304"
+				   type="application/octet-stream"
+				   url="https://github.com/xor-gate/syncthing-macosx/releases/download/v0.14.3-4/Syncthing-0.14.3-4.dmg"
+			/>
 		</item>
 	</channel>
 </rss>
