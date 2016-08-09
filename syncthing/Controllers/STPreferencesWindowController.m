@@ -8,6 +8,7 @@
 
 #import "STPreferencesWindowController.h"
 #import "STLoginItem.h"
+#import "XGSyncthing.h"
 
 @interface STPreferencesWindowController ()
 
@@ -58,6 +59,28 @@
 	[self updateStartAtLogin:defaults];
 	
     [self close];
+}
+
+- (IBAction)clickedTest:(id)sender {
+	XGSyncthing *st = [[XGSyncthing alloc] init];
+
+	[st setURI:[self.Syncthing_URI stringValue]];
+	[st setApiKey:[self.Syncthing_ApiKey stringValue]];
+
+	NSAlert *alert = [[NSAlert alloc] init];
+	[alert addButtonWithTitle:@"OK"];
+	
+	[alert setMessageText:@"Syncthing test ping"];
+	
+	if ([st ping]) {
+		[alert setAlertStyle:NSInformationalAlertStyle];
+		[alert setInformativeText:@"Ping successfull!"];
+	} else {
+		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert setInformativeText:@"Ping error, URI or API key incorrect?"];
+	}
+	
+	[alert runModal];
 }
 
 @end

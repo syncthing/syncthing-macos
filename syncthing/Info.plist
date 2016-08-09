@@ -45,5 +45,7 @@
 	<string>https://github.com/xor-gate/syncthing-macosx</string>
 	<key>SUFeedURL</key>
 	<string>https://xor-gate.github.io/syncthing-macosx/appcast.xml</string>
+	<key>SUScheduledCheckInterval</key>
+	<integer>3600</integer>
 </dict>
 </plist>
