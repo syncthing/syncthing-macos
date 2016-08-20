@@ -57,6 +57,12 @@ defaults write com.github.xor-gate.syncthing-macosx URI "http://localhost:8384"
 defaults write com.github.xor-gate.syncthing-macosx ApiKey 1234
 ```
 
+# Known issues
+
+## Application is reported as corrupted
+
+When gatekeeper (application security) is enabled the application is currently reported as corrupted. For now it should be disabled. See [Apple Knowledge Base #HT202491](https://support.apple.com/en-us/HT202491).
+
 # Contributions
 
 Contributions are welcome as I'm not an expert in Objective C and Cocoa programming. Feel free to open a issue if you spot a bug or have a feature request.
