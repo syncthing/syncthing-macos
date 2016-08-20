@@ -10,22 +10,15 @@ Native systray application for Mac OS X 10.10 and higher.
 <img width="401" alt="screen shot 2016-07-15 at 12 33 10" src="https://cloud.githubusercontent.com/assets/1050166/16871829/65a8ceb2-4a89-11e6-8a42-e11be129be5d.png">
 <img width="196" alt="screen shot 2016-07-15 at 12 34 07" src="https://cloud.githubusercontent.com/assets/1050166/16871828/65a53b12-4a89-11e6-9318-c8697ee5f72f.png">
 
-* Shows syncthing icon status (connected/not-connected) in monochrome (from PDF iconset)
-* Tray menu
-  * Open syncthing web-gui
-  * Local folders, viewable from finder
-  * Preferences pane
-    * URI
-    * API-key
-  * Quit application and syncthing instance
-* Shows systray tooltip
-  * Current (connection) state
-  * Current connection URI to syncthing
-  * Current uptime (in seconds) (needs human readable conversion).
+* Full integration with OSX
+* Retina ready icons (pdf)
+* Status tooltip
+* Ships syncthing binary
+* Automatic updates using [Sparkle](https://sparkle-project.org)
 
 # Why
 
-I wrote this in a weekend because all the cross-platform approaches didn't worked well natively. The application is functional and needs further testing. I run it daily.
+All cross-platform approaches are not able to use all the native facilities of Mac OS. Including auto-updates, vector icon set and packaging.
 
 # Build
 
@@ -64,14 +57,9 @@ defaults write com.github.xor-gate.syncthing-macosx URI "http://localhost:8384"
 defaults write com.github.xor-gate.syncthing-macosx ApiKey 1234
 ```
 
-# Reusable library
-
-I'm trying to create a native Objective-C library to access Syncthing REST API.
-See [`XGSyncthing.h`](syncthing/XGSyncthing.h).
-
 # Contributions
 
-I appreciate code and project contributions and possible bugs which you can be opened in the issue tracker.
+Contributions are welcome as I'm not an expert in Objective C and Cocoa programming. Feel free to open a issue if you spot a bug or have a feature request.
 
 # License
 
