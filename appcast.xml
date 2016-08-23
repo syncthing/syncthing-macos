@@ -6,6 +6,17 @@
 		<description>Most recent changes with links to updates.</description>
 		<language>en</language>
 		<item>
+			<title>Version 0.14.5</title>
+			<sparkle:releaseNotesLink>https://xor-gate.github.io/syncthing-macosx/releases/0.14.5.html</sparkle:releaseNotesLink>
+			<pubDate>Tue, 23 Aug 2016 19:31:00 GMT+2</pubDate>
+			<enclosure
+				   sparkle:shortVersionString="0.14.5"
+				   sparkle:version="0140500"
+				   type="application/octet-stream"
+				   url="https://github.com/xor-gate/syncthing-macosx/releases/download/v0.14.5/Syncthing-0.14.5.dmg"
+			/>
+		</item>
+		<item>
 			<title>Version 0.14.4</title>
 			<sparkle:releaseNotesLink>https://xor-gate.github.io/syncthing-macosx/releases/0.14.4.html</sparkle:releaseNotesLink>
 			<pubDate>Wed, 10 Aug 2016 21:37:00 GMT+2</pubDate>
