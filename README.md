@@ -61,7 +61,7 @@ defaults write com.github.xor-gate.syncthing-macosx ApiKey 1234
 
 ## Application is reported as corrupted
 
-When gatekeeper (application security) is enabled the application is currently reported as corrupted. For now it should be disabled. See [Apple Knowledge Base #HT202491](https://support.apple.com/en-us/HT202491).
+When gatekeeper (application security) is enabled the application is currently reported as corrupted. For now it should be disabled. See [Apple Knowledge Base #HT202491](https://support.apple.com/en-us/HT202491). Already reported in [issue #8](https://github.com/xor-gate/syncthing-macosx/issues/8)
 
 # Contributions
 
