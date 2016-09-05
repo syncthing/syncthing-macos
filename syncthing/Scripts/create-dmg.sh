@@ -17,7 +17,7 @@ else
 	echo "-- Creating syncthing dmg"
 	echo "   > ${SYNCTHING_DMG}"
 	mkdir -p ${STAGING_DIR}
-	cp -r ${SYNCTHING_APP} ${STAGING_DIR}
+	cp -a -p ${SYNCTHING_APP} ${STAGING_DIR}
 
 	${CREATE_DMG} \
 		--volname "Syncthing" \
