@@ -1,9 +1,8 @@
 all: debug
 debug:
-	xcodebuild -configuration Debug
+	xcodebuild -derivedDataPath $(PWD) -configuration Debug -scheme syncthing
 release:
-	xcodebuild -configuration Release
-	xcodebuild build -configuration Release -scheme syncthing
+	xcodebuild -derivedDataPath $(PWD) -configuration Release -scheme syncthing
+	xcodebuild build -derivedDataPath $(PWD) -configuration Release -scheme syncthing
 clean:
-	xcodebuild clean
-	rm -Rf build
+	rm -Rf Build
