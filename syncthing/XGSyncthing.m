@@ -16,6 +16,7 @@
 {
     self._StTask = [[NSTask alloc] init];
     [self._StTask setLaunchPath:_Executable];
+    [self._StTask setQualityOfService:NSQualityOfServiceBackground];
     [self._StTask launch];
     return true;
 }
