@@ -80,6 +80,29 @@
     return [json objectForKey:@"uptime"];
 }
 
+- (id) getMyID {
+    NSData *serverData = nil;
+    NSError *myError = nil;
+    NSURLResponse *serverResponse = nil;
+    NSMutableURLRequest *theRequest=[NSMutableURLRequest
+                                     requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", _URI, @"/rest/system/status"]]
+                                     cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
+    
+    [theRequest setHTTPMethod:@"GET"];
+    [theRequest setValue:_apiKey forHTTPHeaderField:@"X-API-Key"];
+    
+    serverData = [NSURLConnection sendSynchronousRequest:theRequest
+                                       returningResponse:&serverResponse error:&myError];
+    
+    if (myError)
+        return false;
+    
+    id json = [NSJSONSerialization JSONObjectWithData:serverData options:
+               NSJSONReadingMutableContainers error:&myError];
+    
+    return [json objectForKey:@"myID"];
+}
+
 - (id)getFolders
 {
     NSData *serverData = nil;

@@ -16,8 +16,9 @@
 
 @implementation STPreferencesGeneralViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
+
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
     [_Syncthing_URI    setStringValue:[defaults objectForKey:@"URI"]];
@@ -25,6 +26,7 @@
     [_StartAtLogin     setStringValue:[defaults objectForKey:@"StartAtLogin"]];
     
     [self updateTestButton];
+    [_buttonSave setEnabled:NO];
 }
 
 - (id) init {
@@ -38,10 +40,13 @@
     [st setURI:[self.Syncthing_URI stringValue]];
     [st setApiKey:[self.Syncthing_ApiKey stringValue]];
     
-    if ([st ping])
+    if ([st ping]) {
+        [_buttonSave setEnabled:YES];
         [_buttonTest setImage:[NSImage imageNamed:NSImageNameStatusAvailable]];
-    else
+    } else {
+        [_buttonSave setEnabled:NO];
         [_buttonTest setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
+    }
 }
 
 - (void) updateStartAtLogin:(NSUserDefaults *)defaults {
@@ -55,7 +60,7 @@
     }
 }
 
-- (IBAction) clickedDone:(id)sender {
+- (IBAction) clickedSave:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:[_Syncthing_URI stringValue] forKey:@"URI"];
@@ -63,6 +68,7 @@
     [defaults setObject:[_StartAtLogin stringValue] forKey:@"StartAtLogin"];
     
     [self updateStartAtLogin:defaults];
+    [_buttonSave setEnabled:NO];
 }
 
 - (IBAction) clickedTest:(id)sender {

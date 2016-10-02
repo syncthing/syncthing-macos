@@ -14,16 +14,16 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Syncthing Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <rect key="contentRect" x="0.0" y="0.0" width="432" height="155"/>
+            <rect key="contentRect" x="0.0" y="0.0" width="420" height="200"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="432" height="155"/>
+                <rect key="frame" x="0.0" y="0.0" width="420" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="53B9A345-0CFD-45BD-82F7-670D595DF554" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="jKq-By-NJu">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="MXy-ID-pFQ"/>
-                    <toolbarItem implicitItemIdentifier="A7852587-2076-47F5-84BF-CFB0595487AF" label="General" paletteLabel="General" tag="-1" image="NSPreferencesGeneral" id="1ij-UG-c1I">
+                    <toolbarItem implicitItemIdentifier="A7852587-2076-47F5-84BF-CFB0595487AF" label="General" paletteLabel="General" image="NSPreferencesGeneral" id="1ij-UG-c1I">
                         <connections>
                             <action selector="toolbarButtonClicked:" target="-2" id="cWV-tS-JnL"/>
                         </connections>
@@ -33,12 +33,12 @@
                             <action selector="toolbarButtonClicked:" target="-2" id="b7K-cg-PrG"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="724E41E5-958D-40E7-AF30-71771B2155F7" label="Info" paletteLabel="Info" tag="-1" image="NSInfo" id="86s-00-8YI">
+                    <toolbarItem implicitItemIdentifier="724E41E5-958D-40E7-AF30-71771B2155F7" label="Info" paletteLabel="Info" tag="3" image="NSInfo" id="86s-00-8YI">
                         <connections>
                             <action selector="toolbarButtonClicked:" target="-2" id="Vse-Kj-679"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="ECEBC334-B37D-4529-A32F-DE546CF4A60E" label="Folders" paletteLabel="Folders" tag="-1" image="NSFolder" id="X60-Ql-i8O">
+                    <toolbarItem implicitItemIdentifier="ECEBC334-B37D-4529-A32F-DE546CF4A60E" label="Folders" paletteLabel="Folders" tag="1" image="NSFolder" id="X60-Ql-i8O">
                         <connections>
                             <action selector="toolbarButtonClicked:" target="-2" id="Xxk-aA-9kh"/>
                         </connections>
@@ -58,7 +58,7 @@
                     <toolbarItem reference="S5T-mV-7Wv"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="26" y="260.5"/>
+            <point key="canvasLocation" x="20" y="283"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="O7J-o6-nEr"/>
     </objects>
