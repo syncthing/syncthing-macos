@@ -7,8 +7,6 @@
 //
 
 #import "STPreferencesWindowController.h"
-#import "STLoginItem.h"
-#import "XGSyncthing.h"
 
 @interface STPreferencesWindowController ()
 
@@ -21,53 +19,65 @@
 }
 
 - (void)windowDidLoad {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        
-    [self.Syncthing_URI    setStringValue:[defaults objectForKey:@"URI"]];
-    [self.Syncthing_ApiKey setStringValue:[defaults objectForKey:@"ApiKey"]];
-	[self.StartAtLogin     setStringValue:[defaults objectForKey:@"StartAtLogin"]];
-    
-    [self updateTestButton];
 }
 
-- (void)updateTestButton {
-    XGSyncthing *st = [[XGSyncthing alloc] init];
-    
-    [st setURI:[self.Syncthing_URI stringValue]];
-    [st setApiKey:[self.Syncthing_ApiKey stringValue]];
-    
-    if ([st ping]) {
-        [self.Test setImage:[NSImage imageNamed:NSImageNameStatusAvailable]];
-    } else {
-        [self.Test setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
+- (IBAction)toolbarButtonClicked:(id)sender {
+    NSToolbarItem *item = sender;
+    [self loadViewWithIdentifier:item.itemIdentifier withAnimation:YES];
+}
+
+-(void)loadViewWithIdentifier:(NSString *)viewTabIdentifier
+                withAnimation:(BOOL)shouldAnimate{
+    /*
+    if ([_currentView isEqualToString:viewTabIdentifier]){
+        return;
     }
-}
-
-- (void)updateStartAtLogin:(NSUserDefaults *)defaults {
-	STLoginItem *li = [STLoginItem alloc];
-
-	if ([defaults integerForKey:@"StartAtLogin"]) {
-		if (![li wasAppAddedAsLoginItem])
-			[li addAppAsLoginItem];
-	} else {
- 		[li deleteAppFromLoginItem];
-	}
-}
-
-- (IBAction)clickedDone:(id)sender {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    else
+    {
+        _currentView = viewTabIdentifier;
+    }
+     */
+    //Loop through the view array and find out the class to load
     
-    [defaults setObject:[self.Syncthing_URI stringValue] forKey:@"URI"];
-    [defaults setObject:[self.Syncthing_ApiKey stringValue] forKey:@"ApiKey"];
-	[defaults setObject:[self.StartAtLogin stringValue] forKey:@"StartAtLogin"];
-	
-	[self updateStartAtLogin:defaults];
-	
-    [self close];
-}
-
-- (IBAction)clickedTest:(id)sender {
-    [self updateTestButton];
+    /*
+    NSDictionary *viewInfoDict = nil;
+    for (NSDictionary *dict in _toolbarTabsArray){
+        if ([dict[@"identifier"] isEqualToString:viewTabIdentifier]){
+            viewInfoDict = dict;
+            break;
+        }
+    }
+    */
+    
+    //NSString *class = @"STPreferencesWindowGeneralViewController";//viewInfoDict[@"class"];
+    //if(NSClassFromString(class))
+    //{
+    /*
+        _currentViewController = [[STPreferencesWindowGeneralViewController alloc] init];
+        
+        //Old View
+        //NSView * oldView = self.window.contentView;
+        
+        //self.window.contentView
+        
+        //New View
+        NSView *newView = _currentViewController.view;
+        
+        NSRect windowRect = self.window.frame;
+        NSRect currentViewRect = newView.frame;
+    
+    
+    
+        windowRect.origin.y = windowRect.origin.y + (windowRect.size.height - currentViewRect.size.height);
+        windowRect.size.height = currentViewRect.size.height;
+        windowRect.size.width = currentViewRect.size.width;
+    
+        [self.window setContentView:newView];
+        [self.window setFrame:windowRect display:YES animate:shouldAnimate];
+        */
+    //} else{
+    //    NSAssert(false, @"Couldn't load %@", class);
+    //}
 }
 
 @end

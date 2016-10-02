@@ -16,7 +16,7 @@
     self.syncthing = [[XGSyncthing alloc] init];
     
     [self applicationLoadConfiguration];
-    [self.syncthing runExecutable];
+    //[self.syncthing runExecutable];
     
     self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateStatusFromTimer) userInfo:nil repeats:YES];
 }
@@ -41,7 +41,7 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    NSString *cfgExecutable  = [defaults stringForKey:@"Executable"];
+    NSString *cfgExecutable = [defaults stringForKey:@"Executable"];
     if (cfgExecutable) {
         [self.syncthing setExecutable:cfgExecutable];
     } else {
@@ -50,7 +50,7 @@
                                        @"syncthing/syncthing"]];
     }
 
-    NSString *cfgURI         = [defaults stringForKey:@"URI"];
+    NSString *cfgURI = [defaults stringForKey:@"URI"];
     if (cfgURI) {
         [self.syncthing setURI:cfgURI];
     } else {
@@ -58,7 +58,7 @@
         [defaults setObject:[self.syncthing URI] forKey:@"URI"];
     }
 
-    NSString *cfgApiKey      = [defaults stringForKey:@"ApiKey"];
+    NSString *cfgApiKey = [defaults stringForKey:@"ApiKey"];
     if (cfgApiKey) {
         [self.syncthing setApiKey:cfgApiKey];
     } else {
@@ -85,14 +85,10 @@
 {
     if ([self.syncthing ping]) {
         [self updateStatusIcon:@"StatusIconDefault"];
-        [self.statusItem setToolTip:[
-                                     NSString stringWithFormat:@"Syncthing - Connected\n%@\nUptime %@",
-                                     [self.syncthing URI],
-                                     [self.syncthing getUptime]
-                                     ]];
+        [self.statusItem setToolTip:@"Connected"];
     } else {
         [self updateStatusIcon:@"StatusIconNotify"];
-        [self.statusItem setToolTip:@"Syncthing - Not connected"];
+        [self.statusItem setToolTip:@"Not connected"];
     }
 }
 
@@ -139,6 +135,9 @@
 
 - (IBAction)clickedPreferences:(NSMenuItem *)sender
 {
+    if (self.preferencesWindow)
+        return;
+    
     self.preferencesWindow = [[STPreferencesWindowController alloc] init];
     [self.preferencesWindow.window setLevel:NSFloatingWindowLevel];
     [NSApp activateIgnoringOtherApps:YES];
@@ -151,6 +150,9 @@
 
 - (IBAction)clickedAbout:(NSMenuItem *)sender
 {
+    if (self.aboutWindow)
+        return;
+    
 	self.aboutWindow = [[STAboutWindowController alloc] init];
 	[self.aboutWindow.window setLevel:NSFloatingWindowLevel];
 	[NSApp activateIgnoringOtherApps:YES];
