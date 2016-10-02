@@ -15,15 +15,18 @@
 
 @implementation STPreferencesWindowController
 
-- (id)init {
+- (id) init {
     return [super initWithWindowNibName:NSStringFromClass(self.class)];
 }
 
-- (void)awakeFromNib {
+- (void) awakeFromNib {
+    // NOTE: this should not be needed according to
+    //       http://stackoverflow.com/questions/5289386/how-to-give-focus-to-nswindow-loaded-from-nib
     [[self window] setLevel:NSFloatingWindowLevel];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
-- (IBAction)toolbarButtonClicked:(id)sender {
+- (IBAction) toolbarButtonClicked:(id)sender {
     /**
         TODO: load class based on send ID
         NSClassFromString(class)
@@ -34,7 +37,7 @@
     [self setContentView:tmpView];
 }
 
-- (void)setContentView:(NSView *)view {
+- (void) setContentView:(NSView *)view {
     NSRect windowRect = [self window].frame;
     
     windowRect.origin.y = windowRect.origin.y + (windowRect.size.height - view.frame.size.height);

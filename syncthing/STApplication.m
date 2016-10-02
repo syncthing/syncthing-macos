@@ -42,28 +42,28 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     NSString *cfgExecutable = [defaults stringForKey:@"Executable"];
-    if (cfgExecutable) {
-        [_syncthing setExecutable:cfgExecutable];
-    } else {
+    if (!cfgExecutable) {
         [_syncthing setExecutable:[NSString stringWithFormat:@"%@/%@",
-                                       [[NSBundle mainBundle] resourcePath],
-                                       @"syncthing/syncthing"]];
+                                   [[NSBundle mainBundle] resourcePath],
+                                   @"syncthing/syncthing"]];
+    } else {
+        [_syncthing setExecutable:cfgExecutable];
     }
 
     NSString *cfgURI = [defaults stringForKey:@"URI"];
-    if (cfgURI) {
-        [_syncthing setURI:cfgURI];
-    } else {
+    if (!cfgURI) {
         [_syncthing setURI:@"http://localhost:8384"];
         [defaults setObject:[_syncthing URI] forKey:@"URI"];
+    } else {
+        [_syncthing setURI:cfgURI];
     }
 
     NSString *cfgApiKey = [defaults stringForKey:@"ApiKey"];
-    if (cfgApiKey) {
-        [_syncthing setApiKey:cfgApiKey];
-    } else {
+    if (!cfgApiKey) {
         [_syncthing setApiKey:@""];
         [defaults setObject:[_syncthing ApiKey] forKey:@"ApiKey"];
+    } else {
+        [_syncthing setApiKey:cfgApiKey];
     }
 }
 
@@ -79,7 +79,7 @@
 	[_statusItem.button.image setTemplate:YES];
 }
 
-- (void)updateStatusFromTimer {
+- (void) updateStatusFromTimer {
     if ([_syncthing ping]) {
         [self updateStatusIcon:@"StatusIconDefault"];
         [_statusItem setToolTip:@"Connected"];
@@ -89,12 +89,12 @@
     }
 }
 
-- (IBAction)clickedOpen:(id)sender {
+- (IBAction) clickedOpen:(id)sender {
     NSURL *URL = [NSURL URLWithString:[_syncthing URI]];
     [[NSWorkspace sharedWorkspace] openURL:URL];
 }
 
-- (void)updateFoldersMenu:(NSMenu *)menu {
+- (void) updateFoldersMenu:(NSMenu *)menu {
     [menu removeAllItems];
     
     for (id dir in [self.syncthing getFolders]) {
@@ -113,12 +113,12 @@
     }
 }
 
--(void)menuWillOpen:(NSMenu *)menu {
-	if([[menu title] isEqualToString:@"Folders"])
+-(void) menuWillOpen:(NSMenu *)menu {
+	if ([[menu title] isEqualToString:@"Folders"])
         [self updateFoldersMenu:menu];
 }
 
-- (IBAction)clickedQuit:(id)sender{
+- (IBAction) clickedQuit:(id)sender {
     [_syncthing stopExecutable];
     
     [_updateTimer invalidate];
@@ -132,8 +132,7 @@
 }
 
 // TODO: need a more generic approach for opening windows
-- (IBAction)clickedPreferences:(NSMenuItem *)sender
-{
+- (IBAction)clickedPreferences:(NSMenuItem *)sender {
     _preferencesWindow = [[STPreferencesWindowController alloc] init];
     [_preferencesWindow showWindow:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -142,8 +141,7 @@
                                                object:[_preferencesWindow window]];
 }
 
-- (IBAction)clickedAbout:(NSMenuItem *)sender
-{
+- (IBAction)clickedAbout:(NSMenuItem *)sender {
 	_aboutWindow = [[STAboutWindowController alloc] init];
 	[_aboutWindow showWindow:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self

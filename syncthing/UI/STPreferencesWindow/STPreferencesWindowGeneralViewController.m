@@ -16,8 +16,7 @@
 
 @implementation STPreferencesWindowGeneralViewController
 
-- (id)init
-{
+- (id) init {
     self = [super initWithNibName:NSStringFromClass(self.class) bundle:nil];
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -31,7 +30,7 @@
     return self;
 }
 
-- (void)updateTestButton {
+- (void) updateTestButton {
     XGSyncthing *st = [[XGSyncthing alloc] init];
     
     [st setURI:[self.Syncthing_URI stringValue]];
@@ -43,7 +42,7 @@
         [_buttonTest setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
 }
 
-- (void)updateStartAtLogin:(NSUserDefaults *)defaults {
+- (void) updateStartAtLogin:(NSUserDefaults *)defaults {
     STLoginItem *li = [STLoginItem alloc];
     
     if ([defaults integerForKey:@"StartAtLogin"]) {
@@ -54,7 +53,7 @@
     }
 }
 
-- (IBAction)clickedDone:(id)sender {
+- (IBAction) clickedDone:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:[_Syncthing_URI stringValue] forKey:@"URI"];
@@ -64,7 +63,7 @@
     [self updateStartAtLogin:defaults];
 }
 
-- (IBAction)clickedTest:(id)sender {
+- (IBAction) clickedTest:(id)sender {
     [self updateTestButton];
 }
 

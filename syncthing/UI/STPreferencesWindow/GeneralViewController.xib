@@ -10,7 +10,7 @@
                 <outlet property="Syncthing_ApiKey" destination="cQX-Mb-YdG" id="tB5-cf-q5a"/>
                 <outlet property="Syncthing_URI" destination="ASJ-RF-VWg" id="GCz-xJ-qfw"/>
                 <outlet property="buttonTest" destination="nc7-jb-j3R" id="nwW-wC-hjj"/>
-                <outlet property="view" destination="c22-O7-iKe" id="xcW-4v-R3v"/>
+                <outlet property="view" destination="c22-O7-iKe" id="aeZ-Qs-fUZ"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>

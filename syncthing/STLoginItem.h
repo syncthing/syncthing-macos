@@ -13,11 +13,10 @@
 
 @interface STLoginItem : NSObject
 
--(void) addAppAsLoginItem;
-- (BOOL)wasAppAddedAsLoginItem;
--(void) deleteAppFromLoginItem;
+-( void) addAppAsLoginItem;
+- (BOOL) wasAppAddedAsLoginItem;
+- (void) deleteAppFromLoginItem;
 
 @end
-
 
 #endif /* LoginItem_h */
