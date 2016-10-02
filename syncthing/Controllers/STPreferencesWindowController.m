@@ -26,6 +26,21 @@
     [self.Syncthing_URI    setStringValue:[defaults objectForKey:@"URI"]];
     [self.Syncthing_ApiKey setStringValue:[defaults objectForKey:@"ApiKey"]];
 	[self.StartAtLogin     setStringValue:[defaults objectForKey:@"StartAtLogin"]];
+    
+    [self updateTestButton];
+}
+
+- (void)updateTestButton {
+    XGSyncthing *st = [[XGSyncthing alloc] init];
+    
+    [st setURI:[self.Syncthing_URI stringValue]];
+    [st setApiKey:[self.Syncthing_ApiKey stringValue]];
+    
+    if ([st ping]) {
+        [self.Test setImage:[NSImage imageNamed:NSImageNameStatusAvailable]];
+    } else {
+        [self.Test setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
+    }
 }
 
 - (void)updateStartAtLogin:(NSUserDefaults *)defaults {
@@ -52,25 +67,7 @@
 }
 
 - (IBAction)clickedTest:(id)sender {
-	XGSyncthing *st = [[XGSyncthing alloc] init];
-
-	[st setURI:[self.Syncthing_URI stringValue]];
-	[st setApiKey:[self.Syncthing_ApiKey stringValue]];
-
-	NSAlert *alert = [[NSAlert alloc] init];
-	[alert addButtonWithTitle:@"OK"];
-	
-	[alert setMessageText:@"Syncthing test ping"];
-	
-	if ([st ping]) {
-		[alert setAlertStyle:NSInformationalAlertStyle];
-		[alert setInformativeText:@"Ping successfull!"];
-	} else {
-		[alert setAlertStyle:NSWarningAlertStyle];
-		[alert setInformativeText:@"Ping error, URI or API key incorrect?"];
-	}
-	
-	[alert runModal];
+    [self updateTestButton];
 }
 
 @end
