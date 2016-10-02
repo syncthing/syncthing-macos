@@ -14,6 +14,5 @@
 @property (weak) IBOutlet NSTextField *appNameLabel;
 @property (weak) IBOutlet NSTextField *appVersionLabel;
 @property (weak) IBOutlet NSTextField *appHomepageURL;
-@property (weak) IBOutlet NSButton *OkButton;
 
 @end

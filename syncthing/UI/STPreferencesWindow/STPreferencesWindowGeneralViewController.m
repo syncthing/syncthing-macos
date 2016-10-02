@@ -12,20 +12,25 @@
 
 @interface STPreferencesWindowGeneralViewController ()
 
+- (void)updateStartAtLogin:(NSUserDefaults *)defaults;
+
 @end
 
 @implementation STPreferencesWindowGeneralViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
+- (id)init
+{
+    self = [super initWithNibName:NSStringFromClass(self.class) bundle:nil];
+    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
-    [self.Syncthing_URI    setStringValue:[defaults objectForKey:@"URI"]];
-    [self.Syncthing_ApiKey setStringValue:[defaults objectForKey:@"ApiKey"]];
-    [self.StartAtLogin     setStringValue:[defaults objectForKey:@"StartAtLogin"]];
+    [_Syncthing_URI    setStringValue:[defaults objectForKey:@"URI"]];
+    [_Syncthing_ApiKey setStringValue:[defaults objectForKey:@"ApiKey"]];
+    [_StartAtLogin     setStringValue:[defaults objectForKey:@"StartAtLogin"]];
     
     [self updateTestButton];
+    
+    return self;
 }
 
 - (void)updateTestButton {
@@ -35,9 +40,9 @@
     [st setApiKey:[self.Syncthing_ApiKey stringValue]];
     
     if ([st ping])
-        [self.buttonTest setImage:[NSImage imageNamed:NSImageNameStatusAvailable]];
+        [_buttonTest setImage:[NSImage imageNamed:NSImageNameStatusAvailable]];
     else
-        [self.buttonTest setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
+        [_buttonTest setImage:[NSImage imageNamed:NSImageNameStatusUnavailable]];
 }
 
 - (void)updateStartAtLogin:(NSUserDefaults *)defaults {
@@ -54,9 +59,9 @@
 - (IBAction)clickedDone:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setObject:[self.Syncthing_URI stringValue] forKey:@"URI"];
-    [defaults setObject:[self.Syncthing_ApiKey stringValue] forKey:@"ApiKey"];
-    [defaults setObject:[self.StartAtLogin stringValue] forKey:@"StartAtLogin"];
+    [defaults setObject:[_Syncthing_URI stringValue] forKey:@"URI"];
+    [defaults setObject:[_Syncthing_ApiKey stringValue] forKey:@"ApiKey"];
+    [defaults setObject:[_StartAtLogin stringValue] forKey:@"StartAtLogin"];
     
     [self updateStartAtLogin:defaults];
 }

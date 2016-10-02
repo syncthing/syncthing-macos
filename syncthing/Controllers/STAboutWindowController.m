@@ -17,7 +17,12 @@
 @implementation STAboutWindowController
 
 - (id) init {
-	return [super initWithWindowNibName:@"STAboutWindow"];
+	return [super initWithWindowNibName:NSStringFromClass(self.class)];
+}
+
+- (void)windowDidLoad {
+    [super windowDidLoad];
+    [[self window] setLevel:NSFloatingWindowLevel];
 }
 
 -(void) updateControl:(NSTextField*)control withHyperlink:(NSString*)strURL
@@ -44,7 +49,7 @@
 	NSImage* appIcon = [[NSWorkspace sharedWorkspace] iconForFile:appPath];
 	
 	[appIcon setSize:NSMakeSize(64, 64)];
-	[self.appImageView setImage:appIcon];
+	[_appImageView setImage:appIcon];
 }
 
 - (void) awakeFromNib {
@@ -52,11 +57,11 @@
 
 	[self setIcon];
 
-	self.appNameLabel.stringValue = [infoDictionary objectForKey:@"STBundleName"];
+	_appNameLabel.stringValue = [infoDictionary objectForKey:@"STBundleName"];
 	
-	self.appVersionLabel.stringValue = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+	_appVersionLabel.stringValue = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
 	
-	[self updateControl:self.appHomepageURL withHyperlink:[infoDictionary objectForKey:@"STProjectHomepageURL"]];
+	[self updateControl:_appHomepageURL withHyperlink:[infoDictionary objectForKey:@"STProjectHomepageURL"]];
 }
 
 - (IBAction) clickedCheckForUpdates:(id)sender {

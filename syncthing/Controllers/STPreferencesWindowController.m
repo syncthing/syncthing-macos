@@ -7,6 +7,8 @@
 //
 
 #import "STPreferencesWindowController.h"
+#import "STPreferencesWindowGeneralViewController.h"
+
 
 @interface STPreferencesWindowController ()
 
@@ -15,15 +17,29 @@
 @implementation STPreferencesWindowController
 
 - (id)init {
-    return [super initWithWindowNibName:@"STPreferencesWindow"];
+    return [super initWithWindowNibName:NSStringFromClass(self.class)];
 }
 
-- (void)windowDidLoad {
+- (void)awakeFromNib {
+    [[self window] setLevel:NSFloatingWindowLevel];
 }
 
 - (IBAction)toolbarButtonClicked:(id)sender {
-    NSToolbarItem *item = sender;
-    [self loadViewWithIdentifier:item.itemIdentifier withAnimation:YES];
+    NSRect frameRect    = NSMakeRect(0, 0 , 320, 320);
+    NSView* tmpView     = [[NSView alloc] initWithFrame:frameRect];
+    
+    [self setContentView:tmpView];
+}
+
+- (void)setContentView:(NSView *)view {
+    NSRect windowRect = [self window].frame;
+    
+    windowRect.origin.y = windowRect.origin.y + (windowRect.size.height - view.frame.size.height);
+    windowRect.size.height = view.frame.size.height;
+    windowRect.size.width = view.frame.size.width;
+    
+    [[self window] setContentView:view];
+    [[self window] setFrame:windowRect display:YES animate:YES];
 }
 
 -(void)loadViewWithIdentifier:(NSString *)viewTabIdentifier

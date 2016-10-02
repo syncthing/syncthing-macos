@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface STPreferencesWindowController : NSWindowController
+@interface STPreferencesWindowController : NSWindowController {
+    NSViewController *currentViewController;
+}
 
 @end
