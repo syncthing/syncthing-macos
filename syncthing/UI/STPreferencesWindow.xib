@@ -6,7 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="STPreferencesWindowController">
             <connections>
-                <outlet property="view" destination="EiT-Mj-1SZ" id="mM2-ma-6KB"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="Jvx-Np-WV3"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -63,9 +63,6 @@
                     <toolbarItem reference="S5T-mV-7Wv"/>
                 </defaultToolbarItems>
             </toolbar>
-            <connections>
-                <outlet property="delegate" destination="-2" id="J8u-YX-m7n"/>
-            </connections>
             <point key="canvasLocation" x="26" y="260.5"/>
         </window>
         <toolbarItem implicitItemIdentifier="97090EAA-0A04-42C8-A0EF-26D0A5600BE8" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" id="tHp-Ai-VDo"/>
