@@ -16,7 +16,7 @@
     _syncthing = [[XGSyncthing alloc] init];
     
     [self applicationLoadConfiguration];
-    //[_syncthing runExecutable];
+    [_syncthing runExecutable];
     
     _updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateStatusFromTimer) userInfo:nil repeats:YES];
 }
