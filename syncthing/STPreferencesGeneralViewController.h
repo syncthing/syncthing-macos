@@ -1,5 +1,5 @@
 //
-//  STPreferencesWindowGeneralViewController.h
+//  TestView.h
 //  syncthing
 //
 //  Created by Jerry Jacobs on 02/10/2016.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface STPreferencesWindowGeneralViewController : NSViewController
+@interface STPreferencesGeneralViewController : NSViewController
 
 @property (weak) IBOutlet NSTextField *Syncthing_URI;
 @property (weak) IBOutlet NSTextField *Syncthing_ApiKey;

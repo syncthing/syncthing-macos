@@ -1,24 +1,23 @@
 //
-//  STPreferencesWindowGeneralViewController.m
+//  TestView.m
 //  syncthing
 //
 //  Created by Jerry Jacobs on 02/10/2016.
 //  Copyright © 2016 Jerry Jacobs. All rights reserved.
 //
 
-#import "STPreferencesWindowGeneralViewController.h"
+#import "STPreferencesGeneralViewController.h"
 #import "STLoginItem.h"
 #import "XGSyncthing.h"
 
-@interface STPreferencesWindowGeneralViewController ()
+@interface STPreferencesGeneralViewController ()
 
 @end
 
-@implementation STPreferencesWindowGeneralViewController
+@implementation STPreferencesGeneralViewController
 
-- (id) init {
-    self = [super initWithNibName:NSStringFromClass(self.class) bundle:nil];
-    
+- (void)viewDidLoad {
+    [super viewDidLoad];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
     [_Syncthing_URI    setStringValue:[defaults objectForKey:@"URI"]];
@@ -26,7 +25,10 @@
     [_StartAtLogin     setStringValue:[defaults objectForKey:@"StartAtLogin"]];
     
     [self updateTestButton];
-    
+}
+
+- (id) init {
+    self = [super initWithNibName:NSStringFromClass(self.class) bundle:nil];
     return self;
 }
 

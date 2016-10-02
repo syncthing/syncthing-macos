@@ -7,7 +7,7 @@
 //
 
 #import "STPreferencesWindowController.h"
-#import "STPreferencesWindowGeneralViewController.h"
+#import "STPreferencesGeneralViewController.h"
 
 @interface STPreferencesWindowController ()
 
@@ -31,18 +31,41 @@
         TODO: load class based on send ID
         NSClassFromString(class)
     */
+    /*
     NSRect frameRect = NSMakeRect(0, 0 , 320, 320);
     NSView *tmpView  = [[NSView alloc] initWithFrame:frameRect];
     
     [self setContentView:tmpView];
+     */
+    
+    if ([self.currentViewController view] != nil)
+        [[self.currentViewController view] removeFromSuperview];
+    
+    if (self.generalView == nil)
+        _generalView = [[STPreferencesGeneralViewController alloc] init];
+    
+    _currentViewController = self.generalView;
+    
+    // embed the current view to our host view
+    [currentView addSubview:[self.currentViewController view]];
+    //[self setContentView:[self.currentViewController view]];
+    
+    // make sure we automatically resize the controller's view to the current window size
+    [[self.currentViewController view] setFrame:[currentView bounds]];
+    
+    // set the view controller's represented object to the number of subviews in that controller
+    // (our NSTextField's value binding will reflect this value)
+    //[self.currentViewController setRepresentedObject:[NSNumber numberWithUnsignedInteger:[[[self.currentViewController view] subviews] count]]];
+    
+    //[self didChangeValueForKey:@"viewController"];	// this will trigger the NSTextField's value binding to change
 }
 
 - (void) setContentView:(NSView *)view {
     NSRect windowRect = [self window].frame;
     
-    windowRect.origin.y = windowRect.origin.y + (windowRect.size.height - view.frame.size.height);
-    windowRect.size.height = view.frame.size.height;
-    windowRect.size.width = view.frame.size.width;
+    windowRect.origin.y    = windowRect.origin.y + (windowRect.size.height - view.frame.size.height);
+    windowRect.size.height = view.frame.size.height + 200;
+    windowRect.size.width  = view.frame.size.width  + 200;
     
     [[self window] setContentView:view];
     [[self window] setFrame:windowRect display:YES animate:YES];

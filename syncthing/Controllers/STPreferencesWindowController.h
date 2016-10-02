@@ -8,6 +8,16 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class STPreferencesGeneralViewController;
+
 @interface STPreferencesWindowController : NSWindowController
+{
+    IBOutlet NSView *currentView;
+}
+
+@property (nonatomic, assign) NSViewController *currentViewController;
+@property (nonatomic, strong) STPreferencesGeneralViewController *generalView;
+
+- (IBAction) toolbarButtonClicked:(id)sender;
 
 @end

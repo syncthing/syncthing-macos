@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="STPreferencesWindowController">
             <connections>
+                <outlet property="currentView" destination="EiT-Mj-1SZ" id="qeA-tm-CaN"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="Jvx-Np-WV3"/>
             </connections>
         </customObject>
@@ -18,16 +19,6 @@
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="432" height="155"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WC-sf-Hsw">
-                        <rect key="frame" x="185" y="60" width="81" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wnr-5M-bi0">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                </subviews>
             </view>
             <toolbar key="toolbar" implicitIdentifier="53B9A345-0CFD-45BD-82F7-670D595DF554" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="jKq-By-NJu">
                 <allowedToolbarItems>

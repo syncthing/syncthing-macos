@@ -16,8 +16,6 @@
 		C4576BE61D11E79F0031BCFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4576BE51D11E79F0031BCFD /* Foundation.framework */; };
 		C4576BEA1D11E7E10031BCFD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */; };
 		C4576BEB1D11E9280031BCFD /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
-		C46500121DA1177F00C250BC /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46500111DA1177F00C250BC /* GeneralViewController.xib */; };
-		C46500151DA1180800C250BC /* STPreferencesWindowGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46500141DA1180800C250BC /* STPreferencesWindowGeneralViewController.m */; };
 		C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */ = {isa = PBXBuildFile; fileRef = C47F6C391D0DE68D00F36CF6 /* syncthing.icns */; };
 		C4946B011D5877F2008447A2 /* STAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4946B001D5877F2008447A2 /* STAboutWindowController.xib */; };
 		C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4946B021D587878008447A2 /* STAboutWindowController.m */; };
@@ -26,6 +24,8 @@
 		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
 		C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4156B1D0D579D00DC6018 /* STApplication.xib */; };
 		C4D567A21D3A8DFE002AD881 /* STLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D567A11D3A8DFE002AD881 /* STLoginItem.m */; };
+		C4F0E82E1DA1B9CF00435310 /* STPreferencesGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0E82C1DA1B9CF00435310 /* STPreferencesGeneralViewController.m */; };
+		C4F0E82F1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0E82D1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib */; };
 		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
 /* End PBXBuildFile section */
 
@@ -67,9 +67,6 @@
 		C4576BE51D11E79F0031BCFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4576BE71D11E7C00031BCFD /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = usr/lib/libobjc.tbd; sourceTree = SDKROOT; };
 		C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		C46500111DA1177F00C250BC /* GeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GeneralViewController.xib; path = UI/STPreferencesWindow/GeneralViewController.xib; sourceTree = "<group>"; };
-		C46500131DA1180800C250BC /* STPreferencesWindowGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowGeneralViewController.h; path = UI/STPreferencesWindow/STPreferencesWindowGeneralViewController.h; sourceTree = "<group>"; };
-		C46500141DA1180800C250BC /* STPreferencesWindowGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesWindowGeneralViewController.m; path = UI/STPreferencesWindow/STPreferencesWindowGeneralViewController.m; sourceTree = "<group>"; };
 		C47F6C391D0DE68D00F36CF6 /* syncthing.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = syncthing.icns; sourceTree = "<group>"; };
 		C4946B001D5877F2008447A2 /* STAboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STAboutWindowController.xib; path = UI/STAboutWindowController.xib; sourceTree = "<group>"; };
 		C4946B021D587878008447A2 /* STAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAboutWindowController.m; path = Controllers/STAboutWindowController.m; sourceTree = "<group>"; };
@@ -85,6 +82,9 @@
 		C4D567A31D3A8E34002AD881 /* STLoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoginItem.h; sourceTree = "<group>"; };
 		C4D6DD581D0D93D80024D20A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4D896121D0DF90900D42F73 /* syncthing-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-resource.sh"; path = "syncthing/Scripts/syncthing-resource.sh"; sourceTree = "<group>"; };
+		C4F0E82B1DA1B9CF00435310 /* STPreferencesGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPreferencesGeneralViewController.h; sourceTree = "<group>"; };
+		C4F0E82C1DA1B9CF00435310 /* STPreferencesGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPreferencesGeneralViewController.m; sourceTree = "<group>"; };
+		C4F0E82D1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STPreferencesGeneralViewController.xib; sourceTree = "<group>"; };
 		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
 		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -150,8 +150,9 @@
 			children = (
 				C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */,
 				C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */,
-				C46500131DA1180800C250BC /* STPreferencesWindowGeneralViewController.h */,
-				C46500141DA1180800C250BC /* STPreferencesWindowGeneralViewController.m */,
+				C4F0E82B1DA1B9CF00435310 /* STPreferencesGeneralViewController.h */,
+				C4F0E82C1DA1B9CF00435310 /* STPreferencesGeneralViewController.m */,
+				C4F0E82D1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib */,
 			);
 			name = STPreferencesWindow;
 			sourceTree = "<group>";
@@ -159,7 +160,6 @@
 		C46500101DA116D400C250BC /* STPreferencesWindow */ = {
 			isa = PBXGroup;
 			children = (
-				C46500111DA1177F00C250BC /* GeneralViewController.xib */,
 				C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */,
 			);
 			name = STPreferencesWindow;
@@ -349,7 +349,7 @@
 				C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */,
 				C4460A831D0DD38F00200C21 /* STPreferencesWindowController.xib in Resources */,
 				C4946B011D5877F2008447A2 /* STAboutWindowController.xib in Resources */,
-				C46500121DA1177F00C250BC /* GeneralViewController.xib in Resources */,
+				C4F0E82F1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,10 +389,10 @@
 				C4D567A21D3A8DFE002AD881 /* STLoginItem.m in Sources */,
 				C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */,
 				C4A415681D0D579D00DC6018 /* main.m in Sources */,
-				C46500151DA1180800C250BC /* STPreferencesWindowGeneralViewController.m in Sources */,
 				C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */,
 				C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */,
 				C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */,
+				C4F0E82E1DA1B9CF00435310 /* STPreferencesGeneralViewController.m in Sources */,
 				C4A415651D0D579D00DC6018 /* STApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
