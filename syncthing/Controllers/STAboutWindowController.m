@@ -16,23 +16,12 @@
 
 @implementation STAboutWindowController
 
-- (id)init {
+- (id) init {
 	return [super initWithWindowNibName:@"STAboutWindow"];
 }
 
-- (id)initWithWindow:(NSWindow *)window
+-(void) updateControl:(NSTextField*)control withHyperlink:(NSString*)strURL
 {
-	self = [super initWithWindow:window];
-	if (!self)
-		return nil;
-	
-	return self;
-}
-
-// Converts an otherwise plain NSTextField label into a hyperlink
--(void)updateControl:(NSTextField*)control withHyperlink:(NSString*)strURL
-{
-	// both are needed, otherwise hyperlink won't accept mousedown
 	[control setAllowsEditingTextAttributes: YES];
 	[control setSelectable: YES];
 	
@@ -68,10 +57,9 @@
 	self.appVersionLabel.stringValue = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
 	
 	[self updateControl:self.appHomepageURL withHyperlink:[infoDictionary objectForKey:@"STProjectHomepageURL"]];
-	
 }
 
-- (IBAction)clickedCheckForUpdates:(id)sender {
+- (IBAction) clickedCheckForUpdates:(id)sender {
 	SUUpdater *updater = [SUUpdater updaterForBundle:[NSBundle mainBundle]];
 	[updater checkForUpdates:nil];
 	[updater installUpdatesIfAvailable];

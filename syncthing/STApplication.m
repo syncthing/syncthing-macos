@@ -107,12 +107,17 @@
 		[menu removeAllItems];
 		
 		for (id dir in [self.syncthing getFolders]) {
-			NSLog(@"id: %@", [dir objectForKey:@"id"]);
+            NSString *name = [dir objectForKey:@"label"];
+            if ([name length] == 0)
+                name = [dir objectForKey:@"id"];
+            
 			NSMenuItem *item = [[NSMenuItem alloc] init];
-			[item setTitle:[dir objectForKey:@"id"]];
+            
+            [item setTitle:name];
 			[item setRepresentedObject:[dir objectForKey:@"path"]];
 			[item setAction:@selector(clickedFolder:)];
 			[item setToolTip:[dir objectForKey:@"path"]];
+        
 			[menu addItem:item];
 		}
 	}
@@ -120,17 +125,16 @@
 
 - (IBAction)clickedQuit:(id)sender
 {
-    // Stop update timer
+    [self.syncthing stopExecutable];
+    
     [self.updateTimer invalidate];
     self.updateTimer = nil;
     
-    // Set icon and remove menu
     [self updateStatusIcon:@"StatusIconNotify"];
     [self.statusItem setToolTip:@""];
     self.statusItem.menu = nil;
     
-    [self.syncthing stopExecutable];
-    [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:1.0];
+    [NSApp performSelector:@selector(terminate:) withObject:nil];
 }
 
 - (IBAction)clickedPreferences:(NSMenuItem *)sender

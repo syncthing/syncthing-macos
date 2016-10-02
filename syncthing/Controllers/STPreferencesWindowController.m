@@ -20,18 +20,8 @@
     return [super initWithWindowNibName:@"STPreferencesWindow"];
 }
 
-- (id)initWithWindow:(NSWindow *)window
-{
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
-}
-
 - (void)windowDidLoad {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [super windowDidLoad];
         
     [self.Syncthing_URI    setStringValue:[defaults objectForKey:@"URI"]];
     [self.Syncthing_ApiKey setStringValue:[defaults objectForKey:@"ApiKey"]];
