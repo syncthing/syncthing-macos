@@ -12,8 +12,6 @@
 
 @interface STPreferencesWindowGeneralViewController ()
 
-- (void)updateStartAtLogin:(NSUserDefaults *)defaults;
-
 @end
 
 @implementation STPreferencesWindowGeneralViewController

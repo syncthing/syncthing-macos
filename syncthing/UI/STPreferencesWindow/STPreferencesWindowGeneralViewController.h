@@ -10,7 +10,6 @@
 
 @interface STPreferencesWindowGeneralViewController : NSViewController
 
-/* TODO: move into generalViewController */
 @property (weak) IBOutlet NSTextField *Syncthing_URI;
 @property (weak) IBOutlet NSTextField *Syncthing_ApiKey;
 @property (weak) IBOutlet NSButton *StartAtLogin;

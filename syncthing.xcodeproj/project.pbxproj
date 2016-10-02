@@ -165,6 +165,17 @@
 			name = STPreferencesWindow;
 			sourceTree = "<group>";
 		};
+		C465001D1DA18F4300C250BC /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				C4A415631D0D579D00DC6018 /* STApplication.h */,
+				C4A415641D0D579D00DC6018 /* STApplication.m */,
+				C4D567A11D3A8DFE002AD881 /* STLoginItem.m */,
+				C4D567A31D3A8E34002AD881 /* STLoginItem.h */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		C4A415571D0D579D00DC6018 = {
 			isa = PBXGroup;
 			children = (
@@ -191,12 +202,9 @@
 		C4A415621D0D579D00DC6018 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C4D567A11D3A8DFE002AD881 /* STLoginItem.m */,
-				C4D567A31D3A8E34002AD881 /* STLoginItem.h */,
+				C465001D1DA18F4300C250BC /* Misc */,
 				C4D6DD601D0DB18A0024D20A /* UI */,
 				C4D6DD5F1D0DAF530024D20A /* Controllers */,
-				C4A415631D0D579D00DC6018 /* STApplication.h */,
-				C4A415641D0D579D00DC6018 /* STApplication.m */,
 				C4A415691D0D579D00DC6018 /* Assets.xcassets */,
 				C4A4156E1D0D579D00DC6018 /* Info.plist */,
 				C4A415661D0D579D00DC6018 /* Supporting Files */,
