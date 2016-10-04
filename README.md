@@ -10,26 +10,24 @@ Native systray application for Mac OS X 10.10 and higher.
 <img width="401" alt="screen shot 2016-07-15 at 12 33 10" src="https://cloud.githubusercontent.com/assets/1050166/16871829/65a8ceb2-4a89-11e6-8a42-e11be129be5d.png">
 <img width="196" alt="screen shot 2016-07-15 at 12 34 07" src="https://cloud.githubusercontent.com/assets/1050166/16871828/65a53b12-4a89-11e6-9318-c8697ee5f72f.png">
 
+* Complete syncthing app package (no need to run syncthing from console)
 * Full integration with OSX
 * Retina ready icons (pdf)
-* Status tooltip
-* Ships syncthing binary
-* Automatic updates using [Sparkle](https://sparkle-project.org)
+* Automatic updates using [Sparkle](https://sparkle-project.org) pushed from github releases
 
 # Why
 
-All cross-platform approaches are not able to use all the native facilities of Mac OS. Including auto-updates, vector icon set and packaging.
+All cross-platform approaches are not able to use all the native facilities of Mac OS. Including auto-updates, vector icon set and full packaging.
 
 # Build
 
 Build with XCode or run:
 
 ```
-xcodebuild
+make debug
 ```
 
-It will automaticly download syncthing amd64 binary and add it to the Application. The fancy
- DMG is also created automaticly.
+It will automaticly download syncthing amd64 binary and add it to the Application.
 
 # Syncthing ApiKey
 
@@ -39,23 +37,6 @@ You need to configure your API key in the preferences dialog as the application 
 `sed -n 's:.*<apikey>\(.*\)</apikey>.*:\1:p' $HOME/Library/Application\ Support/Syncthing/config.xml`
 
 You must restart the application to work (for now).
-
-# Configuration and defaults
-
-Writing defaults is handled by OS X and can be set from the GUI or console.
-
-`defaults write com.github.xor-gate.syncthing-macosx <config> <value>`
-
-* `Executable` : "/path/to/syncthing" (overwrite, will defaults use `<Syncthing.app>/MacOS/Resources/syncthing/syncthing>`)
-* `ApiKey`: "<ApiKey>"
-* `URI`: "http://localhost:8384"
-
-Example:
-
-```
-defaults write com.github.xor-gate.syncthing-macosx URI "http://localhost:8384"
-defaults write com.github.xor-gate.syncthing-macosx ApiKey 1234
-```
 
 # Contributions
 
