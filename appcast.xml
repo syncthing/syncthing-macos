@@ -16,6 +16,7 @@
                                    url="https://github.com/xor-gate/syncthing-macosx/releases/download/v0.14.8/Syncthing-0.14.8.dmg"
                         />
                 </item>
+		<item>
 			<title>Version 0.14.7</title>
 			<sparkle:releaseNotesLink>https://xor-gate.github.io/syncthing-macosx/releases/0.14.7.html</sparkle:releaseNotesLink>
 			<pubDate>Wed, 21 Sep 2016 21:38:00 GMT+2</pubDate>
