@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="STPreferencesFoldersViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="STPreferencesAdvancedViewController">
             <connections>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -15,17 +15,19 @@
             <rect key="frame" x="0.0" y="0.0" width="420" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIC-39-L04">
-                    <rect key="frame" x="186" y="54" width="49" height="17"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yMQ-uA-Raw">
+                    <rect key="frame" x="134" y="45" width="154" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Folders" id="fm9-gL-W49">
+                    <buttonCell key="cell" type="push" title="Open config folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ivp-5n-g9s">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                    </buttonCell>
+                    <connections>
+                        <action selector="openConfigFolder:" target="-2" id="9Dg-jW-9ab"/>
+                    </connections>
+                </button>
             </subviews>
-            <point key="canvasLocation" x="496" y="66.5"/>
+            <point key="canvasLocation" x="109" y="95.5"/>
         </customView>
     </objects>
 </document>

@@ -11,15 +11,18 @@
 @class STPreferencesGeneralViewController;
 @class STPreferencesFoldersViewController;
 @class STPreferencesInfoViewController;
+@class STPreferencesDevicesViewController;
+@class STPreferencesAdvancedViewController;
 
-@interface STPreferencesWindowController : NSWindowController {
-    IBOutlet NSView *currentView;
-}
+@interface STPreferencesWindowController : NSWindowController
 
 @property (nonatomic, assign) NSViewController *currentViewController;
+
 @property (nonatomic, strong) STPreferencesGeneralViewController *generalView;
 @property (nonatomic, strong) STPreferencesFoldersViewController *foldersView;
 @property (nonatomic, strong) STPreferencesInfoViewController *infoView;
+@property (nonatomic, strong) STPreferencesDevicesViewController *devicesView;
+@property (nonatomic, strong) STPreferencesAdvancedViewController *advancedView;
 
 - (IBAction) toolbarButtonClicked:(id)sender;
 

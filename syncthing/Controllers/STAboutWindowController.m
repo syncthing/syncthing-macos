@@ -20,12 +20,6 @@
 	return [super initWithWindowNibName:NSStringFromClass(self.class)];
 }
 
-- (void) windowDidLoad {
-    [super windowDidLoad];
-    [[self window] setLevel:NSFloatingWindowLevel];
-    [NSApp activateIgnoringOtherApps:YES];
-}
-
 -(void) updateControl:(NSTextField*)control withHyperlink:(NSString*)strURL {
 	[control setAllowsEditingTextAttributes: YES];
 	[control setSelectable: YES];
