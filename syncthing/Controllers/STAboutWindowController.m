@@ -20,6 +20,10 @@
 	return [super initWithWindowNibName:NSStringFromClass(self.class)];
 }
 
+- (void) windowDidLoad {
+    [super windowDidLoad];
+}
+
 -(void) updateControl:(NSTextField*)control withHyperlink:(NSString*)strURL {
 	[control setAllowsEditingTextAttributes: YES];
 	[control setSelectable: YES];

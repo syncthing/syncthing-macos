@@ -36,6 +36,10 @@ enum
     [self setViewFromId:kGeneralView];
 }
 
+- (void) windowDidLoad {
+    [super windowDidLoad];
+}
+
 - (void) setViewFromId:(NSInteger) tag {
     if ([_currentViewController view] != nil)
         [[_currentViewController view] removeFromSuperview];

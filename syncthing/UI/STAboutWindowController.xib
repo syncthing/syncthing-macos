@@ -68,9 +68,6 @@
                     </button>
                 </subviews>
             </view>
-            <connections>
-                <outlet property="delegate" destination="-2" id="QWp-s4-6Gb"/>
-            </connections>
             <point key="canvasLocation" x="20" y="175"/>
         </window>
     </objects>
