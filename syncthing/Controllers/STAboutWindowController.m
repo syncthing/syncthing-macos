@@ -22,6 +22,7 @@
 
 - (void) windowDidLoad {
     [super windowDidLoad];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 -(void) updateControl:(NSTextField*)control withHyperlink:(NSString*)strURL {

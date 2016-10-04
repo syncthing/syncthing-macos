@@ -38,6 +38,7 @@ enum
 
 - (void) windowDidLoad {
     [super windowDidLoad];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void) setViewFromId:(NSInteger) tag {
