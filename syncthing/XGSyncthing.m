@@ -2,7 +2,7 @@
 
 @interface XGSyncthing()
 
-@property NSTask *_StTask;
+@property NSTask *StTask;
 
 @end
 
@@ -12,22 +12,24 @@
 @synthesize URI = _URI;
 @synthesize ApiKey = _apiKey;
 
-- (bool)runExecutable
+- (bool) runExecutable
 {
-    self._StTask = [[NSTask alloc] init];
-    [self._StTask setLaunchPath:_Executable];
-    [self._StTask setQualityOfService:NSQualityOfServiceBackground];
-    [self._StTask launch];
+    self.StTask = [[NSTask alloc] init];
+    
+    [_StTask setLaunchPath:_Executable];
+    [_StTask setQualityOfService:NSQualityOfServiceBackground];
+    [_StTask launch];
+
     return true;
 }
 
-- (void)stopExecutable
+- (void) stopExecutable
 {
-    if (!self._StTask)
+    if (!_StTask)
         return;
     
-    [self._StTask interrupt];
-    [self._StTask waitUntilExit];
+    [_StTask interrupt];
+    [_StTask waitUntilExit];
 }
 
 - (bool)ping
