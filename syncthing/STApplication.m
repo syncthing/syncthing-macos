@@ -65,6 +65,11 @@
     } else {
         [_syncthing setApiKey:cfgApiKey];
     }
+
+    NSString *cfgStartAtLogin = [defaults stringForKey:@"StartAtLogin"];
+    if (!cfgStartAtLogin) {
+        [defaults setObject:@"false" forKey:@"StartAtLogin"];
+    }
 }
 
 - (void) sendNotification:(NSString *)text {
