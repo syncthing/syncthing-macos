@@ -2,7 +2,9 @@
 
 @interface XGSyncthing()
 
-@property NSTask *_StTask;
+@property NSTask *StTask;
+@property (nonatomic, strong) NSXMLParser *configParser;
+@property (nonatomic, strong) NSMutableArray<NSString *> *parsing;
 
 @end
 
@@ -12,22 +14,29 @@
 @synthesize URI = _URI;
 @synthesize ApiKey = _apiKey;
 
+- (id)init
+{
+    _parsing = [[NSMutableArray alloc] init]; // @TODO: need to free?
+    return [super init];
+}
+
 - (bool)runExecutable
 {
-    self._StTask = [[NSTask alloc] init];
-    [self._StTask setLaunchPath:_Executable];
-    [self._StTask setQualityOfService:NSQualityOfServiceBackground];
-    [self._StTask launch];
+    _StTask = [[NSTask alloc] init];
+    [_StTask setLaunchPath:_Executable];
+    [_StTask setArguments:@[@"-no-browser"]];
+    [_StTask setQualityOfService:NSQualityOfServiceBackground];
+    [_StTask launch];
     return true;
 }
 
 - (void)stopExecutable
 {
-    if (!self._StTask)
+    if (!_StTask)
         return;
     
-    [self._StTask interrupt];
-    [self._StTask waitUntilExit];
+    [_StTask interrupt];
+    [_StTask waitUntilExit];
 }
 
 - (bool)ping
@@ -127,5 +136,45 @@
     return [json objectForKey:@"folders"];
 }
 
+- (void)loadConfigurationFromXML
+{
+    NSError* error;
+    NSURL *supURL = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory
+                                                           inDomain:NSUserDomainMask
+                                                  appropriateForURL:nil
+                                                             create:NO
+                                                              error:&error];
+    NSURL* configUrl = [supURL URLByAppendingPathComponent:@"Syncthing/config.xml"];
+    _configParser = [[NSXMLParser alloc] initWithContentsOfURL:configUrl];
+    [_configParser setDelegate:self];
+    [_configParser parse];
+}
+
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
+    [_parsing addObject:elementName];
+    NSString *keyPath = [_parsing componentsJoinedByString:@"."];
+    
+    if ([keyPath isEqualToString:@"configuration.gui"]) {
+        if ([[[attributeDict objectForKey:@"tls"] lowercaseString] isEqualToString:@"true"]) {
+            _URI = @"https://";
+        } else {
+            _URI = @"http://";
+        }
+    }
+}
+
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    [_parsing removeLastObject];
+}
+
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    NSString *keyPath = [_parsing componentsJoinedByString:@"."];
+    
+    if ([keyPath isEqualToString:@"configuration.gui.apikey"]) {
+        _apiKey = [_apiKey stringByAppendingString:string];
+    } else if  ([keyPath isEqualToString:@"configuration.gui.address"]) {
+        _URI = [_URI stringByAppendingString:string];
+    }
+}
 
 @end
