@@ -5,21 +5,29 @@
 [![PayPal.Me](https://img.shields.io/badge/donate-PayPal-green.svg?style=flat)](https://paypal.me/xorgate)
 [![Downloads](https://img.shields.io/github/downloads/xor-gate/syncthing-macosx/total.svg)](https://github.com/xor-gate/syncthing-macosx/releases) [![Latest release](https://img.shields.io/github/release/xor-gate/syncthing-macosx.svg)](https://github.com/xor-gate/syncthing-macosx/releases/latest) [![Build Status](https://travis-ci.org/xor-gate/syncthing-macosx.svg?branch=master)](https://travis-ci.org/xor-gate/syncthing-macosx) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
 
-Native systray application for Mac OS X 10.10 and higher.
+# Introduction
 
-<img width="401" alt="screen shot 2016-07-15 at 12 33 10" src="https://cloud.githubusercontent.com/assets/1050166/16871829/65a8ceb2-4a89-11e6-8a42-e11be129be5d.png">
-<img width="196" alt="screen shot 2016-07-15 at 12 34 07" src="https://cloud.githubusercontent.com/assets/1050166/16871828/65a53b12-4a89-11e6-9318-c8697ee5f72f.png">
+syncthing-macosx is a little tray utility for Syncthing on macOS. It hosts and wraps Syncthing, making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
 
-* Complete syncthing app package (no need to run syncthing from console)
-* Full integration with OSX
-* Retina ready icons (pdf)
-* Automatic updates using [Sparkle](https://sparkle-project.org) pushed from github releases
+Features include:
+ * Optionally starts on login, so you don't need to set up Syncthing as a service.
+ * Tray icon indicates when it is connected to syncthing (no status updates yet).
+ * Retina ready icons for the Application bundle and status tray
+ * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from github releases)
+ 
+<img width="562" alt="screen shot 2016-10-05 at 21 24 11" src="https://cloud.githubusercontent.com/assets/1050166/19128366/50d3a3d6-8b43-11e6-8eac-c6cc951193d3.png">
+
+# Installation
+
+Currently Mac OS X 10.10 or higher is necessary. syncthing-macosx is packaged as and disk image with a application bundle.
+ You should download the dmg and drag and drop to install. The only necessary configuration is to set the api key which
+ can be found in the web interface.
 
 # Why
 
 All cross-platform approaches are not able to use all the native facilities of Mac OS. Including auto-updates, vector icon set and full packaging.
 
-# Build
+# Compiling
 
 Build with XCode or run:
 
@@ -29,18 +37,10 @@ make debug
 
 It will automaticly download syncthing amd64 binary and add it to the Application.
 
-# Syncthing ApiKey
-
-You need to configure your API key in the preferences dialog as the application only starts a syncthing instance
- and a system tray. You can fetch your current API key:
-
-`sed -n 's:.*<apikey>\(.*\)</apikey>.*:\1:p' $HOME/Library/Application\ Support/Syncthing/config.xml`
-
-You must restart the application to work (for now).
-
 # Contributions
 
-Contributions are welcome as I'm not an expert in Objective C and Cocoa programming. Feel free to open a issue if you spot a bug or have a feature request.
+Contributions and issue reports are welcome. I'm an rookie in programming in Objective-C and try to improve over time.
+ Please keep in mind I do this on best-effort basis, and I try not to break the auto-updater.
 
 # License
 
