@@ -16,6 +16,7 @@
     _syncthing = [[XGSyncthing alloc] init];
     
     [self applicationLoadConfiguration];
+    [_syncthing loadConfigurationFromXML];
     [_syncthing runExecutable];
     
     _updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateStatusFromTimer) userInfo:nil repeats:YES];
@@ -64,6 +65,11 @@
         [defaults setObject:[_syncthing ApiKey] forKey:@"ApiKey"];
     } else {
         [_syncthing setApiKey:cfgApiKey];
+    }
+
+    NSString *cfgStartAtLogin = [defaults stringForKey:@"StartAtLogin"];
+    if (!cfgStartAtLogin) {
+        [defaults setObject:@"false" forKey:@"StartAtLogin"];
     }
 }
 

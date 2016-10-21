@@ -3,7 +3,7 @@
  */
 #import <Foundation/Foundation.h>
 
-@interface XGSyncthing : NSObject {}
+@interface XGSyncthing : NSObject<NSXMLParserDelegate>
 
 @property (nonatomic, copy) NSString *Executable;
 @property (nonatomic, copy) NSString *URI;
@@ -23,5 +23,10 @@
 - (id)getUptime;
 - (id)getMyID;
 - (id)getFolders;
+
+/**
+ * Load configuration from XML file
+ */
+- (void)loadConfigurationFromXML;
 
 @end
