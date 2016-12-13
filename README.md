@@ -23,6 +23,8 @@ Currently Mac OS X 10.10 or higher is necessary. syncthing-macosx is packaged as
  You should download the dmg and drag and drop to install. The only necessary configuration is to set the api key which
  can be found in the web interface.
 
+The latest version can be downloaded from [Github Releases](https://github.com/xor-gate/syncthing-macosx/releases/latest)
+
 # Why
 
 All cross-platform approaches are not able to use all the native facilities of Mac OS. Including auto-updates, vector icon set and full packaging.
