@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -60,7 +60,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="193" y="308.5"/>
+            <point key="canvasLocation" x="400" y="224"/>
         </menu>
         <menu title="Main Menu" systemMenu="main" id="LRK-4Q-J2a">
             <items>
@@ -81,8 +81,35 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Edit" id="kcv-HR-0Z7">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Edit" id="2Sz-Yy-Gf1">
+                        <items>
+                            <menuItem title="Copy" keyEquivalent="c" id="Bfs-Xu-jSn">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="C5c-ni-Zlw"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste" keyEquivalent="v" id="2Oi-Wh-Kfk">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="gQF-t7-uLj"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
             </items>
         </menu>
         <customObject id="LNQ-zz-nO6" customClass="SUUpdater"/>
+        <menuItem title="Menu" id="I8M-Pf-BKw">
+            <modifierMask key="keyEquivalentModifierMask"/>
+            <menu key="submenu" title="Menu" id="rlz-0G-Jeh">
+                <items>
+                    <menuItem title="Item" id="Y9X-vm-pic">
+                        <modifierMask key="keyEquivalentModifierMask"/>
+                    </menuItem>
+                </items>
+            </menu>
+        </menuItem>
     </objects>
 </document>

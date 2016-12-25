@@ -3,6 +3,8 @@
 @interface XGSyncthing()
 
 @property NSTask *StTask;
+@property (nonatomic, strong) NSXMLParser *configParser;
+@property (nonatomic, strong) NSMutableArray<NSString *> *parsing;
 
 @end
 
@@ -14,9 +16,10 @@
 
 - (bool) runExecutable
 {
-    self.StTask = [[NSTask alloc] init];
+    _StTask = [[NSTask alloc] init];
     
     [_StTask setLaunchPath:_Executable];
+    [_StTask setArguments:@[@"-no-browser"]];
     [_StTask setQualityOfService:NSQualityOfServiceBackground];
     [_StTask launch];
 
