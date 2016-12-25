@@ -7,14 +7,19 @@
 
 # Introduction
 
-syncthing-macosx is a little tray utility for Syncthing on macOS. It hosts and wraps Syncthing, making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
+`syncthing-macosx` is a native macOS Syncthing tray application bundle. It hosts and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
 
 Features include:
+
+ * Open the Syncthing WebGUI from the tray in your prefered browser.
  * Optionally starts on login, so you don't need to set up Syncthing as a service.
  * Tray icon indicates when it is connected to syncthing (no status updates yet).
- * Retina ready icons for the Application bundle and status tray
- * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from github releases)
- 
+ * Retina ready icons for the Application bundle and status tray.
+ * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from github releases).
+ * Open shared folders directly in Finder.
+
+# Screenshot
+
 <img width="562" alt="screen shot 2016-10-05 at 21 24 11" src="https://cloud.githubusercontent.com/assets/1050166/19128366/50d3a3d6-8b43-11e6-8eac-c6cc951193d3.png">
 
 # Installation
@@ -30,7 +35,9 @@ The latest version can be downloaded from [Github Releases](https://github.com/x
 
 # Why
 
-All cross-platform approaches are not able to use all the native facilities of Mac OS. Including auto-updates, vector icon set and full packaging.
+All cross-platform approaches are not able to use all the native facilities of macOS. Including auto-updates,
+ vector icon set (retina-ready) and creating an application bundle. GUIs are designed with XCode and everything
+ is coded in Objective-C which is "the native approach".
 
 # Compiling
 
@@ -40,12 +47,19 @@ Build with XCode or run:
 make debug
 ```
 
-It will automaticly download syncthing amd64 binary and add it to the Application.
+It will automaticly download syncthing amd64 binary and add it to the Application Bundle.
+
+# Goal
+
+The goal of this project is to keep the Native Mac OS X Syncthing tray as simple as possible. No graphs, no advanced configuration
+ windows.
 
 # Contributions
 
-Contributions and issue reports are welcome. I'm an rookie in programming in Objective-C and try to improve over time.
+Contributions and issue reports are welcome. I'm an beginner in programming in Objective-C.
  Please keep in mind I do this on best-effort basis, and I try not to break the auto-updater.
+ 
+I'm willing to add donated-based features if you need them.
 
 # License
 
