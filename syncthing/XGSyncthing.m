@@ -14,23 +14,19 @@
 @synthesize URI = _URI;
 @synthesize ApiKey = _apiKey;
 
-- (id)init
-{
-    _parsing = [[NSMutableArray alloc] init]; // @TODO: need to free?
-    return [super init];
-}
-
-- (bool)runExecutable
+- (bool) runExecutable
 {
     _StTask = [[NSTask alloc] init];
+    
     [_StTask setLaunchPath:_Executable];
     [_StTask setArguments:@[@"-no-browser"]];
     [_StTask setQualityOfService:NSQualityOfServiceBackground];
     [_StTask launch];
+
     return true;
 }
 
-- (void)stopExecutable
+- (void) stopExecutable
 {
     if (!_StTask)
         return;
