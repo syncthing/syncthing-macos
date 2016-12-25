@@ -25,6 +25,10 @@ Currently Mac OS X 10.10 or higher is necessary. syncthing-macosx is packaged as
 
 The latest version can be downloaded from [Github Releases](https://github.com/xor-gate/syncthing-macosx/releases/latest)
 
+**NOTE:** As I am not a payed Mac Developer I have no approved signing keys. It is possible the application is not allowed
+ to run due to the new Apple Application Security Policy (since Mac OS Sierra 10.12). And is already discussed in [issue 8](https://github.com/xor-gate/syncthing-macosx/issues/8#issuecomment-259662447).
+ You only can soften the policy just for `syncthing-macosx` as descibed by Apple [Knowledge Base #18657](https://support.apple.com/kb/ph18657).
+
 # Why
 
 All cross-platform approaches are not able to use all the native facilities of Mac OS. Including auto-updates, vector icon set and full packaging.
