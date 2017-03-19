@@ -52,7 +52,16 @@ It will automaticly download syncthing amd64 binary and add it to the Applicatio
 # Goal
 
 The goal of this project is to keep the Native Mac OS X Syncthing tray as simple as possible. No graphs, no advanced configuration
- windows.
+ windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application.
+
+# Known bugs
+
+* Issue [#24](https://github.com/xor-gate/syncthing-macosx/issues/24): HTTPS with self signed certificate doesn't work and gives no usefull error.
+  * Workaround: Disable HTTPS
+
+# Design
+
+Design, internals and build process is documented in [doc/design.md](doc/design.md)
 
 # Contributions
 
