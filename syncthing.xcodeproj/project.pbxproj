@@ -409,7 +409,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/syncthing-inotify-resource.sh";
+			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/syncthing-inotify-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -593,7 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer: jerryjacobs1989@gmail.com (TT7GM4W59N)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = "";
 				FRAMEWORK_SEARCH_PATHS = (
