@@ -1,5 +1,11 @@
 # Syncthing for macOS design
 
+## Versioning scheme
+
+It uses the shipped syncthing executable version appended with a `-<build>` number.
+So for Syncthing `0.14.24` with first build/package it is versioned as `0.14.24-1`.
+Currently there is no need for having a separate version from syncthing.
+
 ## Compilation and packaging process
 
 * Xcode builds all sources
@@ -7,3 +13,5 @@
 * Syncthing inotify resource is fetched with `syncthing/Scripts/syncthing-inotify-resource.sh`
 * Fancy DMG disk image is generated with `syncthing/Scripts/create-dmg.sh`
   * The version part of the DMG name is fetched from `syncthing/Info.plist, key CFBundleShortVersionString`
+
+`syncthing-macosx` will only ship [stable releases and no release candidates](https://forum.syncthing.net/t/introducing-stable-releases-and-release-candidates/9167).
