@@ -14,7 +14,6 @@
 @property (weak) IBOutlet NSTextField *Syncthing_ApiKey;
 @property (weak) IBOutlet NSButton *StartAtLogin;
 @property (weak) IBOutlet NSButton *buttonTest;
-@property (weak) IBOutlet NSButton *buttonSave;
 
 
 @end

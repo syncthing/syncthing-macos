@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BE9B88A1F050E93002883E2 /* STStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE9B8891F050E93002883E2 /* STStatusMonitor.m */; };
 		C41E02A21D57D233006DD238 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41E02A11D57D233006DD238 /* Sparkle.framework */; };
 		C41E02A31D57D28C006DD238 /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = C41E02A11D57D233006DD238 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
@@ -62,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0BE9B8821F04376C002883E2 /* syncthing-inotify-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-inotify-resource.sh"; path = "syncthing/Scripts/syncthing-inotify-resource.sh"; sourceTree = "<group>"; };
+		0BE9B8881F050E93002883E2 /* STStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStatusMonitor.h; sourceTree = "<group>"; };
+		0BE9B8891F050E93002883E2 /* STStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStatusMonitor.m; sourceTree = "<group>"; };
 		C41E02A11D57D233006DD238 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = 3thparty/frameworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				C4D567A31D3A8E34002AD881 /* STLoginItem.h */,
 				C48B83B41DA444BC0052A172 /* STConfiguration.h */,
 				C48B83B51DA444BC0052A172 /* STConfiguration.m */,
+				0BE9B8881F050E93002883E2 /* STStatusMonitor.h */,
+				0BE9B8891F050E93002883E2 /* STStatusMonitor.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			children = (
 				C4576BD51D11E3210031BCFD /* create-dmg.sh */,
 				C4D896121D0DF90900D42F73 /* syncthing-resource.sh */,
+				0BE9B8821F04376C002883E2 /* syncthing-inotify-resource.sh */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
@@ -437,6 +444,7 @@
 				C4D36D851DA3E2820061FD08 /* STPreferencesDevicesViewController.m in Sources */,
 				C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */,
 				C48B83B61DA444BC0052A172 /* STConfiguration.m in Sources */,
+				0BE9B88A1F050E93002883E2 /* STStatusMonitor.m in Sources */,
 				C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */,
 				C4F0E82E1DA1B9CF00435310 /* STPreferencesGeneralViewController.m in Sources */,
 				C4F0E8381DA1CB0900435310 /* STPreferencesInfoViewController.m in Sources */,

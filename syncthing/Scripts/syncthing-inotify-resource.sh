@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Download and unpack syncthing into ${PRODUCT_NAME}.app/Contents/Resources
 SYNCTHING_INOTIFY_ARCH="amd64"
-SYNCTHING_INOTIFY_VERSION="0.8.5"
+SYNCTHING_INOTIFY_VERSION="0.8.7"
 SYNCTHING_INOTIFY_DIST_URL="https://github.com/syncthing/syncthing-inotify/releases/download"
 SYNCTHING_INOTIFY_TARBALL_URL="${SYNCTHING_INOTIFY_DIST_URL}/v${SYNCTHING_INOTIFY_VERSION}/syncthing-inotify-darwin-${SYNCTHING_INOTIFY_ARCH}-v${SYNCTHING_INOTIFY_VERSION}.tar.gz"
 

@@ -2,7 +2,7 @@
 
 @implementation STLoginItem
 
--(void) addAppAsLoginItem {
++ (void)addAppAsLoginItem {
     if ([self wasAppAddedAsLoginItem]) return;
     
 	NSString * appPath = [[NSBundle mainBundle] bundlePath];
@@ -29,7 +29,7 @@
 	}
 }
 
-- (BOOL)wasAppAddedAsLoginItem {
++ (BOOL)wasAppAddedAsLoginItem {
     NSString * appPath = [[NSBundle mainBundle] bundlePath];
 	CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:appPath];
 	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
@@ -61,7 +61,7 @@
     return ret;
 }
 
--(void) deleteAppFromLoginItem {
++ (void)deleteAppFromLoginItem {
 	NSString * appPath = [[NSBundle mainBundle] bundlePath];
 	CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:appPath];
 	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);

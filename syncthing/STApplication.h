@@ -9,10 +9,11 @@
 #import <Cocoa/Cocoa.h>
 
 #import "XGSyncthing.h"
+#import "STStatusMonitor.h"
 #import "Controllers/STAboutWindowController.h"
 #import "Controllers/STPreferencesWindowController.h"
 
-@interface STAppDelegate : NSObject <NSApplicationDelegate>
+@interface STAppDelegate : NSObject <NSApplicationDelegate, STStatusMonitorDelegate>
 
 @property (weak) IBOutlet NSMenu *Menu;
 @property (nonatomic, readonly) NSStatusItem *statusItem;

@@ -5,6 +5,8 @@
 @property (nonatomic, strong, readwrite) NSStatusItem *statusItem;
 @property (nonatomic, strong, readwrite) NSTimer *updateTimer;
 @property (nonatomic, strong, readwrite) XGSyncthing *syncthing;
+@property (nonatomic, strong, readwrite) STStatusMonitor *statusMonitor;
+@property (nonatomic, readwrite) SyncthingStatus currentStatus;
 @property (strong) STPreferencesWindowController *preferencesWindow;
 @property (strong) STAboutWindowController *aboutWindow;
 
@@ -18,6 +20,12 @@
     [self applicationLoadConfiguration];
     [_syncthing loadConfigurationFromXML];
     [_syncthing runExecutable];
+    
+    _statusMonitor = [[STStatusMonitor alloc] init];
+    _statusMonitor.URI = _syncthing.URI;
+    _statusMonitor.ApiKey = _syncthing.ApiKey;
+    _statusMonitor.delegate = self;
+    [_statusMonitor startMonitoring];
     
     _updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateStatusFromTimer) userInfo:nil repeats:YES];
 }
@@ -86,13 +94,31 @@
 }
 
 - (void) updateStatusFromTimer {
-    if ([_syncthing ping]) {
-        [self updateStatusIcon:@"StatusIconDefault"];
-        [_statusItem setToolTip:@"Connected"];
-    } else {
-        [self updateStatusIcon:@"StatusIconNotify"];
+    if (![_syncthing ping]) {
+        self.currentStatus = SyncthingStatusError;
         [_statusItem setToolTip:@"Not connected"];
     }
+}
+
+- (void)setCurrentStatus:(SyncthingStatus)newStatus {
+    if (_currentStatus != newStatus) {
+        switch (newStatus) {
+            case SyncthingStatusIdle:
+                [self updateStatusIcon:@"StatusIconDefault"];
+                break;
+            case SyncthingStatusBusy:
+                [self updateStatusIcon:@"StatusIconSync"];
+                break;
+            case SyncthingStatusError:
+                [self updateStatusIcon:@"StatusIconNotify"];
+                break;
+        }
+    }
+    _currentStatus = newStatus;
+}
+
+- (void) syncMonitorStatusChanged:(SyncthingStatus)status {
+    self.currentStatus = status;
 }
 
 - (IBAction) clickedOpen:(id)sender {
