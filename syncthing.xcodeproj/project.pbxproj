@@ -62,6 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0BE9B8821F04376C002883E2 /* syncthing-inotify-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-inotify-resource.sh"; path = "syncthing/Scripts/syncthing-inotify-resource.sh"; sourceTree = "<group>"; };
 		C41E02A11D57D233006DD238 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = 3thparty/frameworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -286,6 +287,7 @@
 			children = (
 				C4576BD51D11E3210031BCFD /* create-dmg.sh */,
 				C4D896121D0DF90900D42F73 /* syncthing-resource.sh */,
+				0BE9B8821F04376C002883E2 /* syncthing-inotify-resource.sh */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
