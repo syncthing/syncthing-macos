@@ -3,10 +3,8 @@
 @interface STAppDelegate ()
 
 @property (nonatomic, strong, readwrite) NSStatusItem *statusItem;
-@property (nonatomic, strong, readwrite) NSTimer *updateTimer;
 @property (nonatomic, strong, readwrite) XGSyncthing *syncthing;
 @property (nonatomic, strong, readwrite) STStatusMonitor *statusMonitor;
-@property (nonatomic, readwrite) SyncthingStatus currentStatus;
 @property (strong) STPreferencesWindowController *preferencesWindow;
 @property (strong) STAboutWindowController *aboutWindow;
 
@@ -22,12 +20,9 @@
     [_syncthing runExecutable];
     
     _statusMonitor = [[STStatusMonitor alloc] init];
-    _statusMonitor.URI = _syncthing.URI;
-    _statusMonitor.ApiKey = _syncthing.ApiKey;
+    _statusMonitor.syncthing = _syncthing;
     _statusMonitor.delegate = self;
     [_statusMonitor startMonitoring];
-    
-    _updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateStatusFromTimer) userInfo:nil repeats:YES];
 }
 
 - (void) clickedFolder:(id)sender {
@@ -93,32 +88,25 @@
 	[_statusItem.button.image setTemplate:YES];
 }
 
-- (void) updateStatusFromTimer {
-    if (![_syncthing ping]) {
-        self.currentStatus = SyncthingStatusError;
-        [_statusItem setToolTip:@"Not connected"];
-    }
-}
-
-- (void)setCurrentStatus:(SyncthingStatus)newStatus {
-    if (_currentStatus != newStatus) {
-        switch (newStatus) {
-            case SyncthingStatusIdle:
-                [self updateStatusIcon:@"StatusIconDefault"];
-                break;
-            case SyncthingStatusBusy:
-                [self updateStatusIcon:@"StatusIconSync"];
-                break;
-            case SyncthingStatusError:
-                [self updateStatusIcon:@"StatusIconNotify"];
-                break;
-        }
-    }
-    _currentStatus = newStatus;
-}
-
 - (void) syncMonitorStatusChanged:(SyncthingStatus)status {
-    self.currentStatus = status;
+    switch (status) {
+        case SyncthingStatusIdle:
+            [self updateStatusIcon:@"StatusIconDefault"];
+            [_statusItem setToolTip:@"Idle"];
+            break;
+        case SyncthingStatusBusy:
+            [self updateStatusIcon:@"StatusIconSync"];
+            [_statusItem setToolTip:@"Syncing"];
+            break;
+        case SyncthingStatusOffline:
+            [_statusItem setToolTip:@"Not connected"];
+            [self updateStatusIcon:@"StatusIconNotify"];
+            break;
+        case SyncthingStatusError:
+            [_statusItem setToolTip:@"Error"];
+            [self updateStatusIcon:@"StatusIconNotify"];
+            break;
+    }
 }
 
 - (IBAction) clickedOpen:(id)sender {
@@ -152,9 +140,7 @@
 
 - (IBAction) clickedQuit:(id)sender {
     [_syncthing stopExecutable];
-    
-    [_updateTimer invalidate];
-    _updateTimer = nil;
+    [_statusMonitor stopMonitoring];
     
     [self updateStatusIcon:@"StatusIconNotify"];
     [_statusItem setToolTip:@""];

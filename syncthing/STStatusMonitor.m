@@ -10,10 +10,11 @@
 
 @interface STStatusMonitor ()
 
+@property (nonatomic, assign) BOOL enabled;
 @property (nonatomic, assign) long lastSeenId;
 @property (nonatomic) NSMutableDictionary *folderStates;
 @property (nonatomic, assign) SyncthingStatus currentStatus;
-@property (nonatomic, assign) BOOL enabled;
+@property (nonatomic, strong, readwrite) NSTimer *updateTimer;
 
 @end
 
@@ -32,10 +33,10 @@
         NSString *url = nil;
         
         if (self.lastSeenId) {
-            url = [NSString stringWithFormat:@"%@%@%ld", _URI, @"/rest/events?since=", self.lastSeenId];
+            url = [NSString stringWithFormat:@"%@%@%ld", self.syncthing.URI, @"/rest/events?since=", self.lastSeenId];
         }
         else {
-            url = [NSString stringWithFormat:@"%@%@", _URI, @"/rest/events?limit=1"];
+            url = [NSString stringWithFormat:@"%@%@", self.syncthing.URI, @"/rest/events?limit=1"];
         }
         
         NSData *serverData = nil;
@@ -46,7 +47,7 @@
                                          cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
         
         [theRequest setHTTPMethod:@"GET"];
-        [theRequest setValue:self.ApiKey forHTTPHeaderField:@"X-API-Key"];
+        [theRequest setValue:self.syncthing.ApiKey forHTTPHeaderField:@"X-API-Key"];
         
         serverData = [NSURLConnection sendSynchronousRequest:theRequest
                                            returningResponse:&serverResponse error:&myError];
@@ -92,8 +93,16 @@
     }
 }
 
+- (void) updateStatusFromTimer {
+    if (![_syncthing ping]) {
+        self.currentStatus = SyncthingStatusOffline;
+    }
+    else if (self.currentStatus == SyncthingStatusOffline) {
+        self.currentStatus = SyncthingStatusIdle;
+    }
+}
+
 - (void) updateCurrentStatus {
-    //NSLog(@"updateCurrentStatus: %@", self.folderStates);
     SyncthingStatus newStatus = SyncthingStatusIdle;
     for (NSString *key in self.folderStates) {
         NSString *state = self.folderStates[key];
@@ -104,20 +113,29 @@
                 newStatus = SyncthingStatusError;
         }
     }
-    if (newStatus != self.currentStatus)
-        [self.delegate syncMonitorStatusChanged:newStatus];
     self.currentStatus = newStatus;
+}
+
+- (void)setCurrentStatus:(SyncthingStatus)newStatus {
+    if (_currentStatus != newStatus) {
+        [self.delegate syncMonitorStatusChanged:newStatus];
+    }
+    _currentStatus = newStatus;
 }
 
 - (void) startMonitoring {
     if (!self.enabled) {
         self.enabled = YES;
         [self performSelectorInBackground:@selector(longPoll) withObject: nil];
+        
+        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateStatusFromTimer) userInfo:nil repeats:YES];
     }
 }
 
 - (void) stopMonitoring {
     self.enabled = NO;
+    [_updateTimer invalidate];
+    _updateTimer = nil;
 }
 
 @end

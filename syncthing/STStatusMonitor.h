@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XGSyncthing.h"
 
 typedef NS_ENUM(NSInteger, SyncthingStatus) {
+    SyncthingStatusOffline,
     SyncthingStatusIdle,
     SyncthingStatusBusy,
     SyncthingStatusError
@@ -18,8 +20,7 @@ typedef NS_ENUM(NSInteger, SyncthingStatus) {
 
 @interface STStatusMonitor : NSObject
 
-@property (nonatomic, copy) NSString *URI;
-@property (nonatomic, copy) NSString *ApiKey;
+@property (nonatomic, strong, readwrite) XGSyncthing *syncthing;
 @property (nonatomic) id<STStatusMonitorDelegate> delegate;
 
 - (void) startMonitoring;
