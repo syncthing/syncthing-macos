@@ -23,6 +23,12 @@ else
 	echo "   > ${SYNCTHING_DMG}"
 	mkdir -p ${STAGING_DIR}
 	cp -a -p ${SYNCTHING_APP} ${STAGING_DIR}
+	if [[ ! -z "${SYNCTHING_APP_CODE_SIGN_IDENTITY}" ]]; then
+		echo "-- Codesign with ${SYNCTHING_APP_CODE_SIGN_IDENTITY}"
+		codesign --force --deep --sign "${SYNCTHING_APP_CODE_SIGN_IDENTITY}" "${SYNCTHING_APP}"
+	else
+		echo "-- Skip codesign (variable SYNCTHING_APP_CODE_SIGN_IDENTITY unset)"
+	fi
 
 	${CREATE_DMG} \
 		--volname "Syncthing" \
