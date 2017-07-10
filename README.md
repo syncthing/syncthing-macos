@@ -48,6 +48,12 @@ make debug
 
 It will automaticly download syncthing amd64 binary and add it to the Application Bundle.
 
+For release builds signing the application build and creating an distributable DMG:
+
+```
+SYNCTHING_APP_CODE_SIGN_IDENTITY="Mac Developer: foo@bar.com (XB59MXU8EC)" make release
+```
+
 # Goal
 
 The goal of this project is to keep the Native Mac OS X Syncthing tray as simple as possible. No graphs, no advanced configuration

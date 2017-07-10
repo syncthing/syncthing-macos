@@ -1,6 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
+if [ "${CONFIGURATION}" != "Release" ]; then
+	echo "[SKIP] Not building an Release configuration, skipping DMG creation"
+	exit
+fi
+
 SYNCTHING_DMG_VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${PROJECT_DIR}/${INFOPLIST_FILE}")
 SYNCTHING_DMG="${BUILT_PRODUCTS_DIR}/Syncthing-${SYNCTHING_DMG_VERSION}.dmg"
 SYNCTHING_APP="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app"
@@ -18,6 +23,12 @@ else
 	echo "   > ${SYNCTHING_DMG}"
 	mkdir -p ${STAGING_DIR}
 	cp -a -p ${SYNCTHING_APP} ${STAGING_DIR}
+	if [[ ! -z "${SYNCTHING_APP_CODE_SIGN_IDENTITY}" ]]; then
+		echo "-- Codesign with ${SYNCTHING_APP_CODE_SIGN_IDENTITY}"
+		codesign --force --deep --sign "${SYNCTHING_APP_CODE_SIGN_IDENTITY}" "${SYNCTHING_APP}"
+	else
+		echo "-- Skip codesign (variable SYNCTHING_APP_CODE_SIGN_IDENTITY unset)"
+	fi
 
 	${CREATE_DMG} \
 		--volname "Syncthing" \
