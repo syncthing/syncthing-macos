@@ -6,6 +6,21 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0B9C6B051F144DF1009C68CA /* syncthing-dmg */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0B9C6B061F144DF1009C68CA /* Build configuration list for PBXAggregateTarget "syncthing-dmg" */;
+			buildPhases = (
+				0B889EB11F1451EF006E20E6 /* ShellScript */,
+			);
+			dependencies = (
+				0B9C6B0A1F144DF6009C68CA /* PBXTargetDependency */,
+			);
+			name = "syncthing-dmg";
+			productName = "syncthing-dmg";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0BE9B88A1F050E93002883E2 /* STStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE9B8891F050E93002883E2 /* STStatusMonitor.m */; };
 		C41E02A21D57D233006DD238 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41E02A11D57D233006DD238 /* Sparkle.framework */; };
@@ -38,6 +53,16 @@
 		C4F0E8391DA1CB0900435310 /* STPreferencesInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0E8371DA1CB0900435310 /* STPreferencesInfoViewController.xib */; };
 		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B9C6B091F144DF6009C68CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4A415581D0D579D00DC6018 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4A4155F1D0D579D00DC6018;
+			remoteInfo = syncthing;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C4576BD91D11E3BB0031BCFD /* CopyFiles */ = {
@@ -355,6 +380,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Jerry Jacobs";
 				TargetAttributes = {
+					0B9C6B051F144DF1009C68CA = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
 					C4576BDA1D11E3BB0031BCFD = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -380,6 +409,7 @@
 			targets = (
 				C4A4155F1D0D579D00DC6018 /* syncthing */,
 				C4576BDA1D11E3BB0031BCFD /* xgsyncthing */,
+				0B9C6B051F144DF1009C68CA /* syncthing-dmg */,
 			);
 		};
 /* End PBXProject section */
@@ -405,6 +435,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0B889EB11F1451EF006E20E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh\n";
+		};
 		C4946AFF1D5876AF008447A2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,6 +497,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0B9C6B0A1F144DF6009C68CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4A4155F1D0D579D00DC6018 /* syncthing */;
+			targetProxy = 0B9C6B091F144DF6009C68CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C4A4156B1D0D579D00DC6018 /* STApplication.xib */ = {
 			isa = PBXVariantGroup;
@@ -466,6 +517,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0B9C6B071F144DF1009C68CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0B9C6B081F144DF1009C68CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C4576BE01D11E3BB0031BCFD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -627,6 +692,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0B9C6B061F144DF1009C68CA /* Build configuration list for PBXAggregateTarget "syncthing-dmg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B9C6B071F144DF1009C68CA /* Debug */,
+				0B9C6B081F144DF1009C68CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C4576BDF1D11E3BB0031BCFD /* Build configuration list for PBXNativeTarget "xgsyncthing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

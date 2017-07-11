@@ -51,7 +51,13 @@ It will automaticly download syncthing amd64 binary and add it to the Applicatio
 For release builds signing the application build and creating an distributable DMG:
 
 ```
-SYNCTHING_APP_CODE_SIGN_IDENTITY="Mac Developer: foo@bar.com (XB59MXU8EC)" make release
+make release-dmg
+```
+
+The script will select the first available Developer ID and sign the app with it. To specify the signing identity, use `SYNCTHING_APP_CODE_SIGN_IDENTITY` environment variable:
+
+```
+SYNCTHING_APP_CODE_SIGN_IDENTITY="Mac Developer: foo@bar.com (XB59MXU8EC)" make release-dmg
 ```
 
 # Goal
