@@ -1,14 +1,21 @@
 #!/bin/bash
 set -euo pipefail
 
-SYNCTHING_DMG_VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${PROJECT_DIR}/${INFOPLIST_FILE}")
+if [ "${CONFIGURATION}" != "Release" ]; then
+	echo "[SKIP] Not building an Release configuration, skipping DMG creation"
+	exit
+fi
+
+SYNCTHING_DMG_VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${PROJECT_DIR}/syncthing/Info.plist")
 SYNCTHING_DMG="${BUILT_PRODUCTS_DIR}/Syncthing-${SYNCTHING_DMG_VERSION}.dmg"
-SYNCTHING_APP="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app"
-SYNCTHING_APP_RESOURCES="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Resources"
+SYNCTHING_APP="${BUILT_PRODUCTS_DIR}/Syncthing.app"
+SYNCTHING_APP_RESOURCES="${SYNCTHING_APP}/Contents/Resources"
 
 CREATE_DMG="${SOURCE_ROOT}/3thparty/github.com/andreyvit/create-dmg/create-dmg"
 STAGING_DIR="${BUILT_PRODUCTS_DIR}/staging/dmg"
+STAGING_APP="${STAGING_DIR}/Syncthing.app"
 DMG_TEMPLATE_DIR="${SOURCE_ROOT}/syncthing/Templates/DMG"
+DEFAULT_IDENTITY=$(security find-identity -v -p codesigning | grep "Developer ID" | head -1 | cut -f 4 -d " " || true)
 
 if [ -f "${SYNCTHING_DMG}" ]; then
 	echo "-- Syncthing dmg already created"
@@ -16,8 +23,24 @@ if [ -f "${SYNCTHING_DMG}" ]; then
 else
 	echo "-- Creating syncthing dmg"
 	echo "   > ${SYNCTHING_DMG}"
+	rm -rf ${STAGING_DIR}
 	mkdir -p ${STAGING_DIR}
 	cp -a -p ${SYNCTHING_APP} ${STAGING_DIR}
+
+	if [[ ! -z "${SYNCTHING_APP_CODE_SIGN_IDENTITY+x}" ]]; then
+		echo "-- Codesign with ${SYNCTHING_APP_CODE_SIGN_IDENTITY}"
+		SELECTED_IDENTITY="${SYNCTHING_APP_CODE_SIGN_IDENTITY}"
+	elif [[ ! -z "${DEFAULT_IDENTITY}" ]]; then
+		echo "-- Using first valid identity (variable SYNCTHING_APP_CODE_SIGN_IDENTITY unset)"
+		SELECTED_IDENTITY="${DEFAULT_IDENTITY}"
+	else
+		echo "-- Skip codesign (variable SYNCTHING_APP_CODE_SIGN_IDENTITY unset and no Developer ID identity found)"
+		SELECTED_IDENTITY=""
+	fi
+
+	if [[ ! -z "${SELECTED_IDENTITY}" ]]; then
+		codesign --force --deep --sign "${SELECTED_IDENTITY}" "${STAGING_APP}"
+	fi
 
 	${CREATE_DMG} \
 		--volname "Syncthing" \
@@ -30,4 +53,8 @@ else
 		--app-drop-link 240 380 \
 		${SYNCTHING_DMG} \
 		${STAGING_DIR}
+
+	if [[ ! -z "${SELECTED_IDENTITY}" ]]; then
+		codesign --sign "${SELECTED_IDENTITY}" "${SYNCTHING_DMG}"
+	fi
 fi
