@@ -47,7 +47,7 @@
 - (void) updateStartAtLogin {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
-    if ([defaults integerForKey:@"StartAtLogin"]) {
+    if ([defaults boolForKey:@"StartAtLogin"]) {
         if (![STLoginItem wasAppAddedAsLoginItem])
             [STLoginItem addAppAsLoginItem];
     } else {

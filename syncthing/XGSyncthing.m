@@ -132,7 +132,7 @@
     return [json objectForKey:@"folders"];
 }
 
-- (void)loadConfigurationFromXML
+- (BOOL)loadConfigurationFromXML
 {
     NSError* error;
     NSURL *supURL = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory
@@ -141,9 +141,10 @@
                                                              create:NO
                                                               error:&error];
     NSURL* configUrl = [supURL URLByAppendingPathComponent:@"Syncthing/config.xml"];
+    _parsing = [[NSMutableArray alloc] init];
     _configParser = [[NSXMLParser alloc] initWithContentsOfURL:configUrl];
     [_configParser setDelegate:self];
-    [_configParser parse];
+    return [_configParser parse];
 }
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
@@ -167,7 +168,7 @@
     NSString *keyPath = [_parsing componentsJoinedByString:@"."];
     
     if ([keyPath isEqualToString:@"configuration.gui.apikey"]) {
-        _apiKey = [_apiKey stringByAppendingString:string];
+        _apiKey = string;
     } else if  ([keyPath isEqualToString:@"configuration.gui.address"]) {
         _URI = [_URI stringByAppendingString:string];
     }

@@ -27,6 +27,6 @@
 /**
  * Load configuration from XML file
  */
-- (void)loadConfigurationFromXML;
+- (BOOL)loadConfigurationFromXML;
 
 @end
