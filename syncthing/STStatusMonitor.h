@@ -31,5 +31,6 @@ typedef NS_ENUM(NSInteger, SyncthingStatus) {
 @protocol STStatusMonitorDelegate <NSObject>
 
 - (void)syncMonitorStatusChanged:(SyncthingStatus)status;
+- (void)syncMonitorEventReceived:(NSDictionary *)event;
 
 @end

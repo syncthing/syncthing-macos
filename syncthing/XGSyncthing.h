@@ -22,7 +22,12 @@
 - (bool)ping;
 - (id)getUptime;
 - (id)getMyID;
+- (NSDictionary *)getConfig;
 - (id)getFolders;
+- (NSArray *)getDevices;
+- (void)pauseAllDevices;
+- (void)resumeAllDevices;
+- (void)rescanAll;
 
 /**
  * Load configuration from XML file

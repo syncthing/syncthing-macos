@@ -91,6 +91,7 @@
         self.folderStates[folder] = newState;
         [self updateCurrentStatus];
     }
+    [self.delegate syncMonitorEventReceived:event];
 }
 
 - (void) updateStatusFromTimer {
