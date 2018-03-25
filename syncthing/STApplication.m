@@ -6,8 +6,10 @@
 @property (nonatomic, strong, readwrite) NSStatusItem *statusItem;
 @property (nonatomic, strong, readwrite) XGSyncthing *syncthing;
 @property (nonatomic, strong, readwrite) STStatusMonitor *statusMonitor;
+@property (weak) IBOutlet NSMenuItem *toggleAllDevicesItem;
 @property (strong) STPreferencesWindowController *preferencesWindow;
 @property (strong) STAboutWindowController *aboutWindow;
+@property (nonatomic, assign) BOOL devicesPaused;
 
 @end
 
@@ -122,6 +124,37 @@
     }
 }
 
+- (void) syncMonitorEventReceived:(NSDictionary *)event {
+    NSNumber *eventId = [event objectForKey:@"id"];
+    NSString *eventType = [event objectForKey:@"type"];
+    NSDictionary *eventData = [event objectForKey:@"data"];
+
+    if ([eventType isEqualToString:@"ConfigSaved"]) {
+        [self refreshDevices];
+    }
+    else if ([eventType isEqualToString:@"DevicePaused"] ||
+        [eventType isEqualToString:@"DeviceResumed"]) {
+        [self refreshDevices];
+    }
+}
+
+- (void)refreshDevices {
+    BOOL allPaused = true;
+    NSArray *devices = [_syncthing getDevices];
+    if (!devices.count)
+        return;
+    for (NSDictionary *device in devices) {
+        NSNumber *paused = device[@"paused"];
+        if (paused == nil || paused.boolValue == NO)
+            allPaused = false;
+    }
+    self.devicesPaused = allPaused;
+    if (self.devicesPaused)
+        self.toggleAllDevicesItem.title = @"Resume All Devices";
+    else
+        self.toggleAllDevicesItem.title = @"Pause All Devices";
+}
+
 - (IBAction) clickedOpen:(id)sender {
     NSURL *URL = [NSURL URLWithString:[_syncthing URI]];
     [[NSWorkspace sharedWorkspace] openURL:URL];
@@ -160,6 +193,17 @@
     _statusItem.menu = nil;
     
     [NSApp performSelector:@selector(terminate:) withObject:nil];
+}
+
+- (IBAction)clickedToggleAllDevices:(NSMenuItem *)sender {
+    if (self.devicesPaused)
+        [_syncthing resumeAllDevices];
+    else
+        [_syncthing pauseAllDevices];
+}
+
+- (IBAction)clickedRescanAll:(NSMenuItem *)sender {
+    [_syncthing rescanAll];
 }
 
 // TODO: need a more generic approach for opening windows

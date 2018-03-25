@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,6 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="STAppDelegate">
             <connections>
                 <outlet property="Menu" destination="FYW-KQ-yxY" id="plp-7h-Wj2"/>
+                <outlet property="toggleAllDevicesItem" destination="kBF-aK-W8P" id="ITn-Le-nZi"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -37,6 +39,19 @@
                             <outlet property="delegate" destination="Voe-Tx-rLC" id="YxH-QH-bOa"/>
                         </connections>
                     </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="dFB-LR-pV8"/>
+                <menuItem title="Pause All Devices" id="kBF-aK-W8P">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="clickedToggleAllDevices:" target="Voe-Tx-rLC" id="iqS-22-Q46"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Rescan All" id="boL-Lr-rxV">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="clickedRescanAll:" target="Voe-Tx-rLC" id="Mrn-A1-oBJ"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="t35-2r-DDO"/>
                 <menuItem title="Preferences..." id="lgT-yX-bGZ">
