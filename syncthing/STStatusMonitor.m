@@ -64,6 +64,12 @@
             self.lastSeenId = 0;
             [NSThread sleepForTimeInterval:1.0];
         }
+        
+        NSInteger statusCode = ((NSHTTPURLResponse *)serverResponse).statusCode;
+        if (myError != nil || statusCode >= 400) {
+            // Retry after delay if the server returned an error
+            [NSThread sleepForTimeInterval:1.0];
+        }
     }
     
     if (self.enabled)
