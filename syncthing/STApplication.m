@@ -16,6 +16,8 @@
 @implementation STAppDelegate
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    
     _syncthing = [[XGSyncthing alloc] init];
     
     [self applicationLoadConfiguration];
@@ -25,6 +27,28 @@
     _statusMonitor.syncthing = _syncthing;
     _statusMonitor.delegate = self;
     [_statusMonitor startMonitoring];
+    
+    NSUserNotification *n = [[NSUserNotification alloc] init];
+    n.title = @"Syncthing";
+    n.informativeText = @"Add folder NewFolder";
+    n.hasActionButton = true;
+    n.actionButtonTitle = @"Accept";
+    n.otherButtonTitle = @"Decline";
+    // XXX: Seems undocumented API hack or else the buttons are not shown
+    [n setValue:@YES forKey:@"_showsButtons"];
+    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:n];
+}
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification{
+    return YES;
+}
+
+- (void) userNotificationCenter:(NSUserNotificationCenter *)center
+        didActivateNotification:(NSUserNotification *)notification
+{
+    
+    NSLog(@"geklikt");
 }
 
 - (void) clickedFolder:(id)sender {
@@ -125,9 +149,7 @@
 }
 
 - (void) syncMonitorEventReceived:(NSDictionary *)event {
-    NSNumber *eventId = [event objectForKey:@"id"];
     NSString *eventType = [event objectForKey:@"type"];
-    NSDictionary *eventData = [event objectForKey:@"data"];
 
     if ([eventType isEqualToString:@"ConfigSaved"]) {
         [self refreshDevices];
