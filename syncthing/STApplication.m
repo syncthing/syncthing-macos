@@ -27,17 +27,6 @@
     _statusMonitor.syncthing = _syncthing;
     _statusMonitor.delegate = self;
     [_statusMonitor startMonitoring];
-    
-    NSUserNotification *n = [[NSUserNotification alloc] init];
-    n.title = @"Syncthing";
-    n.informativeText = @"Add folder NewFolder";
-    n.hasActionButton = true;
-    n.actionButtonTitle = @"Accept";
-    n.otherButtonTitle = @"Decline";
-    // XXX: Seems undocumented API hack or else the buttons are not shown
-    [n setValue:@YES forKey:@"_showsButtons"];
-    
-    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:n];
 }
 
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification{
@@ -47,8 +36,7 @@
 - (void) userNotificationCenter:(NSUserNotificationCenter *)center
         didActivateNotification:(NSUserNotification *)notification
 {
-    
-    NSLog(@"geklikt");
+    NSDictionary *ui = notification.userInfo;
 }
 
 - (void) clickedFolder:(id)sender {

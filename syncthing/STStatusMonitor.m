@@ -90,6 +90,30 @@
         
         self.folderStates[folder] = newState;
         [self updateCurrentStatus];
+    } else if ([eventType isEqualToString:@"FolderRejected"]) {
+        NSUserNotification *n = [[NSUserNotification alloc] init];
+        n.title = @"Syncthing";
+        n.informativeText = [NSString stringWithFormat:@"New folder %@", [eventData objectForKey:@"folderLabel"]];
+        n.hasActionButton = true;
+        n.actionButtonTitle = @"Accept";
+        n.otherButtonTitle = @"Decline";
+        n.userInfo = [[NSDictionary alloc] initWithDictionary:event];
+        // XXX: Seems undocumented API hack or else the custom buttons are not shown
+        [n setValue:@YES forKey:@"_showsButtons"];
+
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:n];
+    } else if ([eventType isEqualToString:@"DeviceRejected"]) {
+        NSUserNotification *n = [[NSUserNotification alloc] init];
+        n.title = @"Syncthing";
+        n.informativeText = [NSString stringWithFormat:@"New device %@", [eventData objectForKey:@"name"]];
+        n.hasActionButton = true;
+        n.actionButtonTitle = @"Accept";
+        n.otherButtonTitle = @"Decline";
+        n.userInfo = [[NSDictionary alloc] initWithDictionary:event];
+        // XXX: Seems undocumented API hack or else the custom buttons are not shown
+        [n setValue:@YES forKey:@"_showsButtons"];
+
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:n];
     }
     [self.delegate syncMonitorEventReceived:event];
 }
