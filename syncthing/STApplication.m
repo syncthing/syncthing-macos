@@ -30,6 +30,32 @@
 }
 
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification{
+    NSLog(@"shouldPresent: %@", notification);
+    
+    // Taken from https://stackoverflow.com/questions/21110714/mac-os-x-nsusernotificationcenter-notification-get-dismiss-event-callback
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                   ^{
+                       BOOL notificationStillPresent;
+                       do {
+                           notificationStillPresent = NO;
+                           for (NSUserNotification *nox in [[NSUserNotificationCenter defaultUserNotificationCenter] deliveredNotifications]) {
+                               if ([nox.identifier isEqualToString:notification.identifier]) notificationStillPresent = YES;
+                           }
+                           
+                           if (notificationStillPresent) {
+                               NSLog(@"still present %@", notification.identifier);
+                               [NSThread sleepForTimeInterval:1.0f];
+                           } else {
+                               NSLog(@"not present %@", notification.identifier);
+                           }
+                       } while (notificationStillPresent);
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           NSLog(@"gone %@", notification.identifier);
+                           //[self notificationHandlerForNotification:notification];
+                       });
+                   });
+
+    
     return YES;
 }
 
@@ -37,6 +63,7 @@
         didActivateNotification:(NSUserNotification *)notification
 {
     NSDictionary *ui = notification.userInfo;
+    NSLog(@"ui %@", ui);
 }
 
 - (void) clickedFolder:(id)sender {

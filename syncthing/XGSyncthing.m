@@ -20,6 +20,8 @@
     
     [_StTask setLaunchPath:_Executable];
     [_StTask setArguments:@[@"-no-browser"]];
+    [_StTask setStandardOutput:NULL];
+    [_StTask setStandardError:NULL];
     [_StTask setQualityOfService:NSQualityOfServiceBackground];
     [_StTask launch];
 

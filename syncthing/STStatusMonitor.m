@@ -97,6 +97,7 @@
         n.hasActionButton = true;
         n.actionButtonTitle = @"Accept";
         n.otherButtonTitle = @"Decline";
+        n.identifier = [NSString stringWithFormat:@"%@-%@", eventId, eventType];
         n.userInfo = [[NSDictionary alloc] initWithDictionary:event];
         // XXX: Seems undocumented API hack or else the custom buttons are not shown
         [n setValue:@YES forKey:@"_showsButtons"];
@@ -109,6 +110,7 @@
         n.hasActionButton = true;
         n.actionButtonTitle = @"Accept";
         n.otherButtonTitle = @"Decline";
+        n.identifier = [NSString stringWithFormat:@"%@-%@", eventId, eventType];
         n.userInfo = [[NSDictionary alloc] initWithDictionary:event];
         // XXX: Seems undocumented API hack or else the custom buttons are not shown
         [n setValue:@YES forKey:@"_showsButtons"];
