@@ -1,10 +1,14 @@
 # Syncthing for macOS design
 
+## Dependency management
+
+[CocoaPods](https://cocoapods.org/) is used for dependency management. It can be installed with [Homebrew](https://brew.sh/) package manager. For more information about CocoaPods read the [CocoaPods Guides](https://guides.cocoapods.org/).
+
 ## Versioning scheme
 
-It uses the shipped syncthing executable version appended with a `-<build>` number.
-So for Syncthing `0.14.24` with first build/package it is versioned as `0.14.24-1`.
-Currently there is no need for having a separate version from syncthing.
+It uses the shipped syncthing executable version appended with a `-<build index>` number.
+So for Syncthing `0.14.28` with first build/package it is versioned as `0.14.28-1`.
+Currently there is no need for having a separate version for `syncthing-macosx`. As it also keeps the wrapper tightly coupled with the syncthing releases.
 
 ## Compilation and packaging process
 
