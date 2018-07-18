@@ -97,29 +97,26 @@
         self.folderStates[folder] = newState;
         [self updateCurrentStatus];
     } else if ([eventType isEqualToString:@"FolderRejected"]) {
-        NSUserNotification *n = [[NSUserNotification alloc] init];
-        n.title = @"Syncthing";
-        n.informativeText = [NSString stringWithFormat:@"New folder %@", [eventData objectForKey:@"folderLabel"]];
-        n.hasActionButton = true;
-        n.actionButtonTitle = @"Accept";
-        n.otherButtonTitle = @"Decline";
-        n.identifier = [NSString stringWithFormat:@"%@-%@", eventId, eventType];
-        n.userInfo = [[NSDictionary alloc] initWithDictionary:event];
-
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:n];
+        [self processEventNotificationAcceptDecline:[NSString stringWithFormat:@"New folder %@", [eventData objectForKey:@"folderLabel"]] identifier:[NSString stringWithFormat:@"%@-%@", eventId, eventType] userInfo:[[NSDictionary alloc] initWithDictionary:event]];
     } else if ([eventType isEqualToString:@"DeviceRejected"]) {
-        NSUserNotification *n = [[NSUserNotification alloc] init];
-        n.title = @"Syncthing";
-        n.informativeText = [NSString stringWithFormat:@"New device %@", [eventData objectForKey:@"name"]];
-        n.hasActionButton = true;
-        n.actionButtonTitle = @"Accept";
-        n.otherButtonTitle = @"Decline";
-        n.identifier = [NSString stringWithFormat:@"%@-%@", eventId, eventType];
-        n.userInfo = [[NSDictionary alloc] initWithDictionary:event];
-
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:n];
+                [self processEventNotificationAcceptDecline:[NSString stringWithFormat:@"New device %@", [eventData objectForKey:@"name"]] identifier:[NSString stringWithFormat:@"%@-%@", eventId, eventType] userInfo:[[NSDictionary alloc] initWithDictionary:event]];
     }
     [self.delegate syncMonitorEventReceived:event];
+}
+
+- (void) processEventNotificationAcceptDecline: (NSString *) informativeText identifier:(NSString *)identifier userInfo:(NSDictionary *)userInfo  {
+    NSUserNotification *n = [[NSUserNotification alloc] init];
+    
+    n.informativeText = informativeText;
+    n.identifier = identifier;
+    n.userInfo = userInfo;
+    
+    n.title = @"Syncthing";
+    n.hasActionButton = true;
+    n.actionButtonTitle = @"Accept";
+    n.otherButtonTitle = @"Decline";
+    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:n];
 }
 
 - (void) updateStatusFromTimer {
