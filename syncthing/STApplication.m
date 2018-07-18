@@ -29,50 +29,19 @@
     [_statusMonitor startMonitoring];
 }
 
-- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification{
-    NSLog(@"shouldPresent: %@", notification);
-    
-    // Taken from https://stackoverflow.com/questions/21110714/mac-os-x-nsusernotificationcenter-notification-get-dismiss-event-callback
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-                   ^{
-                       BOOL notificationStillPresent;
-                       do {
-                           notificationStillPresent = NO;
-                           for (NSUserNotification *nox in [[NSUserNotificationCenter defaultUserNotificationCenter] deliveredNotifications]) {
-                               if ([nox.identifier isEqualToString:notification.identifier]) notificationStillPresent = YES;
-                           }
-                           
-                           if (notificationStillPresent) {
-                               NSLog(@"still present %@", notification.identifier);
-                               [NSThread sleepForTimeInterval:1.0f];
-                           } else {
-                               NSLog(@"not present %@", notification.identifier);
-                           }
-                       } while (notificationStillPresent);
-                       dispatch_async(dispatch_get_main_queue(), ^{
-                           NSLog(@"gone %@", notification.identifier);
-                           //[self notificationHandlerForNotification:notification];
-                       });
-                   });
-
-    
-    return YES;
-}
-
 - (void) userNotificationCenter:(NSUserNotificationCenter *)center
         didActivateNotification:(NSUserNotification *)notification
 {
     NSDictionary *ui = notification.userInfo;
     NSLog(@"ui %@", ui);
+    
+    [center removeDeliveredNotification:notification];
+    notification = nil;
 }
 
 - (void) clickedFolder:(id)sender {
     NSString *path = [sender representedObject];
     [[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:@""];
-}
-
-- (void) applicationWillTerminate:(NSNotification *)aNotification {
-    // TODO: is this needed -> remove?
 }
 
 - (void) awakeFromNib {
@@ -82,7 +51,6 @@
     [self updateStatusIcon:@"StatusIconNotify"];
 }
 
-// TODO: move to STConfiguration class
 - (void)applicationLoadConfiguration {
     static int configLoadAttempt = 1;
     
@@ -128,13 +96,6 @@
     if (![defaults objectForKey:@"StartAtLogin"]) {
         [defaults setBool:[STLoginItem wasAppAddedAsLoginItem] forKey:@"StartAtLogin"];
     }
-}
-
-- (void) sendNotification:(NSString *)text {
-    NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = @"Syncthing";
-    notification.informativeText = text;
-    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }
 
 - (void) updateStatusIcon:(NSString *)icon {
