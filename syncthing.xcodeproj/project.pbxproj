@@ -23,8 +23,6 @@
 
 /* Begin PBXBuildFile section */
 		0BE9B88A1F050E93002883E2 /* STStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE9B8891F050E93002883E2 /* STStatusMonitor.m */; };
-		C41E02A21D57D233006DD238 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41E02A11D57D233006DD238 /* Sparkle.framework */; };
-		C41E02A31D57D28C006DD238 /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = C41E02A11D57D233006DD238 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
 		C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */; };
 		C4460A831D0DD38F00200C21 /* STPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */; };
@@ -80,7 +78,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C41E02A31D57D28C006DD238 /* Sparkle.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,7 +87,9 @@
 /* Begin PBXFileReference section */
 		0BE9B8881F050E93002883E2 /* STStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStatusMonitor.h; sourceTree = "<group>"; };
 		0BE9B8891F050E93002883E2 /* STStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStatusMonitor.m; sourceTree = "<group>"; };
-		C41E02A11D57D233006DD238 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = 3thparty/frameworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
+		29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.release.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.release.xcconfig"; sourceTree = "<group>"; };
+		5BE33EE7B1F21764C8AA4890 /* Pods-xgsyncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xgsyncthing.release.xcconfig"; path = "Pods/Target Support Files/Pods-xgsyncthing/Pods-xgsyncthing.release.xcconfig"; sourceTree = "<group>"; };
+		8936500B5F25163F49F1401D /* Pods-xgsyncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xgsyncthing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xgsyncthing/Pods-xgsyncthing.debug.xcconfig"; sourceTree = "<group>"; };
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
 		C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesWindowController.m; path = Controllers/STPreferencesWindowController.m; sourceTree = "<group>"; };
@@ -138,6 +137,7 @@
 		C4F0E8371DA1CB0900435310 /* STPreferencesInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesInfoViewController.xib; path = UI/STPreferencesWindow/STPreferencesInfoViewController.xib; sourceTree = "<group>"; };
 		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
 		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
+		FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,13 +154,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C41E02A21D57D233006DD238 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37B4D367252EC0BC94949322 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */,
+				29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */,
+				8936500B5F25163F49F1401D /* Pods-xgsyncthing.debug.xcconfig */,
+				5BE33EE7B1F21764C8AA4890 /* Pods-xgsyncthing.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C4460A881D0DE58B00200C21 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +199,6 @@
 		C46261361D578DA800B16BC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C41E02A11D57D233006DD238 /* Sparkle.framework */,
 				C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */,
 				C4576BE51D11E79F0031BCFD /* Foundation.framework */,
 			);
@@ -254,6 +263,7 @@
 				C4A415621D0D579D00DC6018 /* Sources */,
 				C4576BDC1D11E3BB0031BCFD /* xgsyncthing */,
 				C4A415611D0D579D00DC6018 /* Products */,
+				37B4D367252EC0BC94949322 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -337,6 +347,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4576BDF1D11E3BB0031BCFD /* Build configuration list for PBXNativeTarget "xgsyncthing" */;
 			buildPhases = (
+				45CC8E0944A58A08F2F95479 /* [CP] Check Pods Manifest.lock */,
 				C4576BD71D11E3BB0031BCFD /* Sources */,
 				C4576BD81D11E3BB0031BCFD /* Frameworks */,
 				C4576BD91D11E3BB0031BCFD /* CopyFiles */,
@@ -354,11 +365,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4A415711D0D579D00DC6018 /* Build configuration list for PBXNativeTarget "syncthing" */;
 			buildPhases = (
+				8A5B68A2BC79FFEFE08E3863 /* [CP] Check Pods Manifest.lock */,
 				C4A4155C1D0D579D00DC6018 /* Sources */,
 				C4A4155D1D0D579D00DC6018 /* Frameworks */,
 				C4A4155E1D0D579D00DC6018 /* Resources */,
 				C462613D1D57944400B16BC6 /* Copy Files */,
 				C4946AFF1D5876AF008447A2 /* ShellScript */,
+				76C4F2C92ED96E367934A99B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -446,6 +459,62 @@
 			shellPath = /bin/sh;
 			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh\n";
 		};
+		45CC8E0944A58A08F2F95479 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-xgsyncthing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76C4F2C92ED96E367934A99B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-syncthing/Pods-syncthing-frameworks.sh",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-syncthing/Pods-syncthing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A5B68A2BC79FFEFE08E3863 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-syncthing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C4946AFF1D5876AF008447A2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,6 +600,7 @@
 		};
 		C4576BE01D11E3BB0031BCFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8936500B5F25163F49F1401D /* Pods-xgsyncthing.debug.xcconfig */;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -542,6 +612,7 @@
 		};
 		C4576BE11D11E3BB0031BCFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BE33EE7B1F21764C8AA4890 /* Pods-xgsyncthing.release.xcconfig */;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = YES;
 				OTHER_CFLAGS = "";
@@ -639,6 +710,7 @@
 		};
 		C4A415721D0D579D00DC6018 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
@@ -664,6 +736,7 @@
 		};
 		C4A415731D0D579D00DC6018 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "";

@@ -204,7 +204,8 @@
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"label" ascending:YES comparator:^NSComparisonResult(id obj1, id obj2) {
         return [(NSString *)obj1 compare:(NSString *)obj2 options:NSNumericSearch];
     }];
-    NSArray *folders = [[self.syncthing getFolders] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+
+    NSArray *folders = [[self.syncthing getFolders] sortedArrayUsingDescriptors:@[sort]];
 
     for (id dir in folders) {
         NSString *name = [dir objectForKey:@"label"];
