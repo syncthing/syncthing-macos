@@ -1,0 +1,11 @@
+# Serves https://upgrades.xor-gate.org/syncthing-macosx/appcast.xml
+# Redirects https://syncthing-macosx/releases/download/v0.14.46-1/Syncthing-0.14.46-1.dmg
+#           -> https://github.com/xor-gate/syncthing-macosx/releases/download/v0.14.46-1/Syncthing-0.14.46-1.dmg
+upgrades.xor-gate.org {
+	root pub
+	log stdout
+	errors stdout
+	gzip
+	tls admin@xor-gate.org
+	redir /syncthing-macosx/releases/download https://github.com/xor-gate/{path}
+}
