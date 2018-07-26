@@ -29,7 +29,7 @@ func init() {
 	flag.StringVar(&outFilename, "o", "appcast.xml", "Output filename")
 	flag.StringVar(&githubOrg, "github-org", "xor-gate", "Organisation name on github")
 	flag.StringVar(&githubRepo, "github-repo", "syncthing-macosx", "Repository name on github")
-	flag.StringVar(&downloadURL, "download-url", "https://github.com/xor-gate/syncthing-macosx/releases/download", "Download URL of DMGs")
+	flag.StringVar(&downloadURL, "download-url", "https://upgrades.xor-gate.org/syncthing-macosx/releases/download", "Download URL of DMGs")
 	flag.StringVar(&appcastURL, "appcast-url", "https://upgrades.xor-gate.org/syncthing-macosx/appcast.xml", "Sparkle appcast.xml URL")
 	flag.Parse()
 }
