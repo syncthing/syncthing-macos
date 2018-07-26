@@ -4,8 +4,8 @@
 #           -> https://github.com/xor-gate/syncthing-macosx/releases/download/v0.14.8-1/Syncthing-0.14.8-1.dmg
 upgrades.xor-gate.org {
 	root pub
-	log stdout
-	errors stdout
+	log log/upgrades.xor-gate.org.access.log
+	errors log/upgrades.xor-gate.org.error.log
 	gzip
 	tls admin@xor-gate.org
         redir 301 {
