@@ -5,7 +5,7 @@ set -euo pipefail
 SYNCTHING_ARCH="amd64"
 SYNCTHING_VERSION="0.14.49"
 SYNCTHING_DIST_URL="https://github.com/syncthing/syncthing/releases/download"
-SYNCTHING_TARBALL_URL="${SYNCTHING_DIST_URL}/v${SYNCTHING_VERSION}/syncthing-macosx-${SYNCTHING_ARCH}-v${SYNCTHING_VERSION}.tar.gz"
+SYNCTHING_TARBALL_URL="${SYNCTHING_DIST_URL}/v${SYNCTHING_VERSION}/syncthing-macos-${SYNCTHING_ARCH}-v${SYNCTHING_VERSION}.tar.gz"
 
 CURL_ARGS="--connect-timeout 5 --max-time 10 --retry 5 --retry-delay 3 --retry-max-time 60"
 DL_DIR="${BUILT_PRODUCTS_DIR}/dl"
