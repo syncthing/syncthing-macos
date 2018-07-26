@@ -2,12 +2,12 @@
 package main
 
 import (
-	"context"
 	"bytes"
-	"io/ioutil"
+	"context"
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"strconv"
 	"strings"
@@ -29,26 +29,31 @@ func init() {
 	flag.StringVar(&outFilename, "o", "appcast.xml", "Output filename")
 	flag.StringVar(&githubOrg, "github-org", "xor-gate", "Organisation name on github")
 	flag.StringVar(&githubRepo, "github-repo", "syncthing-macosx", "Repository name on github")
-	flag.StringVar(&downloadURL, "download-url", "https://upgrades.xor-gate.org/syncthing-macosx", "Download URL of DMGs")
+	flag.StringVar(&downloadURL, "download-url", "https://github.com/xor-gate/syncthing-macosx/releases/download", "Download URL of DMGs")
 	flag.StringVar(&appcastURL, "appcast-url", "https://upgrades.xor-gate.org/syncthing-macosx/appcast.xml", "Sparkle appcast.xml URL")
 	flag.Parse()
 }
 
 func main() {
+	// Load github releases
+	log.Printf("loading github releases from %s/%s", githubOrg, githubRepo)
+
 	ghclient := github.NewClient(nil)
 	releases, _, err := ghclient.Repositories.ListReleases(context.Background(), githubOrg, githubRepo, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// Collect Sparkle items
 	var items sparkle.Items
 
 	for _, release := range releases {
 		item, err := githubRepositoryReleaseToSparkleItem(release)
 		if err != nil {
-			log.Println(err)
+			log.Println("warning:", err)
 			continue
 		}
+		log.Println("added release at", item.Enclosure.URL)
 		items = append(items, item)
 	}
 
@@ -74,7 +79,14 @@ func main() {
 	xw := xml.NewEncoder(xmlOut)
 	xw.Encode(s)
 
-	ioutil.WriteFile(outFilename, xmlOut.Bytes(), 0755)
+	err = ioutil.WriteFile(outFilename, xmlOut.Bytes(), 0755)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println("appcast file", outFilename, "successfully written")
+	log.Println("appcast.xml url:", appcastURL)
+	log.Println("download url:", downloadURL)
 }
 
 func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sparkle.Item, error) {
