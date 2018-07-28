@@ -34,7 +34,7 @@
 		<true/>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 Jerry Jacobs (github.com/xor-gate). All rights reserved.</string>
+	<string>Copyright © 2018 Syncthing for macOS authors (github.com/syncthing/syncthing-macos). All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>STApplication</string>
 	<key>NSPrincipalClass</key>
@@ -42,7 +42,7 @@
 	<key>STBundleName</key>
 	<string>syncthing-macosx</string>
 	<key>STProjectHomepageURL</key>
-	<string>https://github.com/xor-gate/syncthing-macosx</string>
+	<string>https://github.com/syncthing/syncthing-macos</string>
 	<key>SUFeedURL</key>
 	<string>https://xor-gate.github.io/syncthing-macosx/appcast.xml</string>
 	<key>SUScheduledCheckInterval</key>
