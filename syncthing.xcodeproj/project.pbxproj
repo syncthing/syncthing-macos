@@ -725,7 +725,7 @@
 				INFOPLIST_FILE = syncthing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.syncthing.syncthing-macos";
 				PRODUCT_NAME = Syncthing;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -751,7 +751,7 @@
 				INFOPLIST_FILE = syncthing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.syncthing.syncthing-macos";
 				PRODUCT_NAME = Syncthing;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
