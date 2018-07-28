@@ -19,3 +19,12 @@ Currently there is no need for having a separate version for `syncthing-macosx`.
 * Both the app bundle and the DMG are signed with the first available Developer ID certificate, if found (or the one specified through SYNCTHING_APP_CODE_SIGN_IDENTITY environment variable)
 
 `syncthing-macosx` will only ship [stable releases and no release candidates](https://forum.syncthing.net/t/introducing-stable-releases-and-release-candidates/9167).
+
+## New release
+
+* Update `syncthing/Scripts/syncthing-resource.sh`, `SYNCTHING_VERSION`
+* Update `syncthing/Info.plist`
+  * `CFBundleShortVersionString`
+  * `CFBundleVersion`
+* Create git tag on develop
+* Merge develop to master branch
