@@ -28,6 +28,7 @@
 - (void)pauseAllDevices;
 - (void)resumeAllDevices;
 - (void)rescanAll;
+- (id)getEventsSince:(long)since;
 
 /**
  * Load configuration from XML file
