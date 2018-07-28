@@ -63,8 +63,7 @@ The goal of this project is to keep the Native Mac OS X Syncthing tray as simple
 
 # Known bugs
 
-* Issue [#24](https://github.com/syncthing/syncthing-macos/issues/24): HTTPS with self signed certificate doesn't work and gives no usefull error.
-  * Workaround: Disable HTTPS
+See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues)for the current status.
 
 # Design
 
@@ -74,7 +73,7 @@ Design, internals and build process is documented in [doc/design.md](doc/design.
 
 Contributions and issue reports are welcome. I'm an beginner in programming in Objective-C.
  Please keep in mind I do this on best-effort basis, and I try not to break the auto-updater.
- 
+
 I'm willing to add donated-based features if you need them.
 
 # License
