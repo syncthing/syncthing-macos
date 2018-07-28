@@ -31,12 +31,16 @@
 - (void) longPoll {
     @autoreleasepool {
         NSString *url = nil;
-        
+        NSTimeInterval timeout = 60.0;
+
         if (self.lastSeenId) {
-            url = [NSString stringWithFormat:@"%@%@%ld", self.syncthing.URI, @"/rest/events?since=", self.lastSeenId];
+            // Ask for new events with a timeout of one second less than our
+            // hard request timeout. If there are no events we will get an
+            // empty even list at the soft timeout.
+            url = [NSString stringWithFormat:@"%@/rest/events?since=%ld&timeout=%.0f", self.syncthing.URI, self.lastSeenId, timeout - 1.0];
         }
         else {
-            url = [NSString stringWithFormat:@"%@%@", self.syncthing.URI, @"/rest/events?limit=1"];
+            url = [NSString stringWithFormat:@"%@/rest/events?limit=1", self.syncthing.URI];
         }
         
         NSData *serverData = nil;
@@ -44,8 +48,8 @@
         NSURLResponse *serverResponse = nil;
         NSMutableURLRequest *theRequest=[NSMutableURLRequest
                                          requestWithURL:[NSURL URLWithString:url]
-                                         cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-        
+                                         cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:timeout];
+
         [theRequest setHTTPMethod:@"GET"];
         [theRequest setValue:self.syncthing.ApiKey forHTTPHeaderField:@"X-API-Key"];
         
