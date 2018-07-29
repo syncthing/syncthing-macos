@@ -23,8 +23,8 @@
 
 /* Begin PBXBuildFile section */
 		0BE9B88A1F050E93002883E2 /* STStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE9B8891F050E93002883E2 /* STStatusMonitor.m */; };
-		296DB6DF210D120B0076692E /* LocalhostTLSDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DB6DE210D120B0076692E /* LocalhostTLSDelegate.m */; };
-		296DB6E0210D12170076692E /* LocalhostTLSDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 296DB6DE210D120B0076692E /* LocalhostTLSDelegate.m */; };
+		298A5C45210DA6C40034B89F /* LocalhostTLSDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */; };
+		298A5C46210DA70D0034B89F /* LocalhostTLSDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */; };
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
 		C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */; };
 		C4460A831D0DD38F00200C21 /* STPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */; };
@@ -89,8 +89,8 @@
 /* Begin PBXFileReference section */
 		0BE9B8881F050E93002883E2 /* STStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStatusMonitor.h; sourceTree = "<group>"; };
 		0BE9B8891F050E93002883E2 /* STStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStatusMonitor.m; sourceTree = "<group>"; };
-		296DB6DD210D120B0076692E /* LocalhostTLSDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalhostTLSDelegate.h; sourceTree = "<group>"; };
-		296DB6DE210D120B0076692E /* LocalhostTLSDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalhostTLSDelegate.m; sourceTree = "<group>"; };
+		298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalhostTLSDelegate.m; path = syncthing/LocalhostTLSDelegate.m; sourceTree = "<group>"; };
+		298A5C44210DA6C40034B89F /* LocalhostTLSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalhostTLSDelegate.h; path = syncthing/LocalhostTLSDelegate.h; sourceTree = "<group>"; };
 		29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.release.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.release.xcconfig"; sourceTree = "<group>"; };
 		5BE33EE7B1F21764C8AA4890 /* Pods-xgsyncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xgsyncthing.release.xcconfig"; path = "Pods/Target Support Files/Pods-xgsyncthing/Pods-xgsyncthing.release.xcconfig"; sourceTree = "<group>"; };
 		8936500B5F25163F49F1401D /* Pods-xgsyncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xgsyncthing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xgsyncthing/Pods-xgsyncthing.debug.xcconfig"; sourceTree = "<group>"; };
@@ -338,10 +338,10 @@
 			isa = PBXGroup;
 			children = (
 				C4576BE21D11E40E0031BCFD /* Test */,
-				C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */,
+				298A5C44210DA6C40034B89F /* LocalhostTLSDelegate.h */,
+				298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */,
 				C4FFB0631D0D7E440015D14A /* XGSyncthing.h */,
-				296DB6DD210D120B0076692E /* LocalhostTLSDelegate.h */,
-				296DB6DE210D120B0076692E /* LocalhostTLSDelegate.m */,
+				C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -544,7 +544,7 @@
 			files = (
 				C4576BEB1D11E9280031BCFD /* XGSyncthing.m in Sources */,
 				C4576BE41D11E43C0031BCFD /* main.m in Sources */,
-				296DB6E0210D12170076692E /* LocalhostTLSDelegate.m in Sources */,
+				298A5C46210DA70D0034B89F /* LocalhostTLSDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +554,7 @@
 			files = (
 				C4D567A21D3A8DFE002AD881 /* STLoginItem.m in Sources */,
 				C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */,
-				296DB6DF210D120B0076692E /* LocalhostTLSDelegate.m in Sources */,
+				298A5C45210DA6C40034B89F /* LocalhostTLSDelegate.m in Sources */,
 				C4F0E8331DA1C7A800435310 /* STPreferencesFoldersViewController.m in Sources */,
 				C4A415681D0D579D00DC6018 /* main.m in Sources */,
 				C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */,
