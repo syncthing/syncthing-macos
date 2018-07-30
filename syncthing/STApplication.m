@@ -1,15 +1,25 @@
 #import "STApplication.h"
 #import "STLoginItem.h"
+#import "Syncthing-Swift.h"
 
 @interface STAppDelegate ()
 
 @property (nonatomic, strong, readwrite) NSStatusItem *statusItem;
 @property (nonatomic, strong, readwrite) XGSyncthing *syncthing;
+@property (nonatomic, strong, readwrite) DaemonProcess *process;
 @property (nonatomic, strong, readwrite) STStatusMonitor *statusMonitor;
 @property (weak) IBOutlet NSMenuItem *toggleAllDevicesItem;
+@property (weak) IBOutlet NSMenuItem *statusMenuItem;
+@property (weak) IBOutlet NSMenuItem *connectionStatusMenuItem;
+@property (weak) IBOutlet NSMenuItem *daemonStatusMenuItem;
+@property (weak) IBOutlet NSMenuItem *daemonStartMenuItem;
+@property (weak) IBOutlet NSMenuItem *daemonStopMenuItem;
+@property (weak) IBOutlet NSMenuItem *daemonRestartMenuItem;
 @property (strong) STPreferencesWindowController *preferencesWindow;
 @property (strong) STAboutWindowController *aboutWindow;
 @property (nonatomic, assign) BOOL devicesPaused;
+@property (nonatomic, assign) BOOL daemonOK;
+@property (nonatomic, assign) BOOL connectionOK;
 
 @end
 
@@ -19,12 +29,19 @@
     _syncthing = [[XGSyncthing alloc] init];
     
     [self applicationLoadConfiguration];
-    [_syncthing runExecutable];
+    //[_syncthing runExecutable];
+    
+    _process = [[DaemonProcess alloc] initWithPath:_syncthing.Executable delegate:self];
+    [_process launch];
     
     _statusMonitor = [[STStatusMonitor alloc] init];
     _statusMonitor.syncthing = _syncthing;
     _statusMonitor.delegate = self;
     [_statusMonitor startMonitoring];
+    
+    [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusNone"]];
+    [_connectionStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusNone"]];
+    [_daemonStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusNone"]];
 }
 
 - (void) clickedFolder:(id)sender {
@@ -33,7 +50,7 @@
 }
 
 - (void) applicationWillTerminate:(NSNotification *)aNotification {
-    // TODO: is this needed -> remove?
+    [_process terminate];
 }
 
 - (void) awakeFromNib {
@@ -108,18 +125,22 @@
         case SyncthingStatusIdle:
             [self updateStatusIcon:@"StatusIconDefault"];
             [_statusItem setToolTip:@"Idle"];
+            [self updateConnectionStatus:true];
             break;
         case SyncthingStatusBusy:
             [self updateStatusIcon:@"StatusIconSync"];
             [_statusItem setToolTip:@"Syncing"];
+            [self updateConnectionStatus:true];
             break;
         case SyncthingStatusOffline:
             [_statusItem setToolTip:@"Not connected"];
             [self updateStatusIcon:@"StatusIconNotify"];
+            [self updateConnectionStatus:false];
             break;
         case SyncthingStatusError:
             [_statusItem setToolTip:@"Error"];
             [self updateStatusIcon:@"StatusIconNotify"];
+            [self updateConnectionStatus:false]; // XXX: Maybe? Or what does it mean
             break;
     }
 }
@@ -231,6 +252,18 @@
 											   object:[_aboutWindow window]];
 }
 
+- (IBAction)clickedDaemonStart:(NSMenuItem *)sender {
+    [_process launch];
+}
+
+- (IBAction)clickedDaemonStop:(NSMenuItem *)sender {
+    [_process terminate];
+}
+
+- (IBAction)clickedDaemonRestart:(NSMenuItem *)sender {
+    [_process restart];
+}
+
 // TODO: need a more generic approach for closing windows
 - (void)aboutWillClose:(NSNotification *)notification {
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -244,6 +277,65 @@
                                                     name:NSWindowWillCloseNotification
                                                   object:[_preferencesWindow window]];
     _preferencesWindow = nil;
+}
+
+- (void)process:(DaemonProcess *)_ isRunning:(BOOL)isRunning {
+    if (_daemonOK == isRunning) {
+        return;
+    }
+    _daemonOK = isRunning;
+    if (_daemonOK) {
+        [_daemonStatusMenuItem setTitle:@"Daemon (running)"];
+        [_daemonStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusAvailable"]];
+        [_daemonStartMenuItem setEnabled:NO];
+        [_daemonStopMenuItem setEnabled:YES];
+        [_daemonRestartMenuItem setEnabled:YES];
+    } else {
+        [_daemonStatusMenuItem setTitle:@"Daemon (stopped)"];
+        [_daemonStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
+        [_daemonStartMenuItem setEnabled:YES];
+        [_daemonStopMenuItem setEnabled:NO];
+        [_daemonRestartMenuItem setEnabled:NO];
+    }
+    
+    [self updateAggregateState];
+}
+
+- (void)updateConnectionStatus:(BOOL)isConnected {
+    if (_connectionOK == isConnected) {
+        return;
+    }
+    _connectionOK = isConnected;
+    if (_connectionOK) {
+        [_connectionStatusMenuItem setTitle:@"Connection (online)"];
+        [_connectionStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusAvailable"]];
+    } else {
+        [_connectionStatusMenuItem setTitle:@"Connection (disconnected)"];
+        [_connectionStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
+    }
+    
+    [self updateAggregateState];
+}
+
+- (void)updateAggregateState {
+    int ok = 0;
+    if (_daemonOK) {
+        ok++;
+    }
+    if (_connectionOK) {
+        ok++;
+    }
+    switch (ok) {
+        case 0:
+            [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
+            break;
+        case 1:
+            [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusPartiallyAvailable"]];
+            break;
+        case 2:
+            [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusAvailable"]];
+            break;
+    }
 }
 
 @end
