@@ -6,7 +6,6 @@
 
 @interface XGSyncthing()
 
-@property NSTask *StTask;
 @property (nonatomic, strong) NSXMLParser *configParser;
 @property (nonatomic, strong) NSMutableArray<NSString *> *parsing;
 @property (nonatomic, strong) NSURLSession *session;
@@ -18,27 +17,6 @@
 @synthesize Executable = _Executable;
 @synthesize URI = _URI;
 @synthesize ApiKey = _apiKey;
-
-- (bool) runExecutable
-{
-    _StTask = [[NSTask alloc] init];
-
-    [_StTask setLaunchPath:_Executable];
-    [_StTask setArguments:@[@"-no-browser"]];
-    [_StTask setQualityOfService:NSQualityOfServiceBackground];
-    [_StTask launch];
-
-    return true;
-}
-
-- (void) stopExecutable
-{
-    if (!_StTask)
-        return;
-
-    [_StTask interrupt];
-    [_StTask waitUntilExit];
-}
 
 - (id)sendRequestToEndpoint:(NSString *)endpoint method:(NSString *)method parameters:(NSDictionary *)parameters
 {

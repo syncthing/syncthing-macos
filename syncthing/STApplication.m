@@ -38,10 +38,6 @@
     _statusMonitor.syncthing = _syncthing;
     _statusMonitor.delegate = self;
     [_statusMonitor startMonitoring];
-    
-    [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusNone"]];
-    [_connectionStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusNone"]];
-    [_daemonStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusNone"]];
 }
 
 - (void) clickedFolder:(id)sender {
@@ -212,7 +208,6 @@
 }
 
 - (IBAction) clickedQuit:(id)sender {
-    [_syncthing stopExecutable];
     [_statusMonitor stopMonitoring];
     
     [self updateStatusIcon:@"StatusIconNotify"];
