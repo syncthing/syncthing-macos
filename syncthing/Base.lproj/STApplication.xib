@@ -11,7 +11,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="STAppDelegate">
             <connections>
                 <outlet property="Menu" destination="FYW-KQ-yxY" id="plp-7h-Wj2"/>
@@ -29,9 +29,9 @@
             <items>
                 <menuItem title="Status" image="NSStatusUnavailable" id="PGw-J9-KII">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Status" showsStateColumn="NO" autoenablesItems="NO" id="qS5-d4-4WD">
+                    <menu key="submenu" title="Status" autoenablesItems="NO" id="qS5-d4-4WD">
                         <items>
-                            <menuItem title="Connection" image="NSStatusUnavailable" id="Gzh-BA-qbg">
+                            <menuItem title="Connection" image="NSStatusUnavailable" enabled="NO" id="Gzh-BA-qbg">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem title="Daemon" image="NSStatusUnavailable" id="MAH-El-s0y">
