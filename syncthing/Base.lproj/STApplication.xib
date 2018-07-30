@@ -62,6 +62,7 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="Qhv-cP-g7k"/>
                 <menuItem title="Open" toolTip="Open Syncthing Web GUI" id="euz-4I-RQa">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
