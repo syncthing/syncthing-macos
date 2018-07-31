@@ -280,13 +280,13 @@
     }
     _daemonOK = isRunning;
     if (_daemonOK) {
-        [_daemonStatusMenuItem setTitle:@"Daemon (running)"];
+        [_daemonStatusMenuItem setTitle:@"Background Service (Running)"];
         [_daemonStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusAvailable"]];
         [_daemonStartMenuItem setEnabled:NO];
         [_daemonStopMenuItem setEnabled:YES];
         [_daemonRestartMenuItem setEnabled:YES];
     } else {
-        [_daemonStatusMenuItem setTitle:@"Daemon (stopped)"];
+        [_daemonStatusMenuItem setTitle:@"Background Service (Stopped)"];
         [_daemonStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
         [_daemonStartMenuItem setEnabled:YES];
         [_daemonStopMenuItem setEnabled:NO];
@@ -302,10 +302,10 @@
     }
     _connectionOK = isConnected;
     if (_connectionOK) {
-        [_connectionStatusMenuItem setTitle:@"Connection (online)"];
+        [_connectionStatusMenuItem setTitle:@"API (Online)"];
         [_connectionStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusAvailable"]];
     } else {
-        [_connectionStatusMenuItem setTitle:@"Connection (disconnected)"];
+        [_connectionStatusMenuItem setTitle:@"API (Offline)"];
         [_connectionStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
     }
     
@@ -313,23 +313,22 @@
 }
 
 - (void)updateAggregateState {
-    int ok = 0;
     if (_daemonOK) {
-        ok++;
-    }
-    if (_connectionOK) {
-        ok++;
-    }
-    switch (ok) {
-        case 0:
-            [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
-            break;
-        case 1:
-            [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusPartiallyAvailable"]];
-            break;
-        case 2:
+        if (_connectionOK) {
             [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusAvailable"]];
-            break;
+            [_statusMenuItem setTitle:@"Online"];
+        } else {
+            [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusPartiallyAvailable"]];
+            [_statusMenuItem setTitle:@"Running (Offline)"];
+        }
+    } else {
+        if (_connectionOK) {
+            [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusPartiallyAvailable"]];
+            [_statusMenuItem setTitle:@"Unknown (Online)"];
+        } else {
+            [_statusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
+            [_statusMenuItem setTitle:@"Unavailable"];
+        }
     }
 }
 

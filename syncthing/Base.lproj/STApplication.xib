@@ -31,12 +31,9 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Status" autoenablesItems="NO" id="qS5-d4-4WD">
                         <items>
-                            <menuItem title="Connection" image="NSStatusUnavailable" enabled="NO" id="Gzh-BA-qbg">
+                            <menuItem title="Background Service" image="NSStatusUnavailable" id="MAH-El-s0y">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="Daemon" image="NSStatusUnavailable" id="MAH-El-s0y">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Daemon" autoenablesItems="NO" id="YYN-1k-umQ">
+                                <menu key="submenu" title="Background Service" autoenablesItems="NO" id="YYN-1k-umQ">
                                     <items>
                                         <menuItem title="Start" id="s51-hi-aSO">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -58,6 +55,9 @@
                                         </menuItem>
                                     </items>
                                 </menu>
+                            </menuItem>
+                            <menuItem title="API" image="NSStatusUnavailable" enabled="NO" id="Gzh-BA-qbg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                         </items>
                     </menu>
