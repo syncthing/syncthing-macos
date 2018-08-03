@@ -12,8 +12,9 @@
 #import "STStatusMonitor.h"
 #import "Controllers/STAboutWindowController.h"
 #import "Controllers/STPreferencesWindowController.h"
+#import "Syncthing-Swift.h"
 
-@interface STAppDelegate : NSObject <NSApplicationDelegate, STStatusMonitorDelegate>
+@interface STAppDelegate : NSObject <NSApplicationDelegate, STStatusMonitorDelegate, DaemonProcessDelegate>
 
 @property (weak) IBOutlet NSMenu *Menu;
 @property (nonatomic, readonly) NSStatusItem *statusItem;
