@@ -231,6 +231,12 @@
 
 // TODO: need a more generic approach for opening windows
 - (IBAction)clickedPreferences:(NSMenuItem *)sender {
+    if (_preferencesWindow != nil) {
+        [NSApp activateIgnoringOtherApps:YES];
+        [_preferencesWindow.window makeKeyAndOrderFront:self];
+        return;
+    }
+    
     _preferencesWindow = [[STPreferencesWindowController alloc] init];
     [_preferencesWindow showWindow:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -240,12 +246,18 @@
 }
 
 - (IBAction)clickedAbout:(NSMenuItem *)sender {
-	_aboutWindow = [[STAboutWindowController alloc] init];
-	[_aboutWindow showWindow:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(aboutWillClose:)
-												 name:NSWindowWillCloseNotification
-											   object:[_aboutWindow window]];
+    if (_aboutWindow != nil) {
+        [NSApp activateIgnoringOtherApps:YES];
+        [_aboutWindow.window makeKeyAndOrderFront:self];
+        return;
+    }
+    
+    _aboutWindow = [[STAboutWindowController alloc] init];
+    [_aboutWindow showWindow:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(aboutWillClose:)
+                                                 name:NSWindowWillCloseNotification
+                                               object:[_aboutWindow window]];
 }
 
 - (IBAction)clickedDaemonStart:(NSMenuItem *)sender {
