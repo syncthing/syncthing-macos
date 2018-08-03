@@ -34,7 +34,7 @@
 		<true/>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2018 Syncthing macOS authors (github.com/syncthing/syncthing-macos). All rights reserved.</string>
+	<string>Copyright © 2018 Syncthing for macOS authors (github.com/syncthing/syncthing-macos). All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>STApplication</string>
 	<key>NSPrincipalClass</key>

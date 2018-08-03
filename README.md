@@ -1,11 +1,11 @@
 # Syncthing for Mac OS X
 
-[![Gitter.im Chat](https://img.shields.io/badge/gitter-join%20chat-green.svg)](https://gitter.im/syncthing-macosx/Lobby)
-[![Downloads](https://img.shields.io/github/downloads/xor-gate/syncthing-macosx/total.svg)](https://github.com/xor-gate/syncthing-macosx/releases) [![Latest release](https://img.shields.io/github/release/xor-gate/syncthing-macosx.svg)](https://github.com/xor-gate/syncthing-macosx/releases/latest) [![Build Status](https://travis-ci.org/xor-gate/syncthing-macosx.svg?branch=master)](https://travis-ci.org/xor-gate/syncthing-macosx) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
+[![Gitter.im Chat](https://img.shields.io/badge/gitter-join%20chat-green.svg)](https://gitter.im/syncthing-macos/Lobby)
+[![Downloads](https://img.shields.io/github/downloads/syncthing/syncthing-macos/total.svg)](https://github.com/syncthing/syncthing-macos/releases) [![Latest release](https://img.shields.io/github/release/syncthing/syncthing-macos.svg)](https://github.com/syncthing/syncthing-macos/releases/latest) [![Build Status](https://travis-ci.org/syncthing/syncthing-macos.svg?branch=master)](https://travis-ci.org/syncthing/syncthing-macos) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
 
 # Introduction
 
-`syncthing-macosx` is a native macOS Syncthing tray application bundle. It hosts and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
+`syncthing-macos` is a native macOS Syncthing tray application bundle. It hosts and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
 
 Features include:
 
@@ -22,11 +22,11 @@ Features include:
 
 # Installation
 
-Currently Mac OS X 10.10 or higher is necessary. syncthing-macosx is packaged as and disk image with a application bundle.
+Currently Mac OS X 10.10 or higher is necessary. syncthing-macos is packaged as and disk image with a application bundle.
  You should download the dmg and drag and drop to install. The only necessary configuration is to set the api key which
  can be found in the web interface.
 
-The latest version can be downloaded from [Github Releases](https://github.com/xor-gate/syncthing-macosx/releases/latest)
+The latest version can be downloaded from [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest)
 
 # Why
 
@@ -63,8 +63,7 @@ The goal of this project is to keep the Native Mac OS X Syncthing tray as simple
 
 # Known bugs
 
-* Issue [#24](https://github.com/xor-gate/syncthing-macosx/issues/24): HTTPS with self signed certificate doesn't work and gives no usefull error.
-  * Workaround: Disable HTTPS
+See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues)for the current status.
 
 # Design
 
@@ -74,7 +73,7 @@ Design, internals and build process is documented in [doc/design.md](doc/design.
 
 Contributions and issue reports are welcome. I'm an beginner in programming in Objective-C.
  Please keep in mind I do this on best-effort basis, and I try not to break the auto-updater.
- 
+
 I'm willing to add donated-based features if you need them.
 
 # License
