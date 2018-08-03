@@ -5,7 +5,6 @@
 
 @interface XGSyncthing : NSObject<NSXMLParserDelegate>
 
-@property (nonatomic, copy) NSString *Executable;
 @property (nonatomic, copy) NSString *URI;
 @property (nonatomic, copy) NSString *ApiKey;
 

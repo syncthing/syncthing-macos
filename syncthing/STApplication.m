@@ -6,6 +6,7 @@
 
 @property (nonatomic, strong, readwrite) NSStatusItem *statusItem;
 @property (nonatomic, strong, readwrite) XGSyncthing *syncthing;
+@property (nonatomic, strong, readwrite) NSString *executable;
 @property (nonatomic, strong, readwrite) DaemonProcess *process;
 @property (nonatomic, strong, readwrite) STStatusMonitor *statusMonitor;
 @property (weak) IBOutlet NSMenuItem *toggleAllDevicesItem;
@@ -27,13 +28,13 @@
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification {
     _syncthing = [[XGSyncthing alloc] init];
-    
+
     [self applicationLoadConfiguration];
     //[_syncthing runExecutable];
-    
-    _process = [[DaemonProcess alloc] initWithPath:_syncthing.Executable delegate:self];
+
+    _process = [[DaemonProcess alloc] initWithPath:_executable delegate:self];
     [_process launch];
-    
+
     _statusMonitor = [[STStatusMonitor alloc] init];
     _statusMonitor.syncthing = _syncthing;
     _statusMonitor.delegate = self;
@@ -52,43 +53,43 @@
 - (void) awakeFromNib {
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     _statusItem.menu = _Menu;
-    
+
     [self updateStatusIcon:@"StatusIconNotify"];
 }
 
 // TODO: move to STConfiguration class
 - (void)applicationLoadConfiguration {
     static int configLoadAttempt = 1;
-    
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     NSString *cfgExecutable = [defaults stringForKey:@"Executable"];
     if (!cfgExecutable) {
-        [_syncthing setExecutable:[NSString stringWithFormat:@"%@/%@",
-                                   [[NSBundle mainBundle] resourcePath],
-                                   @"syncthing/syncthing"]];
+        _executable = [NSString stringWithFormat:@"%@/%@",
+                       [[NSBundle mainBundle] resourcePath],
+                       @"syncthing/syncthing"];
     } else {
-        [_syncthing setExecutable:cfgExecutable];
+        _executable = cfgExecutable;
     }
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
     _syncthing.ApiKey = [defaults stringForKey:@"ApiKey"];
-    
+
     // If no values are set, read from XML and store in defaults
     if (!_syncthing.URI.length && !_syncthing.ApiKey.length) {
         BOOL success = [_syncthing loadConfigurationFromXML];
-        
+
         // If XML doesn't exist or is invalid, retry after delay
         if (!success && configLoadAttempt <= 3) {
             configLoadAttempt++;
             [self performSelector:@selector(applicationLoadConfiguration) withObject:self afterDelay:5.0];
             return;
         }
-        
+
         [defaults setObject:_syncthing.URI forKey:@"URI"];
         [defaults setObject:_syncthing.ApiKey forKey:@"ApiKey"];
     }
-    
+
     if (!_syncthing.URI) {
         _syncthing.URI = @"http://localhost:8384";
         [defaults setObject:_syncthing.URI forKey:@"URI"];
@@ -179,7 +180,7 @@
 
 - (void) updateFoldersMenu:(NSMenu *)menu {
     [menu removeAllItems];
-    
+
     // Get folders from syncthing and sort ascending
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"label" ascending:YES comparator:^NSComparisonResult(id obj1, id obj2) {
         return [(NSString *)obj1 compare:(NSString *)obj2 options:NSNumericSearch];
@@ -190,14 +191,14 @@
         NSString *name = [dir objectForKey:@"label"];
         if ([name length] == 0)
             name = [dir objectForKey:@"id"];
-        
+
         NSMenuItem *item = [[NSMenuItem alloc] init];
-        
+
         [item setTitle:name];
         [item setRepresentedObject:[dir objectForKey:@"path"]];
         [item setAction:@selector(clickedFolder:)];
         [item setToolTip:[dir objectForKey:@"path"]];
-        
+
         [menu addItem:item];
     }
 }
@@ -209,11 +210,11 @@
 
 - (IBAction) clickedQuit:(id)sender {
     [_statusMonitor stopMonitoring];
-    
+
     [self updateStatusIcon:@"StatusIconNotify"];
     [_statusItem setToolTip:@""];
     _statusItem.menu = nil;
-    
+
     [NSApp performSelector:@selector(terminate:) withObject:nil];
 }
 
@@ -280,19 +281,19 @@
     }
     _daemonOK = isRunning;
     if (_daemonOK) {
-        [_daemonStatusMenuItem setTitle:@"Background Service (Running)"];
+        [_daemonStatusMenuItem setTitle:@"Syncthing Service (Running)"];
         [_daemonStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusAvailable"]];
         [_daemonStartMenuItem setEnabled:NO];
         [_daemonStopMenuItem setEnabled:YES];
         [_daemonRestartMenuItem setEnabled:YES];
     } else {
-        [_daemonStatusMenuItem setTitle:@"Background Service (Stopped)"];
+        [_daemonStatusMenuItem setTitle:@"Syncthing Service (Stopped)"];
         [_daemonStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
         [_daemonStartMenuItem setEnabled:YES];
         [_daemonStopMenuItem setEnabled:NO];
         [_daemonRestartMenuItem setEnabled:NO];
     }
-    
+
     [self updateAggregateState];
 }
 
@@ -308,7 +309,7 @@
         [_connectionStatusMenuItem setTitle:@"API (Offline)"];
         [_connectionStatusMenuItem setImage:[NSImage imageNamed:@"NSStatusUnavailable"]];
     }
-    
+
     [self updateAggregateState];
 }
 

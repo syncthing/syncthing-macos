@@ -14,7 +14,6 @@
 
 @implementation XGSyncthing {}
 
-@synthesize Executable = _Executable;
 @synthesize URI = _URI;
 @synthesize ApiKey = _apiKey;
 
