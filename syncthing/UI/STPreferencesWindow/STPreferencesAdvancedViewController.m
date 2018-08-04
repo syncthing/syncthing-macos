@@ -20,6 +20,7 @@
 
 - (id) init {
     self = [super initWithNibName:NSStringFromClass(self.class) bundle:nil];
+    // TODO(jb): Executable placement shown should be taken from config.
     return self;
 }
 
