@@ -24,8 +24,10 @@ var githubRepo string
 var downloadURL string
 var appcastURL string
 var outFilename string
+var withPrereleases bool
 
 func init() {
+	flag.BoolVar(&withPrereleases, "with-prereleases", false, "Enable appcasting prereleases")
 	flag.StringVar(&outFilename, "o", "appcast.xml", "Output filename")
 	flag.StringVar(&githubOrg, "github-org", "syncthing", "Organisation name on github")
 	flag.StringVar(&githubRepo, "github-repo", "syncthing-macos", "Repository name on github")
@@ -48,11 +50,17 @@ func main() {
 	var items sparkle.Items
 
 	for _, release := range releases {
+		if *release.Prerelease && !withPrereleases {
+			log.Println("skip prelease", *release.TagName)
+			continue
+		}
+
 		item, err := githubRepositoryReleaseToSparkleItem(release)
 		if err != nil {
 			log.Println("warning:", err)
 			continue
 		}
+
 		log.Println("added release at", item.Enclosure.URL)
 		items = append(items, item)
 	}
@@ -128,9 +136,7 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 	}
 
 	// Translate github Markdown description to HTML and add the item to the list
-	fmt.Println(release.GetBody())
 	htmlDescription := blackfriday.MarkdownCommon([]byte(release.GetBody()))
-	fmt.Println(htmlDescription)
 
 	item := sparkle.Item{
 		Title:       release.GetName(),
