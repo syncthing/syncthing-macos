@@ -21,7 +21,6 @@ import (
 
 var githubOrg string
 var githubRepo string
-var downloadURL string
 var appcastURL string
 var outFilename string
 var withPrereleases bool
@@ -31,7 +30,6 @@ func init() {
 	flag.StringVar(&outFilename, "o", "appcast.xml", "Output filename")
 	flag.StringVar(&githubOrg, "github-org", "syncthing", "Organisation name on github")
 	flag.StringVar(&githubRepo, "github-repo", "syncthing-macos", "Repository name on github")
-	flag.StringVar(&downloadURL, "download-url", "https://github.com/syncthing/syncthing-macos/releases/download", "Download URL of DMGs")
 	flag.StringVar(&appcastURL, "appcast-url", "https://upgrades.syncthing.net/syncthing-macos/appcast.xml", "Sparkle appcast.xml URL")
 	flag.Parse()
 }
@@ -72,7 +70,7 @@ func main() {
 		XMLNSDC:      "http://purl.org/dc/elements/1.1/",
 		Channels: []sparkle.Channel{
 			sparkle.Channel{
-				Title:       "Syncthing for Mac OS X",
+				Title:       "Syncthing for macOS",
 				Link:        appcastURL,
 				Description: "Most recent changes with links to updates.",
 				Language:    "en",
@@ -85,6 +83,7 @@ func main() {
 	xmlOut := bytes.NewBuffer(nil)
 	xmlOut.Write([]byte(xml.Header))
 	xw := xml.NewEncoder(xmlOut)
+	xw.Indent("", "  ")
 	xw.Encode(s)
 
 	err = ioutil.WriteFile(outFilename, xmlOut.Bytes(), 0755)
@@ -94,7 +93,6 @@ func main() {
 
 	log.Println("appcast file", outFilename, "successfully written")
 	log.Println("appcast.xml url:", appcastURL)
-	log.Println("download url:", downloadURL)
 }
 
 func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sparkle.Item, error) {
@@ -110,7 +108,6 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 	if rTag[0] != 'v' {
 		return sparkle.Item{}, fmt.Errorf("git tag '%s' doesn't start with a 'v'", rTag)
 	}
-	dmgVersion := rTag[1:]
 
 	// Generate CFBundleVersion for Sparkle
 	// "v0.14.48-1" -> "144801"
@@ -128,7 +125,8 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 		if !strings.HasSuffix(url, ".dmg") {
 			continue
 		}
-		dmgAssetURL = fmt.Sprintf("%s/%s/Syncthing-%s.dmg", downloadURL, rTag, dmgVersion)
+		dmgAssetURL = url
+		break
 	}
 
 	if dmgAssetURL == "" {
