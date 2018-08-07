@@ -44,7 +44,7 @@
 	<key>STProjectHomepageURL</key>
 	<string>https://github.com/syncthing/syncthing-macos</string>
 	<key>SUFeedURL</key>
-	<string>https://xor-gate.github.io/syncthing-macosx/appcast.xml</string>
+	<string>https://upgrades.syncthing.net/syncthing-macos/appcast.xml</string>
 	<key>SUScheduledCheckInterval</key>
 	<integer>86400</integer>
 	<key>CFBundleGetInfoString</key>

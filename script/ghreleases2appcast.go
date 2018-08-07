@@ -15,8 +15,8 @@ import (
 
 	"github.com/google/go-github/github"
 	"github.com/hashicorp/go-version"
-	"github.com/xor-gate/syncthing-macosx/lib/sparkle"
-	"gopkg.in/russross/blackfriday.v2"
+	"github.com/syncthing/syncthing-macos/lib/sparkle"
+	"gopkg.in/russross/blackfriday.v1"
 )
 
 var githubOrg string
@@ -24,13 +24,15 @@ var githubRepo string
 var downloadURL string
 var appcastURL string
 var outFilename string
+var withPrereleases bool
 
 func init() {
+	flag.BoolVar(&withPrereleases, "with-prereleases", false, "Enable appcasting prereleases")
 	flag.StringVar(&outFilename, "o", "appcast.xml", "Output filename")
-	flag.StringVar(&githubOrg, "github-org", "xor-gate", "Organisation name on github")
-	flag.StringVar(&githubRepo, "github-repo", "syncthing-macosx", "Repository name on github")
-	flag.StringVar(&downloadURL, "download-url", "https://upgrades.xor-gate.org/syncthing-macosx/releases/download", "Download URL of DMGs")
-	flag.StringVar(&appcastURL, "appcast-url", "https://upgrades.xor-gate.org/syncthing-macosx/appcast.xml", "Sparkle appcast.xml URL")
+	flag.StringVar(&githubOrg, "github-org", "syncthing", "Organisation name on github")
+	flag.StringVar(&githubRepo, "github-repo", "syncthing-macos", "Repository name on github")
+	flag.StringVar(&downloadURL, "download-url", "https://github.com/syncthing/syncthing-macos/releases/download", "Download URL of DMGs")
+	flag.StringVar(&appcastURL, "appcast-url", "https://upgrades.syncthing.net/syncthing-macos/appcast.xml", "Sparkle appcast.xml URL")
 	flag.Parse()
 }
 
@@ -48,11 +50,17 @@ func main() {
 	var items sparkle.Items
 
 	for _, release := range releases {
+		if *release.Prerelease && !withPrereleases {
+			log.Println("skip prelease", *release.TagName)
+			continue
+		}
+
 		item, err := githubRepositoryReleaseToSparkleItem(release)
 		if err != nil {
 			log.Println("warning:", err)
 			continue
 		}
+
 		log.Println("added release at", item.Enclosure.URL)
 		items = append(items, item)
 	}
@@ -128,12 +136,12 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 	}
 
 	// Translate github Markdown description to HTML and add the item to the list
-	htmlDescription := string(blackfriday.Run([]byte(release.GetBody())))
+	htmlDescription := blackfriday.MarkdownCommon([]byte(release.GetBody()))
 
 	item := sparkle.Item{
 		Title:       release.GetName(),
 		PubDate:     release.PublishedAt.Format(time.RFC1123),
-		Description: sparkle.CdataString{Value: htmlDescription},
+		Description: sparkle.CdataString{Value: string(htmlDescription)},
 		Enclosure: sparkle.Enclosure{
 			SparkleShortVersionString: rTag,
 			SparkleVersion:            sparkleVersion,
