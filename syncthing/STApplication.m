@@ -173,9 +173,7 @@
 }
 
 - (void) syncMonitorEventReceived:(NSDictionary *)event {
-    NSNumber *eventId = [event objectForKey:@"id"];
     NSString *eventType = [event objectForKey:@"type"];
-    NSDictionary *eventData = [event objectForKey:@"data"];
 
     if ([eventType isEqualToString:@"ConfigSaved"]) {
         [self refreshDevices];
