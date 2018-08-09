@@ -28,6 +28,8 @@ Currently Mac OS X 10.10 or higher is necessary. syncthing-macos is packaged as 
 
 The latest version can be downloaded from [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest)
 
+Or [homebrew](https://github.com/Homebrew/homebrew-cask) can be used: `brew cask install syncthing-app`
+
 # Why
 
 All cross-platform approaches are not able to use all the native facilities of macOS. Including auto-updates,
