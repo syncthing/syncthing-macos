@@ -1,4 +1,4 @@
-# Syncthing for Mac OS X
+# Syncthing for macOS
 
 [![Gitter.im Chat](https://img.shields.io/badge/gitter-join%20chat-green.svg)](https://gitter.im/syncthing-macos/Lobby)
 [![Downloads](https://img.shields.io/github/downloads/syncthing/syncthing-macos/total.svg)](https://github.com/syncthing/syncthing-macos/releases) [![Latest release](https://img.shields.io/github/release/syncthing/syncthing-macos.svg)](https://github.com/syncthing/syncthing-macos/releases/latest) [![Build Status](https://travis-ci.org/syncthing/syncthing-macos.svg?branch=master)](https://travis-ci.org/syncthing/syncthing-macos) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
@@ -27,6 +27,8 @@ Currently Mac OS X 10.10 or higher is necessary. syncthing-macos is packaged as 
  can be found in the web interface.
 
 The latest version can be downloaded from [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest)
+
+Or [homebrew](https://github.com/Homebrew/homebrew-cask) can be used: `brew cask install syncthing-app`
 
 # Why
 
@@ -58,12 +60,12 @@ SYNCTHING_APP_CODE_SIGN_IDENTITY="Mac Developer: foo@bar.com (XB59MXU8EC)" make 
 
 # Goal
 
-The goal of this project is to keep the Native Mac OS X Syncthing tray as simple as possible. No graphs, no advanced configuration
- windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application.
+The goal of this project is to keep the Native macOS Syncthing tray as simple as possible. No graphs, no advanced configuration
+ windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
 
 # Known bugs
 
-See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues)for the current status.
+See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for the current status.
 
 # Design
 
@@ -71,10 +73,7 @@ Design, internals and build process is documented in [doc/design.md](doc/design.
 
 # Contributions
 
-Contributions and issue reports are welcome. I'm an beginner in programming in Objective-C.
- Please keep in mind I do this on best-effort basis, and I try not to break the auto-updater.
-
-I'm willing to add donated-based features if you need them.
+[Contributions](CONTRIBUTIONS.md) and [issue reports](https://github.com/syncthing/syncthing-macos/issues) are welcome. 
 
 # License
 

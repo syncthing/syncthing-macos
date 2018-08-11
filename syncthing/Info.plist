@@ -40,7 +40,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>STBundleName</key>
-	<string>syncthing-macosx</string>
+	<string>syncthing-macos</string>
 	<key>STProjectHomepageURL</key>
 	<string>https://github.com/syncthing/syncthing-macos</string>
 	<key>SUFeedURL</key>

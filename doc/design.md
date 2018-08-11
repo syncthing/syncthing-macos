@@ -8,7 +8,7 @@
 
 It uses the shipped syncthing executable version appended with a `-<build index>` number.
 So for Syncthing `0.14.28` with first build/package it is versioned as `0.14.28-1`.
-Currently there is no need for having a separate version for `syncthing-macosx`. As it also keeps the wrapper tightly coupled with the syncthing releases.
+Currently there is no need for having a separate version for `syncthing-macos`. As it also keeps the wrapper tightly coupled with the syncthing releases.
 
 ## Compilation and packaging process
 
@@ -16,9 +16,9 @@ Currently there is no need for having a separate version for `syncthing-macosx`.
 * Syncthing resource is fetched with `syncthing/Scripts/syncthing-resource.sh`
 * Fancy DMG disk image is generated with `syncthing/Scripts/create-dmg.sh`
   * The version part of the DMG name is fetched from `syncthing/Info.plist, key CFBundleShortVersionString`
-* Both the app bundle and the DMG are signed with the first available Developer ID certificate, if found (or the one specified through SYNCTHING_APP_CODE_SIGN_IDENTITY environment variable)
+* Both the app bundle and the DMG are signed with the first available Developer ID certificate, if found (or the one specified through `SYNCTHING_APP_CODE_SIGN_IDENTITY` environment variable)
 
-`syncthing-macosx` will only ship [stable releases and no release candidates](https://forum.syncthing.net/t/introducing-stable-releases-and-release-candidates/9167).
+`syncthing/syncthing-macos` will only ship [stable releases and no release candidates](https://forum.syncthing.net/t/introducing-stable-releases-and-release-candidates/9167) of the Syncthing Service (daemon).
 
 ## New release
 
