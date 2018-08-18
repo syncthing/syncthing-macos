@@ -73,7 +73,7 @@ Design, internals and build process is documented in [doc/design.md](doc/design.
 
 # Contributions
 
-[Contributions](CONTRIBUTIONS.md) and [issue reports](https://github.com/syncthing/syncthing-macos/issues) are welcome. 
+[Contributions](CONTRIBUTING.md) and [issue reports](https://github.com/syncthing/syncthing-macos/issues) are welcome.
 
 # License
 
