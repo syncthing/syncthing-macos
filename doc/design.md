@@ -24,7 +24,7 @@ Currently there is no need for having a separate version for `syncthing-macos`. 
 
 * Update `syncthing/Scripts/syncthing-resource.sh`, `SYNCTHING_VERSION`
 * Update `syncthing/Info.plist`
-  * `CFBundleShortVersionString`
-  * `CFBundleVersion`
+  * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
+  * `CFBundleVersion` (e.g `145000` or `145001`)
 * Create git tag on develop
 * Merge develop to master branch
