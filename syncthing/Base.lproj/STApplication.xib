@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -15,12 +15,54 @@
         <customObject id="Voe-Tx-rLC" customClass="STAppDelegate">
             <connections>
                 <outlet property="Menu" destination="FYW-KQ-yxY" id="plp-7h-Wj2"/>
+                <outlet property="connectionStatusMenuItem" destination="Gzh-BA-qbg" id="Qsf-SM-5Ew"/>
+                <outlet property="daemonRestartMenuItem" destination="24n-vt-eof" id="D3g-69-jyJ"/>
+                <outlet property="daemonStartMenuItem" destination="s51-hi-aSO" id="8qL-OZ-Raj"/>
+                <outlet property="daemonStatusMenuItem" destination="MAH-El-s0y" id="Lv4-ej-d0h"/>
+                <outlet property="daemonStopMenuItem" destination="v6W-XD-Nuf" id="jJ8-t9-Dwq"/>
+                <outlet property="statusMenuItem" destination="PGw-J9-KII" id="zfN-9R-I9K"/>
                 <outlet property="toggleAllDevicesItem" destination="kBF-aK-W8P" id="ITn-Le-nZi"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="FYW-KQ-yxY">
             <items>
+                <menuItem title="Status" image="NSStatusUnavailable" id="PGw-J9-KII">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Status" autoenablesItems="NO" id="qS5-d4-4WD">
+                        <items>
+                            <menuItem title="Syncthing Service" image="NSStatusUnavailable" id="MAH-El-s0y">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Syncthing Service" autoenablesItems="NO" id="YYN-1k-umQ">
+                                    <items>
+                                        <menuItem title="Start" id="s51-hi-aSO">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="clickedDaemonStart:" target="Voe-Tx-rLC" id="48u-8L-C1K"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Stop" enabled="NO" id="v6W-XD-Nuf">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="clickedDaemonStop:" target="Voe-Tx-rLC" id="yBD-4Z-Q0Z"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Restart" enabled="NO" id="24n-vt-eof">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="clickedDaemonRestart:" target="Voe-Tx-rLC" id="KwT-ej-jdO"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="API" image="NSStatusUnavailable" enabled="NO" id="Gzh-BA-qbg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Qhv-cP-g7k"/>
                 <menuItem title="Open" toolTip="Open Syncthing Web GUI" id="euz-4I-RQa">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -154,4 +196,7 @@
             </menu>
         </menuItem>
     </objects>
+    <resources>
+        <image name="NSStatusUnavailable" width="16" height="16"/>
+    </resources>
 </document>

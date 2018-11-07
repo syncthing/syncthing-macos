@@ -23,15 +23,11 @@
 
 /* Begin PBXBuildFile section */
 		0BE9B88A1F050E93002883E2 /* STStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE9B8891F050E93002883E2 /* STStatusMonitor.m */; };
-		C41E02A21D57D233006DD238 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41E02A11D57D233006DD238 /* Sparkle.framework */; };
-		C41E02A31D57D28C006DD238 /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = C41E02A11D57D233006DD238 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		298A5C45210DA6C40034B89F /* LocalhostTLSDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */; };
+		29AF1BA3210F11BF004212DE /* DaemonProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */; };
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
 		C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */; };
 		C4460A831D0DD38F00200C21 /* STPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */; };
-		C4576BE41D11E43C0031BCFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576BE31D11E43C0031BCFD /* main.m */; };
-		C4576BE61D11E79F0031BCFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4576BE51D11E79F0031BCFD /* Foundation.framework */; };
-		C4576BEA1D11E7E10031BCFD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */; };
-		C4576BEB1D11E9280031BCFD /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
 		C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */ = {isa = PBXBuildFile; fileRef = C47F6C391D0DE68D00F36CF6 /* syncthing.icns */; };
 		C48B83B61DA444BC0052A172 /* STConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C48B83B51DA444BC0052A172 /* STConfiguration.m */; };
 		C4946B011D5877F2008447A2 /* STAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4946B001D5877F2008447A2 /* STAboutWindowController.xib */; };
@@ -65,22 +61,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C4576BD91D11E3BB0031BCFD /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		C462613D1D57944400B16BC6 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C41E02A31D57D28C006DD238 /* Sparkle.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,10 +74,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0BE9B8821F04376C002883E2 /* syncthing-inotify-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-inotify-resource.sh"; path = "syncthing/Scripts/syncthing-inotify-resource.sh"; sourceTree = "<group>"; };
 		0BE9B8881F050E93002883E2 /* STStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStatusMonitor.h; sourceTree = "<group>"; };
 		0BE9B8891F050E93002883E2 /* STStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStatusMonitor.m; sourceTree = "<group>"; };
-		C41E02A11D57D233006DD238 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = 3thparty/frameworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
+		298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalhostTLSDelegate.m; sourceTree = "<group>"; };
+		298A5C44210DA6C40034B89F /* LocalhostTLSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalhostTLSDelegate.h; sourceTree = "<group>"; };
+		29AF1BA4210F11DE004212DE /* syncthing-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "syncthing-Bridging-Header.h"; sourceTree = "<group>"; };
+		29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaemonProcess.swift; sourceTree = "<group>"; };
+		29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.release.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.release.xcconfig"; sourceTree = "<group>"; };
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
 		C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesWindowController.m; path = Controllers/STPreferencesWindowController.m; sourceTree = "<group>"; };
@@ -99,9 +88,6 @@
 		C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStatusBarController.m; path = Controllers/STStatusBarController.m; sourceTree = "<group>"; };
 		C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesWindowController.xib; path = UI/STPreferencesWindowController.xib; sourceTree = "<group>"; };
 		C4576BD51D11E3210031BCFD /* create-dmg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "create-dmg.sh"; path = "syncthing/Scripts/create-dmg.sh"; sourceTree = "<group>"; };
-		C4576BDB1D11E3BB0031BCFD /* xgsyncthing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xgsyncthing; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4576BDD1D11E3BB0031BCFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C4576BE31D11E43C0031BCFD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = syncthing/Tests/main.m; sourceTree = "<group>"; };
 		C4576BE51D11E79F0031BCFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4576BE71D11E7C00031BCFD /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = usr/lib/libobjc.tbd; sourceTree = SDKROOT; };
 		C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -139,29 +125,29 @@
 		C4F0E8371DA1CB0900435310 /* STPreferencesInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesInfoViewController.xib; path = UI/STPreferencesWindow/STPreferencesInfoViewController.xib; sourceTree = "<group>"; };
 		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
 		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
+		FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C4576BD81D11E3BB0031BCFD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4576BEA1D11E7E10031BCFD /* CoreFoundation.framework in Frameworks */,
-				C4576BE61D11E79F0031BCFD /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C4A4155D1D0D579D00DC6018 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C41E02A21D57D233006DD238 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37B4D367252EC0BC94949322 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */,
+				29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C4460A881D0DE58B00200C21 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,26 +157,9 @@
 			name = Docs;
 			sourceTree = "<group>";
 		};
-		C4576BDC1D11E3BB0031BCFD /* xgsyncthing */ = {
-			isa = PBXGroup;
-			children = (
-				C4576BDD1D11E3BB0031BCFD /* main.m */,
-			);
-			path = xgsyncthing;
-			sourceTree = "<group>";
-		};
-		C4576BE21D11E40E0031BCFD /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				C4576BE31D11E43C0031BCFD /* main.m */,
-			);
-			name = Test;
-			sourceTree = "<group>";
-		};
 		C46261361D578DA800B16BC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C41E02A11D57D233006DD238 /* Sparkle.framework */,
 				C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */,
 				C4576BE51D11E79F0031BCFD /* Foundation.framework */,
 			);
@@ -232,6 +201,12 @@
 		C465001D1DA18F4300C250BC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				29AF1BA4210F11DE004212DE /* syncthing-Bridging-Header.h */,
+				29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */,
+				298A5C44210DA6C40034B89F /* LocalhostTLSDelegate.h */,
+				298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */,
+				C4FFB0631D0D7E440015D14A /* XGSyncthing.h */,
+				C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */,
 				C4A415631D0D579D00DC6018 /* STApplication.h */,
 				C4A415641D0D579D00DC6018 /* STApplication.m */,
 				C4D567A11D3A8DFE002AD881 /* STLoginItem.m */,
@@ -251,10 +226,9 @@
 				C4576BE71D11E7C00031BCFD /* libobjc.tbd */,
 				C4D896141D0DF90E00D42F73 /* Scripts */,
 				C4460A881D0DE58B00200C21 /* Docs */,
-				C4FFB0621D0D7E360015D14A /* Library */,
 				C4A415621D0D579D00DC6018 /* Sources */,
-				C4576BDC1D11E3BB0031BCFD /* xgsyncthing */,
 				C4A415611D0D579D00DC6018 /* Products */,
+				37B4D367252EC0BC94949322 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				C4A415601D0D579D00DC6018 /* Syncthing.app */,
-				C4576BDB1D11E3BB0031BCFD /* xgsyncthing */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -317,50 +290,24 @@
 			children = (
 				C4576BD51D11E3210031BCFD /* create-dmg.sh */,
 				C4D896121D0DF90900D42F73 /* syncthing-resource.sh */,
-				0BE9B8821F04376C002883E2 /* syncthing-inotify-resource.sh */,
 			);
 			name = Scripts;
-			sourceTree = "<group>";
-		};
-		C4FFB0621D0D7E360015D14A /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				C4576BE21D11E40E0031BCFD /* Test */,
-				C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */,
-				C4FFB0631D0D7E440015D14A /* XGSyncthing.h */,
-			);
-			name = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4576BDA1D11E3BB0031BCFD /* xgsyncthing */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C4576BDF1D11E3BB0031BCFD /* Build configuration list for PBXNativeTarget "xgsyncthing" */;
-			buildPhases = (
-				C4576BD71D11E3BB0031BCFD /* Sources */,
-				C4576BD81D11E3BB0031BCFD /* Frameworks */,
-				C4576BD91D11E3BB0031BCFD /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = xgsyncthing;
-			productName = xgsyncthing;
-			productReference = C4576BDB1D11E3BB0031BCFD /* xgsyncthing */;
-			productType = "com.apple.product-type.tool";
-		};
 		C4A4155F1D0D579D00DC6018 /* syncthing */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4A415711D0D579D00DC6018 /* Build configuration list for PBXNativeTarget "syncthing" */;
 			buildPhases = (
+				8A5B68A2BC79FFEFE08E3863 /* [CP] Check Pods Manifest.lock */,
 				C4A4155C1D0D579D00DC6018 /* Sources */,
 				C4A4155D1D0D579D00DC6018 /* Frameworks */,
 				C4A4155E1D0D579D00DC6018 /* Resources */,
 				C462613D1D57944400B16BC6 /* Copy Files */,
 				C4946AFF1D5876AF008447A2 /* ShellScript */,
+				76C4F2C92ED96E367934A99B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,19 +324,17 @@
 		C4A415581D0D579D00DC6018 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Jerry Jacobs";
 				TargetAttributes = {
 					0B9C6B051F144DF1009C68CA = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
-					C4576BDA1D11E3BB0031BCFD = {
-						CreatedOnToolsVersion = 7.3.1;
-					};
 					C4A4155F1D0D579D00DC6018 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = C24U83K674;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -408,7 +353,6 @@
 			projectRoot = "";
 			targets = (
 				C4A4155F1D0D579D00DC6018 /* syncthing */,
-				C4576BDA1D11E3BB0031BCFD /* xgsyncthing */,
 				0B9C6B051F144DF1009C68CA /* syncthing-dmg */,
 			);
 		};
@@ -448,6 +392,44 @@
 			shellPath = /bin/sh;
 			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/create-dmg.sh\n";
 		};
+		76C4F2C92ED96E367934A99B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-syncthing/Pods-syncthing-frameworks.sh",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-syncthing/Pods-syncthing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A5B68A2BC79FFEFE08E3863 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-syncthing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C4946AFF1D5876AF008447A2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -459,27 +441,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh\n${SOURCE_ROOT}/syncthing/Scripts/syncthing-inotify-resource.sh\n";
+			shellScript = "${SOURCE_ROOT}/syncthing/Scripts/syncthing-resource.sh";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C4576BD71D11E3BB0031BCFD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4576BEB1D11E9280031BCFD /* XGSyncthing.m in Sources */,
-				C4576BE41D11E43C0031BCFD /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C4A4155C1D0D579D00DC6018 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C4D567A21D3A8DFE002AD881 /* STLoginItem.m in Sources */,
+				29AF1BA3210F11BF004212DE /* DaemonProcess.swift in Sources */,
 				C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */,
+				298A5C45210DA6C40034B89F /* LocalhostTLSDelegate.m in Sources */,
 				C4F0E8331DA1C7A800435310 /* STPreferencesFoldersViewController.m in Sources */,
 				C4A415681D0D579D00DC6018 /* main.m in Sources */,
 				C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */,
@@ -531,26 +506,6 @@
 			};
 			name = Release;
 		};
-		C4576BE01D11E3BB0031BCFD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEAD_CODE_STRIPPING = YES;
-				GCC_DYNAMIC_NO_PIC = NO;
-				OTHER_CFLAGS = "";
-				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		C4576BE11D11E3BB0031BCFD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEAD_CODE_STRIPPING = YES;
-				OTHER_CFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		C4A4156F1D0D579D00DC6018 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -560,13 +515,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -607,13 +572,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -636,12 +611,15 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
 		C4A415721D0D579D00DC6018 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -660,13 +638,18 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SEPARATE_STRIP = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "syncthing/syncthing-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
 		C4A415731D0D579D00DC6018 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -685,6 +668,8 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SEPARATE_STRIP = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "syncthing/syncthing-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
@@ -697,15 +682,6 @@
 			buildConfigurations = (
 				0B9C6B071F144DF1009C68CA /* Debug */,
 				0B9C6B081F144DF1009C68CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C4576BDF1D11E3BB0031BCFD /* Build configuration list for PBXNativeTarget "xgsyncthing" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C4576BE01D11E3BB0031BCFD /* Debug */,
-				C4576BE11D11E3BB0031BCFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

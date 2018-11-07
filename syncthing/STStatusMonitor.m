@@ -22,52 +22,26 @@
 
 - (instancetype)init {
     self = [super init];
-    
+
     self.folderStates = [[NSMutableDictionary alloc] init];
-    
+
     return self;
 }
 
 - (void) longPoll {
     @autoreleasepool {
-        NSString *url = nil;
-        
-        if (self.lastSeenId) {
-            url = [NSString stringWithFormat:@"%@%@%ld", self.syncthing.URI, @"/rest/events?since=", self.lastSeenId];
-        }
-        else {
-            url = [NSString stringWithFormat:@"%@%@", self.syncthing.URI, @"/rest/events?limit=1"];
-        }
-        
-        NSData *serverData = nil;
-        NSError *myError = nil;
-        NSURLResponse *serverResponse = nil;
-        NSMutableURLRequest *theRequest=[NSMutableURLRequest
-                                         requestWithURL:[NSURL URLWithString:url]
-                                         cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-        
-        [theRequest setHTTPMethod:@"GET"];
-        [theRequest setValue:self.syncthing.ApiKey forHTTPHeaderField:@"X-API-Key"];
-        
-        serverData = [NSURLConnection sendSynchronousRequest:theRequest
-                                           returningResponse:&serverResponse error:&myError];
-        
-        if (!myError) {
-            id json = [NSJSONSerialization JSONObjectWithData:serverData options:
-                       NSJSONReadingMutableContainers error:&myError];
-            
-            
-            [self performSelectorOnMainThread:@selector(dataReceived:)
-                                   withObject:json waitUntilDone:YES];
-        }
-        else if ([[myError domain] isEqualToString:@"NSURLErrorDomain"] && [myError code] != NSURLErrorTimedOut) {
-            self.lastSeenId = 0;
+        id result = [self.syncthing getEventsSince:self.lastSeenId];
+        if (result == nil) {
+            // Failed to get events
             [NSThread sleepForTimeInterval:1.0];
+        } else {
+            // Got events, process them.
+            [self performSelectorOnMainThread:@selector(dataReceived:) withObject:result waitUntilDone:YES];
         }
+        
+        if (self.enabled)
+            [self performSelectorInBackground:@selector(longPoll) withObject: nil];
     }
-    
-    if (self.enabled)
-        [self performSelectorInBackground:@selector(longPoll) withObject: nil];
 }
 
 - (void) dataReceived: (id) data {
@@ -87,7 +61,7 @@
     if ([eventType isEqualToString:@"StateChanged"]) {
         NSString *folder = [eventData objectForKey:@"folder"];
         NSString *newState = [eventData objectForKey:@"to"];
-        
+
         self.folderStates[folder] = newState;
         [self updateCurrentStatus];
     }
@@ -128,7 +102,7 @@
     if (!self.enabled) {
         self.enabled = YES;
         [self performSelectorInBackground:@selector(longPoll) withObject: nil];
-        
+
         _updateTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updateStatusFromTimer) userInfo:nil repeats:YES];
     }
 }

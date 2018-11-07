@@ -19,9 +19,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.14.46-1</string>
+	<string>0.14.52-1</string>
 	<key>CFBundleVersion</key>
-	<string>144601</string>
+	<string>145201</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -34,17 +34,17 @@
 		<true/>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 Jerry Jacobs (github.com/xor-gate). All rights reserved.</string>
+	<string>Copyright © 2018 Syncthing for macOS authors (github.com/syncthing/syncthing-macos). All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>STApplication</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>STBundleName</key>
-	<string>syncthing-macosx</string>
+	<string>syncthing-macos</string>
 	<key>STProjectHomepageURL</key>
-	<string>https://github.com/xor-gate/syncthing-macosx</string>
+	<string>https://github.com/syncthing/syncthing-macos</string>
 	<key>SUFeedURL</key>
-	<string>https://xor-gate.github.io/syncthing-macosx/appcast.xml</string>
+	<string>https://upgrades.syncthing.net/syncthing-macos/appcast.xml</string>
 	<key>SUScheduledCheckInterval</key>
 	<integer>86400</integer>
 	<key>CFBundleGetInfoString</key>
