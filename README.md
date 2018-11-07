@@ -18,7 +18,7 @@ Features include:
 
 # Screenshot
 
-<img width="562" alt="screenshot.png" src="https://user-images.githubusercontent.com/1050166/43681636-f2ef6fea-9859-11e8-97f8-88a159b281ba.png">
+<img alt="screenshot.png" src="https://user-images.githubusercontent.com/1050166/48157165-35970f00-e2cf-11e8-8009-10bfbf7fbce2.png">
 
 # Installation
 
