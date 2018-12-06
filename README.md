@@ -1,6 +1,6 @@
 # Syncthing for macOS
 
-[![Gitter.im Chat](https://img.shields.io/badge/gitter-join%20chat-green.svg)](https://gitter.im/syncthing-macos/Lobby)
+[![Syncthing forum](https://img.shields.io/badge/syncthing-%20forum-blue.svg)](https://forum.syncthing.net/t/syncthing-for-macos)
 [![Downloads](https://img.shields.io/github/downloads/syncthing/syncthing-macos/total.svg)](https://github.com/syncthing/syncthing-macos/releases) [![Latest release](https://img.shields.io/github/release/syncthing/syncthing-macos.svg)](https://github.com/syncthing/syncthing-macos/releases/latest) [![Build Status](https://travis-ci.org/syncthing/syncthing-macos.svg?branch=master)](https://travis-ci.org/syncthing/syncthing-macos) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
 
 # Introduction
@@ -18,7 +18,7 @@ Features include:
 
 # Screenshot
 
-<img width="562" alt="screenshot.png" src="https://user-images.githubusercontent.com/1050166/43681636-f2ef6fea-9859-11e8-97f8-88a159b281ba.png">
+<img alt="screenshot.png" src="https://user-images.githubusercontent.com/1050166/48157165-35970f00-e2cf-11e8-8009-10bfbf7fbce2.png">
 
 # Installation
 
