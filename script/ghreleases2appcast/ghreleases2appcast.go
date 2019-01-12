@@ -16,7 +16,7 @@ import (
 	"github.com/google/go-github/github"
 	"github.com/hashicorp/go-version"
 	"github.com/syncthing/syncthing-macos/lib/sparkle"
-	"gopkg.in/russross/blackfriday.v1"
+	"github.com/russross/blackfriday"
 )
 
 var githubOrg string
@@ -110,12 +110,20 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 	}
 
 	// Generate CFBundleVersion for Sparkle
-	// "v0.14.48-1" -> "144801"
+	// "v0.14.48-1" ->  "144801"
+	// "v1.0.0-1"   -> "1000001" (new scheme)
 	distVersion, err := strconv.ParseUint(rVersion.Prerelease(), 10, 8)
 	if err != nil {
 		return sparkle.Item{}, fmt.Errorf("git tag '%s' semver prerelease '%s' is invalid: %v", rTag, rVersion.Prerelease(), err)
 	}
-	sparkleVersion := fmt.Sprintf("%02d%02d%02d", rSegments[1], rSegments[2], distVersion)
+
+	var sparkleVersion string
+
+	if rSegments[0] > 0 {
+		sparkleVersion = fmt.Sprintf("%02d%02d%02d%02d", rSegments[0] * 10, rSegments[1], rSegments[2], distVersion)
+	} else {
+		sparkleVersion = fmt.Sprintf("%02d%02d%02d", rSegments[1], rSegments[2], distVersion)
+	}
 
 	// Search for dmg in release assets
 	var dmgAssetURL string
@@ -134,7 +142,7 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 	}
 
 	// Translate github Markdown description to HTML and add the item to the list
-	htmlDescription := blackfriday.MarkdownCommon([]byte(release.GetBody()))
+	htmlDescription := blackfriday.Run([]byte(release.GetBody()))
 
 	item := sparkle.Item{
 		Title:       release.GetName(),
