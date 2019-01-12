@@ -6,4 +6,4 @@ release:
 release-dmg:
 	xcodebuild -derivedDataPath $(PWD) -configuration Release -scheme syncthing-dmg
 clean:
-	rm -Rf Build
+	rm -Rf Build Index Logs ModuleCache.noindex info.plist
