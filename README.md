@@ -9,7 +9,7 @@
 
 Features include:
 
- * Open the Syncthing WebGUI from the tray in your prefered browser.
+ * Open the Syncthing WebGUI from the tray in your preferred browser.
  * Optionally starts on login, so you don't need to set up Syncthing as a service.
  * Tray icon indicates when it is connected to syncthing (no status updates yet).
  * Retina ready icons for the Application bundle and status tray.
@@ -34,7 +34,7 @@ Or [homebrew](https://github.com/Homebrew/homebrew-cask) can be used: `brew cask
 
 All cross-platform approaches are not able to use all the native facilities of macOS. Including auto-updates,
  vector icon set (retina-ready) and creating an application bundle. GUIs are designed with XCode and everything
- is coded in Objective-C which is "the native approach".
+ is coded in Objective-C and Swift which is "the native approach".
 
 # Compiling
 
