@@ -111,7 +111,7 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 
 	// Generate CFBundleVersion for Sparkle
 	// "v0.14.48-1" ->  "144801"
-	// "v1.0.0-1"   ->  "1000001" (new scheme)
+	// "v1.0.0-2"   ->  "100000002" (new scheme, see issue #90)
 	distVersion, err := strconv.ParseUint(rVersion.Prerelease(), 10, 8)
 	if err != nil {
 		return sparkle.Item{}, fmt.Errorf("git tag '%s' semver prerelease '%s' is invalid: %v", rTag, rVersion.Prerelease(), err)
@@ -119,8 +119,9 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 
 	var sparkleVersion string
 
+	// Versions after major 0 will use the new scheme (see issue #90)
 	if rSegments[0] > 0 {
-		sparkleVersion = fmt.Sprintf("%03d%02d%02d%02d", rSegments[0] * 10, rSegments[1], rSegments[2], distVersion)
+		sparkleVersion = fmt.Sprintf("%d%03d%03d%02d", rSegments[0], rSegments[1], rSegments[2], distVersion)
 	} else {
 		sparkleVersion = fmt.Sprintf("%02d%02d%02d", rSegments[1], rSegments[2], distVersion)
 	}
