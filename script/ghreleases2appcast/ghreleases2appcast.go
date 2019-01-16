@@ -120,7 +120,7 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 	var sparkleVersion string
 
 	if rSegments[0] > 0 {
-		sparkleVersion = fmt.Sprintf("%03d%02d%02d%02d", rSegments[0] * 100, rSegments[1], rSegments[2], distVersion)
+		sparkleVersion = fmt.Sprintf("%03d%02d%02d%02d", rSegments[0] * 10, rSegments[1], rSegments[2], distVersion)
 	} else {
 		sparkleVersion = fmt.Sprintf("%02d%02d%02d", rSegments[1], rSegments[2], distVersion)
 	}
