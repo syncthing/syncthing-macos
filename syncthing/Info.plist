@@ -19,9 +19,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0-2</string>
+	<string>1.0.1-1</string>
 	<key>CFBundleVersion</key>
-	<string>100000002</string>
+	<string>100000101</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -34,7 +34,7 @@
 		<true/>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2018 Syncthing for macOS authors (github.com/syncthing/syncthing-macos). All rights reserved.</string>
+	<string>Copyright © 2019 Syncthing for macOS authors (github.com/syncthing/syncthing-macos). All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>STApplication</string>
 	<key>NSPrincipalClass</key>
