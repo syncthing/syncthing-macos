@@ -23,25 +23,25 @@ let MaxKeepLogLines = 200
     private var queue = DispatchQueue(label: "DaemonProcess")
     private var shouldTerminate = false
 
-    init(path: String, delegate: DaemonProcessDelegate) {
+    @objc init(path: String, delegate: DaemonProcessDelegate) {
         self.path = path
         self.delegate = delegate
     }
 
-    func launch() {
+    @objc func launch() {
         queue.async {
             self.launchSync()
         }
     }
 
-    func terminate() {
+    @objc func terminate() {
         queue.async {
             self.shouldTerminate = true
             self.process?.terminate()
         }
     }
 
-    func restart() {
+    @objc func restart() {
         queue.async {
             // Syncthing should exit cleanly when sent the interrupt signal. It will then be restarted.
             self.process?.interrupt()
