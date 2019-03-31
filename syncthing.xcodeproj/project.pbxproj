@@ -640,7 +640,7 @@
 				SEPARATE_STRIP = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "syncthing/syncthing-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
@@ -669,7 +669,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SEPARATE_STRIP = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "syncthing/syncthing-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
