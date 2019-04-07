@@ -31,7 +31,7 @@ provisioning an remote syncthing instance, the local instance is auto-configured
 
 The latest version can be downloaded from [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest)
 
-Or [homebrew](https://github.com/Homebrew/homebrew-cask) can be used: `brew cask install syncthing-app`
+Or [homebrew](https://github.com/Homebrew/homebrew-cask) can be used: `brew cask install syncthing`
 
 # Why
 
