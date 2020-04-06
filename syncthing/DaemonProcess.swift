@@ -54,6 +54,7 @@ let MaxKeepLogLines = 200
 
         let p = Process()
         p.arguments = ["-no-browser", "-no-restart"]
+        p.environment = ["STNODEFAULTFOLDER" : "true", "STNOUPGRADE" : "true"]
         p.launchPath = path
         p.standardInput = Pipe() // isolate daemon from our stdin
         p.standardOutput = pipeIntoLineBuffer()
