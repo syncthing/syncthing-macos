@@ -42,8 +42,6 @@ function usage() {
   echo "      make a drop link to Applications, at location x,y"
   echo "  --eula eula_file"
   echo "      attach a license file to the dmg"
-  echo "  --no-internet-enable"
-  echo "      disable automatic mount&copy"
   echo "  --version         show tool version number"
   echo "  -h, --help        display this help"
   exit 0
@@ -106,9 +104,6 @@ while test "${1:0:1}" = "-"; do
     --eula)
       EULA_RSRC=$2
       shift; shift;;
-    --no-internet-enable)
-      NOINTERNET=1
-      shift;;
     -*)
       echo "Unknown option $1. Run with --help for help."
       exit 1;;
@@ -218,12 +213,6 @@ rm -f "${DMG_TEMP_NAME}"
 if [ ! -z "${EULA_RSRC}" -a "${EULA_RSRC}" != "-null-" ]; then
         echo "adding EULA resources"
         "${AUX_PATH}/dmg-license.py" "${DMG_DIR}/${DMG_NAME}" "${EULA_RSRC}"
-fi
-
-if [ ! -z "${NOINTERNET}" -a "${NOINTERNET}" == 1 ]; then
-        echo "not setting 'internet-enable' on the dmg"
-else
-        hdiutil internet-enable -yes "${DMG_DIR}/${DMG_NAME}"
 fi
 
 echo "Disk image done"

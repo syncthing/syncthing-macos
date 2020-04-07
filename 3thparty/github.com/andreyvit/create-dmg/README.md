@@ -45,7 +45,6 @@ All contents of source\_folder will be copied into the disk image.
 *   **--custom-icon [file name]/[custom icon]/[sample file] [x y]:** set position and custom icon    
 *   **--app-drop-link [x y]:** make a drop link to Applications, at location x, y    
 *   **--eula [eula file]:** attach a license file to the dmg    
-*   **--no-internet-enable:** disable automatic mount&copy    
 *   **--version:** show tool version number    
 *   **-h, --help:** display the help  
   
