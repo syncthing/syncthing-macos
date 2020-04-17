@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Download and unpack syncthing into ${PRODUCT_NAME}.app/Contents/Resources
 SYNCTHING_ARCH="amd64"
-SYNCTHING_VERSION="1.0.0"
+SYNCTHING_VERSION="1.4.2"
 SYNCTHING_DIST_URL="https://github.com/syncthing/syncthing/releases/download"
 SYNCTHING_TARBALL_URL="${SYNCTHING_DIST_URL}/v${SYNCTHING_VERSION}/syncthing-macos-${SYNCTHING_ARCH}-v${SYNCTHING_VERSION}.tar.gz"
 
