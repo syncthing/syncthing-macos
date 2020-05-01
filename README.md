@@ -31,6 +31,8 @@ To install just download the dmg, mount it and drag and drop the application to 
 
 The latest version is available at [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) `brew cask install syncthing`
 
+** NOTE: For MacOS Catalina, it seems to be necessary to install the app from the `.dmg` as root, otherwise `{click tray icon} -> {first item}` remains red, indicating that the background service is unable to run. To do this, don't _install_ from `brew`. Instead, do `brew cask fetch syncthing`, then `sudo run X` where `X` is the filepath to the downloaded `.dmg` (displayed by the previous command).
+
 # Why
 
 All cross-platform approaches are not able to use all the native facilities of macOS. Including auto-updates,
