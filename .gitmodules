@@ -1,0 +1,3 @@
+[submodule "3thparty/github.com/andreyvit/create-dmg"]
+	path = 3thparty/github.com/andreyvit/create-dmg
+	url = https://github.com/andreyvit/create-dmg.git
