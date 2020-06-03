@@ -62,20 +62,10 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    _executable = [defaults stringForKey:@"Executable"];
-    if (!_executable) {
-        // We store the executable in ~/Library/Application Support/Syncthing-macOS/syncthing by default
-        _executable = [[self applicationSupportDirectoryFor:@"Syncthing-macOS"] stringByAppendingPathComponent:@"syncthing"];
-        [defaults setValue:_executable forKey:@"Executable"];
-    }
-
-    NSError *error;
-    if (![self ensureExecutableAt:_executable error:&error]) {
-        // Fail :(
-        // TODO(jb): We should show a proper error dialog here.
-        NSLog(@"Failed to prepare binary: %@", [error localizedDescription]);
-        return;
-    }
+    _executable = [NSString stringWithFormat:@"%@/%@",
+                       [[NSBundle mainBundle] resourcePath],
+                       @"syncthing/syncthing"];
+    [defaults setValue:_executable forKey:@"Executable"];
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
     _syncthing.ApiKey = [defaults stringForKey:@"ApiKey"];
@@ -108,31 +98,6 @@
     if (![defaults objectForKey:@"StartAtLogin"]) {
         [defaults setBool:[STLoginItem wasAppAddedAsLoginItem] forKey:@"StartAtLogin"];
     }
-}
-
-- (NSString*)applicationSupportDirectoryFor:(NSString*)application {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-        return [[paths firstObject] stringByAppendingPathComponent:application];
-}
-
-- (BOOL)ensureExecutableAt:(NSString*)path error:(NSError* _Nullable*)error {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    if ([manager fileExistsAtPath:path]) {
-        // The executable exists. Nothing for us to do.
-        return YES;
-    }
-
-    NSString *parent = [path stringByDeletingLastPathComponent];
-    if (![manager fileExistsAtPath:path]) {
-        // The directory to hold the binary doesn't exist. We must create it.
-        if (![manager createDirectoryAtPath:parent withIntermediateDirectories:YES attributes:nil error:error]) {
-            return NO;
-        }
-    }
-
-    // Copy the bundled executable to the desired location. Pass on return and error to the caller.
-    NSString *bundled = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"syncthing/syncthing"];
-    return [manager copyItemAtPath:bundled toPath:path error:error];
 }
 
 - (void) sendNotification:(NSString *)text {

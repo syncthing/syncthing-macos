@@ -53,6 +53,7 @@ let MaxKeepLogLines = 200
         shouldTerminate = false
 
         let p = Process()
+        p.environment = ["STNOUPGRADE" : "true"]
         p.arguments = ["-no-browser", "-no-restart"]
         p.launchPath = path
         p.standardInput = Pipe() // isolate daemon from our stdin
