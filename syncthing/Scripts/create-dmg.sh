@@ -25,11 +25,6 @@ else
 	echo "   > ${SYNCTHING_DMG}"
 	rm -rf ${STAGING_DIR}
 	mkdir -p ${STAGING_DIR}
-
-	# Fix 'resource fork, Finder information, or similar detritus not allowed'
-	# https://developer.apple.com/library/archive/qa/qa1940/_index.html
-	xattr -cr ${SYNCTHING_APP}
-
 	cp -a -p ${SYNCTHING_APP} ${STAGING_DIR}
 
 	if [[ ! -z "${SYNCTHING_APP_CODE_SIGN_IDENTITY+x}" ]]; then
@@ -44,7 +39,7 @@ else
 	fi
 
 	if [[ ! -z "${SELECTED_IDENTITY}" ]]; then
-		codesign --force --deep --sign "${SELECTED_IDENTITY}" "${STAGING_APP}"
+		codesign --force --deep --options=runtime --sign "${SELECTED_IDENTITY}" "${STAGING_APP}"
 	fi
 
 	${CREATE_DMG} \
