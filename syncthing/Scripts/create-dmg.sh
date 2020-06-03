@@ -39,7 +39,7 @@ else
 	fi
 
 	if [[ ! -z "${SELECTED_IDENTITY}" ]]; then
-		codesign -s "${SELECTED_IDENTITY}" --force --deep --sign -o runtime "${STAGING_APP}"
+		codesign -i "${SELECTED_IDENTITY}" --force --deep --sign -o runtime "${STAGING_APP}"
 	fi
 
 	${CREATE_DMG} \
