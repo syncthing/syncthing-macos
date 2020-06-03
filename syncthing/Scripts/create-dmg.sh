@@ -39,7 +39,9 @@ else
 	fi
 
 	if [[ ! -z "${SELECTED_IDENTITY}" ]]; then
-		codesign --force --deep --sign "${SELECTED_IDENTITY}" "${STAGING_APP}"
+		codesign --verbose --force --deep -o runtime --sign "${SELECTED_IDENTITY}" "${STAGING_APP}/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/AutoUpdate.app"
+		codesign --verbose --force -o runtime --sign "${SELECTED_IDENTITY}" "${STAGING_APP}/Contents/Frameworks/Sparkle.framework/Versions/A"
+		codesign --force --deep --options=runtime --sign "${SELECTED_IDENTITY}" "${STAGING_APP}"
 	fi
 
 	${CREATE_DMG} \
