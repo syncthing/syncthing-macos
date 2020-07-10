@@ -56,25 +56,30 @@
     [self updateStatusIcon:@"StatusIconNotify"];
 }
 
+- (NSString*)applicationSupportDirectoryFor:(NSString*)application {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+        return [[paths firstObject] stringByAppendingPathComponent:application];
+}
+
 // TODO: move to STConfiguration class
 - (void)applicationLoadConfiguration {
     static int configLoadAttempt = 1;
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    _executable = [defaults stringForKey:@"Executable"];
-    if (!_executable) {
-        // We store the executable in ~/Library/Application Support/Syncthing-macOS/syncthing by default
-        _executable = [[self applicationSupportDirectoryFor:@"Syncthing-macOS"] stringByAppendingPathComponent:@"syncthing"];
-        [defaults setValue:_executable forKey:@"Executable"];
-    }
-
-    NSError *error;
-    if (![self ensureExecutableAt:_executable error:&error]) {
-        // Fail :(
-        // TODO(jb): We should show a proper error dialog here.
-        NSLog(@"Failed to prepare binary: %@", [error localizedDescription]);
-        return;
+    _executable = [NSString stringWithFormat:@"%@/%@",
+                       [[NSBundle mainBundle] resourcePath],
+                       @"syncthing/syncthing"];
+    [defaults setValue:_executable forKey:@"Executable"];
+    
+    
+    // We stored a copy of the executable in ~/Library/Application Support/Syncthing-macOS/syncthing < v1.7.0-1
+    // Cleanup the old releases
+    NSString *oldExecutablePath = [self applicationSupportDirectoryFor:@"Syncthing-macOS"];
+    BOOL isDir;
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:oldExecutablePath isDirectory:&isDir];
+    if (exists && isDir) {
+        [[NSFileManager defaultManager] removeItemAtPath:oldExecutablePath error:nil];
     }
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
@@ -108,31 +113,6 @@
     if (![defaults objectForKey:@"StartAtLogin"]) {
         [defaults setBool:[STLoginItem wasAppAddedAsLoginItem] forKey:@"StartAtLogin"];
     }
-}
-
-- (NSString*)applicationSupportDirectoryFor:(NSString*)application {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-        return [[paths firstObject] stringByAppendingPathComponent:application];
-}
-
-- (BOOL)ensureExecutableAt:(NSString*)path error:(NSError* _Nullable*)error {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    if ([manager fileExistsAtPath:path]) {
-        // The executable exists. Nothing for us to do.
-        return YES;
-    }
-
-    NSString *parent = [path stringByDeletingLastPathComponent];
-    if (![manager fileExistsAtPath:path]) {
-        // The directory to hold the binary doesn't exist. We must create it.
-        if (![manager createDirectoryAtPath:parent withIntermediateDirectories:YES attributes:nil error:error]) {
-            return NO;
-        }
-    }
-
-    // Copy the bundled executable to the desired location. Pass on return and error to the caller.
-    NSString *bundled = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"syncthing/syncthing"];
-    return [manager copyItemAtPath:bundled toPath:path error:error];
 }
 
 - (void) sendNotification:(NSString *)text {

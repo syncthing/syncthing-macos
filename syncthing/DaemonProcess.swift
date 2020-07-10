@@ -52,7 +52,12 @@ let MaxKeepLogLines = 200
         NSLog("Launching Syncthing daemon")
         shouldTerminate = false
 
+        // Since release v1.7.0-1 we don't allow Syncthing daemon to update by itself
+        var environment = ProcessInfo.processInfo.environment
+        environment["STNOUPGRADE"] = "true"
+
         let p = Process()
+        p.environment = environment
         p.arguments = ["-no-browser", "-no-restart"]
         p.launchPath = path
         p.standardInput = Pipe() // isolate daemon from our stdin
