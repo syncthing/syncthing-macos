@@ -64,6 +64,15 @@ SYNCTHING_APP_CODE_SIGN_IDENTITY="Mac Developer: foo@bar.com (XB59MXU8EC)" make 
 The goal of this project is to keep the Native macOS Syncthing tray as simple as possible. No graphs, no advanced configuration
  windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
 
+# FAQ: Frequently asked questions
+
+## Default IP address change
+
+When the default IP address is changed from 127.0.0.1 to a routable one like e.g 192.168.1.102 the tray application
+preferences need to be set also. Or else the API cannot be accessed and will stay 'Offline'. If you broke the
+configuration you can manually edit the file under the `~/Library/Application Support/Syncthing/config.xml` using
+Finder with Go -> Go to folder. And restart the syncthing service from the tray.
+
 # Known bugs
 
 See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for the current status.
