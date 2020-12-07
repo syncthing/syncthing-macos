@@ -4,6 +4,8 @@
 # 1. Loads the latest tag name from github api
 # 2. Parses the tag
 # 3. Writes the syncthing/Info.plist
+#
+# TODO: also write the new version to syncthing/Scripts/syncthing-resource.sh
 ###
 import json
 import semver
