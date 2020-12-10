@@ -22,6 +22,8 @@ Currently there is no need for having a separate version for `syncthing-macos`. 
 
 ## New release
 
+To update the bundled syncthing the toplevel update-release.py must be executed.
+
 * Update `syncthing/Scripts/syncthing-resource.sh`, `SYNCTHING_VERSION`
 * Update `syncthing/Info.plist`
   * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
