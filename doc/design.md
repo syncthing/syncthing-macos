@@ -1,5 +1,23 @@
 # Syncthing for macOS design
 
+## Settings
+
+The Syncthing settings use the NSDefaults facility. From the commandline all settings can be shown with:
+
+```
+jerry@Jerrys-iMac ~ % defaults read com.github.xor-gate.syncthing-macosx
+{
+    ApiKey = rR7YrEDLKhNETJZKgySmnYPZvebY9qgk;
+    Executable = "/Applications/Syncthing.app/Contents/Resources/syncthing/syncthing";
+    SUEnableAutomaticChecks = 1;
+    SUHasLaunchedBefore = 1;
+    SULastCheckTime = "2021-01-08 12:05:53 +0000";
+    SUSendProfileInfo = 0;
+    StartAtLogin = 1;
+    URI = "http://127.0.0.1:8384";
+}
+```
+
 ## Dependency management
 
 [CocoaPods](https://cocoapods.org/) is used for dependency management. It can be installed with [Homebrew](https://brew.sh/) package manager. For more information about CocoaPods read the [CocoaPods Guides](https://guides.cocoapods.org/).
