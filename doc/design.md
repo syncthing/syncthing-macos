@@ -38,6 +38,28 @@ Currently there is no need for having a separate version for `syncthing-macos`. 
 
 `syncthing/syncthing-macos` will only ship [stable releases and no release candidates](https://forum.syncthing.net/t/introducing-stable-releases-and-release-candidates/9167) of the Syncthing Service (daemon).
 
+## Apple Application Notarize
+
+After the dmg is create it must be send to Apple to be notarized. It can be checked with spctl if the app is correctly verified by Apple for distribution:
+
+```
+spctl -a -t exec -vvv /Volumes/Syncthing/Syncthing.app
+/Volumes/Syncthing/Syncthing.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Jakob Borg (LQE5SYM783)
+```
+
+When it is not correctly notarized the following output is seen (note the source):
+
+```
+spctl -a -t exec -vvv /Volumes/Syncthing/Syncthing.app
+/Volumes/Syncthing/Syncthing.app: accepted
+source=Developer ID
+origin=Developer ID Application: Jakob Borg (LQE5SYM783)
+```
+
+See also <https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution>
+
 ## New release
 
 To update the bundled syncthing the toplevel update-release.py must be executed.
