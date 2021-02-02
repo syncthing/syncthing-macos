@@ -2,10 +2,9 @@
 set -euo pipefail
 
 # Download and unpack syncthing into ${PRODUCT_NAME}.app/Contents/Resources
-SYNCTHING_ARCH="amd64"
-SYNCTHING_VERSION="1.12.1"
+SYNCTHING_VERSION="1.13.0"
 SYNCTHING_DIST_URL="https://github.com/syncthing/syncthing/releases/download"
-SYNCTHING_TARBALL_URL="${SYNCTHING_DIST_URL}/v${SYNCTHING_VERSION}/syncthing-macos-${SYNCTHING_ARCH}-v${SYNCTHING_VERSION}.zip"
+SYNCTHING_TARBALL_URL="${SYNCTHING_DIST_URL}/v${SYNCTHING_VERSION}/syncthing-macos-universal-v${SYNCTHING_VERSION}.zip"
 
 CURL_ARGS="--connect-timeout 5 --max-time 10 --retry 5 --retry-delay 3 --retry-max-time 60"
 DL_DIR="${BUILT_PRODUCTS_DIR}/dl"
