@@ -45,7 +45,7 @@ Build with XCode or run:
 make debug
 ```
 
-It will automaticly download syncthing amd64 binary and add it to the Application Bundle.
+It will automaticly download syncthing universal binary and add it to the Application Bundle.
 
 For release builds signing the application build and creating an distributable DMG:
 
