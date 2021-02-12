@@ -52,6 +52,13 @@ preferences need to be set also. Or else the API cannot be accessed and will sta
 configuration you can manually edit the file under the `~/Library/Application Support/Syncthing/config.xml` using
 Finder with Go -> Go to folder. And restart the syncthing service from the tray.
 
+## Uninstallation
+
+On Mac OS X you drop the application from the Application folder to your Trash. 
+But there are some user specific files are kept elsewhere, which are located under 
+`$HOME/Library/Application Support/Syncthing`. The files in this folder are the configuration,
+encryption/profile files and the database cache. For more information see [docs.syncthing.net/users/config.html](https://docs.syncthing.net/users/config.html#description).
+
 # Prerequisites for building/using everything in this repository
 
 Before compiling git submodules needs to be present:
@@ -61,7 +68,7 @@ git submodule update --init
 ```
 
 - Xcode, for the Objective-C/Swift compiler
-- Python 3, for the toplevel update-release.py script
+- Python 3, for the update-release.py script
   - Needs [semver](https://pypi.org/project/semver/) from pip
 - Cocoapods for updating Objective-C/Swift 3th party depedencies
 - Golang, only needed for Sparkle Github releases to Appcast XML tool
@@ -107,3 +114,76 @@ Design, internals and build process is documented in [doc/design.md](doc/design.
 # License
 
 [MIT](LICENSE)
+
+# Design and useful information
+
+## Settings
+
+The Syncthing settings use the NSDefaults facility. From the commandline all settings can be shown with:
+
+```
+jerry@Jerrys-iMac ~ % defaults read com.github.xor-gate.syncthing-macosx
+{
+    ApiKey = rR7YrEDLKhNETJZKgySmnYPZvebY9qgk;
+    Executable = "/Applications/Syncthing.app/Contents/Resources/syncthing/syncthing";
+    SUEnableAutomaticChecks = 1;
+    SUHasLaunchedBefore = 1;
+    SULastCheckTime = "2021-01-08 12:05:53 +0000";
+    SUSendProfileInfo = 0;
+    StartAtLogin = 1;
+    URI = "http://127.0.0.1:8384";
+}
+```
+
+## Dependency management
+
+[CocoaPods](https://cocoapods.org/) is used for dependency management. It can be installed with [Homebrew](https://brew.sh/) package manager. For more information about CocoaPods read the [CocoaPods Guides](https://guides.cocoapods.org/).
+
+## Versioning scheme
+
+It uses the shipped syncthing executable version appended with a `-<build index>` number.
+So for Syncthing `0.14.28` with first build/package it is versioned as `0.14.28-1`.
+Currently there is no need for having a separate version for `syncthing-macos`. As it also keeps the wrapper tightly coupled with the syncthing releases.
+
+## Compilation and packaging process
+
+* Xcode builds all sources
+* Syncthing resource is fetched with `syncthing/Scripts/syncthing-resource.sh`
+* Fancy DMG disk image is generated with `syncthing/Scripts/create-dmg.sh`
+  * The version part of the DMG name is fetched from `syncthing/Info.plist, key CFBundleShortVersionString`
+* Both the app bundle and the DMG are signed with the first available Developer ID certificate, if found (or the one specified through `SYNCTHING_APP_CODE_SIGN_IDENTITY` environment variable)
+
+`syncthing/syncthing-macos` will only ship [stable releases and no release candidates](https://forum.syncthing.net/t/introducing-stable-releases-and-release-candidates/9167) of the Syncthing Service (daemon).
+
+## Apple Application Notarize
+
+After the dmg is create it must be send to Apple to be notarized. It can be checked with spctl if the app is correctly verified by Apple for distribution:
+
+```
+spctl -a -t exec -vvv /Volumes/Syncthing/Syncthing.app
+/Volumes/Syncthing/Syncthing.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Jakob Borg (LQE5SYM783)
+```
+
+When it is not correctly notarized the following output is seen (note the source):
+
+```
+spctl -a -t exec -vvv /Volumes/Syncthing/Syncthing.app
+/Volumes/Syncthing/Syncthing.app: accepted
+source=Developer ID
+origin=Developer ID Application: Jakob Borg (LQE5SYM783)
+```
+
+See also <https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution>
+
+## New release
+
+To update the bundled syncthing the `make release-update` must be run from the main folder.
+
+* Update `syncthing/Scripts/syncthing-resource.sh`, `SYNCTHING_VERSION`
+* Update `syncthing/Info.plist`
+  * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
+  * `CFBundleVersion` (e.g `145000` or `145001`)
+* Create git tag on develop
+* Merge develop to master branch
