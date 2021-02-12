@@ -185,5 +185,4 @@ To update the bundled syncthing the `make release-update` must be run from the m
 * Update `syncthing/Info.plist`
   * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
   * `CFBundleVersion` (e.g `145000` or `145001`)
-* Create git tag on develop
-* Merge develop to master branch
+* Create github release and tag on develop
