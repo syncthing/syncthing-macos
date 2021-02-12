@@ -15,8 +15,7 @@ import (
 
 	"github.com/google/go-github/github"
 	"github.com/hashicorp/go-version"
-	"github.com/syncthing/syncthing-macos/lib/sparkle"
-	"github.com/russross/blackfriday"
+	"github.com/russross/blackfriday/v2"
 )
 
 var githubOrg string
@@ -45,7 +44,7 @@ func main() {
 	}
 
 	// Collect Sparkle items
-	var items sparkle.Items
+	var items SparkleItems
 
 	for _, release := range releases {
 		if *release.Prerelease && !withPrereleases {
@@ -64,12 +63,12 @@ func main() {
 	}
 
 	// Create the Sparkle appcast.xml
-	s := &sparkle.Sparkle{
+	s := &Sparkle{
 		Version:      "2.0",
 		XMLNSSparkle: "http://www.andymatuschak.org/xml-namespaces/sparkle",
 		XMLNSDC:      "http://purl.org/dc/elements/1.1/",
-		Channels: []sparkle.Channel{
-			sparkle.Channel{
+		Channels: []SparkleChannel{
+			SparkleChannel{
 				Title:       "Syncthing for macOS",
 				Link:        appcastURL,
 				Description: "Most recent changes with links to updates.",
@@ -95,18 +94,18 @@ func main() {
 	log.Println("appcast.xml url:", appcastURL)
 }
 
-func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sparkle.Item, error) {
+func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (SparkleItem, error) {
 	// Decode git tag using semver spec
 	rTag := release.GetTagName()
 	rVersion, _ := version.NewVersion(rTag)
 	rSegments := rVersion.Segments()
 	if len(rSegments) != 3 {
-		return sparkle.Item{}, fmt.Errorf("git tag '%s' has no 3 semver segments", rTag)
+		return SparkleItem{}, fmt.Errorf("git tag '%s' has no 3 semver segments", rTag)
 	}
 
 	// Make sure the tags starts with 'v'
 	if rTag[0] != 'v' {
-		return sparkle.Item{}, fmt.Errorf("git tag '%s' doesn't start with a 'v'", rTag)
+		return SparkleItem{}, fmt.Errorf("git tag '%s' doesn't start with a 'v'", rTag)
 	}
 
 	// Generate CFBundleVersion for Sparkle
@@ -114,7 +113,7 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 	// "v1.0.0-2"   ->  "100000002" (new scheme, see issue #90)
 	distVersion, err := strconv.ParseUint(rVersion.Prerelease(), 10, 8)
 	if err != nil {
-		return sparkle.Item{}, fmt.Errorf("git tag '%s' semver prerelease '%s' is invalid: %v", rTag, rVersion.Prerelease(), err)
+		return SparkleItem{}, fmt.Errorf("git tag '%s' semver prerelease '%s' is invalid: %v", rTag, rVersion.Prerelease(), err)
 	}
 
 	var sparkleVersion string
@@ -139,17 +138,17 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (sp
 	}
 
 	if dmgAssetURL == "" {
-		return sparkle.Item{}, fmt.Errorf("no dmg found for release %s", rTag)
+		return SparkleItem{}, fmt.Errorf("no dmg found for release %s", rTag)
 	}
 
 	// Translate github Markdown description to HTML and add the item to the list
 	htmlDescription := blackfriday.Run([]byte(release.GetBody()))
 
-	item := sparkle.Item{
+	item := SparkleItem{
 		Title:       release.GetName(),
 		PubDate:     release.PublishedAt.Format(time.RFC1123),
-		Description: sparkle.CdataString{Value: string(htmlDescription)},
-		Enclosure: sparkle.Enclosure{
+		Description: SparkleCdataString{Value: string(htmlDescription)},
+		Enclosure: SparkleEnclosure{
 			SparkleShortVersionString: rTag,
 			SparkleVersion:            sparkleVersion,
 			URL:                       dmgAssetURL,
