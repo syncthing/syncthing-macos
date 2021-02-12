@@ -64,6 +64,14 @@ SYNCTHING_APP_CODE_SIGN_IDENTITY="Mac Developer: foo@bar.com (XB59MXU8EC)" make 
 The goal of this project is to keep the Native macOS Syncthing tray as simple as possible. No graphs, no advanced configuration
  windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
 
+# Prerequisites for building all
+
+- Xcode, for the Objective-C/Swift compiler
+- Python 3, for the toplevel update-release.py script
+  - Needs [semver](https://pypi.org/project/semver/) from pip
+- Cocoapods for updating Objective-C/Swift 3th party depedencies
+- Golang, only needed for Sparkle Github releases to Appcast XML tool
+
 # FAQ: Frequently asked questions
 
 ## Default IP address change
