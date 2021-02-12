@@ -5,7 +5,7 @@
 
 # Introduction
 
-`syncthing-macos` is a native macOS Syncthing tray application bundle. It hosts and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
+`syncthing-macos` project is a native macOS Syncthing tray application bundle. It hosts and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
 
 Features include:
 
@@ -42,6 +42,18 @@ All cross-platform approaches are not able to use all the native facilities of m
 
 The goal of this project is to keep the Native macOS Syncthing tray as simple as possible. No graphs, no advanced configuration
  windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
+
+# Known bugs
+
+See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for the current status.
+
+# Contributions
+
+[Contributions](CONTRIBUTING.md) and [issue reports](https://github.com/syncthing/syncthing-macos/issues) are welcome.
+
+# License
+
+[MIT](LICENSE)
 
 # FAQ: Frequently asked questions
 
@@ -99,22 +111,6 @@ The script will select the first available Developer ID and sign the app with it
 SYNCTHING_APP_CODE_SIGN_IDENTITY="Mac Developer: foo@bar.com (XB59MXU8EC)" make release-dmg
 ```
 
-# Known bugs
-
-See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for the current status.
-
-# Design
-
-Design, internals and build process is documented in [doc/design.md](doc/design.md)
-
-# Contributions
-
-[Contributions](CONTRIBUTING.md) and [issue reports](https://github.com/syncthing/syncthing-macos/issues) are welcome.
-
-# License
-
-[MIT](LICENSE)
-
 # Design and useful information
 
 ## Settings
@@ -157,7 +153,7 @@ Currently there is no need for having a separate version for `syncthing-macos`. 
 
 ## Apple Application Notarize
 
-After the dmg is create it must be send to Apple to be notarized. It can be checked with spctl if the app is correctly verified by Apple for distribution:
+After the dmg is created it must be send to Apple to be notarized. It can be checked with spctl if the app is correctly verified by Apple for distribution:
 
 ```
 spctl -a -t exec -vvv /Volumes/Syncthing/Syncthing.app
@@ -179,10 +175,12 @@ See also <https://developer.apple.com/documentation/xcode/notarizing_macos_softw
 
 ## New release
 
-To update the bundled syncthing the `make release-update` must be run from the main folder.
-
+To update the bundled syncthing the `make release-update` must be run from the main folder which does
+basicly these steps automaticly:
 * Update `syncthing/Scripts/syncthing-resource.sh`, `SYNCTHING_VERSION`
 * Update `syncthing/Info.plist`
   * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
   * `CFBundleVersion` (e.g `145000` or `145001`)
-* Create github release and tag on develop
+
+* Manually create a github release
+* Download the release dmg from [build.syncthing.net](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_BuildReleaseDmg) which is correctly signed and notarized
