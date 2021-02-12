@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88D6818A8E0FD3C5CAC731BAD28F9C22"
-               BuildableName = "libPods-syncthing.a"
-               BlueprintName = "Pods-syncthing"
+               BlueprintIdentifier = "ED77B4B88587C894E85C361023D67C53"
+               BuildableName = "Sparkle"
+               BlueprintName = "Sparkle"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

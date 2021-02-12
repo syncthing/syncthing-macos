@@ -6,58 +6,69 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		ED77B4B88587C894E85C361023D67C53 /* Sparkle */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6347E178A154C832C62FFEFD8D07C44A /* Build configuration list for PBXAggregateTarget "Sparkle" */;
+			buildPhases = (
+				A19A62E98EFD5224E676AA13D01CEF3A /* [CP] Copy dSYMs */,
+			);
+			dependencies = (
+			);
+			name = Sparkle;
+			productName = Sparkle;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		C05FE133E9AD6EE86D998CA6C68213A2 /* Pods-syncthing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A26AC68CE1EFAB19801CA0788F273E61 /* Pods-syncthing-dummy.m */; };
-		DEB3C99A8BF637EE3D9413E60BC7CFB9 /* Pods-xgsyncthing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8328C380C7B2A8080020EA5540B09455 /* Pods-xgsyncthing-dummy.m */; };
+		BE062BEAB0C8AA7384F84436A0F52BCD /* Pods-syncthing-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE8972E54994C4F52B0E8A39AB9F7CF /* Pods-syncthing-dummy.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A11AEC1766ECE0511281F9660E0DA371 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED77B4B88587C894E85C361023D67C53;
+			remoteInfo = Sparkle;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		03CAABD5DCD0916F0C46E3C872A467FC /* SUStandardVersionComparator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUStandardVersionComparator.h; path = Sparkle.framework/Versions/A/Headers/SUStandardVersionComparator.h; sourceTree = "<group>"; };
-		03F755EB1CF83B568A747182477E53DB /* SPUDownloaderDeprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderDeprecated.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderDeprecated.h; sourceTree = "<group>"; };
-		0A91AC385ADC79840863DEC8D077F975 /* Pods-xgsyncthing-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-xgsyncthing-acknowledgements.markdown"; sourceTree = "<group>"; };
-		11BA24F90B47B4AC3C82E2AC0EE19B1B /* SUErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUErrors.h; path = Sparkle.framework/Versions/A/Headers/SUErrors.h; sourceTree = "<group>"; };
-		11D76110347FC462043C8B5035DD3499 /* Pods-syncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-syncthing.debug.xcconfig"; sourceTree = "<group>"; };
-		14F5412DCF3459C695980456F0733BEA /* Pods-syncthing-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-syncthing-resources.sh"; sourceTree = "<group>"; };
-		2E271E452AF633030F8A6354ACD3F54C /* Pods-xgsyncthing-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-xgsyncthing-frameworks.sh"; sourceTree = "<group>"; };
-		3761D8586CC9C587E4917AC026227F25 /* SUExport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUExport.h; path = Sparkle.framework/Versions/A/Headers/SUExport.h; sourceTree = "<group>"; };
-		3AE5D57CB9D7C95CFCD5D03AAF344B39 /* SPUDownloaderSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderSession.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderSession.h; sourceTree = "<group>"; };
-		45DA901D35E1B537C82445157212E52F /* Pods-xgsyncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-xgsyncthing.release.xcconfig"; sourceTree = "<group>"; };
-		4842821A1504928A62E42672462B90D9 /* libPods-syncthing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-syncthing.a"; path = "libPods-syncthing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A6D33B7FCD85B069E7CBAE08ED1ECEB /* SPUDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloader.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloader.h; sourceTree = "<group>"; };
-		5AEF7C0F084ABEE697AD0790460EF566 /* SPUDownloaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderDelegate.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderDelegate.h; sourceTree = "<group>"; };
-		6098B4C2077A295563A47124B8F7E33A /* Pods-syncthing-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-syncthing-acknowledgements.plist"; sourceTree = "<group>"; };
-		6FD7B79B9C2B4017370721956C0B7500 /* Pods-xgsyncthing-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-xgsyncthing-resources.sh"; sourceTree = "<group>"; };
-		763346F9DEF1C95A4C870F1C7F315908 /* SPUDownloaderProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderProtocol.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderProtocol.h; sourceTree = "<group>"; };
-		763474C111066340DF870643D7525CCC /* Pods-xgsyncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-xgsyncthing.debug.xcconfig"; sourceTree = "<group>"; };
-		77B3EC42365F39D2B051961939BC41EC /* Sparkle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sparkle.h; path = Sparkle.framework/Versions/A/Headers/Sparkle.h; sourceTree = "<group>"; };
-		8328C380C7B2A8080020EA5540B09455 /* Pods-xgsyncthing-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-xgsyncthing-dummy.m"; sourceTree = "<group>"; };
-		867B83D7D4D608B5A2A54EB60800896C /* Pods-xgsyncthing-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-xgsyncthing-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94FDFBD46A12EDCC5C1C5A72C6A8332C /* SPUURLRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUURLRequest.h; path = Sparkle.framework/Versions/A/Headers/SPUURLRequest.h; sourceTree = "<group>"; };
-		A16464CD6A4EEB9C7BC56EE84DEE7CBD /* Pods-syncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-syncthing.release.xcconfig"; sourceTree = "<group>"; };
-		A26AC68CE1EFAB19801CA0788F273E61 /* Pods-syncthing-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-syncthing-dummy.m"; sourceTree = "<group>"; };
-		B37FDDE1281EBC702BC50BF0D0AE8D8E /* SUUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdater.h; path = Sparkle.framework/Versions/A/Headers/SUUpdater.h; sourceTree = "<group>"; };
-		B94CED3AFE02D20A94D9183B0C26DEFA /* SUVersionDisplayProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionDisplayProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionDisplayProtocol.h; sourceTree = "<group>"; };
-		C052429C8E2B523BD92B613C51BC645B /* SUAppcast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcast.h; path = Sparkle.framework/Versions/A/Headers/SUAppcast.h; sourceTree = "<group>"; };
-		C755B9FC1BAAFB50E3BE03B3BDDE7459 /* libPods-xgsyncthing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-xgsyncthing.a"; path = "libPods-xgsyncthing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFA185C7C2FAC4866132783ACEFF2FE3 /* SPUDownloadData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloadData.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloadData.h; sourceTree = "<group>"; };
-		D2781962530E2EC4F511EB0AE0C0EEF0 /* SUAppcastItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcastItem.h; path = Sparkle.framework/Versions/A/Headers/SUAppcastItem.h; sourceTree = "<group>"; };
-		E0D4E59BF668694E2F3B50B053EFFAF4 /* SUUpdaterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdaterDelegate.h; path = Sparkle.framework/Versions/A/Headers/SUUpdaterDelegate.h; sourceTree = "<group>"; };
-		EA2A3C61129D0F5D3B2D47DEF67257D0 /* SUVersionComparisonProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionComparisonProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionComparisonProtocol.h; sourceTree = "<group>"; };
-		ED30CA33CEAA933DC5F2CC35676C543F /* Pods-syncthing-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-syncthing-frameworks.sh"; sourceTree = "<group>"; };
-		F025E6DA9AD8D4A29DA54840E53165B8 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		F4C956060057376AC7857D8A4AE2AA17 /* Pods-syncthing-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-syncthing-acknowledgements.markdown"; sourceTree = "<group>"; };
+		09FBBC0AB8B3ED04C169A1DF1C96D63B /* SUUpdaterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdaterDelegate.h; path = Sparkle.framework/Versions/A/Headers/SUUpdaterDelegate.h; sourceTree = "<group>"; };
+		0F7D1089272A1431BEC5A0D6A579EBC0 /* SPUURLRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUURLRequest.h; path = Sparkle.framework/Versions/A/Headers/SPUURLRequest.h; sourceTree = "<group>"; };
+		13F77FD94F277E82AE1D17070A75F313 /* Sparkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.debug.xcconfig; sourceTree = "<group>"; };
+		1D5488B9D3BAD0B6A8D3F4D25915E444 /* Pods-syncthing-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-syncthing-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1FE8972E54994C4F52B0E8A39AB9F7CF /* Pods-syncthing-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-syncthing-dummy.m"; sourceTree = "<group>"; };
+		227086D9FCF007A15E95B8C7A2E5B302 /* SUAppcast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcast.h; path = Sparkle.framework/Versions/A/Headers/SUAppcast.h; sourceTree = "<group>"; };
+		275E02DFF281ED9F333DA78BE5DF8139 /* SUUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdater.h; path = Sparkle.framework/Versions/A/Headers/SUUpdater.h; sourceTree = "<group>"; };
+		2C6075FC18D8AFBF615CD6170B7FC005 /* SUVersionComparisonProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionComparisonProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionComparisonProtocol.h; sourceTree = "<group>"; };
+		32E4938EA24077E0C44687B65BA4F282 /* Pods-syncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-syncthing.release.xcconfig"; sourceTree = "<group>"; };
+		38C6FBE2B37C0878D3B2B613D8CD1CA6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		3CE347318AABB77EF7104D7A1CBC0A5F /* libPods-syncthing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-syncthing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46B5FC98577BAEFBCB405BF5413EAB40 /* SPUDownloadData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloadData.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloadData.h; sourceTree = "<group>"; };
+		60E34D6BD4EDCA33307F2846F9476283 /* Sparkle-copy-dsyms.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Sparkle-copy-dsyms.sh"; sourceTree = "<group>"; };
+		67B11FC32D7BF6299760994C0D8F35E2 /* Sparkle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.release.xcconfig; sourceTree = "<group>"; };
+		6EADEBA645762F932D7AA38712E3BC4A /* SPUDownloaderDeprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderDeprecated.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderDeprecated.h; sourceTree = "<group>"; };
+		71B009700285C798A669F67C10CCD29C /* Pods-syncthing-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-syncthing-frameworks.sh"; sourceTree = "<group>"; };
+		74FEC71D52DDB7B5FD004A3C33E70641 /* Pods-syncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-syncthing.debug.xcconfig"; sourceTree = "<group>"; };
+		7822277D8B04B37769625AC2DAD85C41 /* SPUDownloaderProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderProtocol.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderProtocol.h; sourceTree = "<group>"; };
+		7F9AF76EF2C742F9ED252B8485D876B7 /* SPUDownloaderSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderSession.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderSession.h; sourceTree = "<group>"; };
+		898334BC477899DC097D21A5F118D80F /* SUStandardVersionComparator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUStandardVersionComparator.h; path = Sparkle.framework/Versions/A/Headers/SUStandardVersionComparator.h; sourceTree = "<group>"; };
+		929E505ABDA8CBB6BAC5F4D8FCB27559 /* SPUDownloaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderDelegate.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderDelegate.h; sourceTree = "<group>"; };
+		96C882DE2287DF1F0F09A990AC4B1B2F /* SUCodeSigningVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUCodeSigningVerifier.h; path = Sparkle.framework/Versions/A/Headers/SUCodeSigningVerifier.h; sourceTree = "<group>"; };
+		9D6E56FC87B513D55F1B49F402D39B5E /* SUAppcastItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcastItem.h; path = Sparkle.framework/Versions/A/Headers/SUAppcastItem.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EE1C8C1358409EFA0E9919B3E347730 /* SUVersionDisplayProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionDisplayProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionDisplayProtocol.h; sourceTree = "<group>"; };
+		A56507F21FF3E36B177F3AE186ED9D75 /* SPUDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloader.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloader.h; sourceTree = "<group>"; };
+		B116BEC7F23EE5225E75E1C180D8EADA /* Pods-syncthing-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-syncthing-acknowledgements.plist"; sourceTree = "<group>"; };
+		C895490460C2F7D68AAE3868653471DF /* SUExport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUExport.h; path = Sparkle.framework/Versions/A/Headers/SUExport.h; sourceTree = "<group>"; };
+		CB4A750A016013479E3AF49F60ABF1DF /* Sparkle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sparkle.h; path = Sparkle.framework/Versions/A/Headers/Sparkle.h; sourceTree = "<group>"; };
+		EC62C099A303147B064C10710CC2EAC0 /* SUErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUErrors.h; path = Sparkle.framework/Versions/A/Headers/SUErrors.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		80E426671A949DED4E7618872053C0D5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD2F97087271AA91245C00530C8B769B /* Frameworks */ = {
+		1AF54479F181E70A8ECAB16A1E2245C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,222 +78,213 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+		0594BE7B86CE95103A8EDA3C1DC0B348 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		23D9B3CF77047C43426C6776D20A64FD /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A8BF446D766598EABEF1407059B2CD40 /* Pods-syncthing */,
-				5B21C934E13C4152DA6CE895ADA836D1 /* Pods-xgsyncthing */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		33B0CCFB7CF437B2908F51727EF5D49B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AA11EF7394C01C371BD2E0083BD3BBE6 /* Sparkle */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		5B21C934E13C4152DA6CE895ADA836D1 /* Pods-xgsyncthing */ = {
-			isa = PBXGroup;
-			children = (
-				0A91AC385ADC79840863DEC8D077F975 /* Pods-xgsyncthing-acknowledgements.markdown */,
-				867B83D7D4D608B5A2A54EB60800896C /* Pods-xgsyncthing-acknowledgements.plist */,
-				8328C380C7B2A8080020EA5540B09455 /* Pods-xgsyncthing-dummy.m */,
-				2E271E452AF633030F8A6354ACD3F54C /* Pods-xgsyncthing-frameworks.sh */,
-				6FD7B79B9C2B4017370721956C0B7500 /* Pods-xgsyncthing-resources.sh */,
-				763474C111066340DF870643D7525CCC /* Pods-xgsyncthing.debug.xcconfig */,
-				45DA901D35E1B537C82445157212E52F /* Pods-xgsyncthing.release.xcconfig */,
-			);
-			name = "Pods-xgsyncthing";
-			path = "Target Support Files/Pods-xgsyncthing";
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
-				33B0CCFB7CF437B2908F51727EF5D49B /* Pods */,
-				A38504409367B58A6F3AAE7A0FDDB7FB /* Products */,
-				23D9B3CF77047C43426C6776D20A64FD /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		93304FCB69921521287E77520C139C7D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F025E6DA9AD8D4A29DA54840E53165B8 /* Sparkle.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A38504409367B58A6F3AAE7A0FDDB7FB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4842821A1504928A62E42672462B90D9 /* libPods-syncthing.a */,
-				C755B9FC1BAAFB50E3BE03B3BDDE7459 /* libPods-xgsyncthing.a */,
+				3CE347318AABB77EF7104D7A1CBC0A5F /* libPods-syncthing.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A8BF446D766598EABEF1407059B2CD40 /* Pods-syncthing */ = {
+		12A12993C3F53D66EEB5C05FBD5FD020 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F4C956060057376AC7857D8A4AE2AA17 /* Pods-syncthing-acknowledgements.markdown */,
-				6098B4C2077A295563A47124B8F7E33A /* Pods-syncthing-acknowledgements.plist */,
-				A26AC68CE1EFAB19801CA0788F273E61 /* Pods-syncthing-dummy.m */,
-				ED30CA33CEAA933DC5F2CC35676C543F /* Pods-syncthing-frameworks.sh */,
-				14F5412DCF3459C695980456F0733BEA /* Pods-syncthing-resources.sh */,
-				11D76110347FC462043C8B5035DD3499 /* Pods-syncthing.debug.xcconfig */,
-				A16464CD6A4EEB9C7BC56EE84DEE7CBD /* Pods-syncthing.release.xcconfig */,
+				38C6FBE2B37C0878D3B2B613D8CD1CA6 /* Sparkle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CCCA7381EEB9908D85AA860CC19FA56 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				60E34D6BD4EDCA33307F2846F9476283 /* Sparkle-copy-dsyms.sh */,
+				13F77FD94F277E82AE1D17070A75F313 /* Sparkle.debug.xcconfig */,
+				67B11FC32D7BF6299760994C0D8F35E2 /* Sparkle.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Sparkle";
+			sourceTree = "<group>";
+		};
+		74924609A5200EB49EE32720C989B12D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB2CB6B1AE393F2A376E2FBD6E26D0 /* Sparkle */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9FBB2CB6B1AE393F2A376E2FBD6E26D0 /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				CB4A750A016013479E3AF49F60ABF1DF /* Sparkle.h */,
+				46B5FC98577BAEFBCB405BF5413EAB40 /* SPUDownloadData.h */,
+				A56507F21FF3E36B177F3AE186ED9D75 /* SPUDownloader.h */,
+				929E505ABDA8CBB6BAC5F4D8FCB27559 /* SPUDownloaderDelegate.h */,
+				6EADEBA645762F932D7AA38712E3BC4A /* SPUDownloaderDeprecated.h */,
+				7822277D8B04B37769625AC2DAD85C41 /* SPUDownloaderProtocol.h */,
+				7F9AF76EF2C742F9ED252B8485D876B7 /* SPUDownloaderSession.h */,
+				0F7D1089272A1431BEC5A0D6A579EBC0 /* SPUURLRequest.h */,
+				227086D9FCF007A15E95B8C7A2E5B302 /* SUAppcast.h */,
+				9D6E56FC87B513D55F1B49F402D39B5E /* SUAppcastItem.h */,
+				96C882DE2287DF1F0F09A990AC4B1B2F /* SUCodeSigningVerifier.h */,
+				EC62C099A303147B064C10710CC2EAC0 /* SUErrors.h */,
+				C895490460C2F7D68AAE3868653471DF /* SUExport.h */,
+				898334BC477899DC097D21A5F118D80F /* SUStandardVersionComparator.h */,
+				275E02DFF281ED9F333DA78BE5DF8139 /* SUUpdater.h */,
+				09FBBC0AB8B3ED04C169A1DF1C96D63B /* SUUpdaterDelegate.h */,
+				2C6075FC18D8AFBF615CD6170B7FC005 /* SUVersionComparisonProtocol.h */,
+				9EE1C8C1358409EFA0E9919B3E347730 /* SUVersionDisplayProtocol.h */,
+				12A12993C3F53D66EEB5C05FBD5FD020 /* Frameworks */,
+				1CCCA7381EEB9908D85AA860CC19FA56 /* Support Files */,
+			);
+			path = Sparkle;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				74924609A5200EB49EE32720C989B12D /* Pods */,
+				0594BE7B86CE95103A8EDA3C1DC0B348 /* Products */,
+				E861C6C05E0959E40BBC70ECC55F6A60 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E28289E0B60898B9FBB7DD75336E87D4 /* Pods-syncthing */ = {
+			isa = PBXGroup;
+			children = (
+				1D5488B9D3BAD0B6A8D3F4D25915E444 /* Pods-syncthing-acknowledgements.markdown */,
+				B116BEC7F23EE5225E75E1C180D8EADA /* Pods-syncthing-acknowledgements.plist */,
+				1FE8972E54994C4F52B0E8A39AB9F7CF /* Pods-syncthing-dummy.m */,
+				71B009700285C798A669F67C10CCD29C /* Pods-syncthing-frameworks.sh */,
+				74FEC71D52DDB7B5FD004A3C33E70641 /* Pods-syncthing.debug.xcconfig */,
+				32E4938EA24077E0C44687B65BA4F282 /* Pods-syncthing.release.xcconfig */,
 			);
 			name = "Pods-syncthing";
 			path = "Target Support Files/Pods-syncthing";
 			sourceTree = "<group>";
 		};
-		AA11EF7394C01C371BD2E0083BD3BBE6 /* Sparkle */ = {
+		E861C6C05E0959E40BBC70ECC55F6A60 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				77B3EC42365F39D2B051961939BC41EC /* Sparkle.h */,
-				CFA185C7C2FAC4866132783ACEFF2FE3 /* SPUDownloadData.h */,
-				5A6D33B7FCD85B069E7CBAE08ED1ECEB /* SPUDownloader.h */,
-				5AEF7C0F084ABEE697AD0790460EF566 /* SPUDownloaderDelegate.h */,
-				03F755EB1CF83B568A747182477E53DB /* SPUDownloaderDeprecated.h */,
-				763346F9DEF1C95A4C870F1C7F315908 /* SPUDownloaderProtocol.h */,
-				3AE5D57CB9D7C95CFCD5D03AAF344B39 /* SPUDownloaderSession.h */,
-				94FDFBD46A12EDCC5C1C5A72C6A8332C /* SPUURLRequest.h */,
-				C052429C8E2B523BD92B613C51BC645B /* SUAppcast.h */,
-				D2781962530E2EC4F511EB0AE0C0EEF0 /* SUAppcastItem.h */,
-				11BA24F90B47B4AC3C82E2AC0EE19B1B /* SUErrors.h */,
-				3761D8586CC9C587E4917AC026227F25 /* SUExport.h */,
-				03CAABD5DCD0916F0C46E3C872A467FC /* SUStandardVersionComparator.h */,
-				B37FDDE1281EBC702BC50BF0D0AE8D8E /* SUUpdater.h */,
-				E0D4E59BF668694E2F3B50B053EFFAF4 /* SUUpdaterDelegate.h */,
-				EA2A3C61129D0F5D3B2D47DEF67257D0 /* SUVersionComparisonProtocol.h */,
-				B94CED3AFE02D20A94D9183B0C26DEFA /* SUVersionDisplayProtocol.h */,
-				93304FCB69921521287E77520C139C7D /* Frameworks */,
+				E28289E0B60898B9FBB7DD75336E87D4 /* Pods-syncthing */,
 			);
-			name = Sparkle;
-			path = Sparkle;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		2818D05B433246CE891C99CDA3753FA4 /* Pods-xgsyncthing */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4805F3DBA23E1B10D9E6E54A66A25561 /* Build configuration list for PBXNativeTarget "Pods-xgsyncthing" */;
-			buildPhases = (
-				60292D88D6B7D032CCF69DC0C4990F2F /* Sources */,
-				FD2F97087271AA91245C00530C8B769B /* Frameworks */,
+/* Begin PBXHeadersBuildPhase section */
+		17909EDB5650C7682648149C389F6B19 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-xgsyncthing";
-			productName = "Pods-xgsyncthing";
-			productReference = C755B9FC1BAAFB50E3BE03B3BDDE7459 /* libPods-xgsyncthing.a */;
-			productType = "com.apple.product-type.library.static";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3F72EA84007B99BC0634FB58B3975CA4 /* Pods-syncthing */ = {
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		88D6818A8E0FD3C5CAC731BAD28F9C22 /* Pods-syncthing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B97C9FA0105124A6AB8612253B50DB81 /* Build configuration list for PBXNativeTarget "Pods-syncthing" */;
+			buildConfigurationList = B8E9B880114EE7D1373F71F30923904A /* Build configuration list for PBXNativeTarget "Pods-syncthing" */;
 			buildPhases = (
-				4ABEF4671CE906A444D539F027751363 /* Sources */,
-				80E426671A949DED4E7618872053C0D5 /* Frameworks */,
+				17909EDB5650C7682648149C389F6B19 /* Headers */,
+				09DE148F52A5C0A3BAA0EEAD25C7328F /* Sources */,
+				1AF54479F181E70A8ECAB16A1E2245C3 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F8E0819D22D9EA58F756292D64890DEE /* PBXTargetDependency */,
 			);
 			name = "Pods-syncthing";
 			productName = "Pods-syncthing";
-			productReference = 4842821A1504928A62E42672462B90D9 /* libPods-syncthing.a */;
+			productReference = 3CE347318AABB77EF7104D7A1CBC0A5F /* libPods-syncthing.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A38504409367B58A6F3AAE7A0FDDB7FB /* Products */;
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0594BE7B86CE95103A8EDA3C1DC0B348 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3F72EA84007B99BC0634FB58B3975CA4 /* Pods-syncthing */,
-				2818D05B433246CE891C99CDA3753FA4 /* Pods-xgsyncthing */,
+				88D6818A8E0FD3C5CAC731BAD28F9C22 /* Pods-syncthing */,
+				ED77B4B88587C894E85C361023D67C53 /* Sparkle */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXSourcesBuildPhase section */
-		4ABEF4671CE906A444D539F027751363 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		A19A62E98EFD5224E676AA13D01CEF3A /* [CP] Copy dSYMs */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C05FE133E9AD6EE86D998CA6C68213A2 /* Pods-syncthing-dummy.m in Sources */,
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
+			);
+			name = "[CP] Copy dSYMs";
+			outputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Sparkle/Sparkle-copy-dsyms.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-		60292D88D6B7D032CCF69DC0C4990F2F /* Sources */ = {
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09DE148F52A5C0A3BAA0EEAD25C7328F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEB3C99A8BF637EE3D9413E60BC7CFB9 /* Pods-xgsyncthing-dummy.m in Sources */,
+				BE062BEAB0C8AA7384F84436A0F52BCD /* Pods-syncthing-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin XCBuildConfiguration section */
-		10CF5763FD08D8C8F999089C7BCDBAD7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45DA901D35E1B537C82445157212E52F /* Pods-xgsyncthing.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
+/* Begin PBXTargetDependency section */
+		F8E0819D22D9EA58F756292D64890DEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sparkle;
+			target = ED77B4B88587C894E85C361023D67C53 /* Sparkle */;
+			targetProxy = A11AEC1766ECE0511281F9660E0DA371 /* PBXContainerItemProxy */;
 		};
-		10E850B85F3451D5157989C3751F075F /* Release */ = {
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		16F37D961BD142A847EE7A8BCECC4D13 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -305,14 +307,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -331,69 +332,29 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		3E3D175081B9D8A666D53A88937AC5EB /* Debug */ = {
+		2FE2561301DA364C4DA3BBEF178CD712 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 763474C111066340DF870643D7525CCC /* Pods-xgsyncthing.debug.xcconfig */;
+			baseConfigurationReference = 32E4938EA24077E0C44687B65BA4F282 /* Pods-syncthing.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B56B9F8661AA991F58F0105525E83B44 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11D76110347FC462043C8B5035DD3499 /* Pods-syncthing.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		C33411C59FABAE0592EFA01B34AACCA7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A16464CD6A4EEB9C7BC56EE84DEE7CBD /* Pods-syncthing.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -403,10 +364,26 @@
 			};
 			name = Release;
 		};
-		D5B651532ED11AFBC5E147B64848AFB4 /* Debug */ = {
+		5CA1056E4CA7272E9A79FDB6FC7B1FBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67B11FC32D7BF6299760994C0D8F35E2 /* Sparkle.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		83C3234BEBF81359D2523064DDDB2364 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -429,14 +406,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -457,46 +433,87 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A5797CF3A40465007501EA8B1E970BDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74FEC71D52DDB7B5FD004A3C33E70641 /* Pods-syncthing.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E7EF24BC93D93766F59FBF1EF1711CFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13F77FD94F277E82AE1D17070A75F313 /* Sparkle.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D5B651532ED11AFBC5E147B64848AFB4 /* Debug */,
-				10E850B85F3451D5157989C3751F075F /* Release */,
+				83C3234BEBF81359D2523064DDDB2364 /* Debug */,
+				16F37D961BD142A847EE7A8BCECC4D13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4805F3DBA23E1B10D9E6E54A66A25561 /* Build configuration list for PBXNativeTarget "Pods-xgsyncthing" */ = {
+		6347E178A154C832C62FFEFD8D07C44A /* Build configuration list for PBXAggregateTarget "Sparkle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3E3D175081B9D8A666D53A88937AC5EB /* Debug */,
-				10CF5763FD08D8C8F999089C7BCDBAD7 /* Release */,
+				E7EF24BC93D93766F59FBF1EF1711CFC /* Debug */,
+				5CA1056E4CA7272E9A79FDB6FC7B1FBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B97C9FA0105124A6AB8612253B50DB81 /* Build configuration list for PBXNativeTarget "Pods-syncthing" */ = {
+		B8E9B880114EE7D1373F71F30923904A /* Build configuration list for PBXNativeTarget "Pods-syncthing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B56B9F8661AA991F58F0105525E83B44 /* Debug */,
-				C33411C59FABAE0592EFA01B34AACCA7 /* Release */,
+				A5797CF3A40465007501EA8B1E970BDA /* Debug */,
+				2FE2561301DA364C4DA3BBEF178CD712 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }

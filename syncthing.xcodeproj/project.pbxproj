@@ -25,6 +25,7 @@
 		0BE9B88A1F050E93002883E2 /* STStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE9B8891F050E93002883E2 /* STStatusMonitor.m */; };
 		298A5C45210DA6C40034B89F /* LocalhostTLSDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */; };
 		29AF1BA3210F11BF004212DE /* DaemonProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */; };
+		BD71E04946BAD5B0A9FACC3D /* libPods-syncthing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 014971905AAC00CB5291E063 /* libPods-syncthing.a */; };
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
 		C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */; };
 		C4460A831D0DD38F00200C21 /* STPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */; };
@@ -69,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		014971905AAC00CB5291E063 /* libPods-syncthing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-syncthing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE9B8881F050E93002883E2 /* STStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStatusMonitor.h; sourceTree = "<group>"; };
 		0BE9B8891F050E93002883E2 /* STStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStatusMonitor.m; sourceTree = "<group>"; };
 		298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalhostTLSDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD71E04946BAD5B0A9FACC3D /* libPods-syncthing.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +155,7 @@
 			children = (
 				C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */,
 				C4576BE51D11E79F0031BCFD /* Foundation.framework */,
+				014971905AAC00CB5291E063 /* libPods-syncthing.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -380,18 +384,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-syncthing/Pods-syncthing-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-syncthing/Pods-syncthing-frameworks.sh",
 				"${PODS_ROOT}/Sparkle/Sparkle.framework",
-				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-syncthing/Pods-syncthing-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-syncthing/Pods-syncthing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8A5B68A2BC79FFEFE08E3863 /* [CP] Check Pods Manifest.lock */ = {
