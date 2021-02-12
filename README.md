@@ -39,6 +39,12 @@ All cross-platform approaches are not able to use all the native facilities of m
 
 # Compiling
 
+Before compiling git submodules needs to be present:
+
+```
+git submodule update --init
+```
+
 Build with XCode or run:
 
 ```
