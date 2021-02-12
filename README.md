@@ -37,13 +37,39 @@ All cross-platform approaches are not able to use all the native facilities of m
  vector icon set (retina-ready) and creating an application bundle. GUIs are designed with XCode and everything
  is coded in Objective-C and Swift which is "the native approach".
 
-# Compiling
+# Goal
+
+The goal of this project is to keep the Native macOS Syncthing tray as simple as possible. No graphs, no advanced configuration
+ windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
+
+# FAQ: Frequently asked questions
+
+## Default IP address change
+
+When the default IP address is changed from 127.0.0.1 to a routable one like e.g 192.168.1.102 the tray application
+preferences need to be set also. Or else the API cannot be accessed and will stay 'Offline'. If you broke the
+configuration you can manually edit the file under the `~/Library/Application Support/Syncthing/config.xml` using
+Finder with Go -> Go to folder. And restart the syncthing service from the tray.
+
+# Prerequisites for building/using everything in this repository
 
 Before compiling git submodules needs to be present:
 
 ```
 git submodule update --init
 ```
+
+- Xcode, for the Objective-C/Swift compiler
+- Python 3, for the toplevel update-release.py script
+  - Needs [semver](https://pypi.org/project/semver/) from pip
+- Cocoapods for updating Objective-C/Swift 3th party depedencies
+- Golang, only needed for Sparkle Github releases to Appcast XML tool
+
+# Using XCode
+
+The new `syncthing.xcworkspace` must be used when coding in XCode. The old `syncthing.xcodeproj` is deprecated.
+
+# Compiling from Terminal
 
 Build with XCode or run:
 
@@ -64,28 +90,6 @@ The script will select the first available Developer ID and sign the app with it
 ```
 SYNCTHING_APP_CODE_SIGN_IDENTITY="Mac Developer: foo@bar.com (XB59MXU8EC)" make release-dmg
 ```
-
-# Goal
-
-The goal of this project is to keep the Native macOS Syncthing tray as simple as possible. No graphs, no advanced configuration
- windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
-
-# Prerequisites for building all
-
-- Xcode, for the Objective-C/Swift compiler
-- Python 3, for the toplevel update-release.py script
-  - Needs [semver](https://pypi.org/project/semver/) from pip
-- Cocoapods for updating Objective-C/Swift 3th party depedencies
-- Golang, only needed for Sparkle Github releases to Appcast XML tool
-
-# FAQ: Frequently asked questions
-
-## Default IP address change
-
-When the default IP address is changed from 127.0.0.1 to a routable one like e.g 192.168.1.102 the tray application
-preferences need to be set also. Or else the API cannot be accessed and will stay 'Offline'. If you broke the
-configuration you can manually edit the file under the `~/Library/Application Support/Syncthing/config.xml` using
-Finder with Go -> Go to folder. And restart the syncthing service from the tray.
 
 # Known bugs
 
