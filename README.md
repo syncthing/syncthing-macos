@@ -9,12 +9,13 @@
 
 Features include:
 
- * Open the Syncthing WebGUI from the tray in your preferred browser.
+ * Open the Syncthing WebGUI from the tray in your system preferred browser.
  * Optionally starts on login, so you don't need to set up Syncthing as a service.
- * Tray icon indicates when it is connected to syncthing (no status updates yet).
+ * Tray icon syncthing status indicator.
  * Retina ready icons for the Application bundle and status tray.
  * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from github releases).
- * Open shared folders directly in Finder.
+ * Open shared folders in Finder.
+ * Logfile written to `~/Library/Application Support/Syncthing/syncthing.log`, use Finder -> Go -> Go to Folder to open it.
 
 # Screenshot
 
