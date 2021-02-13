@@ -17,7 +17,7 @@
 @implementation STAboutWindowController
 
 - (id) init {
-	return [super initWithWindowNibName:NSStringFromClass(self.class)];
+    return [super initWithWindowNibName:@"STAboutWindow"];
 }
 
 - (void) windowDidLoad {

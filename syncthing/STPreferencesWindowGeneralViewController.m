@@ -6,24 +6,23 @@
 //  Copyright © 2016 Jerry Jacobs. All rights reserved.
 //
 
-#import "STPreferencesGeneralViewController.h"
+#import "STPreferencesWindowGeneralViewController.h"
 #import "STLoginItem.h"
 #import "XGSyncthing.h"
 
-@interface STPreferencesGeneralViewController ()
+@interface STPreferencesWindowGeneralViewController ()
 
 @end
 
-@implementation STPreferencesGeneralViewController
+@implementation STPreferencesWindowGeneralViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
     [self updateTestButton];
 }
 
 - (id) init {
-    self = [super initWithNibName:NSStringFromClass(self.class) bundle:nil];
+    self = [super initWithNibName:@"STPreferencesWindowGeneralView" bundle:nil];
     return self;
 }
 

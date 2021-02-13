@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface STPreferencesGeneralViewController : NSViewController
+@interface STPreferencesWindowGeneralViewController : NSViewController
 
 @property (weak) IBOutlet NSTextField *Syncthing_URI;
 @property (weak) IBOutlet NSTextField *Syncthing_ApiKey;

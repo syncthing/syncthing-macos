@@ -7,11 +7,7 @@
 //
 
 #import "STPreferencesWindowController.h"
-#import "STPreferencesGeneralViewController.h"
-#import "STPreferencesFoldersViewController.h"
-#import "STPreferencesInfoViewController.h"
-#import "STPreferencesDevicesViewController.h"
-#import "STPreferencesAdvancedViewController.h"
+#import "STPreferencesWindowGeneralViewController.h"
 
 @interface STPreferencesWindowController ()
 
@@ -25,7 +21,7 @@ enum
 };
 
 - (id) init {
-    return [super initWithWindowNibName:NSStringFromClass(self.class)];
+    return [super initWithWindowNibName:@"STPreferencesWindow"];
 }
 
 - (void) awakeFromNib {
@@ -44,7 +40,7 @@ enum
     switch (tag) {
         case kGeneralView:
             if (self.generalView == nil)
-                _generalView = [[STPreferencesGeneralViewController alloc] init];
+                _generalView = [[STPreferencesWindowGeneralViewController alloc] init];
             _currentViewController = self.generalView;
             break;
         default:

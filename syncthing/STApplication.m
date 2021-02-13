@@ -71,16 +71,6 @@
                        [[NSBundle mainBundle] resourcePath],
                        @"syncthing/syncthing"];
     [defaults setValue:_executable forKey:@"Executable"];
-    
-    
-    // We stored a copy of the executable in ~/Library/Application Support/Syncthing-macOS/syncthing < v1.7.0-1
-    // Cleanup the old releases
-    NSString *oldExecutablePath = [self applicationSupportDirectoryFor:@"Syncthing-macOS"];
-    BOOL isDir;
-    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:oldExecutablePath isDirectory:&isDir];
-    if (exists && isDir) {
-        [[NSFileManager defaultManager] removeItemAtPath:oldExecutablePath error:nil];
-    }
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
     _syncthing.ApiKey = [defaults stringForKey:@"ApiKey"];

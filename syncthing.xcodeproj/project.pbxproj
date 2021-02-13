@@ -27,22 +27,17 @@
 		29AF1BA3210F11BF004212DE /* DaemonProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */; };
 		BD71E04946BAD5B0A9FACC3D /* libPods-syncthing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 014971905AAC00CB5291E063 /* libPods-syncthing.a */; };
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
-		C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */; };
-		C4460A831D0DD38F00200C21 /* STPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */; };
+		C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */; };
+		C469AFEB25D7E76900904DD7 /* STLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AFEA25D7E76900904DD7 /* STLoginItem.m */; };
 		C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */ = {isa = PBXBuildFile; fileRef = C47F6C391D0DE68D00F36CF6 /* syncthing.icns */; };
-		C48B83B61DA444BC0052A172 /* STConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C48B83B51DA444BC0052A172 /* STConfiguration.m */; };
-		C4946B011D5877F2008447A2 /* STAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4946B001D5877F2008447A2 /* STAboutWindowController.xib */; };
+		C4946B011D5877F2008447A2 /* STAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4946B001D5877F2008447A2 /* STAboutWindow.xib */; };
 		C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4946B021D587878008447A2 /* STAboutWindowController.m */; };
 		C4A415651D0D579D00DC6018 /* STApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415641D0D579D00DC6018 /* STApplication.m */; };
 		C4A415681D0D579D00DC6018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415671D0D579D00DC6018 /* main.m */; };
 		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
 		C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4156B1D0D579D00DC6018 /* STApplication.xib */; };
-		C4D36D851DA3E2820061FD08 /* STPreferencesDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D36D831DA3E2820061FD08 /* STPreferencesDevicesViewController.m */; };
-		C4D36D861DA3E2820061FD08 /* STPreferencesDevicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D36D841DA3E2820061FD08 /* STPreferencesDevicesViewController.xib */; };
-		C4D567A21D3A8DFE002AD881 /* STLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D567A11D3A8DFE002AD881 /* STLoginItem.m */; };
-		C4F0E82E1DA1B9CF00435310 /* STPreferencesGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0E82C1DA1B9CF00435310 /* STPreferencesGeneralViewController.m */; };
-		C4F0E82F1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0E82D1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib */; };
-		C4F0E8381DA1CB0900435310 /* STPreferencesInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0E8361DA1CB0900435310 /* STPreferencesInfoViewController.m */; };
+		C4F0E82E1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0E82C1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m */; };
+		C4F0E82F1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0E82D1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib */; };
 		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
 /* End PBXBuildFile section */
 
@@ -75,23 +70,21 @@
 		0BE9B8891F050E93002883E2 /* STStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStatusMonitor.m; sourceTree = "<group>"; };
 		298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalhostTLSDelegate.m; sourceTree = "<group>"; };
 		298A5C44210DA6C40034B89F /* LocalhostTLSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalhostTLSDelegate.h; sourceTree = "<group>"; };
-		29AF1BA4210F11DE004212DE /* syncthing-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "syncthing-Bridging-Header.h"; sourceTree = "<group>"; };
 		29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaemonProcess.swift; sourceTree = "<group>"; };
 		29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.release.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.release.xcconfig"; sourceTree = "<group>"; };
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
 		C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesWindowController.m; path = Controllers/STPreferencesWindowController.m; sourceTree = "<group>"; };
-		C4460A7E1D0DD2D500200C21 /* STStatusBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STStatusBarController.h; path = Controllers/STStatusBarController.h; sourceTree = "<group>"; };
-		C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STStatusBarController.m; path = Controllers/STStatusBarController.m; sourceTree = "<group>"; };
-		C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesWindowController.xib; path = UI/STPreferencesWindowController.xib; sourceTree = "<group>"; };
+		C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesWindow.xib; path = UI/STPreferencesWindow.xib; sourceTree = "<group>"; };
 		C4576BD51D11E3210031BCFD /* create-dmg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "create-dmg.sh"; path = "syncthing/Scripts/create-dmg.sh"; sourceTree = "<group>"; };
 		C4576BE51D11E79F0031BCFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4576BE71D11E7C00031BCFD /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = usr/lib/libobjc.tbd; sourceTree = SDKROOT; };
 		C4576BE91D11E7E10031BCFD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		C469AFE325D7CFE400904DD7 /* syncthing-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "syncthing-Bridging-Header.h"; sourceTree = "<group>"; };
+		C469AFE925D7E76900904DD7 /* STLoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoginItem.h; sourceTree = "<group>"; };
+		C469AFEA25D7E76900904DD7 /* STLoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLoginItem.m; sourceTree = "<group>"; };
 		C47F6C391D0DE68D00F36CF6 /* syncthing.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = syncthing.icns; sourceTree = "<group>"; };
-		C48B83B41DA444BC0052A172 /* STConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STConfiguration.h; sourceTree = "<group>"; };
-		C48B83B51DA444BC0052A172 /* STConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STConfiguration.m; sourceTree = "<group>"; };
-		C4946B001D5877F2008447A2 /* STAboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STAboutWindowController.xib; path = UI/STAboutWindowController.xib; sourceTree = "<group>"; };
+		C4946B001D5877F2008447A2 /* STAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STAboutWindow.xib; path = UI/STAboutWindow.xib; sourceTree = "<group>"; };
 		C4946B021D587878008447A2 /* STAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAboutWindowController.m; path = Controllers/STAboutWindowController.m; sourceTree = "<group>"; };
 		C4946B041D587907008447A2 /* STAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAboutWindowController.h; path = Controllers/STAboutWindowController.h; sourceTree = "<group>"; };
 		C4A415601D0D579D00DC6018 /* Syncthing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncthing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,20 +94,11 @@
 		C4A415691D0D579D00DC6018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4A4156C1D0D579D00DC6018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STApplication.xib; sourceTree = "<group>"; };
 		C4A4156E1D0D579D00DC6018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C4D36D7D1DA3D53F0061FD08 /* STPreferencesAdvancedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesAdvancedViewController.h; path = UI/STPreferencesWindow/STPreferencesAdvancedViewController.h; sourceTree = "<group>"; };
-		C4D36D821DA3E2820061FD08 /* STPreferencesDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesDevicesViewController.h; path = UI/STPreferencesWindow/STPreferencesDevicesViewController.h; sourceTree = "<group>"; };
-		C4D36D831DA3E2820061FD08 /* STPreferencesDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesDevicesViewController.m; path = UI/STPreferencesWindow/STPreferencesDevicesViewController.m; sourceTree = "<group>"; };
-		C4D36D841DA3E2820061FD08 /* STPreferencesDevicesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesDevicesViewController.xib; path = UI/STPreferencesWindow/STPreferencesDevicesViewController.xib; sourceTree = "<group>"; };
-		C4D567A11D3A8DFE002AD881 /* STLoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLoginItem.m; sourceTree = "<group>"; };
-		C4D567A31D3A8E34002AD881 /* STLoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoginItem.h; sourceTree = "<group>"; };
 		C4D6DD581D0D93D80024D20A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4D896121D0DF90900D42F73 /* syncthing-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-resource.sh"; path = "syncthing/Scripts/syncthing-resource.sh"; sourceTree = "<group>"; };
-		C4F0E82B1DA1B9CF00435310 /* STPreferencesGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPreferencesGeneralViewController.h; sourceTree = "<group>"; };
-		C4F0E82C1DA1B9CF00435310 /* STPreferencesGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPreferencesGeneralViewController.m; sourceTree = "<group>"; };
-		C4F0E82D1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STPreferencesGeneralViewController.xib; sourceTree = "<group>"; };
-		C4F0E8301DA1C7A800435310 /* STPreferencesFoldersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesFoldersViewController.h; path = UI/STPreferencesWindow/STPreferencesFoldersViewController.h; sourceTree = "<group>"; };
-		C4F0E8351DA1CB0900435310 /* STPreferencesInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesInfoViewController.h; path = UI/STPreferencesWindow/STPreferencesInfoViewController.h; sourceTree = "<group>"; };
-		C4F0E8361DA1CB0900435310 /* STPreferencesInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesInfoViewController.m; path = UI/STPreferencesWindow/STPreferencesInfoViewController.m; sourceTree = "<group>"; };
+		C4F0E82B1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPreferencesWindowGeneralViewController.h; sourceTree = "<group>"; };
+		C4F0E82C1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPreferencesWindowGeneralViewController.m; sourceTree = "<group>"; };
+		C4F0E82D1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STPreferencesWindowGeneralView.xib; sourceTree = "<group>"; };
 		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
 		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
 		FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,24 +149,8 @@
 			children = (
 				C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */,
 				C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */,
-				C4F0E82B1DA1B9CF00435310 /* STPreferencesGeneralViewController.h */,
-				C4F0E82C1DA1B9CF00435310 /* STPreferencesGeneralViewController.m */,
-				C4F0E82D1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib */,
-				C4F0E8301DA1C7A800435310 /* STPreferencesFoldersViewController.h */,
-				C4F0E8351DA1CB0900435310 /* STPreferencesInfoViewController.h */,
-				C4F0E8361DA1CB0900435310 /* STPreferencesInfoViewController.m */,
-				C4D36D7D1DA3D53F0061FD08 /* STPreferencesAdvancedViewController.h */,
-				C4D36D821DA3E2820061FD08 /* STPreferencesDevicesViewController.h */,
-				C4D36D831DA3E2820061FD08 /* STPreferencesDevicesViewController.m */,
-				C4D36D841DA3E2820061FD08 /* STPreferencesDevicesViewController.xib */,
-			);
-			name = STPreferencesWindow;
-			sourceTree = "<group>";
-		};
-		C46500101DA116D400C250BC /* STPreferencesWindow */ = {
-			isa = PBXGroup;
-			children = (
-				C4460A821D0DD38F00200C21 /* STPreferencesWindowController.xib */,
+				C4F0E82B1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.h */,
+				C4F0E82C1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m */,
 			);
 			name = STPreferencesWindow;
 			sourceTree = "<group>";
@@ -190,7 +158,9 @@
 		C465001D1DA18F4300C250BC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				29AF1BA4210F11DE004212DE /* syncthing-Bridging-Header.h */,
+				C469AFE925D7E76900904DD7 /* STLoginItem.h */,
+				C469AFEA25D7E76900904DD7 /* STLoginItem.m */,
+				C469AFE325D7CFE400904DD7 /* syncthing-Bridging-Header.h */,
 				29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */,
 				298A5C44210DA6C40034B89F /* LocalhostTLSDelegate.h */,
 				298A5C43210DA6C40034B89F /* LocalhostTLSDelegate.m */,
@@ -198,10 +168,6 @@
 				C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */,
 				C4A415631D0D579D00DC6018 /* STApplication.h */,
 				C4A415641D0D579D00DC6018 /* STApplication.m */,
-				C4D567A11D3A8DFE002AD881 /* STLoginItem.m */,
-				C4D567A31D3A8E34002AD881 /* STLoginItem.h */,
-				C48B83B41DA444BC0052A172 /* STConfiguration.h */,
-				C48B83B51DA444BC0052A172 /* STConfiguration.m */,
 				0BE9B8881F050E93002883E2 /* STStatusMonitor.h */,
 				0BE9B8891F050E93002883E2 /* STStatusMonitor.m */,
 			);
@@ -256,8 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				C465000A1DA114FE00C250BC /* STPreferencesWindow */,
-				C4460A7E1D0DD2D500200C21 /* STStatusBarController.h */,
-				C4460A7F1D0DD2D500200C21 /* STStatusBarController.m */,
 				C4946B021D587878008447A2 /* STAboutWindowController.m */,
 				C4946B041D587907008447A2 /* STAboutWindowController.h */,
 			);
@@ -267,9 +231,10 @@
 		C4D6DD601D0DB18A0024D20A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C46500101DA116D400C250BC /* STPreferencesWindow */,
 				C4A4156B1D0D579D00DC6018 /* STApplication.xib */,
-				C4946B001D5877F2008447A2 /* STAboutWindowController.xib */,
+				C4946B001D5877F2008447A2 /* STAboutWindow.xib */,
+				C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */,
+				C4F0E82D1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -313,7 +278,7 @@
 		C4A415581D0D579D00DC6018 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Jerry Jacobs";
 				TargetAttributes = {
 					0B9C6B051F144DF1009C68CA = {
@@ -352,13 +317,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4D36D861DA3E2820061FD08 /* STPreferencesDevicesViewController.xib in Resources */,
 				C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */,
 				C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */,
 				C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */,
-				C4460A831D0DD38F00200C21 /* STPreferencesWindowController.xib in Resources */,
-				C4946B011D5877F2008447A2 /* STAboutWindowController.xib in Resources */,
-				C4F0E82F1DA1B9CF00435310 /* STPreferencesGeneralViewController.xib in Resources */,
+				C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */,
+				C4946B011D5877F2008447A2 /* STAboutWindow.xib in Resources */,
+				C4F0E82F1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,19 +399,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4D567A21D3A8DFE002AD881 /* STLoginItem.m in Sources */,
 				29AF1BA3210F11BF004212DE /* DaemonProcess.swift in Sources */,
 				C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */,
 				298A5C45210DA6C40034B89F /* LocalhostTLSDelegate.m in Sources */,
 				C4A415681D0D579D00DC6018 /* main.m in Sources */,
 				C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */,
-				C4D36D851DA3E2820061FD08 /* STPreferencesDevicesViewController.m in Sources */,
-				C4460A811D0DD2D500200C21 /* STStatusBarController.m in Sources */,
-				C48B83B61DA444BC0052A172 /* STConfiguration.m in Sources */,
+				C469AFEB25D7E76900904DD7 /* STLoginItem.m in Sources */,
 				0BE9B88A1F050E93002883E2 /* STStatusMonitor.m in Sources */,
 				C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */,
-				C4F0E82E1DA1B9CF00435310 /* STPreferencesGeneralViewController.m in Sources */,
-				C4F0E8381DA1CB0900435310 /* STPreferencesInfoViewController.m in Sources */,
+				C4F0E82E1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m in Sources */,
 				C4A415651D0D579D00DC6018 /* STApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +471,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -540,7 +501,7 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/syncthing/Test";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -568,6 +529,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
