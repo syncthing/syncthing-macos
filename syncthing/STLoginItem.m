@@ -32,6 +32,7 @@
 + (BOOL)wasAppAddedAsLoginItem {
     NSString * appPath = [[NSBundle mainBundle] bundlePath];
 	CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:appPath];
+    CFErrorRef err;
 	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
     
     BOOL ret = NO;
@@ -46,7 +47,8 @@
         for (id item in (__bridge NSArray *)loginItemsArray) {
             LSSharedFileListItemRef itemRef = (__bridge LSSharedFileListItemRef)item;
             //Resolve the item with URL
-			if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
+            url = LSSharedFileListItemCopyResolvedURL(itemRef, 0, &err);
+			if (err == noErr) {
 				NSString * urlPath = [(__bridge NSURL*)url path];
 				if ([urlPath compare:appPath] == NSOrderedSame){
 					ret = YES;
@@ -57,13 +59,13 @@
         CFRelease(loginItems);
 	}
     
-    
     return ret;
 }
 
 + (void)deleteAppFromLoginItem {
 	NSString * appPath = [[NSBundle mainBundle] bundlePath];
 	CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:appPath];
+    CFErrorRef err;
 	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
     
 	if (loginItems) {
@@ -72,7 +74,8 @@
         
         for (id item in (__bridge NSArray *)loginItemsArray) {
             LSSharedFileListItemRef itemRef = (__bridge LSSharedFileListItemRef)item;
-			if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
+            url = LSSharedFileListItemCopyResolvedURL(itemRef, 0, &err);
+            if (err == noErr) {
 				NSString * urlPath = [(__bridge NSURL*)url path];
 				if ([urlPath compare:appPath] == NSOrderedSame){
 					LSSharedFileListItemRemove(loginItems, itemRef);
