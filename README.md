@@ -57,6 +57,11 @@ See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for
 
 # FAQ: Frequently asked questions
 
+## macOS version support
+
+* From release v1.13.0-1 macOS 1.12 is required
+* Until release [v1.12.1-1](https://github.com/syncthing/syncthing-macos/releases/tag/v1.12.1-1) macOS 1.11 is required
+
 ## Default IP address change
 
 When the default IP address is changed from 127.0.0.1 to a routable one like e.g 192.168.1.102 the tray application
