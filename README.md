@@ -5,7 +5,7 @@
 
 # Introduction
 
-`syncthing-macos` project is a native macOS Syncthing tray application bundle. It hosts and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
+`syncthing-macos` project is a native macOS Syncthing tray application bundle. It bundles its own syncthing instance and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
 
 Features include:
 
@@ -60,7 +60,13 @@ See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for
 ## macOS version support
 
 * From release v1.13.0-1 macOS 1.12 is required
-* Until release [v1.12.1-1](https://github.com/syncthing/syncthing-macos/releases/tag/v1.12.1-1) macOS 1.11 is required
+* Until release [v1.12.1-1](https://github.com/syncthing/syncthing-macos/releases/tag/v1.12.1-1) macOS 1.11 is required (see )
+
+## Preferences
+
+syncthing-macos is designed to run its own syncthing instance and automatically detect the API key. The preferences window is used to point to a
+local running instance, a remote instance is not supported. It is possible to run your own instance and point to it for advanced/development purposes. You
+should only change the settings if you know what you are doing.
 
 ## Default IP address change
 
