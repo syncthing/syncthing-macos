@@ -59,8 +59,8 @@ See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for
 
 ## macOS version support
 
-* From release v1.13.0-1 macOS 1.12 is required
-* Until release [v1.12.1-1](https://github.com/syncthing/syncthing-macos/releases/tag/v1.12.1-1) macOS 1.11 is required (see )
+* From release v1.14.0-1 macOS 1.12 is required
+* Until release [v1.13.1-1](https://github.com/syncthing/syncthing-macos/releases/tag/v1.13.1-1) macOS 1.11 or higher is supported
 
 ## Preferences
 
