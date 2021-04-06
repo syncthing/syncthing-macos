@@ -2,6 +2,7 @@
 package main
 
 import (
+	"os"
 	"bytes"
 	"context"
 	"encoding/xml"
@@ -12,7 +13,9 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"net/http"
 
+	"golang.org/x/oauth2"
 	"github.com/google/go-github/github"
 	"github.com/hashicorp/go-version"
 	"github.com/russross/blackfriday/v2"
@@ -33,11 +36,27 @@ func init() {
 	flag.Parse()
 }
 
+func getGHOAuth2ClientFromEnv() *http.Client {
+	ghAPIKey := os.Getenv("GITHUB_API_KEY")
+	if ghAPIKey == "" {
+		return nil
+	}
+
+	log.Printf("Using github API key from envvar (GITHUB_API_KEY)")
+
+	ctx := context.Background()
+	ts := oauth2.StaticTokenSource(
+		&oauth2.Token{AccessToken: ghAPIKey},
+	)
+
+	return oauth2.NewClient(ctx, ts)
+}
+
 func main() {
 	// Load github releases
 	log.Printf("loading github releases from %s/%s", githubOrg, githubRepo)
 
-	ghclient := github.NewClient(nil)
+	ghclient := github.NewClient(getGHOAuth2ClientFromEnv())
 	releases, _, err := ghclient.Repositories.ListReleases(context.Background(), githubOrg, githubRepo, nil)
 	if err != nil {
 		log.Fatal(err)
