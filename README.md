@@ -68,6 +68,14 @@ syncthing-macos is designed to run its own syncthing instance and automatically 
 local running instance, a remote instance is not supported. It is possible to run your own instance and point to it for advanced/development purposes. You
 should only change the settings if you know what you are doing.
 
+Setting extra syncthing commandline parameters is a hidden feature. You need to write these using the application defaults configuration.
+The only current limitation the parameters cannot contain spaces!.
+In the example below the audit log is enabled:
+
+```
+defaults write com.github.xor-gate.syncthing-macosx Arguments '--audit --auditfile=/Users/JohnDoe/staudit.log'
+```
+
 ## Default IP address change
 
 When the default IP address is changed from 127.0.0.1 to a routable one like e.g 192.168.1.102 the tray application

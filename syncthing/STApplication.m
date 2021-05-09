@@ -7,6 +7,7 @@
 @property (nonatomic, strong, readwrite) NSStatusItem *statusItem;
 @property (nonatomic, strong, readwrite) XGSyncthing *syncthing;
 @property (nonatomic, strong, readwrite) NSString *executable;
+@property (nonatomic, strong, readwrite) NSString *arguments;
 @property (nonatomic, strong, readwrite) DaemonProcess *process;
 @property (nonatomic, strong, readwrite) STStatusMonitor *statusMonitor;
 @property (weak) IBOutlet NSMenuItem *toggleAllDevicesItem;
@@ -31,7 +32,7 @@
 
     [self applicationLoadConfiguration];
 
-    _process = [[DaemonProcess alloc] initWithPath:_executable delegate:self];
+    _process = [[DaemonProcess alloc] initWithPath:_executable arguments: _arguments delegate:self];
     [_process launch];
 
     _statusMonitor = [[STStatusMonitor alloc] init];
@@ -74,6 +75,12 @@
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
     _syncthing.ApiKey = [defaults stringForKey:@"ApiKey"];
+
+    self.arguments = [defaults stringForKey:@"Arguments"];
+    if (!self.arguments) {
+        self.arguments = @"";
+        [defaults setObject:self.arguments forKey: @"Arguments"];
+    }
 
     // If no values are set, read from XML and store in defaults
     if (!_syncthing.URI.length && !_syncthing.ApiKey.length) {

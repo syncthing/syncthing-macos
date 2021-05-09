@@ -11,21 +11,27 @@ import Foundation
 let RestartInterval = 10.0 // seconds
 let MaxKeepLogLines = 200
 
-@objc public protocol DaemonProcessDelegate: class {
+@objc public protocol DaemonProcessDelegate: AnyObject {
     func process(_: DaemonProcess, isRunning: Bool)
 }
 
 @objc public class DaemonProcess: NSObject {
     private var path: String
+    private var arguments: [String]
     private weak var delegate: DaemonProcessDelegate?
     private var process: Process?
     private var log = [String]()
     private var queue = DispatchQueue(label: "DaemonProcess")
     private var shouldTerminate = false
 
-    @objc init(path: String, delegate: DaemonProcessDelegate) {
+    @objc init(path: String, arguments: String, delegate: DaemonProcessDelegate) {
         self.path = path
         self.delegate = delegate
+        if !arguments.isEmpty {
+            self.arguments = arguments.components(separatedBy: " ")
+        } else {
+            self.arguments = []
+        }
     }
 
     @objc func launch() {
@@ -59,6 +65,7 @@ let MaxKeepLogLines = 200
         let p = Process()
         p.environment = environment
         p.arguments = ["-no-browser", "-no-restart", "-logfile=default"]
+        p.arguments?.append(contentsOf: self.arguments)
         p.launchPath = path
         p.standardInput = Pipe() // isolate daemon from our stdin
         p.standardOutput = pipeIntoLineBuffer()
