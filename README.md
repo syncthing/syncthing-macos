@@ -101,7 +101,7 @@ git submodule update --init
 - Xcode, for the Objective-C/Swift compiler
 - Python 3, for the update-release.py script
   - Needs [semver](https://pypi.org/project/semver/) from pip
-- Cocoapods for updating Objective-C/Swift 3th party depedencies
+- Cocoapods for updating Objective-C/Swift 3th party dependencies
 - Golang, only needed for Sparkle Github releases to Appcast XML tool
 
 # Using XCode
@@ -195,7 +195,7 @@ See also <https://developer.apple.com/documentation/xcode/notarizing_macos_softw
 ## New release
 
 To update the bundled syncthing the `make release-update` must be run from the main folder which does
-basicly these steps automaticly:
+basicly these steps automatically:
 * Update `syncthing/Scripts/syncthing-resource.sh`, `SYNCTHING_VERSION`
 * Update `syncthing/Info.plist`
   * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
