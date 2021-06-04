@@ -19,9 +19,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.16.1-2</string>
+	<string>1.17.0-1</string>
 	<key>CFBundleVersion</key>
-	<string>101600102</string>
+	<string>101700001</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
