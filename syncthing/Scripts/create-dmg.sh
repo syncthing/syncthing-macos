@@ -47,7 +47,6 @@ else
 	${CREATE_DMG} \
 		--sandbox-safe \
 		--volname "Syncthing" \
-		--volicon "${SYNCTHING_APP_RESOURCES}/syncthing.icns" \
 		--background "${DMG_TEMPLATE_DIR}/background.png" \
 		--window-pos -1 -1 \
 		--window-size 480 540 \
