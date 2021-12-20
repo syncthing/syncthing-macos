@@ -29,7 +29,6 @@
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
 		C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */; };
 		C469AFEB25D7E76900904DD7 /* STLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AFEA25D7E76900904DD7 /* STLoginItem.m */; };
-		C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */ = {isa = PBXBuildFile; fileRef = C47F6C391D0DE68D00F36CF6 /* syncthing.icns */; };
 		C4946B011D5877F2008447A2 /* STAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4946B001D5877F2008447A2 /* STAboutWindow.xib */; };
 		C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4946B021D587878008447A2 /* STAboutWindowController.m */; };
 		C4A415651D0D579D00DC6018 /* STApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415641D0D579D00DC6018 /* STApplication.m */; };
@@ -83,7 +82,6 @@
 		C469AFE325D7CFE400904DD7 /* syncthing-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "syncthing-Bridging-Header.h"; sourceTree = "<group>"; };
 		C469AFE925D7E76900904DD7 /* STLoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoginItem.h; sourceTree = "<group>"; };
 		C469AFEA25D7E76900904DD7 /* STLoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLoginItem.m; sourceTree = "<group>"; };
-		C47F6C391D0DE68D00F36CF6 /* syncthing.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = syncthing.icns; sourceTree = "<group>"; };
 		C4946B001D5877F2008447A2 /* STAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STAboutWindow.xib; path = UI/STAboutWindow.xib; sourceTree = "<group>"; };
 		C4946B021D587878008447A2 /* STAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAboutWindowController.m; path = Controllers/STAboutWindowController.m; sourceTree = "<group>"; };
 		C4946B041D587907008447A2 /* STAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAboutWindowController.h; path = Controllers/STAboutWindowController.h; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 		C4A415661D0D579D00DC6018 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C47F6C391D0DE68D00F36CF6 /* syncthing.icns */,
 				C4A415671D0D579D00DC6018 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -317,7 +314,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C47F6C3A1D0DE68D00F36CF6 /* syncthing.icns in Resources */,
 				C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */,
 				C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */,
 				C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */,
@@ -564,6 +560,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Syncthing;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
@@ -593,6 +591,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Syncthing;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "";
