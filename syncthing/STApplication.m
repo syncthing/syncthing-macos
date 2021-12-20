@@ -53,6 +53,9 @@
 - (void) awakeFromNib {
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     _statusItem.menu = _Menu;
+    if (@available(macOS 10.12, *)) {
+        _statusItem.behavior = NSStatusItemBehaviorRemovalAllowed;
+    }
 
     [self updateStatusIcon:@"StatusIconNotify"];
 }
@@ -348,6 +351,18 @@
             [_statusMenuItem setTitle:@"Unavailable"];
         }
     }
+}
+
+- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
+    // This method is called when the user double clicks the app in the Finder.
+    // It is not called when autostarting the app as a login item.
+    // We use this method to show some UI to the user when the status item is hidden.
+    if (@available(macOS 10.12, *)) {
+        if (!_statusItem.isVisible) {
+            [self clickedPreferences:nil];
+        }
+    }
+    return NO;
 }
 
 @end
