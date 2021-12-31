@@ -5,7 +5,7 @@
 
 # Introduction
 
-`syncthing-macos` project is a native macOS Syncthing tray application bundle. It bundles its own syncthing instance and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
+`syncthing-macos` project is a [frugal](https://en.wikipedia.org/wiki/Frugality) [native](https://en.wikipedia.org/wiki/Native_(computing)) macOS Syncthing tray application bundle. It bundles its own syncthing instance and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
 
 Features include:
 
@@ -40,8 +40,8 @@ All cross-platform approaches are not able to use all the native facilities of m
 
 # Goal
 
-The goal of this project is to keep the Native macOS Syncthing tray as simple as possible. No graphs, no advanced configuration
- windows. It just provides a very simple wrapper so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
+The goal of this project is to keep the native macOS Syncthing tray lean but usable. No graphs, no advanced configuration
+ windows. It just provides a very simple wrapper, so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
 
 # Known bugs
 
