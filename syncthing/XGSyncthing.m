@@ -113,6 +113,22 @@
     [self sendPostRequestToEndpoint:@"/rest/system/pause" parameters:nil];
 }
 
+- (bool)isPaused
+{
+    id json = [self sendGetRequestToEndpoint:@"/rest/system/connections" parameters:nil];
+
+    if (json == nil) {
+        return false;
+    }
+    
+    id total = [json objectForKey:@"total"];
+    if (total == nil) {
+        return false;
+    }
+    
+    return [[total valueForKey:@"paused"] boolValue];
+}
+
 - (void)resumeAllDevices
 {
     [self sendPostRequestToEndpoint:@"/rest/system/resume" parameters:nil];

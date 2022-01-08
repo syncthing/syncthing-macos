@@ -16,6 +16,7 @@
 - (id)getFolders;
 - (NSArray *)getDevices;
 - (void)pauseAllDevices;
+- (bool)isPaused;
 - (void)resumeAllDevices;
 - (void)rescanAll;
 - (id)getEventsSince:(long)since;

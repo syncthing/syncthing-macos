@@ -129,6 +129,9 @@
 
 - (void) updateStatusTooltip:(NSString *)status {
     id version = [_syncthing getVersion];
+    if (version == nil) {
+        version = @"";
+    }
     NSString *toolTip = [NSString stringWithFormat:@"Syncthing %@\n%@", version, status];
     [_statusItem.button setToolTip:toolTip];
 }
@@ -145,6 +148,11 @@
             [self updateStatusTooltip:@"Synchronising"];
             [self updateConnectionStatus:true];
             break;
+        case SyncthingStatusPause:
+            [self updateStatusIcon:@"StatusIconPause"];
+            [self updateStatusTooltip:@"Pause"];
+            [self updateConnectionStatus:true];
+            break;
         case SyncthingStatusOffline:
             [self updateStatusIcon:@"StatusIconNotify"];
             [self updateStatusTooltip:@"Not running"];
@@ -156,6 +164,10 @@
             [self updateConnectionStatus:false]; // XXX: Maybe? Or what does it mean
             break;
     }
+}
+
+- (void) syncMonitorTimerIdleEvent {
+    [self refreshDevices];
 }
 
 - (void) syncMonitorEventReceived:(NSDictionary *)event {
@@ -180,11 +192,16 @@
         if (paused == nil || paused.boolValue == NO)
             allPaused = false;
     }
-    self.devicesPaused = allPaused;
-    if (self.devicesPaused)
+
+    if (allPaused) {
         self.toggleAllDevicesItem.title = @"Resume All Devices";
-    else
+        [[self statusMonitor] setCurrentStatus:SyncthingStatusPause];
+    } else {
         self.toggleAllDevicesItem.title = @"Pause All Devices";
+        [[self statusMonitor] setCurrentStatus:SyncthingStatusIdle];
+    }
+    
+    self.devicesPaused = allPaused;
 }
 
 - (IBAction) clickedOpen:(id)sender {

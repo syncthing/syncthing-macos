@@ -31,16 +31,18 @@
 - (void) longPoll {
     @autoreleasepool {
         id result = [self.syncthing getEventsSince:self.lastSeenId];
+
         if (result == nil) {
-            // Failed to get events
+            // Failed to get events we try to check if syncthing is pauzed
             [NSThread sleepForTimeInterval:1.0];
         } else {
             // Got events, process them.
             [self performSelectorOnMainThread:@selector(dataReceived:) withObject:result waitUntilDone:YES];
         }
-        
-        if (self.enabled)
+
+        if (self.enabled) {
             [self performSelectorInBackground:@selector(longPoll) withObject: nil];
+        }
     }
 }
 
@@ -70,10 +72,11 @@
 
 - (void) updateStatusFromTimer {
     if (![_syncthing ping]) {
-        self.currentStatus = SyncthingStatusOffline;
-    }
-    else if (self.currentStatus == SyncthingStatusOffline) {
-        self.currentStatus = SyncthingStatusIdle;
+        [self setCurrentStatus:SyncthingStatusOffline];
+    } else if (self.currentStatus == SyncthingStatusOffline) {
+        [self setCurrentStatus:SyncthingStatusIdle];
+    } else if (self.currentStatus == SyncthingStatusIdle) {
+        [self.delegate syncMonitorTimerIdleEvent];
     }
 }
 

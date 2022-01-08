@@ -13,6 +13,7 @@ typedef NS_ENUM(NSInteger, SyncthingStatus) {
     SyncthingStatusOffline,
     SyncthingStatusIdle,
     SyncthingStatusBusy,
+    SyncthingStatusPause,
     SyncthingStatusError
 };
 
@@ -25,12 +26,14 @@ typedef NS_ENUM(NSInteger, SyncthingStatus) {
 
 - (void) startMonitoring;
 - (void) stopMonitoring;
+- (void) setCurrentStatus:(SyncthingStatus)newStatus;
 
 @end
 
 @protocol STStatusMonitorDelegate <NSObject>
 
-- (void)syncMonitorStatusChanged:(SyncthingStatus)status;
-- (void)syncMonitorEventReceived:(NSDictionary *)event;
+- (void) syncMonitorStatusChanged:(SyncthingStatus)status;
+- (void) syncMonitorEventReceived:(NSDictionary *)event;
+- (void) syncMonitorTimerIdleEvent;
 
 @end
