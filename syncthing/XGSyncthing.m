@@ -88,6 +88,11 @@
     return [json objectForKey:@"myID"];
 }
 
+- (id)getVersion {
+    id json = [self sendGetRequestToEndpoint:@"/rest/system/version" parameters:nil];
+    return [json objectForKey:@"version"];
+}
+
 - (NSDictionary *)getConfig
 {
     return [self sendGetRequestToEndpoint:@"/rest/system/config" parameters:nil];

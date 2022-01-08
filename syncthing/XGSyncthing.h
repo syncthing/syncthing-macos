@@ -11,6 +11,7 @@
 - (bool)ping;
 - (id)getUptime;
 - (id)getMyID;
+- (id)getVersion;
 - (NSDictionary *)getConfig;
 - (id)getFolders;
 - (NSArray *)getDevices;

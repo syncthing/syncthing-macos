@@ -127,26 +127,32 @@
 	[_statusItem.button.image setTemplate:YES];
 }
 
+- (void) updateStatusTooltip:(NSString *)status {
+    id version = [_syncthing getVersion];
+    NSString *toolTip = [NSString stringWithFormat:@"Syncthing %@\n%@", version, status];
+    [_statusItem.button setToolTip:toolTip];
+}
+
 - (void) syncMonitorStatusChanged:(SyncthingStatus)status {
     switch (status) {
         case SyncthingStatusIdle:
             [self updateStatusIcon:@"StatusIconDefault"];
-            [_statusItem setToolTip:@"Idle"];
+            [self updateStatusTooltip:@"Up to date"];
             [self updateConnectionStatus:true];
             break;
         case SyncthingStatusBusy:
             [self updateStatusIcon:@"StatusIconSync"];
-            [_statusItem setToolTip:@"Syncing"];
+            [self updateStatusTooltip:@"Synchronising"];
             [self updateConnectionStatus:true];
             break;
         case SyncthingStatusOffline:
-            [_statusItem setToolTip:@"Not connected"];
             [self updateStatusIcon:@"StatusIconNotify"];
+            [self updateStatusTooltip:@"Not running"];
             [self updateConnectionStatus:false];
             break;
         case SyncthingStatusError:
-            [_statusItem setToolTip:@"Error"];
             [self updateStatusIcon:@"StatusIconNotify"];
+            [self updateStatusTooltip:@"Error"];
             [self updateConnectionStatus:false]; // XXX: Maybe? Or what does it mean
             break;
     }
