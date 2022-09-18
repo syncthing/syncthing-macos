@@ -30,7 +30,7 @@ Currently, OS X 10.12 or higher is necessary. **syncthing-macos** is packaged as
 
 To install just download the dmg, mount it and drag and drop the application to install. The only necessary configuration is to set the API key and URL when provisioning a remote syncthing instance, the local instance is auto-configured. The `syncthing-macos` application bundle disables the auto-updater of `syncthing` as it has its own update mechanism using [Sparkle](https://sparkle-project.org/).
 
-The latest version is available at [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) `brew install --cask syncthing`
+The latest version is available at [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) [`brew install --cask syncthing`](https://formulae.brew.sh/cask/syncthing)
 
 # Why
 
