@@ -203,5 +203,7 @@ basicly these steps automatically:
   * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
   * `CFBundleVersion` (e.g `145000` or `145001`)
 
-* Manually create a github release
+
 * Download the release dmg from [build.syncthing.net](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_BuildReleaseDmg) which is correctly signed and notarized
+* Manually create a github release with tag vX.Y.Z-Nr
+* Run deployment of [appcast.xml](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_CreateAppcastXml). Which turns [github releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast).
