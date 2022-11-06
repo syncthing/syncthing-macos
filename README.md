@@ -85,6 +85,26 @@ preferences need to be set also. Or else the API cannot be accessed and will sta
 configuration you can manually edit the file under the `~/Library/Application Support/Syncthing/config.xml` using
 Finder with Go -> Go to folder. And restart the syncthing service from the tray.
 
+## Resolve xattr sync from macOS Ventura 13.0 to < 13.0 devices (problem with `com.apple.provenance` metadata)
+
+When using the xattr synchronisation feature it fails when syncing from macOS 13.0 to macOS < 13.0. When using this feature one must stop Syncthing and manually edit the configuration XML file located at `/Users/<user>/Library/Application Support/Syncthing/config.xml`. Or the location when running an Syncthing daemon instance not managed the application bundle). Manually editing the configuration file is necessary because the web UI doesn't support xattr filter management just yet (release v1.22.1-1).
+
+Per shared folder the `xattrFilter` must be configured as follows:
+
+```
+<folder id="..." ...>
+  <xattrFilter>
+    ...
+    <entry match="com.apple.provenance" permit="false"/>
+    <entry match="*" permit="true"/>
+  </xattrFilter>
+</folder>
+```
+
+NOTE: see the `com.apple.provenance` `xattrFilter` `entry`.
+
+See also [#185](https://github.com/syncthing/syncthing-macos/issues/185) and the [forum post](https://forum.syncthing.net/t/com-apple-provenance/19262) for more information.
+
 ## Uninstallation
 
 On Mac OS X you drop the application from the Application folder to your Trash. 
