@@ -5,11 +5,11 @@
 
 # Introduction
 
-`syncthing-macos` project is a [frugal](https://en.wikipedia.org/wiki/Frugality) [native](https://en.wikipedia.org/wiki/Native_(computing)) macOS Syncthing tray application bundle. It bundles its own syncthing instance and wraps [Syncthing](https://syncthing.net), making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
+`syncthing-macos` project is a [frugal](https://en.wikipedia.org/wiki/Frugality) [native](https://en.wikipedia.org/wiki/Native_(computing)) macOS [Syncthing](https://syncthing.net) tray application bundle. It bundles its own Syncthing instance and wraps Syncthing background process, making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
 
 Features include:
 
- * Open the Syncthing WebGUI from the tray in your system preferred browser.
+ * Open the [Syncthing WebGUI](https://docs.syncthing.net/intro/gui.html) from the tray in your system preferred browser.
  * Optionally starts on login, so you don't need to set up Syncthing as a service.
  * Tray icon syncthing status indicator.
  * Retina ready icons for the Application bundle and status tray.
@@ -26,26 +26,26 @@ Features include:
 **NOTICE**: This is the official Syncthing macOS application bundle. Please make sure you have no other [syncthing instances](https://docs.syncthing.net/users/autostart.html#macos)
             or [wrappers running](https://docs.syncthing.net/users/contrib.html#mac-os) or else this application will not work!
 
-Currently, OS X 10.12 or higher is necessary. **syncthing-macos** is packaged as a disk image as an application bundled with the [syncthing](https://github.com/syncthing/syncthing) binary.
+Currently, OS X 10.13 or higher is necessary. **syncthing-macos** is packaged as a disk image as an application bundled with the [syncthing](https://github.com/syncthing/syncthing/releases) binary.
 
-To install just download the dmg, mount it and drag and drop the application to install. The only necessary configuration is to set the API key and URL when provisioning a remote syncthing instance, the local instance is auto-configured. The `syncthing-macos` application bundle disables the auto-updater of `syncthing` as it has its own update mechanism using [Sparkle](https://sparkle-project.org/).
+To install [just download the dmg](https://github.com/syncthing/syncthing-macos/releases/latest), mount it and drag and drop the application to install. The only necessary configuration is to set the API key and URL when provisioning a remote syncthing instance, the local instance is auto-configured. The `syncthing-macos` application bundle disables the auto-updater of `syncthing` as it has its own update mechanism using [Sparkle](https://sparkle-project.org/).
 
 The latest version is available at [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) [`brew install --cask syncthing`](https://formulae.brew.sh/cask/syncthing)
 
 # Why
 
-All cross-platform approaches are not able to use all the native facilities of macOS. Including auto-updates,
+All cross-platform approaches are not able to use all the native facilities Apple macOS provides. Including auto-updates,
  vector icon set (retina-ready) and creating an application bundle. GUIs are designed with XCode and everything
- is coded in Objective-C and Swift which is "the native approach".
+ is coded in a mix of Objective-C and Swift which is "the native approach".
 
 # Goal
 
 The goal of this project is to keep the native macOS Syncthing tray lean but usable. No graphs, no advanced configuration
- windows. It just provides a very simple wrapper, so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as an native application as possible.
+ windows. It just provides a very simple wrapper, so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as a native application as possible.
 
 # Known bugs
 
-See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for the current status.
+See the [issue tracker (bug tag filtered)]([https://github.com/syncthing/syncthing-macos/issues](https://github.com/syncthing/syncthing-macos/issues?q=is%3Aissue+is%3Aopen+label%3Abug)) for the current status.
 
 # Contributions
 
@@ -66,12 +66,13 @@ See the [issue tracker](https://github.com/syncthing/syncthing-macos/issues) for
 
 ## Preferences
 
-syncthing-macos is designed to run its own syncthing instance and automatically detect the API key. The preferences window is used to point to a
-local running instance, a remote instance is not supported. It is possible to run your own instance and point to it for advanced/development purposes. You
-should only change the settings if you know what you are doing.
+`syncthing-macos` is designed to run its own syncthing instance and automatically detect the API key.
+The preferences window is used to point to a local running instance, a remote instance is not supported.
+It is possible to run your own instance and point to it for advanced/development purposes.
+You should only change the settings if you know what you are doing.
 
-Setting extra syncthing commandline parameters is a hidden feature. You need to write these using the application defaults configuration.
-The only current limitation the parameters cannot contain spaces!.
+Setting extra syncthing commandline parameters is a hidden feature. You need to write these using
+the application defaults configuration. The only current limitation the parameters cannot contain spaces!.
 In the example below the audit log is enabled:
 
 ```
@@ -87,7 +88,11 @@ Finder with Go -> Go to folder. And restart the syncthing service from the tray.
 
 ## Resolve xattr sync from macOS Ventura 13.0 to < 13.0 devices (problem with `com.apple.provenance` metadata)
 
-When using the xattr synchronisation feature it fails when syncing from macOS 13.0 to macOS < 13.0. When using this feature one must stop Syncthing and manually edit the configuration XML file located at `/Users/<user>/Library/Application Support/Syncthing/config.xml`. Or the location when running an Syncthing daemon instance not managed the application bundle). Manually editing the configuration file is necessary because the web UI doesn't support xattr filter management just yet (release v1.22.1-1).
+When using the xattr synchronisation feature it fails when syncing from macOS 13.0 to macOS < 13.0.
+When using this feature one must stop Syncthing and manually edit the configuration XML file located
+at `/Users/<user>/Library/Application Support/Syncthing/config.xml`. Or the location when running an
+Syncthing daemon instance not managed the application bundle). Manually editing the configuration file
+is necessary because the web UI doesn't support xattr filter management just yet (release v1.22.1-1).
 
 Per shared folder the `xattrFilter` must be configured as follows:
 
@@ -103,14 +108,16 @@ Per shared folder the `xattrFilter` must be configured as follows:
 
 NOTE: see the `com.apple.provenance` `xattrFilter` `entry`.
 
-See also [#185](https://github.com/syncthing/syncthing-macos/issues/185) and the [forum post](https://forum.syncthing.net/t/com-apple-provenance/19262) for more information.
+See also [#185](https://github.com/syncthing/syncthing-macos/issues/185) and the
+[forum post](https://forum.syncthing.net/t/com-apple-provenance/19262) for more information.
 
 ## Uninstallation
 
 On Mac OS X you drop the application from the Application folder to your Trash. 
 But there are some user specific files are kept elsewhere, which are located under 
 `$HOME/Library/Application Support/Syncthing`. The files in this folder are the configuration,
-encryption/profile files and the database cache. For more information see [docs.syncthing.net/users/config.html](https://docs.syncthing.net/users/config.html#description).
+encryption/profile files and the database cache. For more information see
+[docs.syncthing.net/users/config.html](https://docs.syncthing.net/users/config.html#description).
 
 # Prerequisites for building/using everything in this repository
 
@@ -128,7 +135,7 @@ git submodule update --init
 
 # Using XCode
 
-The new `syncthing.xcworkspace` must be used when coding in XCode. The old `syncthing.xcodeproj` is deprecated.
+The new `syncthing.xcworkspace` must be used when coding in XCode.
 
 # Compiling from Terminal
 
@@ -174,13 +181,16 @@ jerry@Jerrys-iMac ~ % defaults read com.github.xor-gate.syncthing-macosx
 
 ## Dependency management
 
-[CocoaPods](https://cocoapods.org/) is used for dependency management. It can be installed with [Homebrew](https://brew.sh/) package manager. For more information about CocoaPods read the [CocoaPods Guides](https://guides.cocoapods.org/).
+[CocoaPods](https://cocoapods.org/) is used for dependency management. It can be installed
+with [Homebrew](https://brew.sh/) package manager. For more information about CocoaPods read
+the [CocoaPods Guides](https://guides.cocoapods.org/).
 
 ## Versioning scheme
 
-It uses the shipped syncthing executable version appended with a `-<build index>` number.
+It uses the shipped syncthing executable version appended with a `-<bundle index>` number.
 So for Syncthing `0.14.28` with first build/package it is versioned as `0.14.28-1`.
-Currently there is no need for having a separate version for `syncthing-macos`. As it also keeps the wrapper tightly coupled with the syncthing releases.
+Currently there is no need for having a separate version for `syncthing-macos`. As it also
+keeps the wrapper tightly coupled with the syncthing releases.
 
 ## Compilation and packaging process
 
@@ -188,13 +198,17 @@ Currently there is no need for having a separate version for `syncthing-macos`. 
 * Syncthing resource is fetched with `syncthing/Scripts/syncthing-resource.sh`
 * Fancy DMG disk image is generated with `syncthing/Scripts/create-dmg.sh`
   * The version part of the DMG name is fetched from `syncthing/Info.plist, key CFBundleShortVersionString`
-* Both the app bundle and the DMG are signed with the first available Developer ID certificate, if found (or the one specified through `SYNCTHING_APP_CODE_SIGN_IDENTITY` environment variable)
+* Both the app bundle and the DMG are signed with the first available Developer
+  ID certificate, if found (or the one specified through `SYNCTHING_APP_CODE_SIGN_IDENTITY` environment variable)
 
-`syncthing/syncthing-macos` will only ship [stable releases and no release candidates](https://forum.syncthing.net/t/introducing-stable-releases-and-release-candidates/9167) of the Syncthing Service (daemon).
+`syncthing/syncthing-macos` will only ship
+[stable releases and no release candidates](https://forum.syncthing.net/t/introducing-stable-releases-and-release-candidates/9167)
+of the Syncthing Service (daemon).
 
 ## Apple Application Notarize
 
-After the dmg is created it must be send to Apple to be notarized. It can be checked with spctl if the app is correctly verified by Apple for distribution:
+After the dmg is created it must be send to Apple to be notarized. It can be checked with `spctl`
+if the app is correctly verified by Apple for distribution:
 
 ```
 spctl -a -t exec -vvv /Volumes/Syncthing/Syncthing.app
@@ -212,9 +226,9 @@ source=Developer ID
 origin=Developer ID Application: Jakob Borg (LQE5SYM783)
 ```
 
-See also <https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution>
+See also the Apple Developer documentation at <https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution>
 
-## New release
+## Release management
 
 To update the bundled syncthing the `make release-update` must be run from the main folder which does
 basicly these steps automatically:
@@ -222,8 +236,7 @@ basicly these steps automatically:
 * Update `syncthing/Info.plist`
   * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
   * `CFBundleVersion` (e.g `145000` or `145001`)
-
-
-* Download the release dmg from [build.syncthing.net](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_BuildReleaseDmg) which is correctly signed and notarized
-* Manually create a github release with tag vX.Y.Z-Nr
-* Run deployment of [appcast.xml](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_CreateAppcastXml). Which turns [github releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast).
+* When the code is git pushed the Syncthing build server automatically builds debug and release targets
+* Manually download the release `.dmg` from [build.syncthing.net](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_BuildReleaseDmg) which is correctly signed and notarized
+* Manually create a github release with tag `v<major>.<minor>.<patch>-<bundle index>`
+* Run deployment of [appcast.xml](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_CreateAppcastXml). Which turns [github releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast). (See also [Sparkle documentation](https://sparkle-project.org/documentation/))
