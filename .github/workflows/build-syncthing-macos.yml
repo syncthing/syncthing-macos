@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: syncthing-macos-dmg-release
-          path: Syncthing-*.dmg
+          path: Build/Products/Release/*.dmg
 
   notarize:
     name: Notarize for macOS
