@@ -28,19 +28,13 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Build release dmg
+      - name: Build debug target
         run: |
           make debug
 
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: syncthing-macos-debug-dmg
-          path: Syncthing-*.dmg
-
   build-release:
     name: Build release
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
@@ -84,7 +78,7 @@ jobs:
 
   notarize:
     name: Notarize for macOS
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
     needs:
       - build-release
     runs-on: macos-latest
