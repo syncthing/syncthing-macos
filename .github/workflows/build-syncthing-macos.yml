@@ -2,6 +2,8 @@ name: Build Syncthing macOS
 
 on:
   pull_request:
+    branches:
+      - develop
   push:
 
 # A note on actions and third party code... The actions under actions/ (like
@@ -18,7 +20,6 @@ jobs:
   #
   build-debug:
     name: Build debug
-    if: github.event_name == 'push'
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,7 +32,7 @@ jobs:
 
   build-release:
     name: Build release
-    if: github.event_name == 'push' && github.ref == 'refs/heads/build-signing'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/release'
     environment: signing
     runs-on: macos-latest
     steps:
@@ -77,7 +78,7 @@ jobs:
 
   notarize:
     name: Notarize for macOS
-    if: github.event_name == 'push' && github.ref == 'refs/heads/build-signing'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/release'
     environment: signing
     needs:
       - build-release
