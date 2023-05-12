@@ -31,7 +31,7 @@ jobs:
 
   build-release:
     name: Build release
-    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/build-signing'
     environment: signing
     runs-on: macos-latest
     steps:
@@ -76,7 +76,7 @@ jobs:
 
   notarize:
     name: Notarize for macOS
-    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/build-signing'
     environment: signing
     needs:
       - build-release
