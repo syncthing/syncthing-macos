@@ -4,9 +4,6 @@ on:
   pull_request:
   push:
 
-env:
-  SYNCTHING_APP_CODE_SIGN_IDENTITY: Kastelo
-
 # A note on actions and third party code... The actions under actions/ (like
 # `uses: actions/checkout`) are maintained by GitHub, and we need to trust
 # GitHub to maintain their code and infrastructure or we're in deep shit in
@@ -27,19 +24,21 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          
+
       - name: Build debug target
         run: |
           make debug
 
   build-release:
     name: Build release
-    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/build-signing'
+    environment: signing
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          submodules: 'true'
 
       - name: Import signing certificate
         run: |
@@ -74,11 +73,12 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: syncthing-macos-dmg-release
-          path: Syncthing-*.dmg
+          path: Build/Products/Release/*.dmg
 
   notarize:
     name: Notarize for macOS
-    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/build-signing'
+    environment: signing
     needs:
       - build-release
     runs-on: macos-latest
