@@ -1,0 +1,111 @@
+name: Build Syncthing macOS
+
+on:
+  pull_request:
+  push:
+
+env:
+  SYNCTHING_APP_CODE_SIGN_IDENTITY: Kastelo
+
+# A note on actions and third party code... The actions under actions/ (like
+# `uses: actions/checkout`) are maintained by GitHub, and we need to trust
+# GitHub to maintain their code and infrastructure or we're in deep shit in
+# general. The same doesn't necessarily apply to other actions authors, so
+# some care needs to be taken when adding steps, especially in the paths
+# that lead up to code being packaged and signed.
+
+jobs:
+
+  #
+  # macOS
+  #
+  build-debug:
+    name: Build debug
+    if: github.event_name == 'push'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Build release dmg
+        run: |
+          make debug
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: syncthing-macos-debug-dmg
+          path: Syncthing-*.dmg
+
+  build-release:
+    name: Build release
+    if: github.event_name == 'push'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Import signing certificate
+        run: |
+          # Set up a run-specific keychain, making it available for the
+          # `codesign` tool.
+          umask 066
+          KEYCHAIN_PATH=$RUNNER_TEMP/codesign.keychain
+          KEYCHAIN_PASSWORD=$(uuidgen)
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security default-keychain -s "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+
+          # Import the certificate
+          CERTIFICATE_PATH=$RUNNER_TEMP/codesign.p12
+          echo "$DEVELOPER_ID_CERTIFICATE_BASE64" | base64 -d -o "$CERTIFICATE_PATH"
+          security import "$CERTIFICATE_PATH" -k "$KEYCHAIN_PATH" -P "$DEVELOPER_ID_CERTIFICATE_PASSWORD" -T /usr/bin/codesign -T /usr/bin/productsign
+          security set-key-partition-list -S apple-tool:,apple: -s -k actions "$KEYCHAIN_PATH"
+
+          # Set the codesign identity for following steps
+          echo "CODESIGN_IDENTITY=$CODESIGN_IDENTITY" >> $GITHUB_ENV
+        env:
+          DEVELOPER_ID_CERTIFICATE_BASE64: ${{ secrets.DEVELOPER_ID_CERTIFICATE_BASE64 }}
+          DEVELOPER_ID_CERTIFICATE_PASSWORD: ${{ secrets.DEVELOPER_ID_CERTIFICATE_PASSWORD }}
+          CODESIGN_IDENTITY: ${{ secrets.CODESIGN_IDENTITY }}
+
+      - name: Build release dmg
+        run: |
+          make release-dmg
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: syncthing-macos-dmg-release
+          path: Syncthing-*.dmg
+
+  notarize:
+    name: Notarize for macOS
+    if: github.event_name == 'push'
+    needs:
+      - build-release
+    runs-on: macos-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: syncthing-macos-dmg-release
+
+      - name: Notarize binaries
+        run: |
+          APPSTORECONNECT_API_KEY_PATH="$RUNNER_TEMP/apikey.p8"
+          echo "$APPSTORECONNECT_API_KEY" | base64 -d -o "$APPSTORECONNECT_API_KEY_PATH"
+          for file in Syncthing-*.dmg ; do
+            xcrun notarytool submit \
+              -k "$APPSTORECONNECT_API_KEY_PATH" \
+              -d "$APPSTORECONNECT_API_KEY_ID" \
+              -i "$APPSTORECONNECT_API_KEY_ISSUER" \
+              $file
+          done
+        env:
+          APPSTORECONNECT_API_KEY: ${{ secrets.APPSTORECONNECT_API_KEY }}
+          APPSTORECONNECT_API_KEY_ID: ${{ secrets.APPSTORECONNECT_API_KEY_ID }}
+          APPSTORECONNECT_API_KEY_ISSUER: ${{ secrets.APPSTORECONNECT_API_KEY_ISSUER }}
