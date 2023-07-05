@@ -119,6 +119,18 @@ But there are some user specific files are kept elsewhere, which are located und
 encryption/profile files and the database cache. For more information see
 [docs.syncthing.net/users/config.html](https://docs.syncthing.net/users/config.html#description).
 
+## Disable automatic update checker
+
+By default the Syncthing macOS application checks automatically for updates. To disable (or re-enable) the 
+auto update check one must set the Sparkle updater parameter from the commandline:
+
+```
+defaults write com.github.xor-gate.syncthing-macosx SUEnableAutomaticChecks 0
+```
+
+This setting is un-adviced and therefor only available from the commandline. When your system is not 
+supported anymore and don't want to get notified of unsupported updates disabling then is recommended.
+
 # Prerequisites for building/using everything in this repository
 
 Before compiling git submodules needs to be present:
