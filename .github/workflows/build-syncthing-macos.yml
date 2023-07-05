@@ -14,13 +14,9 @@ on:
 # that lead up to code being packaged and signed.
 
 jobs:
-
-  #
-  # macOS
-  #
   build-debug:
     name: Build debug
-    if: github.ref_name != 'release' # Debug not necessary on release branch (develop is intermediate branch)
+    if: github.event_name == 'push' && github.ref != 'refs/heads/release' # Debug not necessary on release branch (develop is intermediate branch)
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
