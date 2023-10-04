@@ -1,0 +1,31 @@
+name: Generate appcast.xml
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '42 3 * * *'
+
+jobs:
+  generate-appcast:
+    name: Generate appcast.xml
+    runs-on: ubuntu-latest
+    environment: appcast
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate appcast.xml
+        run: |
+          cd cmd/ghreleases2appcast
+          go run . -o ../../appcast.xml
+
+      - name: Push to Spaces
+        uses: docker://docker.io/rclone/rclone:latest
+        env:
+          RCLONE_CONFIG_SPACES_TYPE: s3
+          RCLONE_CONFIG_SPACES_PROVIDER: DigitalOcean
+          RCLONE_CONFIG_SPACES_ACCESS_KEY_ID: ${{ secrets.SPACES_KEY }}
+          RCLONE_CONFIG_SPACES_SECRET_ACCESS_KEY: ${{ secrets.SPACES_SECRET }}
+          RCLONE_CONFIG_SPACES_ENDPOINT: ams3.digitaloceanspaces.com
+          RCLONE_CONFIG_SPACES_ACL: public-read
+        with:
+          args: copy appcast.xml spaces:syncthing-macos/appcast/
