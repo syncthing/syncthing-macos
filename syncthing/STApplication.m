@@ -71,10 +71,13 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    _executable = [NSString stringWithFormat:@"%@/%@",
+    _executable = self.arguments = [defaults stringForKey:@"Executable"];
+	if (!_executable) {
+	    _executable = [NSString stringWithFormat:@"%@/%@",
                        [[NSBundle mainBundle] resourcePath],
                        @"syncthing/syncthing"];
-    [defaults setValue:_executable forKey:@"Executable"];
+		[defaults setValue:_executable forKey:@"Executable"];
+	}
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
     _syncthing.ApiKey = [defaults stringForKey:@"ApiKey"];
