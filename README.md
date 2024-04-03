@@ -191,6 +191,23 @@ jerry@Jerrys-iMac ~ % defaults read com.github.xor-gate.syncthing-macosx
 }
 ```
 
+### Override Syncthing Daeomon `Executable` property (power-users only)
+
+If you want to use the nice GUI but have your own executable located outside the `Syncthing.app` bundle,
+then the `Executable` configuration parameter can be manually overwritten with the `defaults` commandline 
+tool using builtin Terminal or iTerm2. The last arguments should be changed to the syncthing daemon golang
+application.
+
+```
+defaults write com.github.xor-gate.syncthing-macosx Executable /Users/jerry/develop/Syncthing/exe/syncthing
+```
+
+To restore it back to the bundle path just use delete of the property. It will automatically reset it back.
+
+```
+defaults delete com.github.xor-gate.syncthing-macosx Executable
+```
+
 ## Dependency management
 
 [CocoaPods](https://cocoapods.org/) is used for dependency management. It can be installed
