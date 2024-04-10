@@ -1,3 +1,4 @@
 .DS_Store
+venv
 *.xcodeproj/xcuserdata
 *.xcodeproj/project.xcworkspace
