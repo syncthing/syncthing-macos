@@ -17,7 +17,7 @@ jobs:
   build-debug:
     name: Build debug
     if: github.event_name == 'push' && github.ref != 'refs/heads/release' # Debug not necessary on release branch (develop is intermediate branch)
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v3
         with:
@@ -31,7 +31,7 @@ jobs:
     name: Build release
     if: github.event_name == 'push' && github.ref == 'refs/heads/release'
     environment: signing
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v3
         with:
@@ -79,7 +79,7 @@ jobs:
     environment: signing
     needs:
       - build-release
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v3
