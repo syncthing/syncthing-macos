@@ -59,10 +59,13 @@ See the [issue tracker (bug tag filtered)]([https://github.com/syncthing/syncthi
 
 ## macOS version support
 
+* From release v1.27.7-1 macOS 12.7 or higher is required
 * From release v1.20.0-1 macOS 10.13 or higher is required
 * Until release v1.19.2-1 macOS 10.12 is required (see issue [#177](https://github.com/syncthing/syncthing-macos/issues/177))
 * From release v1.14.0-1 macOS 10.12 is required
 * Until release [v1.13.1-1](https://github.com/syncthing/syncthing-macos/releases/tag/v1.13.1-1) macOS 10.11 or higher is supported (see issue [#148](https://github.com/syncthing/syncthing-macos/issues/148) why)
+
+Auto-update [must be manually disabled](https://github.com/syncthing/syncthing-macos?tab=readme-ov-file#disable-automatic-update-checker) for unsupported OS versions.
 
 ## Preferences
 
