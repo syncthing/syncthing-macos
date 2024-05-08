@@ -495,7 +495,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/syncthing/Test";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -548,7 +548,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/syncthing/Test";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
@@ -574,7 +574,7 @@
 				);
 				INFOPLIST_FILE = syncthing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
 				PRODUCT_NAME = Syncthing;
 				PROVISIONING_PROFILE = "";
@@ -605,7 +605,7 @@
 				);
 				INFOPLIST_FILE = syncthing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
 				PRODUCT_NAME = Syncthing;
 				PROVISIONING_PROFILE = "";
