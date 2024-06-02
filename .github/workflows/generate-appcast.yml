@@ -18,14 +18,15 @@ jobs:
           cd cmd/ghreleases2appcast
           go run . -o ../../appcast.xml
 
-      - name: Push to Spaces
+      - name: Push to object store
         uses: docker://docker.io/rclone/rclone:latest
         env:
-          RCLONE_CONFIG_SPACES_TYPE: s3
-          RCLONE_CONFIG_SPACES_PROVIDER: DigitalOcean
-          RCLONE_CONFIG_SPACES_ACCESS_KEY_ID: ${{ secrets.SPACES_KEY }}
-          RCLONE_CONFIG_SPACES_SECRET_ACCESS_KEY: ${{ secrets.SPACES_SECRET }}
-          RCLONE_CONFIG_SPACES_ENDPOINT: ams3.digitaloceanspaces.com
-          RCLONE_CONFIG_SPACES_ACL: public-read
+          RCLONE_CONFIG_OBJSTORE_TYPE: s3
+          RCLONE_CONFIG_OBJSTORE_PROVIDER: ${{ secrets.S3_PROVIDER }}
+          RCLONE_CONFIG_OBJSTORE_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+          RCLONE_CONFIG_OBJSTORE_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          RCLONE_CONFIG_OBJSTORE_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
+          RCLONE_CONFIG_OBJSTORE_REGION: ${{ secrets.S3_REGION }}
+          RCLONE_CONFIG_OBJSTORE_ACL: public-read
         with:
-          args: copy appcast.xml spaces:syncthing-macos/appcast/
+          args: copy appcast.xml objstore:syncthing-macos/appcast/
