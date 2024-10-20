@@ -17,7 +17,7 @@ jobs:
           make release-dmg
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: syncthing-macos-dmg-release-dmg
+          name: syncthing-macos-dmg-unnotarized
           path: Build/Products/Release/*.dmg
