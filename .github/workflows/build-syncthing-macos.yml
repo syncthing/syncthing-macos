@@ -25,14 +25,15 @@ jobs:
 
       - name: Build debug target
         run: make debug
-      - run: mkdir Build/dist
-      - run: cp -r Build/Products/Debug/Syncthing.app dist
+
+      - name: Prepare debug build for artifact
+        run: make debug-dist 
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
           name: syncthing-macos-debug
-          path: Build/dist
+          path: Build/Products/Debug/dist
 
   build-release:
     name: Build release
