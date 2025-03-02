@@ -14,7 +14,7 @@ import fileinput
 from urllib.request import urlopen
 from string import Template
 
-distVersion   = 2
+distVersion   = 1
 latest_url    = "https://api.github.com/repos/syncthing/syncthing/releases/latest"
 infoPlist     = 'syncthing/Info.plist'
 infoPlistTmpl = 'syncthing/Info.plist.tmpl'
