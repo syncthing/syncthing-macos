@@ -76,7 +76,6 @@
 	    _executable = [NSString stringWithFormat:@"%@/%@",
                        [[NSBundle mainBundle] resourcePath],
                        @"syncthing/syncthing"];
-		[defaults setValue:_executable forKey:@"Executable"];
 	}
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
@@ -203,7 +202,7 @@
         self.toggleAllDevicesItem.title = @"Pause All Devices";
         [[self statusMonitor] setCurrentStatus:SyncthingStatusIdle];
     }
-    
+
     self.devicesPaused = allPaused;
 }
 
