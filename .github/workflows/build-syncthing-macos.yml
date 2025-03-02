@@ -17,7 +17,7 @@ jobs:
   build-debug:
     name: Build debug
     if: github.event_name == 'push' && github.ref != 'refs/heads/release' # Debug not necessary on release branch (develop is intermediate branch)
-    runs-on: macos-15
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,18 +26,20 @@ jobs:
       - name: Build debug target
         run: |
           make debug
+          mkdir Build/dist
+          cp -r Build/Products/Debug/Syncthing.app dist
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
           name: syncthing-macos-debug
-          path: Build/Products/Debug
+          path: Build/dist
 
   build-release:
     name: Build release
     if: github.event_name == 'push' && github.ref == 'refs/heads/release'
     environment: signing
-    runs-on: macos-15
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
         with:
