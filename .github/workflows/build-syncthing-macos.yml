@@ -27,6 +27,12 @@ jobs:
         run: |
           make debug
 
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: syncthing-macos-debug
+          path: Build/Products/Debug/Syncthing.app
+
   build-release:
     name: Build release
     if: github.event_name == 'push' && github.ref == 'refs/heads/release'
