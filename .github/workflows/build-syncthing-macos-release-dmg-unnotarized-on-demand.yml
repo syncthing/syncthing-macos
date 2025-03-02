@@ -1,0 +1,23 @@
+name: Build Syncthing macOS unnotarized Release DMG (On-Demand)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-release-dmg:
+    name: Build unnotarized Release DMG
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build release target
+        run: |
+          make release-dmg
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: syncthing-macos-dmg-unnotarized
+          path: Build/Products/Release/*.dmg

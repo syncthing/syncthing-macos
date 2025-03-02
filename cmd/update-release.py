@@ -14,7 +14,7 @@ import fileinput
 from urllib.request import urlopen
 from string import Template
 
-distVersion   = 2
+distVersion   = 1
 latest_url    = "https://api.github.com/repos/syncthing/syncthing/releases/latest"
 infoPlist     = 'syncthing/Info.plist'
 infoPlistTmpl = 'syncthing/Info.plist.tmpl'
@@ -72,3 +72,7 @@ for line in fileinput.input(syncthingResourceScript, inplace=True):
 	if line.startswith(linePrefix):
 		line = '{}"{}"\n'.format(linePrefix, str(version))
 	sys.stdout.write(line)
+
+print(f"Found latest tag from github: {tag_name}")
+print(f"CFBundleShortVersionString={CFBundleShortVersionString}")
+print(f"CFBundleVersion={CFBundleVersion}")

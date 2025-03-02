@@ -263,13 +263,16 @@ See also the Apple Developer documentation at <https://developer.apple.com/docum
 
 ## Release management
 
+Activate the Python virtual environment with `semver` module installed. E.g `source venv/bin/activate`.
+
 To update the bundled syncthing the `make release-update` must be run from the main folder which does
 basicly these steps automatically:
 * Update `syncthing/Scripts/syncthing-resource.sh`, `SYNCTHING_VERSION`
 * Update `syncthing/Info.plist`
-  * `CFBundleShortVersionString` (e.g `0.14.50-dev` or `0.14.50-1`)
-  * `CFBundleVersion` (e.g `145000` or `145001`)
-* When the code is git pushed the Syncthing build server automatically builds debug and release targets
-* Manually download the release `.dmg` from [build.syncthing.net](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_BuildReleaseDmg) which is correctly signed and notarized
-* Manually create a github release with tag `v<major>.<minor>.<patch>-<bundle index>`
-* Run deployment of [appcast.xml](https://build.syncthing.net/viewType.html?buildTypeId=SyncthingMacOS_CreateAppcastXml). Which turns [github releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast). (See also [Sparkle documentation](https://sparkle-project.org/documentation/))
+  * `CFBundleShortVersionString`: User readable string (e.g `1.27.10-1`)
+  * `CFBundleVersion`: Incrementing version counter (e.g `102701001` for `1.27.10-1`)
+
+* When the git branch develop or release pushed to github the Github actions CI server automatically builds debug and release
+* Manually download the release `.dmg` from [github.com actions](https://github.com/syncthing/syncthing-macos/actions/workflows/build-syncthing-macos.yml) which is correctly signed and notarized
+* Manually [create a new Github release](https://github.com/syncthing/syncthing-macos/releases/new) with tag `v<major>.<minor>.<patch>-<bundle index>`
+* Run deployment of Sparkle updater [appcast.xml](https://github.com/syncthing/syncthing-macos/actions/workflows/generate-appcast.yml). Which turns [github releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast). (See also [Sparkle documentation](https://sparkle-project.org/documentation/)) to push to users.
