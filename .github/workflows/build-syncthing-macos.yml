@@ -24,10 +24,9 @@ jobs:
           fetch-depth: 0
 
       - name: Build debug target
-        run: |
-          make debug
-          mkdir Build/dist
-          cp -r Build/Products/Debug/Syncthing.app dist
+        run: make debug
+      - run: mkdir Build/dist
+      - run: cp -r Build/Products/Debug/Syncthing.app dist
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
