@@ -72,6 +72,16 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     _executable = self.arguments = [defaults stringForKey:@"Executable"];
+    if (_executable) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if (![fileManager fileExistsAtPath:_executable]) {
+            NSLog(@"Resetting Syncthing daemon path because it does not exist: (%@)", _executable);
+            _executable = nil;
+        } else if (![fileManager isExecutableFileAtPath:_executable]) {
+            NSLog(@"Resetting Syncthing daemon path because is not executable: (%@)", _executable);
+            _executable = nil;
+        }
+    }
 	if (!_executable) {
 	    _executable = [NSString stringWithFormat:@"%@/%@",
                        [[NSBundle mainBundle] resourcePath],

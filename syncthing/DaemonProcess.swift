@@ -55,7 +55,7 @@ let MaxKeepLogLines = 200
     }
 
     private func launchSync() {
-        NSLog("Launching Syncthing daemon")
+        NSLog("Launching Syncthing daemon: \(path)")
         shouldTerminate = false
 
         // Since release v1.7.0-1 we don't allow Syncthing daemon to update by itself
