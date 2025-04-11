@@ -85,11 +85,12 @@
             _executable = nil;
         }
     }
-	if (!_executable) {
-	    _executable = [NSString stringWithFormat:@"%@/%@",
+
+    if (!_executable) {
+        _executable = [NSString stringWithFormat:@"%@/%@",
                        [[NSBundle mainBundle] resourcePath],
                        @"syncthing/syncthing"];
-	}
+    }
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
     _syncthing.ApiKey = [defaults stringForKey:@"ApiKey"];
