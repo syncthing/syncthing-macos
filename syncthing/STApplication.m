@@ -72,6 +72,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     _executable = self.arguments = [defaults stringForKey:@"Executable"];
+
+    // Check that the excutable is valid (not null, exists and is executable)
+    // If it's not, nullify it so that it will be set to the default value
     if (_executable) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if (![fileManager fileExistsAtPath:_executable]) {
