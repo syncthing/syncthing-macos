@@ -72,11 +72,25 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     _executable = self.arguments = [defaults stringForKey:@"Executable"];
-	if (!_executable) {
-	    _executable = [NSString stringWithFormat:@"%@/%@",
+
+    // Check that the excutable is valid (not null, exists and is executable)
+    // If it's not, nullify it so that it will be set to the default value
+    if (_executable) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if (![fileManager fileExistsAtPath:_executable]) {
+            NSLog(@"Resetting Syncthing daemon executable path because it doesn't exist: (%@)", _executable);
+            _executable = nil;
+        } else if (![fileManager isExecutableFileAtPath:_executable]) {
+            NSLog(@"Resetting Syncthing daemon executable path because it's non-executable: (%@)", _executable);
+            _executable = nil;
+        }
+    }
+
+    if (!_executable) {
+        _executable = [NSString stringWithFormat:@"%@/%@",
                        [[NSBundle mainBundle] resourcePath],
                        @"syncthing/syncthing"];
-	}
+    }
 
     _syncthing.URI = [defaults stringForKey:@"URI"];
     _syncthing.ApiKey = [defaults stringForKey:@"ApiKey"];
