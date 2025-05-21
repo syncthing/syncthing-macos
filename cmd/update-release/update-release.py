@@ -7,6 +7,7 @@
 # 4. Update the syncthing/Scripts/syncthing-resource.sh
 #
 ###
+import os
 import sys
 import json
 import semver
@@ -16,9 +17,9 @@ from string import Template
 
 distVersion   = 1
 latest_url    = "https://api.github.com/repos/syncthing/syncthing/releases/latest"
-infoPlist     = 'syncthing/Info.plist'
-infoPlistTmpl = 'syncthing/Info.plist.tmpl'
-syncthingResourceScript = "syncthing/Scripts/syncthing-resource.sh"
+infoPlist     = '../../syncthing/Info.plist'
+infoPlistTmpl = '../../syncthing/Info.plist.tmpl'
+syncthingResourceScript = "../../syncthing/Scripts/syncthing-resource.sh"
 
 ###
 # Download latest tag from github

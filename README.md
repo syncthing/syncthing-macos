@@ -263,7 +263,7 @@ See also the Apple Developer documentation at <https://developer.apple.com/docum
 
 ## Release management
 
-Activate the Python virtual environment with `semver` module installed. E.g `source venv/bin/activate`.
+Run `make update-release` from the toplevel Makefile to bundle latest Syncthing from GitHub.
 
 To update the bundled syncthing the `make release-update` must be run from the main folder which does
 basicly these steps automatically:

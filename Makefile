@@ -14,7 +14,7 @@ release:
 release-dmg:
 	xcodebuild -workspace "syncthing.xcworkspace" -derivedDataPath $(PWD) -configuration Release -scheme Pods-syncthing
 	xcodebuild -workspace "syncthing.xcworkspace" -derivedDataPath $(PWD) -configuration Release -scheme syncthing-dmg
-release-update:
-	source ./venv/bin/activate && ./cmd/update-release.py
+update-release:
+	$(MAKE) -C cmd/update-release run
 clean:
 	rm -Rf Build Index Logs ModuleCache.noindex info.plist
