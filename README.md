@@ -13,7 +13,7 @@ Features include:
  * Optionally starts on login, so you don't need to set up Syncthing as a service.
  * Tray icon syncthing status indicator.
  * Retina ready icons for the Application bundle and status tray.
- * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from github releases).
+ * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from GitHub Releases).
  * Open shared folders in Finder.
  * Logfile written to `~/Library/Application Support/Syncthing/syncthing.log`, use Finder -> Go -> Go to Folder to open it.
 
