@@ -41,7 +41,7 @@ All cross-platform approaches are not able to use all the native facilities Appl
 # Goal
 
 The goal of this project is to keep the native macOS Syncthing tray lean but usable. No graphs, no advanced configuration
- windows. It just provides a very simple wrapper, so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as a native application as possible.
+ windows. It provides a very simple wrapper, so users may not be aware Syncthing ships as a command line application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as a native application as possible.
 
 # Known bugs
 
@@ -75,7 +75,7 @@ The preferences window is used to point to a local running instance, a remote in
 It is possible to run your own instance and point to it for advanced/development purposes.
 You should only change the settings if you know what you are doing.
 
-Setting extra syncthing commandline parameters is a hidden feature. You need to write these using
+Setting extra Syncthing command line parameters is a hidden feature. You need to write these using
 the application defaults configuration. The only current limitation the parameters cannot contain spaces!.
 In the example below the audit log is enabled:
 
