@@ -15,7 +15,7 @@ Features include:
  * Retina ready icons for the Application bundle and status tray.
  * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from GitHub Releases).
  * Open shared folders in Finder.
- * Logfile written to `~/Library/Application Support/Syncthing/syncthing.log`, use Finder -> Go -> Go to Folder to open it.
+ * Log file written to `~/Library/Application Support/Syncthing/syncthing.log`, use Finder -> Go -> Go to Folder to open it.
 
 # Screenshot
 
@@ -30,7 +30,7 @@ Currently, OS X 10.13 or higher is necessary. **syncthing-macos** is packaged as
 
 To install [just download the dmg](https://github.com/syncthing/syncthing-macos/releases/latest), mount it and drag and drop the application to install. The only necessary configuration is to set the API key and URL when provisioning a remote syncthing instance, the local instance is auto-configured. The `syncthing-macos` application bundle disables the auto-updater of `syncthing` as it has its own update mechanism using [Sparkle](https://sparkle-project.org/).
 
-The latest version is available at [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) [`brew install --cask syncthing`](https://formulae.brew.sh/cask/syncthing)
+The latest version is available at [GitHub Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) [`brew install --cask syncthing`](https://formulae.brew.sh/cask/syncthing)
 
 # Why
 
@@ -147,7 +147,7 @@ git submodule update --init
 - Python 3, for the update-release.py script
   - Needs [semver](https://pypi.org/project/semver/) from pip
 - Cocoapods for updating Objective-C/Swift 3th party dependencies
-- Golang, only needed for Sparkle Github releases to Appcast XML tool
+- Golang, only needed for Sparkle GitHub releases to Appcast XML tool
 
 # Using XCode
 
@@ -275,4 +275,4 @@ basicly these steps automatically:
 * When the git branch develop or release pushed to github the Github actions CI server automatically builds debug and release
 * Manually download the release `.dmg` from [github.com actions](https://github.com/syncthing/syncthing-macos/actions/workflows/build-syncthing-macos.yml) which is correctly signed and notarized
 * Manually [create a new Github release](https://github.com/syncthing/syncthing-macos/releases/new) with tag `v<major>.<minor>.<patch>-<bundle index>`
-* Run deployment of Sparkle updater [appcast.xml](https://github.com/syncthing/syncthing-macos/actions/workflows/generate-appcast.yml). Which turns [github releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast). (See also [Sparkle documentation](https://sparkle-project.org/documentation/)) to push to users.
+* Run deployment of Sparkle updater [appcast.xml](https://github.com/syncthing/syncthing-macos/actions/workflows/generate-appcast.yml). Which turns [GitHub Releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast). (See also [Sparkle documentation](https://sparkle-project.org/documentation/)) to push to users.
