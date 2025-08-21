@@ -147,7 +147,7 @@ git submodule update --init
 - Python 3, for the update-release.py script
   - Needs [semver](https://pypi.org/project/semver/) from pip
 - Cocoapods for updating Objective-C/Swift 3th party dependencies
-- Golang, only needed for Sparkle GitHub releases to Appcast XML tool
+- Golang, only needed for Sparkle GitHub Releases to Appcast XML tool
 
 # Using XCode
 
