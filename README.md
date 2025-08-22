@@ -26,7 +26,7 @@ Features include:
 **NOTICE**: This is the official Syncthing macOS application bundle. Please make sure you have no other [syncthing instances](https://docs.syncthing.net/users/autostart.html#macos)
             or [wrappers running](https://docs.syncthing.net/users/contrib.html#mac-os) or else this application will not work!
 
-Currently, OS X 10.13 or higher is necessary. **syncthing-macos** is packaged as a disk image as an application bundled with the [syncthing](https://github.com/syncthing/syncthing/releases) binary.
+Currently, macOS 11 or higher is necessary to run the latest version. For older version support, see the [FAQ](#faq-frequently-asked-questions). **syncthing-macos** is packaged as a disk image as an application bundled with the [syncthing](https://github.com/syncthing/syncthing/releases) binary.
 
 To install [just download the dmg](https://github.com/syncthing/syncthing-macos/releases/latest), mount it and drag and drop the application to install. The only necessary configuration is to set the API key and URL when provisioning a remote syncthing instance, the local instance is auto-configured. The `syncthing-macos` application bundle disables the auto-updater of `syncthing` as it has its own update mechanism using [Sparkle](https://sparkle-project.org/).
 
