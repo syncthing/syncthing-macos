@@ -35,6 +35,7 @@
 		C4A415681D0D579D00DC6018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415671D0D579D00DC6018 /* main.m */; };
 		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
 		C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4156B1D0D579D00DC6018 /* STApplication.xib */; };
+		C4D434FE2E5CFF3600B91C7F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D434FD2E5CFF3600B91C7F /* OnboardingView.swift */; };
 		C4F0E82E1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0E82C1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m */; };
 		C4F0E82F1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0E82D1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib */; };
 		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
@@ -92,6 +93,7 @@
 		C4A415691D0D579D00DC6018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4A4156C1D0D579D00DC6018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STApplication.xib; sourceTree = "<group>"; };
 		C4A4156E1D0D579D00DC6018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4D434FD2E5CFF3600B91C7F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingView.swift; path = UI/OnboardingView.swift; sourceTree = "<group>"; };
 		C4D6DD581D0D93D80024D20A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4D896121D0DF90900D42F73 /* syncthing-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-resource.sh"; path = "syncthing/Scripts/syncthing-resource.sh"; sourceTree = "<group>"; };
 		C4F0E82B1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPreferencesWindowGeneralViewController.h; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		C4D6DD601D0DB18A0024D20A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C4D434FD2E5CFF3600B91C7F /* OnboardingView.swift */,
 				C4A4156B1D0D579D00DC6018 /* STApplication.xib */,
 				C4946B001D5877F2008447A2 /* STAboutWindow.xib */,
 				C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */,
@@ -405,6 +408,7 @@
 				C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */,
 				C4F0E82E1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m in Sources */,
 				C4A415651D0D579D00DC6018 /* STApplication.m in Sources */,
+				C4D434FE2E5CFF3600B91C7F /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +578,7 @@
 				);
 				INFOPLIST_FILE = syncthing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
 				PRODUCT_NAME = Syncthing;
 				PROVISIONING_PROFILE = "";
@@ -605,7 +609,7 @@
 				);
 				INFOPLIST_FILE = syncthing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xor-gate.syncthing-macosx";
 				PRODUCT_NAME = Syncthing;
 				PROVISIONING_PROFILE = "";
