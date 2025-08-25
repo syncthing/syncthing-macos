@@ -13,9 +13,9 @@ Features include:
  * Optionally starts on login, so you don't need to set up Syncthing as a service.
  * Tray icon syncthing status indicator.
  * Retina ready icons for the Application bundle and status tray.
- * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from github releases).
+ * Automatic updates (using [Sparkle](https://sparkle-project.org) pushed from GitHub Releases).
  * Open shared folders in Finder.
- * Logfile written to `~/Library/Application Support/Syncthing/syncthing.log`, use Finder -> Go -> Go to Folder to open it.
+ * Log file written to `~/Library/Application Support/Syncthing/syncthing.log`, use Finder -> Go -> Go to Folder to open it.
 
 # Screenshot
 
@@ -26,11 +26,11 @@ Features include:
 **NOTICE**: This is the official Syncthing macOS application bundle. Please make sure you have no other [syncthing instances](https://docs.syncthing.net/users/autostart.html#macos)
             or [wrappers running](https://docs.syncthing.net/users/contrib.html#mac-os) or else this application will not work!
 
-Currently, OS X 10.13 or higher is necessary. **syncthing-macos** is packaged as a disk image as an application bundled with the [syncthing](https://github.com/syncthing/syncthing/releases) binary.
+Currently, macOS 11 or higher is necessary to run the latest version. For older version support, see the [FAQ](#faq-frequently-asked-questions). **syncthing-macos** is packaged as a disk image as an application bundled with the [syncthing](https://github.com/syncthing/syncthing/releases) binary.
 
 To install [just download the dmg](https://github.com/syncthing/syncthing-macos/releases/latest), mount it and drag and drop the application to install. The only necessary configuration is to set the API key and URL when provisioning a remote syncthing instance, the local instance is auto-configured. The `syncthing-macos` application bundle disables the auto-updater of `syncthing` as it has its own update mechanism using [Sparkle](https://sparkle-project.org/).
 
-The latest version is available at [Github Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) [`brew install --cask syncthing`](https://formulae.brew.sh/cask/syncthing)
+The latest version is available at [GitHub Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) [`brew install --cask syncthing`](https://formulae.brew.sh/cask/syncthing)
 
 # Why
 
@@ -41,7 +41,7 @@ All cross-platform approaches are not able to use all the native facilities Appl
 # Goal
 
 The goal of this project is to keep the native macOS Syncthing tray lean but usable. No graphs, no advanced configuration
- windows. It just provides a very simple wrapper, so users are not aware syncthing ships as a commandline application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as a native application as possible.
+ windows. It provides a very simple wrapper, so users may not be aware Syncthing ships as a command line application. It strives to have a usability of good-by-default and should always follow the [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/macos) to feel as much as a native application as possible.
 
 # Known bugs
 
@@ -75,7 +75,7 @@ The preferences window is used to point to a local running instance, a remote in
 It is possible to run your own instance and point to it for advanced/development purposes.
 You should only change the settings if you know what you are doing.
 
-Setting extra syncthing commandline parameters is a hidden feature. You need to write these using
+Setting extra Syncthing command line parameters is a hidden feature. You need to write these using
 the application defaults configuration. The only current limitation the parameters cannot contain spaces!.
 In the example below the audit log is enabled:
 
@@ -147,7 +147,7 @@ git submodule update --init
 - Python 3, for the update-release.py script
   - Needs [semver](https://pypi.org/project/semver/) from pip
 - Cocoapods for updating Objective-C/Swift 3th party dependencies
-- Golang, only needed for Sparkle Github releases to Appcast XML tool
+- Golang, only needed for Sparkle GitHub Releases to Appcast XML tool
 
 # Using XCode
 
@@ -275,4 +275,4 @@ basicly these steps automatically:
 * When the git branch develop or release pushed to github the Github actions CI server automatically builds debug and release
 * Manually download the release `.dmg` from [github.com actions](https://github.com/syncthing/syncthing-macos/actions/workflows/build-syncthing-macos.yml) which is correctly signed and notarized
 * Manually [create a new Github release](https://github.com/syncthing/syncthing-macos/releases/new) with tag `v<major>.<minor>.<patch>-<bundle index>`
-* Run deployment of Sparkle updater [appcast.xml](https://github.com/syncthing/syncthing-macos/actions/workflows/generate-appcast.yml). Which turns [github releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast). (See also [Sparkle documentation](https://sparkle-project.org/documentation/)) to push to users.
+* Run deployment of Sparkle updater [appcast.xml](https://github.com/syncthing/syncthing-macos/actions/workflows/generate-appcast.yml). Which turns [GitHub Releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast). (See also [Sparkle documentation](https://sparkle-project.org/documentation/)) to push to users.
