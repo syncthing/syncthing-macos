@@ -31,15 +31,76 @@ data = json.loads(body)
 if 'tag_name' not in data:
 	raise ValueError("tag_name not present in latest_url")
 
+import urllib.request
+import json
+import semver
+
+def get_latest_v1_tag_name(repo_owner, repo_name, allow_prerelease: bool = False):
+    """
+    Fetches the latest v1 release tag_name from a GitHub repository's releases.
+
+    Args:
+        repo_owner (str): The owner of the GitHub repository (e.g., 'syncthing').
+        repo_name (str): The name of the GitHub repository (e.g., 'syncthing').
+
+    Returns:
+        str or None: The tag_name of the latest v1 release, or None if not found.
+    """
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases"
+    try:
+        with urllib.request.urlopen(url) as response:
+            if response.getcode() == 200:
+                data = json.loads(response.read().decode('utf-8'))
+            else:
+                print(f"Error fetching data: HTTP {response.getcode()}")
+                return None
+    except urllib.error.URLError as e:
+        print(f"Error connecting to GitHub API: {e.reason}")
+        return None
+    except json.JSONDecodeError:
+        print("Error decoding JSON response.")
+        return None
+
+    v1_releases = []
+    for release in data:
+        tag_name = release.get('tag_name')
+        prerelease = release.get('prerelease')
+
+        if tag_name:
+            try:
+                version = semver.Version.parse(tag_name.lstrip('v')) # Remove 'v' prefix if present
+                if allow_prerelease and version.major == 1 and version.prerelease:
+                    v1_releases.append(version)
+                elif version.major == 1:
+                    v1_releases.append(version)
+            except ValueError:
+                # Not a valid semver string, skip
+                continue
+
+    if not v1_releases:
+        return None
+
+    # Sort the prereleases to find the latest
+    latest_v1_release = max(v1_releases)
+    return f"v{latest_v1_release}" # Re-add the 'v' prefix for consistency
+
 ###
 # Parse the tag version and generate CFBundleShortVersionString and CFBundleVersion
 ###
+owner = "syncthing"
+repo = "syncthing"
+latest_tag = get_latest_v1_tag_name(owner, repo)
+
+if latest_tag:
+	print(f"The latest v1 release tag_name for {owner}/{repo} is: {latest_tag}")
+else:
+	print(f"No v1 release found for {owner}/{repo}.")
 
 # Ugly hack because of https://github.com/python-semver/python-semver/issues/137
-tag_name = data['tag_name'].replace('v', '')
+tag_name = latest_tag.replace('v', '')
 version = semver.VersionInfo.parse(tag_name)
 
-CFBundleShortVersionString = "{}-{:d}".format(
+CFBundleShortVersionString = "{}+{:d}".format(
 	str(version),
 	distVersion)
 CFBundleVersion = "{:d}{:03d}{:03d}{:02d}".format(
