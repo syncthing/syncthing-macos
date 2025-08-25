@@ -35,7 +35,7 @@ import urllib.request
 import json
 import semver
 
-def get_latest_v2_prerelease_tag_name(repo_owner, repo_name):
+def get_latest_v2_tag_name(repo_owner, repo_name, allow_prerelease: bool = False):
     """
     Fetches the latest v2 prerelease tag_name from a GitHub repository's releases.
 
@@ -61,33 +61,35 @@ def get_latest_v2_prerelease_tag_name(repo_owner, repo_name):
         print("Error decoding JSON response.")
         return None
 
-    v2_prereleases = []
+    v2_releases = []
     for release in data:
         tag_name = release.get('tag_name')
         prerelease = release.get('prerelease')
 
-        if tag_name and prerelease:
+        if tag_name:
             try:
                 version = semver.Version.parse(tag_name.lstrip('v')) # Remove 'v' prefix if present
-                if version.major == 2 and version.prerelease:
-                    v2_prereleases.append(version)
+                if allow_prerelease and version.major == 2 and version.prerelease:
+                    v2_releases.append(version)
+                elif version.major == 2:
+                    v2_releases.append(version)
             except ValueError:
                 # Not a valid semver string, skip
                 continue
 
-    if not v2_prereleases:
+    if not v2_releases:
         return None
 
     # Sort the prereleases to find the latest
-    latest_v2_prerelease = max(v2_prereleases)
-    return f"v{latest_v2_prerelease}" # Re-add the 'v' prefix for consistency
+    latest_v2_release = max(v2_releases)
+    return f"v{latest_v2_release}" # Re-add the 'v' prefix for consistency
 
 ###
 # Parse the tag version and generate CFBundleShortVersionString and CFBundleVersion
 ###
 owner = "syncthing"
 repo = "syncthing"
-latest_tag = get_latest_v2_prerelease_tag_name(owner, repo)
+latest_tag = get_latest_v2_tag_name(owner, repo)
 
 if latest_tag:
 	print(f"The latest v2 prerelease tag_name for {owner}/{repo} is: {latest_tag}")
