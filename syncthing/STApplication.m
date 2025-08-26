@@ -19,6 +19,7 @@
 @property (weak) IBOutlet NSMenuItem *daemonRestartMenuItem;
 @property (strong) STPreferencesWindowController *preferencesWindow;
 @property (strong) STAboutWindowController *aboutWindow;
+@property (strong) NSWindowController *myWindowController;
 @property (nonatomic, assign) BOOL devicesPaused;
 @property (nonatomic, assign) BOOL daemonOK;
 @property (nonatomic, assign) BOOL connectionOK;
@@ -29,9 +30,11 @@
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification {
     _syncthing = [[XGSyncthing alloc] init];
-
+    
     [self applicationLoadConfiguration];
 
+    [self showOnboardingView];
+    
     _process = [[DaemonProcess alloc] initWithPath:_executable arguments: _arguments delegate:self];
     [_process launch];
 
@@ -44,6 +47,34 @@
 - (void) clickedFolder:(id)sender {
     NSString *path = [sender representedObject];
     [[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:@""];
+}
+
+- (void)showOnboardingView {
+    // 1. Call the Swift factory method to get the NSViewController.
+    NSViewController *onboardingViewController = [OnboardingViewFactory makeOnboardingViewController];
+
+    // 2. Create a new window instance.
+    NSRect frame = NSMakeRect(0, 0, 500, 500);
+    NSWindowStyleMask style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskResizable;
+    NSWindow *newWindow = [[NSWindow alloc] initWithContentRect:frame
+                                                      styleMask:style
+                                                        backing:NSBackingStoreBuffered
+                                                          defer:NO];
+    [newWindow center];
+    [newWindow setLevel:NSFloatingWindowLevel];
+
+    // 3. Set your view controller as the window's content view controller.
+    // This is the key step that connects them.
+    newWindow.contentViewController = onboardingViewController;
+
+    // 4. Create a window controller to manage the window.
+    self.myWindowController = [[NSWindowController alloc] initWithWindow:newWindow];
+
+    // 5. Show the window.
+    [self.myWindowController showWindow:nil];
+
+    NSLog(@"Frame %@", NSStringFromRect(frame));
+    NSLog(@"Frame %@", NSStringFromRect(newWindow.frame));
 }
 
 - (void) applicationWillTerminate:(NSNotification *)aNotification {

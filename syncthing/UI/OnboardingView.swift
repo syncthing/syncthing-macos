@@ -77,7 +77,7 @@ struct OnboardingView: View {
 					title: String(localized: "Your devices, your data, your responsibility"),
 					description: String(
 						localized:
-							"You decide with which devices you share which files. Syncthing is a selfhosted secure Peer-to-peer app without a central server or cloud service. This also means the app makers cannot help you access or recover any lost files."
+							"You decide with which devices you share your data with. Syncthing is a selfhosted secure Peer-to-peer app without a central server or cloud service. This also means the app makers cannot help you access or recover any lost files."
 					)
 				)
 

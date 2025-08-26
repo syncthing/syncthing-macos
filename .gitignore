@@ -1,4 +1,5 @@
 .DS_Store
 cmd/update-release/venv*
-*.xcodeproj/xcuserdata
-*.xcodeproj/project.xcworkspace
+*.xcodeproj/xcuserdata*
+*.xcworkspace/xcuserdata
+*.xcodeproj/*.xcworkspace*

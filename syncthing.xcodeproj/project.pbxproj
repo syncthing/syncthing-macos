@@ -36,6 +36,7 @@
 		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
 		C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4156B1D0D579D00DC6018 /* STApplication.xib */; };
 		C4D434FE2E5CFF3600B91C7F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D434FD2E5CFF3600B91C7F /* OnboardingView.swift */; };
+		C4D435022E5D067C00B91C7F /* OnboardingViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D435012E5D067600B91C7F /* OnboardingViewFactory.swift */; };
 		C4F0E82E1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0E82C1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m */; };
 		C4F0E82F1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0E82D1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib */; };
 		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
@@ -94,6 +95,7 @@
 		C4A4156C1D0D579D00DC6018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STApplication.xib; sourceTree = "<group>"; };
 		C4A4156E1D0D579D00DC6018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4D434FD2E5CFF3600B91C7F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingView.swift; path = UI/OnboardingView.swift; sourceTree = "<group>"; };
+		C4D435012E5D067600B91C7F /* OnboardingViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewFactory.swift; sourceTree = "<group>"; };
 		C4D6DD581D0D93D80024D20A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4D896121D0DF90900D42F73 /* syncthing-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-resource.sh"; path = "syncthing/Scripts/syncthing-resource.sh"; sourceTree = "<group>"; };
 		C4F0E82B1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPreferencesWindowGeneralViewController.h; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		C4D6DD601D0DB18A0024D20A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C4D435012E5D067600B91C7F /* OnboardingViewFactory.swift */,
 				C4D434FD2E5CFF3600B91C7F /* OnboardingView.swift */,
 				C4A4156B1D0D579D00DC6018 /* STApplication.xib */,
 				C4946B001D5877F2008447A2 /* STAboutWindow.xib */,
@@ -398,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D435022E5D067C00B91C7F /* OnboardingViewFactory.swift in Sources */,
 				29AF1BA3210F11BF004212DE /* DaemonProcess.swift in Sources */,
 				C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */,
 				298A5C45210DA6C40034B89F /* LocalhostTLSDelegate.m in Sources */,
