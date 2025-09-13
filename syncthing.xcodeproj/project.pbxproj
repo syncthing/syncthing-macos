@@ -27,17 +27,18 @@
 		29AF1BA3210F11BF004212DE /* DaemonProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */; };
 		BD71E04946BAD5B0A9FACC3D /* libPods-syncthing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 014971905AAC00CB5291E063 /* libPods-syncthing.a */; };
 		C4460A801D0DD2D500200C21 /* STPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */; };
-		C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */; };
+		C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1B57A1E2A3F4900C8E2AA /* STPreferencesWindow.xib */; };
 		C469AFEB25D7E76900904DD7 /* STLoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C469AFEA25D7E76900904DD7 /* STLoginItem.m */; };
-		C4946B011D5877F2008447A2 /* STAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4946B001D5877F2008447A2 /* STAboutWindow.xib */; };
+		C4946B011D5877F2008447A2 /* STAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1B5791E2A3F4900C8E2A9 /* STAboutWindow.xib */; };
 		C4946B031D587878008447A2 /* STAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4946B021D587878008447A2 /* STAboutWindowController.m */; };
 		C4A415651D0D579D00DC6018 /* STApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415641D0D579D00DC6018 /* STApplication.m */; };
 		C4A415681D0D579D00DC6018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A415671D0D579D00DC6018 /* main.m */; };
 		C4A4156A1D0D579D00DC6018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A415691D0D579D00DC6018 /* Assets.xcassets */; };
 		C4A4156D1D0D579D00DC6018 /* STApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A4156B1D0D579D00DC6018 /* STApplication.xib */; };
 		C4F0E82E1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0E82C1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m */; };
-		C4F0E82F1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0E82D1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib */; };
+		C4F0E82F1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1B57C1E2A3F4900C8E2AC /* STPreferencesWindowGeneralView.xib */; };
 		C4FFB0661D0D7F870015D14A /* XGSyncthing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */; };
+		D4A1B5701E2A3F4900C8E2A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4A1B5721E2A3F4900C8E2A2 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,6 @@
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
 		C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesWindowController.m; path = Controllers/STPreferencesWindowController.m; sourceTree = "<group>"; };
-		C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPreferencesWindow.xib; path = UI/STPreferencesWindow.xib; sourceTree = "<group>"; };
 		C4576BD51D11E3210031BCFD /* create-dmg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "create-dmg.sh"; path = "syncthing/Scripts/create-dmg.sh"; sourceTree = "<group>"; };
 		C4576BE51D11E79F0031BCFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4576BE71D11E7C00031BCFD /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = usr/lib/libobjc.tbd; sourceTree = SDKROOT; };
@@ -82,7 +82,7 @@
 		C469AFE325D7CFE400904DD7 /* syncthing-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "syncthing-Bridging-Header.h"; sourceTree = "<group>"; };
 		C469AFE925D7E76900904DD7 /* STLoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoginItem.h; sourceTree = "<group>"; };
 		C469AFEA25D7E76900904DD7 /* STLoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLoginItem.m; sourceTree = "<group>"; };
-		C4946B001D5877F2008447A2 /* STAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STAboutWindow.xib; path = UI/STAboutWindow.xib; sourceTree = "<group>"; };
+		C4946B001D5877F2008447A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STAboutWindow.xib; sourceTree = "<group>"; };
 		C4946B021D587878008447A2 /* STAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STAboutWindowController.m; path = Controllers/STAboutWindowController.m; sourceTree = "<group>"; };
 		C4946B041D587907008447A2 /* STAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STAboutWindowController.h; path = Controllers/STAboutWindowController.h; sourceTree = "<group>"; };
 		C4A415601D0D579D00DC6018 /* Syncthing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Syncthing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,9 +96,16 @@
 		C4D896121D0DF90900D42F73 /* syncthing-resource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "syncthing-resource.sh"; path = "syncthing/Scripts/syncthing-resource.sh"; sourceTree = "<group>"; };
 		C4F0E82B1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPreferencesWindowGeneralViewController.h; sourceTree = "<group>"; };
 		C4F0E82C1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPreferencesWindowGeneralViewController.m; sourceTree = "<group>"; };
-		C4F0E82D1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STPreferencesWindowGeneralView.xib; sourceTree = "<group>"; };
 		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
 		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
+		D4A1B5731E2A3F4900C8E2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D4A1B5741E2A3F4900C8E2A4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D4A1B5751E2A3F4900C8E2A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/STApplication.xib; sourceTree = "<group>"; };
+		D4A1B5761E2A3F4900C8E2A6 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/STAboutWindow.xib; sourceTree = "<group>"; };
+		D4A1B5771E2A3F4900C8E2A7 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/STPreferencesWindow.xib; sourceTree = "<group>"; };
+		D4A1B5781E2A3F4900C8E2A8 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/STPreferencesWindowGeneralView.xib; sourceTree = "<group>"; };
+		D4A1B57B1E2A3F4900C8E2AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STPreferencesWindow.xib; sourceTree = "<group>"; };
+		D4A1B57D1E2A3F4900C8E2AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STPreferencesWindowGeneralView.xib; sourceTree = "<group>"; };
 		FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,9 +236,10 @@
 			isa = PBXGroup;
 			children = (
 				C4A4156B1D0D579D00DC6018 /* STApplication.xib */,
-				C4946B001D5877F2008447A2 /* STAboutWindow.xib */,
-				C4460A821D0DD38F00200C21 /* STPreferencesWindow.xib */,
-				C4F0E82D1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib */,
+				D4A1B5791E2A3F4900C8E2A9 /* STAboutWindow.xib */,
+				D4A1B57A1E2A3F4900C8E2AA /* STPreferencesWindow.xib */,
+				D4A1B57C1E2A3F4900C8E2AC /* STPreferencesWindowGeneralView.xib */,
+				D4A1B5721E2A3F4900C8E2A2 /* Localizable.strings */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -297,6 +305,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = C4A415571D0D579D00DC6018;
 			productRefGroup = C4A415611D0D579D00DC6018 /* Products */;
@@ -319,6 +328,7 @@
 				C4460A831D0DD38F00200C21 /* STPreferencesWindow.xib in Resources */,
 				C4946B011D5877F2008447A2 /* STAboutWindow.xib in Resources */,
 				C4F0E82F1DA1B9CF00435310 /* STPreferencesWindowGeneralView.xib in Resources */,
+				D4A1B5701E2A3F4900C8E2A1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,8 +433,45 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4A4156C1D0D579D00DC6018 /* Base */,
+				D4A1B5751E2A3F4900C8E2A5 /* es */,
 			);
 			name = STApplication.xib;
+			sourceTree = "<group>";
+		};
+		D4A1B5721E2A3F4900C8E2A2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4A1B5731E2A3F4900C8E2A3 /* Base */,
+				D4A1B5741E2A3F4900C8E2A4 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D4A1B5791E2A3F4900C8E2A9 /* STAboutWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4946B001D5877F2008447A2 /* Base */,
+				D4A1B5761E2A3F4900C8E2A6 /* es */,
+			);
+			name = STAboutWindow.xib;
+			sourceTree = "<group>";
+		};
+		D4A1B57A1E2A3F4900C8E2AA /* STPreferencesWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4A1B57B1E2A3F4900C8E2AB /* Base */,
+				D4A1B5771E2A3F4900C8E2A7 /* es */,
+			);
+			name = STPreferencesWindow.xib;
+			sourceTree = "<group>";
+		};
+		D4A1B57C1E2A3F4900C8E2AC /* STPreferencesWindowGeneralView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4A1B57D1E2A3F4900C8E2AD /* Base */,
+				D4A1B5781E2A3F4900C8E2A8 /* es */,
+			);
+			name = STPreferencesWindowGeneralView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
