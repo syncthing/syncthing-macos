@@ -1,0 +1,33 @@
+
+/* Class = "NSToolbarItem"; label = "General"; ObjectID = "1ij-UG-c1I"; */
+"1ij-UG-c1I.label" = "General";
+
+/* Class = "NSToolbarItem"; paletteLabel = "General"; ObjectID = "1ij-UG-c1I"; */
+"1ij-UG-c1I.paletteLabel" = "General";
+
+/* Class = "NSToolbarItem"; label = "Info"; ObjectID = "86s-00-8YI"; */
+"86s-00-8YI.label" = "Info";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Info"; ObjectID = "86s-00-8YI"; */
+"86s-00-8YI.paletteLabel" = "Info";
+
+/* Class = "NSWindow"; title = "Syncthing Preferences"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "Syncthing Preferences";
+
+/* Class = "NSToolbarItem"; label = "Advanced"; ObjectID = "S5T-mV-7Wv"; */
+"S5T-mV-7Wv.label" = "Advanced";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Advanced"; ObjectID = "S5T-mV-7Wv"; */
+"S5T-mV-7Wv.paletteLabel" = "Advanced";
+
+/* Class = "NSToolbarItem"; label = "Folders"; ObjectID = "X60-Ql-i8O"; */
+"X60-Ql-i8O.label" = "Folders";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Folders"; ObjectID = "X60-Ql-i8O"; */
+"X60-Ql-i8O.paletteLabel" = "Folders";
+
+/* Class = "NSToolbarItem"; label = "Devices"; ObjectID = "poY-nn-e76"; */
+"poY-nn-e76.label" = "Devices";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Devices"; ObjectID = "poY-nn-e76"; */
+"poY-nn-e76.paletteLabel" = "Devices";

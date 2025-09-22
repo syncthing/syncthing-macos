@@ -72,6 +72,11 @@
 		298A5C44210DA6C40034B89F /* LocalhostTLSDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalhostTLSDelegate.h; sourceTree = "<group>"; };
 		29AFA4CD210F10FA00071E5E /* DaemonProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaemonProcess.swift; sourceTree = "<group>"; };
 		29CC334D4211142108D2F82C /* Pods-syncthing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.release.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.release.xcconfig"; sourceTree = "<group>"; };
+		9A38F85F2E80F1B600100A57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/STApplication.strings; sourceTree = "<group>"; };
+		9A38F8602E80F1B600100A57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/STAboutWindow.strings; sourceTree = "<group>"; };
+		9A38F8612E80F1B600100A57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/STPreferencesWindow.strings; sourceTree = "<group>"; };
+		9A38F8622E80F1B600100A57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/STPreferencesWindowGeneralView.strings; sourceTree = "<group>"; };
+		9A38F8632E80F1B700100A57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
 		C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesWindowController.m; path = Controllers/STPreferencesWindowController.m; sourceTree = "<group>"; };
@@ -99,11 +104,6 @@
 		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
 		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
 		D4A1B5731E2A3F4900C8E2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D4A1B5741E2A3F4900C8E2A4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D4A1B5751E2A3F4900C8E2A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/STApplication.xib; sourceTree = "<group>"; };
-		D4A1B5761E2A3F4900C8E2A6 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/STAboutWindow.xib; sourceTree = "<group>"; };
-		D4A1B5771E2A3F4900C8E2A7 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/STPreferencesWindow.xib; sourceTree = "<group>"; };
-		D4A1B5781E2A3F4900C8E2A8 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/STPreferencesWindowGeneralView.xib; sourceTree = "<group>"; };
 		D4A1B57B1E2A3F4900C8E2AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STPreferencesWindow.xib; sourceTree = "<group>"; };
 		D4A1B57D1E2A3F4900C8E2AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STPreferencesWindowGeneralView.xib; sourceTree = "<group>"; };
 		FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.debug.xcconfig"; sourceTree = "<group>"; };
@@ -433,7 +433,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4A4156C1D0D579D00DC6018 /* Base */,
-				D4A1B5751E2A3F4900C8E2A5 /* es */,
+				9A38F85F2E80F1B600100A57 /* es */,
 			);
 			name = STApplication.xib;
 			sourceTree = "<group>";
@@ -442,7 +442,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4A1B5731E2A3F4900C8E2A3 /* Base */,
-				D4A1B5741E2A3F4900C8E2A4 /* es */,
+				9A38F8632E80F1B700100A57 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -451,7 +451,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4946B001D5877F2008447A2 /* Base */,
-				D4A1B5761E2A3F4900C8E2A6 /* es */,
+				9A38F8602E80F1B600100A57 /* es */,
 			);
 			name = STAboutWindow.xib;
 			sourceTree = "<group>";
@@ -460,7 +460,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4A1B57B1E2A3F4900C8E2AB /* Base */,
-				D4A1B5771E2A3F4900C8E2A7 /* es */,
+				9A38F8612E80F1B600100A57 /* es */,
 			);
 			name = STPreferencesWindow.xib;
 			sourceTree = "<group>";
@@ -469,7 +469,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4A1B57D1E2A3F4900C8E2AD /* Base */,
-				D4A1B5781E2A3F4900C8E2A8 /* es */,
+				9A38F8622E80F1B600100A57 /* es */,
 			);
 			name = STPreferencesWindowGeneralView.xib;
 			sourceTree = "<group>";
@@ -495,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -553,6 +554,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

@@ -33,5 +33,8 @@
 "Unknown (Online)" = "Unknown (Online)";
 "Unavailable" = "Unavailable";
 
+/* Menu titles */
+"Folders" = "Folders";
+
 /* Tooltip template (version %@ and status %@) */
 "Syncthing %@\n%@" = "Syncthing %@\n%@";

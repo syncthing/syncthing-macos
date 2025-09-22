@@ -2,7 +2,7 @@
    Localizable.strings
    syncthing
 
-   Spanish localization
+   Base localization (English)
 */
 
 /* Notification title */
@@ -12,7 +12,7 @@
 "Up to date" = "Actualizado";
 "Synchronising" = "Sincronizando";
 "Pause" = "Pausado";
-"Not running" = "No ejecutándose";
+"Not running" = "No está ejecutándose";
 "Error" = "Error";
 
 /* Device menu items */
@@ -32,6 +32,9 @@
 "Running (Offline)" = "Ejecutándose (Sin conexión)";
 "Unknown (Online)" = "Desconocido (En línea)";
 "Unavailable" = "No disponible";
+
+/* Menu titles */
+"Folders" = "Carpetas";
 
 /* Tooltip template (version %@ and status %@) */
 "Syncthing %@\n%@" = "Syncthing %@\n%@";

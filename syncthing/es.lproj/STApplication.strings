@@ -1,0 +1,105 @@
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "09B-Fd-kIg"; */
+"09B-Fd-kIg.title" = "Delete";
+
+/* Class = "NSMenu"; title = "Folders"; ObjectID = "0Tt-4w-4MD"; */
+"0Tt-4w-4MD.title" = "Folders";
+
+/* Class = "NSMenuItem"; title = "Quit Syncthing"; ObjectID = "1wN-cb-7w4"; */
+"1wN-cb-7w4.title" = "Quit Syncthing";
+
+/* Class = "NSMenuItem"; title = "Restart"; ObjectID = "24n-vt-eof"; */
+"24n-vt-eof.title" = "Restart";
+
+/* Class = "NSMenuItem"; title = "Quit application"; ObjectID = "42h-qg-75M"; */
+"42h-qg-75M.title" = "Quit application";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "8nY-KP-Cjq"; */
+"8nY-KP-Cjq.title" = "None";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "BIk-A1-DsB"; */
+"BIk-A1-DsB.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Folders"; ObjectID = "Gbh-kn-bEe"; */
+"Gbh-kn-bEe.title" = "Folders";
+
+/* Class = "NSMenuItem"; title = "API"; ObjectID = "Gzh-BA-qbg"; */
+"Gzh-BA-qbg.title" = "API";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "HRl-Yj-JKY"; */
+"HRl-Yj-JKY.title" = "Paste";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "HiV-0K-6gI"; */
+"HiV-0K-6gI.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Menu"; ObjectID = "I8M-Pf-BKw"; */
+"I8M-Pf-BKw.title" = "Menu";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "Kac-nG-ccL"; */
+"Kac-nG-ccL.title" = "Cut";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "LRK-4Q-J2a"; */
+"LRK-4Q-J2a.title" = "Main Menu";
+
+/* Class = "NSMenuItem"; title = "Syncthing Service"; ObjectID = "MAH-El-s0y"; */
+"MAH-El-s0y.title" = "Syncthing Service";
+
+/* Class = "NSMenu"; title = "Syncthing"; ObjectID = "O1r-v6-dVJ"; */
+"O1r-v6-dVJ.title" = "Syncthing";
+
+/* Class = "NSMenuItem"; title = "Status"; ObjectID = "PGw-J9-KII"; */
+"PGw-J9-KII.title" = "Status";
+
+/* Class = "NSMenuItem"; title = "Syncthing"; ObjectID = "ViC-de-Xi1"; */
+"ViC-de-Xi1.title" = "Syncthing";
+
+/* Class = "NSMenuItem"; title = "Item"; ObjectID = "Y9X-vm-pic"; */
+"Y9X-vm-pic.title" = "Item";
+
+/* Class = "NSMenu"; title = "Syncthing Service"; ObjectID = "YYN-1k-umQ"; */
+"YYN-1k-umQ.title" = "Syncthing Service";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "aOH-1O-Idh"; */
+"aOH-1O-Idh.title" = "Redo";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "aRj-ou-O6a"; */
+"aRj-ou-O6a.title" = "Undo";
+
+/* Class = "NSMenuItem"; title = "Rescan All"; ObjectID = "boL-Lr-rxV"; */
+"boL-Lr-rxV.title" = "Rescan All";
+
+/* Class = "NSMenuItem"; title = "About"; ObjectID = "dst-j8-d2d"; */
+"dst-j8-d2d.title" = "About";
+
+/* Class = "NSMenuItem"; ibShadowedToolTip = "Open Syncthing Web GUI"; ObjectID = "euz-4I-RQa"; */
+"euz-4I-RQa.ibShadowedToolTip" = "Open Syncthing Web GUI";
+
+/* Class = "NSMenuItem"; title = "Open"; ObjectID = "euz-4I-RQa"; */
+"euz-4I-RQa.title" = "Open";
+
+/* Class = "NSMenuItem"; title = "Close window"; ObjectID = "htF-y1-dkl"; */
+"htF-y1-dkl.title" = "Close window";
+
+/* Class = "NSMenuItem"; title = "Pause All Devices"; ObjectID = "kBF-aK-W8P"; */
+"kBF-aK-W8P.title" = "Pause All Devices";
+
+/* Class = "NSMenuItem"; title = "Preferences..."; ObjectID = "lgT-yX-bGZ"; */
+"lgT-yX-bGZ.title" = "Preferences...";
+
+/* Class = "NSMenu"; title = "Status"; ObjectID = "qS5-d4-4WD"; */
+"qS5-d4-4WD.title" = "Status";
+
+/* Class = "NSMenu"; title = "Menu"; ObjectID = "rlz-0G-Jeh"; */
+"rlz-0G-Jeh.title" = "Menu";
+
+/* Class = "NSMenuItem"; title = "Start"; ObjectID = "s51-hi-aSO"; */
+"s51-hi-aSO.title" = "Start";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "uO2-Lw-6R3"; */
+"uO2-Lw-6R3.title" = "Select All";
+
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "v6W-XD-Nuf"; */
+"v6W-XD-Nuf.title" = "Stop";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "ygR-tH-H8e"; */
+"ygR-tH-H8e.title" = "Copy";

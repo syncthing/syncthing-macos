@@ -251,7 +251,7 @@
 }
 
 -(void) menuWillOpen:(NSMenu *)menu {
-	if ([[menu title] isEqualToString:@"Folders"])
+	if ([[menu title] isEqualToString:NSLocalizedString(@"Folders", @"Menu title for folders")])
         [self updateFoldersMenu:menu];
 }
 
