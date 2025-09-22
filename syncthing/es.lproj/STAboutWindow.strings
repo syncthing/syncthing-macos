@@ -3,13 +3,13 @@
 "69s-3K-WtF.title" = "appNameLabel";
 
 /* Class = "NSButtonCell"; title = "Check for updates"; ObjectID = "Eed-GH-Oia"; */
-"Eed-GH-Oia.title" = "Check for updates";
+"Eed-GH-Oia.title" = "Buscar actualizaciones";
 
 /* Class = "NSWindow"; title = "About Syncthing"; ObjectID = "QvC-M9-y7g"; */
-"QvC-M9-y7g.title" = "About Syncthing";
+"QvC-M9-y7g.title" = "Acerca de Syncthing";
 
 /* Class = "NSTextFieldCell"; title = "Project page"; ObjectID = "c8c-o9-dcj"; */
-"c8c-o9-dcj.title" = "Project page";
+"c8c-o9-dcj.title" = "Página del proyecto";
 
 /* Class = "NSTextFieldCell"; title = "appVersionLabel"; ObjectID = "sEI-CG-StK"; */
 "sEI-CG-StK.title" = "appVersionLabel";
