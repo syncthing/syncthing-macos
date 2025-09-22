@@ -49,5 +49,10 @@
 	<integer>86400</integer>
 	<key>CFBundleGetInfoString</key>
 	<string>syncthing project Group</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>es</string>
+	</array>
 </dict>
 </plist>

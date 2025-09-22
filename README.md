@@ -117,22 +117,22 @@ See also [#185](https://github.com/syncthing/syncthing-macos/issues/185) and the
 
 ## Uninstallation
 
-On Mac OS X you drop the application from the Application folder to your Trash. 
-But there are some user specific files are kept elsewhere, which are located under 
+On Mac OS X you drop the application from the Application folder to your Trash.
+But there are some user specific files are kept elsewhere, which are located under
 `$HOME/Library/Application Support/Syncthing`. The files in this folder are the configuration,
 encryption/profile files and the database cache. For more information see
 [docs.syncthing.net/users/config.html](https://docs.syncthing.net/users/config.html#description).
 
 ## Disable automatic update checker
 
-By default the Syncthing macOS application checks automatically for updates. To disable (or re-enable) the 
+By default the Syncthing macOS application checks automatically for updates. To disable (or re-enable) the
 auto update check one must set the Sparkle updater parameter from the commandline:
 
 ```
 defaults write com.github.xor-gate.syncthing-macosx SUEnableAutomaticChecks 0
 ```
 
-This setting is un-adviced and therefor only available from the commandline. When your system is not 
+This setting is un-adviced and therefor only available from the commandline. When your system is not
 supported anymore and don't want to get notified of unsupported updates disabling then is recommended.
 
 # Prerequisites for building/using everything in this repository
@@ -198,7 +198,7 @@ jerry@Jerrys-iMac ~ % defaults read com.github.xor-gate.syncthing-macosx
 ### Override Syncthing Daeomon `Executable` property (power-users only)
 
 If you want to use the nice GUI but have your own executable located outside the `Syncthing.app` bundle,
-then the `Executable` configuration parameter can be manually overwritten with the `defaults` commandline 
+then the `Executable` configuration parameter can be manually overwritten with the `defaults` commandline
 tool using builtin Terminal or iTerm2. The last arguments should be changed to the syncthing daemon golang
 application.
 
@@ -276,3 +276,35 @@ basicly these steps automatically:
 * Manually download the release `.dmg` from [github.com actions](https://github.com/syncthing/syncthing-macos/actions/workflows/build-syncthing-macos.yml) which is correctly signed and notarized
 * Manually [create a new Github release](https://github.com/syncthing/syncthing-macos/releases/new) with tag `v<major>.<minor>.<patch>-<bundle index>`
 * Run deployment of Sparkle updater [appcast.xml](https://github.com/syncthing/syncthing-macos/actions/workflows/generate-appcast.yml). Which turns [GitHub Releases JSON into a Sparkle appcast.xml file](https://github.com/syncthing/syncthing-macos/tree/develop/cmd/ghreleases2appcast). (See also [Sparkle documentation](https://sparkle-project.org/documentation/)) to push to users.
+
+## Support for additional languages
+
+### 1. Add Language in Xcode
+
+1. Open `syncthing.xcworkspace`
+2. Select project root -> **Project -> Info -> Localizations**
+3. Click **+** and select target language
+4. Select all files when prompted
+
+### 2. Translate
+
+Edit files in `syncthing/[language_code].lproj/`:
+
+```
+/* Keep key, translate value */
+"Up to date" = "Actualizado";
+```
+
+### 3. Update Info.plist
+
+Add language code to `CFBundleLocalizations`:
+```xml
+<string>es</string>  <!-- New language -->
+```
+
+### 4. Test
+
+```bash
+make debug
+open ./Build/Products/Debug/Syncthing.app --args -AppleLanguages '(language_code)'
+```
