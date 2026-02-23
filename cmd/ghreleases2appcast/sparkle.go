@@ -28,6 +28,11 @@ type SparkleItem struct {
 	Description SparkleCdataString `xml:"description,omitempty"`
 	PubDate string `xml:"pubDate"`
 	Enclosure SparkleEnclosure `xml:"enclosure"`
+	CriticalUpdate *CriticalUpdate `xml:"sparkle:criticalUpdate"`
+}
+
+type CriticalUpdate struct {
+	// Usually empty, but can hold version/date if needed
 }
 
 // CdataString for XML CDATA

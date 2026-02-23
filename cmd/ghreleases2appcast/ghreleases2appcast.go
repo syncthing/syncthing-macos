@@ -77,6 +77,8 @@ func main() {
 			continue
 		}
 
+		sparkleItemCheckCriticalUpdate(&item)
+
 		log.Println("added release at", item.Enclosure.URL)
 		items = append(items, item)
 	}
@@ -176,4 +178,10 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (Sp
 	}
 
 	return item, nil
+}
+
+func sparkleItemCheckCriticalUpdate(item *SparkleItem) {
+	if item.Enclosure.SparkleShortVersionString == "v2.0.14+1" {
+		item.CriticalUpdate = &CriticalUpdate{}
+	}
 }
