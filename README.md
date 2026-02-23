@@ -3,6 +3,9 @@
 [![Syncthing forum](https://img.shields.io/badge/syncthing-%20forum-blue.svg)](https://forum.syncthing.net/t/syncthing-for-macos)
 [![Downloads](https://img.shields.io/github/downloads/syncthing/syncthing-macos/total.svg)](https://github.com/syncthing/syncthing-macos/releases) [![Latest release](https://img.shields.io/github/release/syncthing/syncthing-macos.svg)](https://github.com/syncthing/syncthing-macos/releases/latest) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
 
+> [!NOTE]  
+> Syncthing v2 is the supported version since 23 february 2026. Syncthing v1 is deprecated and will not get any updates or bugfixes.
+
 # Introduction
 
 `syncthing-macos` project is a [frugal](https://en.wikipedia.org/wiki/Frugality) [native](https://en.wikipedia.org/wiki/Native_(computing)) macOS [Syncthing](https://syncthing.net) tray application bundle. It bundles its own Syncthing instance and wraps Syncthing background process, making it behave more like a native macOS application and less like a command-line utility with a web browser interface.
