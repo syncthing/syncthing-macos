@@ -181,7 +181,7 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (Sp
 }
 
 func sparkleItemCheckCriticalUpdate(item *SparkleItem) {
-	if item.Enclosure.SparkleShortVersionString == "v2.0.14+1" {
+	if item.Enclosure.SparkleShortVersionString == "v2.0.14-1" {
 		item.CriticalUpdate = &CriticalUpdate{}
 	}
 }
