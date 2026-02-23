@@ -15,7 +15,7 @@ import fileinput
 from urllib.request import urlopen
 from string import Template
 
-distVersion   = 1
+distVersion   = 1 # Syncthing for macOS distribution version
 latest_url    = "https://api.github.com/repos/syncthing/syncthing/releases/latest"
 infoPlist     = '../../syncthing/Info.plist'
 infoPlistTmpl = '../../syncthing/Info.plist.tmpl'
@@ -37,7 +37,7 @@ import semver
 
 def get_latest_v2_tag_name(repo_owner, repo_name, allow_prerelease: bool = False):
     """
-    Fetches the latest v2 prerelease tag_name from a GitHub repository's releases.
+    Fetches the latest v2 (pre)release tag_name from a GitHub repository's releases.
 
     Args:
         repo_owner (str): The owner of the GitHub repository (e.g., 'syncthing').
@@ -69,9 +69,10 @@ def get_latest_v2_tag_name(repo_owner, repo_name, allow_prerelease: bool = False
         if tag_name:
             try:
                 version = semver.Version.parse(tag_name.lstrip('v')) # Remove 'v' prefix if present
+
                 if allow_prerelease and version.major == 2 and version.prerelease:
                     v2_releases.append(version)
-                elif version.major == 2:
+                elif version.major == 2 and not version.prerelease:
                     v2_releases.append(version)
             except ValueError:
                 # Not a valid semver string, skip
@@ -80,7 +81,7 @@ def get_latest_v2_tag_name(repo_owner, repo_name, allow_prerelease: bool = False
     if not v2_releases:
         return None
 
-    # Sort the prereleases to find the latest
+    # Sort the releases to find the latest
     latest_v2_release = max(v2_releases)
     return f"v{latest_v2_release}" # Re-add the 'v' prefix for consistency
 
@@ -92,9 +93,9 @@ repo = "syncthing"
 latest_tag = get_latest_v2_tag_name(owner, repo)
 
 if latest_tag:
-	print(f"The latest v2 prerelease tag_name for {owner}/{repo} is: {latest_tag}")
+	print(f"The latest v2 (pre)release tag_name for {owner}/{repo} is: {latest_tag}")
 else:
-	print(f"No v2 prerelease found for {owner}/{repo}.")
+	print(f"No v2 (pre)release found for {owner}/{repo}.")
 
 # Ugly hack because of https://github.com/python-semver/python-semver/issues/137
 tag_name = latest_tag.replace('v', '')
