@@ -1,9 +1,9 @@
-name: Build Syncthing macOS v2
+name: Build Syncthing macOS
 
 on:
   pull_request:
     branches:
-      - v2
+      - develop
   push:
 
 # A note on actions and third party code... The actions under actions/ (like
@@ -14,32 +14,32 @@ on:
 # that lead up to code being packaged and signed.
 
 jobs:
-#  build-debug:
-#    name: Build debug
-#    if: github.event_name == 'push' && github.ref != 'refs/heads/release' # Debug not necessary on release branch (develop is intermediate branch)
-#    runs-on: macos-13
-#    steps:
-#      - uses: actions/checkout@v4
-#        with:
-#          fetch-depth: 0
-#
-#      - name: Build debug target
-#        run: make debug
-#
-#      - name: Prepare debug build for artifact
-#        run: make debug-dist 
-#
-#      - name: Archive artifacts
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: syncthing-macos-debug
-#          path: Build/Products/Debug/dist
+  build-debug:
+    name: Build debug
+    if: github.event_name == 'push' && github.ref != 'refs/heads/release' # Debug not necessary on release branch (develop is intermediate branch)
+    runs-on: macos-13
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build debug target
+        run: make debug
+
+      - name: Prepare debug build for artifact
+        run: make debug-dist 
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: syncthing-macos-debug
+          path: Build/Products/Debug/dist
 
   build-release:
     name: Build release
-    if: github.event_name == 'push' && github.ref == 'refs/heads/v2'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/release'
     environment: signing
-    runs-on: macos-15
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
         with:
@@ -78,12 +78,12 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: syncthing-macos-v2-dmg-release
+          name: syncthing-macos-dmg-release
           path: Build/Products/Release/*.dmg
 
   notarize:
     name: Notarize for macOS
-    if: github.event_name == 'push' && github.ref == 'refs/heads/v2'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/release'
     environment: signing
     needs:
       - build-release
@@ -92,7 +92,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: syncthing-macos-v2-dmg-release
+          name: syncthing-macos-dmg-release
 
       - name: Notarize binaries
         run: |
