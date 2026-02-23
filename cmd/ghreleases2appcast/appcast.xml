@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Syncthing for macOS</title>
+    <link>https://upgrades.syncthing.net/syncthing-macos/appcast.xml</link>
+    <description>Most recent changes with links to updates.</description>
+    <language>en</language>
+    <item>
+      <title>Syncthing for macOS v1.30.0</title>
+      <description><![CDATA[<ul>
+<li>Update bundled Syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.30.0">v1.30.0</a></li>
+</ul>
+]]></description>
+      <pubDate>Mon, 25 Aug 2025 17:58:54 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.30.0-1" sparkle:version="103000001" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.30.0-1/Syncthing-1.30.0-1.dmg"></enclosure>
+      <sparkle:criticalUpdate></sparkle:criticalUpdate>
+    </item>
+    <item>
+      <title>Syncthing for macOS v1.29.7-1</title>
+      <description><![CDATA[<ul>
+<li>Update bundled Syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.29.7">v1.29.7</a></li>
+<li>Update Sparkle appcast automatic updater to S3 cloud</li>
+</ul>
+]]></description>
+      <pubDate>Wed, 18 Jun 2025 06:42:30 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.29.7-1" sparkle:version="102900701" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.29.7-1/Syncthing-1.29.7-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Syncthing for macOS v1.29.6-1</title>
+      <description><![CDATA[<ul>
+<li>Update bundled Syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.29.6">v1.29.6</a></li>
+<li>Autoreset Syncthing executable path when it is incorrect (<a href="https://github.com/syncthing/syncthing-macos/pull/243">#243</a>)</li>
+</ul>
+]]></description>
+      <pubDate>Wed, 21 May 2025 08:10:41 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.29.6-1" sparkle:version="102900601" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.29.6-1/Syncthing-1.29.6-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Syncthing for macOS v1.29.2-2</title>
+      <description><![CDATA[<ul>
+<li>Fixes <a href="https://github.com/syncthing/syncthing-macos/issues/228">#228</a>: When Syncthing.app is first time started from DMG under /Volumes the Executable is set and not reset back to /Applications</li>
+</ul>
+]]></description>
+      <pubDate>Sun, 02 Mar 2025 18:51:40 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.29.2-2" sparkle:version="102900202" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.29.2-2/Syncthing-1.29.2-2.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.29.2</title>
+      <description><![CDATA[<ul>
+<li>Update bundled Syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.29.2">v1.29.2</a></li>
+</ul>
+]]></description>
+      <pubDate>Wed, 15 Jan 2025 18:46:23 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.29.2-1" sparkle:version="102900201" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.29.2-1/Syncthing-1.29.2-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.28.1</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.28.1">v1.28.1</a></li>
+</ul>
+]]></description>
+      <pubDate>Wed, 04 Dec 2024 17:02:03 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.28.1-1" sparkle:version="102800101" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.28.1-1/Syncthing-1.28.1-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.28.0</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.28.0">v1.28.0</a></li>
+<li>Info.plist: Use string type instead of implicit bool for LSUIElement</li>
+<li>Some github actions continuous integration housekeeping. <code>macos-12</code> builder deprecated, now using <code>macos-latest</code>. See <a href="https://github.com/actions/runner-images/issues/10721">https://github.com/actions/runner-images/issues/10721</a>. 
+<br />
+For full list of changes see: <a href="https://github.com/syncthing/syncthing-macos/compare/v1.27.12-1...v1.28.0-1">syncthing-macos/compare/v1.27.12-1&hellip;v1.28.0-1</a></li>
+</ul>
+]]></description>
+      <pubDate>Sun, 20 Oct 2024 19:46:13 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.28.0-1" sparkle:version="102800001" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.28.0-1/Syncthing-1.28.0-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.27.12</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.12">v1.27.12</a></li>
+</ul>
+]]></description>
+      <pubDate>Mon, 09 Sep 2024 19:20:38 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.12-1" sparkle:version="102701201" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.12-1/Syncthing-1.27.12-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.27.10</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.10">v1.27.10</a></li>
+</ul>
+]]></description>
+      <pubDate>Fri, 09 Aug 2024 09:06:38 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.10-1" sparkle:version="102701001" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.10-1/Syncthing-1.27.10-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.27.8</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.8">v1.27.8</a></li>
+</ul>
+]]></description>
+      <pubDate>Wed, 05 Jun 2024 07:01:59 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.8-1" sparkle:version="102700801" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.8-1/Syncthing-1.27.8-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.27.7</title>
+      <description><![CDATA[<ul>
+<li>NOTE: From this release and onwards macOS 10 is unsupported. You need macOS 11 or higher. See issue <a href="https://github.com/syncthing/syncthing-macos/issues/218#issuecomment-2102209636">#218</a>.</li>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.7">v1.27.7</a></li>
+</ul>
+]]></description>
+      <pubDate>Wed, 08 May 2024 13:41:58 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.7-2" sparkle:version="102700702" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.7-2/Syncthing-1.27.7-2.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.27.6</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.6">v1.27.6</a></li>
+<li>Fixes important issue <a href="https://github.com/syncthing/syncthing/issues/9498">#9498</a>: Files spookily out of sync in 1.27.5</li>
+</ul>
+]]></description>
+      <pubDate>Wed, 10 Apr 2024 05:39:55 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.6-1" sparkle:version="102700601" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.6-1/Syncthing-1.27.6-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.27.5 and bugfix</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.5">v1.27.5</a></li>
+<li><a href="https://github.com/syncthing/syncthing-macos/issues/212">#212</a> Fixes override of hidden Executable parameter of to syncthing daemon path. It was always overwritten by the executable path where the .app bundle was located (see &hellip;)</li>
+</ul>
+]]></description>
+      <pubDate>Wed, 03 Apr 2024 04:14:22 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.5-1" sparkle:version="102700501" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.5-1/Syncthing-1.27.5-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.27.4</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.4">v1.27.4</a></li>
+</ul>
+]]></description>
+      <pubDate>Wed, 06 Mar 2024 18:56:39 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.4-1" sparkle:version="102700401" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.4-1/Syncthing-1.27.4-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade syncthing to v1.27.3</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.3">v1.27.3</a></li>
+</ul>
+]]></description>
+      <pubDate>Fri, 09 Feb 2024 10:16:13 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.3-1" sparkle:version="102700301" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.3-1/Syncthing-1.27.3-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade syncthing to v1.27.2</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.2">v1.27.2</a></li>
+</ul>
+]]></description>
+      <pubDate>Tue, 02 Jan 2024 18:41:02 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.2-1" sparkle:version="102700201" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.2-1/Syncthing-1.27.2-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.27.1</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.1">v1.27.1</a></li>
+</ul>
+]]></description>
+      <pubDate>Mon, 11 Dec 2023 08:15:02 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.1-1" sparkle:version="102700101" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.1-1/Syncthing-1.27.1-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade syncthing to v1.27.0</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.27.0">v1.27.0</a></li>
+</ul>
+]]></description>
+      <pubDate>Thu, 07 Dec 2023 17:00:33 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.27.0-1" sparkle:version="102700001" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.27.0-1/Syncthing-1.27.0-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.26.1</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.26.1">v1.26.1</a></li>
+</ul>
+]]></description>
+      <pubDate>Wed, 15 Nov 2023 17:50:08 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.26.1-1" sparkle:version="102600101" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.26.1-1/Syncthing-1.26.1-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.26.0</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.26.0">v1.26.0</a></li>
+</ul>
+]]></description>
+      <pubDate>Fri, 10 Nov 2023 08:13:37 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.26.0-1" sparkle:version="102600001" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.26.0-1/Syncthing-1.26.0-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.25.0</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.25.0">v1.25.0</a></li>
+</ul>
+]]></description>
+      <pubDate>Sat, 04 Nov 2023 08:41:04 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.25.0-1" sparkle:version="102500001" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.25.0-1/Syncthing-1.25.0-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.24.0</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.24.0">v1.24.0</a></li>
+</ul>
+]]></description>
+      <pubDate>Sat, 09 Sep 2023 10:12:23 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.24.0-1" sparkle:version="102400001" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.24.0-1/Syncthing-1.24.0-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.23.7</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.23.7">v1.23.7</a></li>
+</ul>
+]]></description>
+      <pubDate>Sat, 19 Aug 2023 18:46:03 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.23.7-1" sparkle:version="102300701" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.23.7-1/Syncthing-1.23.7-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.23.6</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.23.6">v1.23.6</a></li>
+</ul>
+]]></description>
+      <pubDate>Wed, 05 Jul 2023 06:53:23 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.23.6-1" sparkle:version="102300601" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.23.6-1/Syncthing-1.23.6-1.dmg"></enclosure>
+    </item>
+    <item>
+      <title>Upgrade Syncthing to v1.23.5</title>
+      <description><![CDATA[<ul>
+<li>Update the bundled syncthing to <a href="https://github.com/syncthing/syncthing/releases/tag/v1.23.5">v1.23.5</a></li>
+</ul>
+]]></description>
+      <pubDate>Sun, 11 Jun 2023 17:48:43 UTC</pubDate>
+      <enclosure sparkle:shortVersionString="v1.23.5-1" sparkle:version="102300501" type="application/octet-stream" url="https://github.com/syncthing/syncthing-macos/releases/download/v1.23.5-1/Syncthing-1.23.5-1.dmg"></enclosure>
+    </item>
+  </channel>
+</rss>

@@ -101,7 +101,7 @@ else:
 tag_name = latest_tag.replace('v', '')
 version = semver.VersionInfo.parse(tag_name)
 
-CFBundleShortVersionString = "{}+{:d}".format(
+CFBundleShortVersionString = "{}-{:d}".format(
 	str(version),
 	distVersion)
 CFBundleVersion = "{:d}{:03d}{:03d}{:02d}".format(
