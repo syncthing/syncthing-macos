@@ -27,6 +27,7 @@ type SparkleItem struct {
 	SparkleReleaseNotesLink string `xml:"sparkle:releaseNotesLink,omitempty"`
 	Description SparkleCdataString `xml:"description,omitempty"`
 	PubDate string `xml:"pubDate"`
+	MinimumSystemVersion string `xml:"sparkle:minimumSystemVersion,omitempty"`
 	Enclosure SparkleEnclosure `xml:"enclosure"`
 	CriticalUpdate *CriticalUpdate `xml:"sparkle:criticalUpdate"`
 }

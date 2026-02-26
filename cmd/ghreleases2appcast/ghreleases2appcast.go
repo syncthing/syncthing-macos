@@ -181,7 +181,19 @@ func githubRepositoryReleaseToSparkleItem(release *github.RepositoryRelease) (Sp
 }
 
 func sparkleItemCheckCriticalUpdate(item *SparkleItem) {
-	if item.Enclosure.SparkleShortVersionString == "v2.0.14-1" {
+	if item.Enclosure.SparkleShortVersionString == "v1.13.1-1" {
+		item.MinimumSystemVersion = "10.11.0"
+	} else if item.Enclosure.SparkleShortVersionString == "v1.19.2-1" {
+		item.MinimumSystemVersion = "10.12.0"
+	} else if item.Enclosure.SparkleShortVersionString == "v1.27.6-1" {
+		item.MinimumSystemVersion = "10.13.0"
+	} else if item.Enclosure.SparkleShortVersionString == "v1.30.0-1" {
+		item.MinimumSystemVersion = "11.0.0"
+	} else if item.Enclosure.SparkleShortVersionString == "v2.0.14-1" {
 		item.CriticalUpdate = &CriticalUpdate{}
+		item.MinimumSystemVersion = "15.0.0"
+	} else {
+		// Default others to at least macOS 15 for now to prevent auto updates from older macOS
+		item.MinimumSystemVersion = "15.0.0"
 	}
 }
