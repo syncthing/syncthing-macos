@@ -4,7 +4,7 @@
 [![Downloads](https://img.shields.io/github/downloads/syncthing/syncthing-macos/total.svg)](https://github.com/syncthing/syncthing-macos/releases) [![Latest release](https://img.shields.io/github/release/syncthing/syncthing-macos.svg)](https://github.com/syncthing/syncthing-macos/releases/latest) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
 
 > [!NOTE]  
-> Syncthing v2 is the supported version since 23 february 2026. Syncthing v1 is deprecated and will not get any updates or bugfixes.
+> Syncthing v2 is the supported version since 23 february 2026. It needs at least macOS 15. Syncthing v1 is deprecated and will not get any updates or bugfixes.
 
 # Introduction
 
@@ -62,6 +62,7 @@ See the [issue tracker (bug tag filtered)]([https://github.com/syncthing/syncthi
 
 ## macOS version support
 
+* From release v2.0.14 macOS 15 is required (see issue [#218](https://github.com/syncthing/syncthing-macos/issues/218))
 * From release v1.27.7 macOS 11 or probably higher is required (see issue [#218](https://github.com/syncthing/syncthing-macos/issues/218))
 * Last v1.27.6-1 release is compatible with macOS 10.13 (see issue [#217](https://github.com/syncthing/syncthing-macos/issues/217))
 * From release v1.20.0-1 macOS 10.13 or higher is required
