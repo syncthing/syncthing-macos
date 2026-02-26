@@ -191,9 +191,10 @@ func sparkleItemCheckCriticalUpdate(item *SparkleItem) {
 		item.MinimumSystemVersion = "11.0.0"
 	} else if item.Enclosure.SparkleShortVersionString == "v2.0.14-1" {
 		item.CriticalUpdate = &CriticalUpdate{}
-		item.MinimumSystemVersion = "15.0.0"
+		item.MinimumSystemVersion = "12.0.0"
 	} else {
-		// Default others to at least macOS 15 for now to prevent auto updates from older macOS
-		item.MinimumSystemVersion = "15.0.0"
+		// Default others to at least macOS 12 for now to prevent auto updates from older macOS
+		// Golang 1.25 needs macOS 12. See https://go.dev/doc/go1.25#darwin
+		item.MinimumSystemVersion = "12.0.0"
 	}
 }
