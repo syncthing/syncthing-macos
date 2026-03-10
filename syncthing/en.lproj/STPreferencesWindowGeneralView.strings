@@ -1,0 +1,27 @@
+
+/* Class = "NSTextFieldCell"; placeholderString = "aNVUG3mSx4PVyZW8LXWGoybFRSXS9c5a"; ObjectID = "2yS-fe-acc"; */
+"2yS-fe-acc.placeholderString" = "aNVUG3mSx4PVyZW8LXWGoybFRSXS9c5a";
+
+/* Class = "NSButtonCell"; title = "Test"; ObjectID = "DIH-Pb-tr4"; */
+"DIH-Pb-tr4.title" = "Test";
+
+/* Class = "NSButtonCell"; title = "Quit Syncthing"; ObjectID = "KYS-0x-TeQ"; */
+"KYS-0x-TeQ.title" = "Quit Syncthing";
+
+/* Class = "NSButtonCell"; title = "Open Syncthing Web Interface"; ObjectID = "MM0-EG-ljE"; */
+"MM0-EG-ljE.title" = "Open Syncthing Web Interface";
+
+/* Class = "NSButtonCell"; title = "Start at login"; ObjectID = "bnF-et-LAz"; */
+"bnF-et-LAz.title" = "Start at login";
+
+/* Class = "NSTextFieldCell"; title = "URI"; ObjectID = "geO-tg-eJG"; */
+"geO-tg-eJG.title" = "URI";
+
+/* Class = "NSTextFieldCell"; placeholderString = "http://localhost:8384"; ObjectID = "hwI-eW-JrI"; */
+"hwI-eW-JrI.placeholderString" = "http://localhost:8384";
+
+/* Class = "NSTextFieldCell"; title = "API key"; ObjectID = "jak-D0-chd"; */
+"jak-D0-chd.title" = "API key";
+
+/* Class = "NSButtonCell"; title = "Show in menu bar"; ObjectID = "nB8-OA-X1F"; */
+"nB8-OA-X1F.title" = "Show in menu bar";

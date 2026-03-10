@@ -77,6 +77,11 @@
 		9A38F8612E80F1B600100A57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/STPreferencesWindow.strings; sourceTree = "<group>"; };
 		9A38F8622E80F1B600100A57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/STPreferencesWindowGeneralView.strings; sourceTree = "<group>"; };
 		9A38F8632E80F1B700100A57 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E61B6566426D4A64B3E27FD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/STApplication.strings; sourceTree = "<group>"; };
+		6BF5309C44C44B33816DBD62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/STAboutWindow.strings; sourceTree = "<group>"; };
+		15C8D2E3EEAF4502842A8594 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/STPreferencesWindow.strings; sourceTree = "<group>"; };
+		65BA17B6FFE8436FB229DCBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/STPreferencesWindowGeneralView.strings; sourceTree = "<group>"; };
+		6CE6654979C54545BA0EA08C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C44262761D0DEF9F005340C2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C4460A7C1D0DD2D500200C21 /* STPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPreferencesWindowController.h; path = Controllers/STPreferencesWindowController.h; sourceTree = "<group>"; };
 		C4460A7D1D0DD2D500200C21 /* STPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPreferencesWindowController.m; path = Controllers/STPreferencesWindowController.m; sourceTree = "<group>"; };
@@ -433,6 +438,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4A4156C1D0D579D00DC6018 /* Base */,
+				E61B6566426D4A64B3E27FD1 /* en */,
 				9A38F85F2E80F1B600100A57 /* es */,
 			);
 			name = STApplication.xib;
@@ -442,6 +448,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4A1B5731E2A3F4900C8E2A3 /* Base */,
+				6CE6654979C54545BA0EA08C /* en */,
 				9A38F8632E80F1B700100A57 /* es */,
 			);
 			name = Localizable.strings;
@@ -451,6 +458,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4946B001D5877F2008447A2 /* Base */,
+				6BF5309C44C44B33816DBD62 /* en */,
 				9A38F8602E80F1B600100A57 /* es */,
 			);
 			name = STAboutWindow.xib;
@@ -460,6 +468,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4A1B57B1E2A3F4900C8E2AB /* Base */,
+				15C8D2E3EEAF4502842A8594 /* en */,
 				9A38F8612E80F1B600100A57 /* es */,
 			);
 			name = STPreferencesWindow.xib;
@@ -469,6 +478,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4A1B57D1E2A3F4900C8E2AD /* Base */,
+				65BA17B6FFE8436FB229DCBE /* en */,
 				9A38F8622E80F1B600100A57 /* es */,
 			);
 			name = STPreferencesWindowGeneralView.xib;

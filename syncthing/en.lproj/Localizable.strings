@@ -1,0 +1,40 @@
+/* 
+   Localizable.strings
+   syncthing
+
+   Base localization (English)
+*/
+
+/* Notification title */
+"Syncthing" = "Syncthing";
+
+/* Status tooltips */
+"Up to date" = "Up to date";
+"Synchronising" = "Synchronising";
+"Pause" = "Pause";
+"Not running" = "Not running";
+"Error" = "Error";
+
+/* Device menu items */
+"Resume All Devices" = "Resume All Devices";
+"Pause All Devices" = "Pause All Devices";
+
+/* Daemon status */
+"Syncthing Service (Running)" = "Syncthing Service (Running)";
+"Syncthing Service (Stopped)" = "Syncthing Service (Stopped)";
+
+/* API status */
+"API (Online)" = "API (Online)";
+"API (Offline)" = "API (Offline)";
+
+/* Connection status */
+"Online" = "Online";
+"Running (Offline)" = "Running (Offline)";
+"Unknown (Online)" = "Unknown (Online)";
+"Unavailable" = "Unavailable";
+
+/* Menu titles */
+"Folders" = "Folders";
+
+/* Tooltip template (version %@ and status %@) */
+"Syncthing %@\n%@" = "Syncthing %@\n%@";
