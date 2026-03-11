@@ -108,7 +108,7 @@
 		C4F0E82C1DA1B9CF00435310 /* STPreferencesWindowGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPreferencesWindowGeneralViewController.m; sourceTree = "<group>"; };
 		C4FFB0631D0D7E440015D14A /* XGSyncthing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSyncthing.h; path = syncthing/XGSyncthing.h; sourceTree = SOURCE_ROOT; };
 		C4FFB0641D0D7E4C0015D14A /* XGSyncthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XGSyncthing.m; path = syncthing/XGSyncthing.m; sourceTree = SOURCE_ROOT; };
-		D4A1B5731E2A3F4900C8E2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+
 		D4A1B57B1E2A3F4900C8E2AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STPreferencesWindow.xib; sourceTree = "<group>"; };
 		D4A1B57D1E2A3F4900C8E2AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/STPreferencesWindowGeneralView.xib; sourceTree = "<group>"; };
 		FB3E4EE48CFC608AD4FBDE77 /* Pods-syncthing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syncthing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syncthing/Pods-syncthing.debug.xcconfig"; sourceTree = "<group>"; };
@@ -447,7 +447,6 @@
 		D4A1B5721E2A3F4900C8E2A2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4A1B5731E2A3F4900C8E2A3 /* Base */,
 				6CE6654979C54545BA0EA08C /* en */,
 				9A38F8632E80F1B700100A57 /* es */,
 			);
