@@ -1,4 +1,6 @@
 .DS_Store
 cmd/update-release/venv*
-*.xcodeproj/xcuserdata
 *.xcodeproj/project.xcworkspace
+
+# dont track any userdata folders
+xcuserdata/
