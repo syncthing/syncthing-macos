@@ -1,0 +1,15 @@
+
+/* Class = "NSTextFieldCell"; title = "appNameLabel"; ObjectID = "69s-3K-WtF"; */
+"69s-3K-WtF.title" = "appNameLabel";
+
+/* Class = "NSButtonCell"; title = "Check for updates"; ObjectID = "Eed-GH-Oia"; */
+"Eed-GH-Oia.title" = "Check for updates";
+
+/* Class = "NSWindow"; title = "About Syncthing"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "About Syncthing";
+
+/* Class = "NSTextFieldCell"; title = "Project page"; ObjectID = "c8c-o9-dcj"; */
+"c8c-o9-dcj.title" = "Project page";
+
+/* Class = "NSTextFieldCell"; title = "appVersionLabel"; ObjectID = "sEI-CG-StK"; */
+"sEI-CG-StK.title" = "appVersionLabel";
