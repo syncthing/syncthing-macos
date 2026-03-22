@@ -1,1 +1,18 @@
-
+"Pause All Devices" = "";
+"API (Online)" = "";
+"Pause" = "";
+"Error" = "";
+"Folders" = "";
+"Running (Offline)" = "";
+"Synchronising" = "";
+"Unavailable" = "";
+"Syncthing Service (Running)" = "";
+"Unknown (Online)" = "";
+"Not running" = "";
+"Up to date" = "";
+"Online" = "";
+"Syncthing %@\n%@" = "";
+"Syncthing" = "";
+"Syncthing Service (Stopped)" = "";
+"Resume All Devices" = "";
+"API (Offline)" = "";
