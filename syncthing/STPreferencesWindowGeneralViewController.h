@@ -10,10 +10,13 @@
 
 @interface STPreferencesWindowGeneralViewController : NSViewController
 
+@property (weak) IBOutlet NSButton *UseProxy;
+@property (weak) IBOutlet NSTextField *ProxyURL;
 @property (weak) IBOutlet NSTextField *Syncthing_URI;
 @property (weak) IBOutlet NSTextField *Syncthing_ApiKey;
 @property (weak) IBOutlet NSButton *StartAtLogin;
 @property (weak) IBOutlet NSButton *buttonTest;
 
+extern NSNotificationName const STDaemonNeedsRestartNotification;
 
 @end
