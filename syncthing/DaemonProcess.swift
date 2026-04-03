@@ -34,6 +34,44 @@ let MaxKeepLogLines = 200
         }
     }
 
+    private func launchEnvironment() -> [String: String] {
+        var environment = ProcessInfo.processInfo.environment
+        environment["STNOUPGRADE"] = "true"
+
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "UseProxy") != nil {
+            let proxyURL = defaults.string(forKey: "ProxyURL")?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            if defaults.bool(forKey: "UseProxy") && !proxyURL.isEmpty {
+                environment["all_proxy"] = proxyURL
+                environment["ALL_PROXY"] = proxyURL
+
+                let bypassHosts = "127.0.0.1,localhost"
+                if let existing = environment["no_proxy"], !existing.isEmpty {
+                    if !existing.contains("127.0.0.1") || !existing.contains("localhost") {
+                        environment["no_proxy"] = "\(existing),\(bypassHosts)"
+                    }
+                } else {
+                    environment["no_proxy"] = bypassHosts
+                }
+
+                if let existing = environment["NO_PROXY"], !existing.isEmpty {
+                    if !existing.contains("127.0.0.1") || !existing.contains("localhost") {
+                        environment["NO_PROXY"] = "\(existing),\(bypassHosts)"
+                    }
+                } else {
+                    environment["NO_PROXY"] = bypassHosts
+                }
+            } else {
+                environment.removeValue(forKey: "all_proxy")
+                environment.removeValue(forKey: "ALL_PROXY")
+                environment.removeValue(forKey: "no_proxy")
+                environment.removeValue(forKey: "NO_PROXY")
+            }
+        }
+
+        return environment
+    }
+
     @objc func launch() {
         queue.async {
             self.launchSync()
@@ -58,12 +96,8 @@ let MaxKeepLogLines = 200
         NSLog("Launching Syncthing daemon: \(path)")
         shouldTerminate = false
 
-        // Since release v1.7.0-1 we don't allow Syncthing daemon to update by itself
-        var environment = ProcessInfo.processInfo.environment
-        environment["STNOUPGRADE"] = "true"
-
         let p = Process()
-        p.environment = environment
+        p.environment = launchEnvironment()
         p.arguments = ["--no-browser", "--no-restart", "--logfile=default"]
         p.arguments?.append(contentsOf: self.arguments)
         p.launchPath = path

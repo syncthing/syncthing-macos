@@ -8,9 +8,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="STPreferencesGeneralViewController">
             <connections>
+                <outlet property="ProxyURL" destination="X8z-m3-H7F" id="Fn0-3o-LfW"/>
                 <outlet property="StartAtLogin" destination="tYl-sb-Hga" id="nUj-DN-esv"/>
                 <outlet property="Syncthing_ApiKey" destination="B0w-Uv-22O" id="DX5-97-308"/>
                 <outlet property="Syncthing_URI" destination="kCf-gA-qTB" id="s6U-1e-YmN"/>
+                <outlet property="UseProxy" destination="99B-Dd-LdB" id="2Eu-HJ-Wx6"/>
                 <outlet property="buttonTest" destination="Fvn-Oe-6fA" id="gsg-wG-y69"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -18,7 +20,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="457" height="190"/>
+            <rect key="frame" x="0.0" y="0.0" width="457" height="248"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SPp-6x-JiZ">
                     <rect key="frame" x="18" y="121" width="49" height="16"/>
@@ -59,7 +61,7 @@
                     </connections>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="tYl-sb-Hga">
-                    <rect key="frame" x="71" y="81" width="104" height="18"/>
+                    <rect key="frame" x="71" y="139" width="104" height="18"/>
                     <buttonCell key="cell" type="check" title="Start at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="bnF-et-LAz">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -70,7 +72,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fvn-Oe-6fA">
-                    <rect key="frame" x="366" y="83" width="78" height="32"/>
+                    <rect key="frame" x="366" y="141" width="78" height="32"/>
                     <buttonCell key="cell" type="push" title="Test" bezelStyle="rounded" image="NSStatusNone" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DIH-Pb-tr4">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -79,8 +81,47 @@
                         <action selector="clickedTest:" target="-2" id="3Ta-ci-ddQ"/>
                     </connections>
                 </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="99B-Dd-LdB">
+                    <rect key="frame" x="71" y="113" width="144" height="18"/>
+                    <buttonCell key="cell" type="check" title="Use proxy for Syncthing" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Og8-oM-kqL">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedUseProxy:" target="-2" id="Yrw-RK-eCY"/>
+                        <binding destination="43V-m6-OJJ" name="value" keyPath="values.UseProxy" id="NJQ-H5-yr9"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H6M-Xv-GvS">
+                    <rect key="frame" x="20" y="85" width="47" height="16"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Proxy" id="zcy-s6-PPy">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X8z-m3-H7F">
+                    <rect key="frame" x="73" y="82" width="364" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="socks5://127.0.0.1:7890" drawsBackground="YES" id="uUl-r5-Ao4">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <action selector="proxyUrlChanged:" target="-2" id="f2o-6n-2QY"/>
+                        <binding destination="43V-m6-OJJ" name="value" keyPath="values.ProxyURL" id="hoV-Fb-8mh"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N0T-mL-rWn">
+                    <rect key="frame" x="73" y="56" width="364" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="byWordWrapping" sendsActionOnEndEditing="YES" title="Supports socks5://, http:// and https://. Changes restart the Syncthing daemon automatically." id="5k2-60-Pg8">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="aC0-rw-4G1">
-                    <rect key="frame" x="71" y="59" width="134" height="18"/>
+                    <rect key="frame" x="71" y="117" width="134" height="18"/>
                     <buttonCell key="cell" type="check" title="Show in menu bar" bezelStyle="regularSquare" imagePosition="left" inset="2" id="nB8-OA-X1F">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -124,7 +165,10 @@
                 <constraint firstAttribute="trailing" secondItem="kCf-gA-qTB" secondAttribute="trailing" constant="20" symbolic="YES" id="0u5-rc-aQ9"/>
                 <constraint firstItem="NQY-Se-yQr" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="1uy-lv-1dN"/>
                 <constraint firstItem="kCf-gA-qTB" firstAttribute="leading" secondItem="bgQ-af-R3Y" secondAttribute="trailing" constant="8" symbolic="YES" id="2tE-WJ-egs"/>
-                <constraint firstItem="tYl-sb-Hga" firstAttribute="top" secondItem="B0w-Uv-22O" secondAttribute="bottom" constant="20" id="8LG-LF-xbD"/>
+                <constraint firstItem="99B-Dd-LdB" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="4Q7-8J-RWk"/>
+                <constraint firstItem="99B-Dd-LdB" firstAttribute="top" secondItem="B0w-Uv-22O" secondAttribute="bottom" constant="20" id="4on-E6-7Oy"/>
+                <constraint firstItem="H6M-Xv-GvS" firstAttribute="firstBaseline" secondItem="X8z-m3-H7F" secondAttribute="firstBaseline" id="53V-DK-e5P"/>
+                <constraint firstItem="H6M-Xv-GvS" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="5v0-fM-wTn"/>
                 <constraint firstAttribute="bottom" secondItem="NQY-Se-yQr" secondAttribute="bottom" constant="20" symbolic="YES" id="8n7-1W-VIF"/>
                 <constraint firstAttribute="trailing" secondItem="9Rm-9W-VFZ" secondAttribute="trailing" constant="20" symbolic="YES" id="9SU-ES-8zG"/>
                 <constraint firstItem="B0w-Uv-22O" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="BBg-3A-5eJ"/>
@@ -134,11 +178,18 @@
                 <constraint firstItem="aC0-rw-4G1" firstAttribute="top" secondItem="tYl-sb-Hga" secondAttribute="bottom" constant="6" symbolic="YES" id="a2P-vl-xd1"/>
                 <constraint firstItem="NQY-Se-yQr" firstAttribute="top" secondItem="aC0-rw-4G1" secondAttribute="bottom" constant="20" id="aF5-fX-MiH"/>
                 <constraint firstItem="B0w-Uv-22O" firstAttribute="leading" secondItem="SPp-6x-JiZ" secondAttribute="trailing" constant="8" symbolic="YES" id="aks-Gy-fGL"/>
-                <constraint firstItem="Fvn-Oe-6fA" firstAttribute="top" secondItem="B0w-Uv-22O" secondAttribute="bottom" constant="8" symbolic="YES" id="gjY-QU-9q1"/>
+                <constraint firstItem="Fvn-Oe-6fA" firstAttribute="centerY" secondItem="tYl-sb-Hga" secondAttribute="centerY" id="gjY-QU-9q1"/>
+                <constraint firstItem="X8z-m3-H7F" firstAttribute="leading" secondItem="H6M-Xv-GvS" secondAttribute="trailing" constant="8" symbolic="YES" id="gmb-yu-7Vu"/>
+                <constraint firstAttribute="trailing" secondItem="X8z-m3-H7F" secondAttribute="trailing" constant="20" symbolic="YES" id="iK5-hP-XbW"/>
+                <constraint firstItem="X8z-m3-H7F" firstAttribute="top" secondItem="99B-Dd-LdB" secondAttribute="bottom" constant="10" symbolic="YES" id="jY3-0n-8aP"/>
                 <constraint firstAttribute="trailing" secondItem="B0w-Uv-22O" secondAttribute="trailing" constant="20" symbolic="YES" id="lWZ-ef-Ed2"/>
                 <constraint firstItem="B0w-Uv-22O" firstAttribute="top" secondItem="kCf-gA-qTB" secondAttribute="bottom" constant="10" symbolic="YES" id="mg0-kD-bnu"/>
+                <constraint firstItem="N0T-mL-rWn" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="nfs-eY-QdR"/>
+                <constraint firstAttribute="trailing" secondItem="N0T-mL-rWn" secondAttribute="trailing" constant="20" symbolic="YES" id="uZa-6N-IxU"/>
+                <constraint firstItem="N0T-mL-rWn" firstAttribute="top" secondItem="X8z-m3-H7F" secondAttribute="bottom" constant="8" symbolic="YES" id="upT-DS-vcQ"/>
                 <constraint firstItem="bgQ-af-R3Y" firstAttribute="firstBaseline" secondItem="kCf-gA-qTB" secondAttribute="firstBaseline" id="r3e-1n-EcE"/>
                 <constraint firstItem="tYl-sb-Hga" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="tVU-d6-WRW"/>
+                <constraint firstItem="tYl-sb-Hga" firstAttribute="top" secondItem="N0T-mL-rWn" secondAttribute="bottom" constant="12" id="uMJ-HV-WQG"/>
                 <constraint firstItem="9Rm-9W-VFZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NQY-Se-yQr" secondAttribute="trailing" constant="7" id="ucj-yE-cmL"/>
                 <constraint firstItem="SPp-6x-JiZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="udY-T2-UbN"/>
                 <constraint firstItem="kCf-gA-qTB" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="xAJ-NF-i59"/>

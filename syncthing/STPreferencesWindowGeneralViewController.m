@@ -10,6 +10,8 @@
 #import "STLoginItem.h"
 #import "XGSyncthing.h"
 
+NSNotificationName const STDaemonNeedsRestartNotification = @"STDaemonNeedsRestartNotification";
+
 @interface STPreferencesWindowGeneralViewController ()
 
 @end
@@ -18,6 +20,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self updateProxyControls];
     [self updateTestButton];
 }
 
@@ -56,6 +59,23 @@
 
 - (IBAction) clickedTest:(id)sender {
     [self updateTestButton];
+}
+
+- (IBAction)clickedUseProxy:(id)sender {
+    [self updateProxyControls];
+    [self postDaemonRestartNotification];
+}
+
+- (IBAction)proxyUrlChanged:(id)sender {
+    [self postDaemonRestartNotification];
+}
+
+- (void)postDaemonRestartNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:STDaemonNeedsRestartNotification object:self];
+}
+
+- (void)updateProxyControls {
+    [self.ProxyURL setEnabled:(self.UseProxy.state == NSControlStateValueOn)];
 }
 
 @end
