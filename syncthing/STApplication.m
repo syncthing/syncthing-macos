@@ -1,5 +1,6 @@
 #import "STApplication.h"
 #import "STLoginItem.h"
+#import "STPreferencesWindowGeneralViewController.h"
 #import "Syncthing-Swift.h"
 
 @interface STAppDelegate ()
@@ -29,6 +30,11 @@
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification {
     _syncthing = [[XGSyncthing alloc] init];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(proxySettingsDidChange:)
+                                                 name:STDaemonNeedsRestartNotification
+                                               object:nil];
 
     [self applicationLoadConfiguration];
 
@@ -128,6 +134,10 @@
 
     if (![defaults objectForKey:@"StartAtLogin"]) {
         [defaults setBool:[STLoginItem wasAppAddedAsLoginItem] forKey:@"StartAtLogin"];
+    }
+
+    if (![defaults objectForKey:@"ProxyURL"]) {
+        [defaults setObject:@"" forKey:@"ProxyURL"];
     }
 }
 
@@ -332,6 +342,12 @@
                                                     name:NSWindowWillCloseNotification
                                                   object:[_preferencesWindow window]];
     _preferencesWindow = nil;
+}
+
+- (void)proxySettingsDidChange:(NSNotification *)notification {
+    if (_process != nil) {
+        [_process restart];
+    }
 }
 
 - (void)process:(DaemonProcess *)_ isRunning:(BOOL)isRunning {
