@@ -31,7 +31,7 @@ Features include:
 
 Currently, macOS 11 or higher is necessary to run the latest version. For older version support, see the [FAQ](#faq-frequently-asked-questions). **syncthing-macos** is packaged as a disk image as an application bundled with the [syncthing](https://github.com/syncthing/syncthing/releases) binary.
 
-To install [just download the dmg](https://github.com/syncthing/syncthing-macos/releases/latest), mount it and drag and drop the application to install. The only necessary configuration is to set the API key and URL when provisioning a remote syncthing instance, the local instance is auto-configured. The `syncthing-macos` application bundle disables the auto-updater of `syncthing` as it has its own update mechanism using [Sparkle](https://sparkle-project.org/).
+To install [just download the DMG](https://github.com/syncthing/syncthing-macos/releases/latest), mount it and drag and drop the application to install. The only necessary configuration is to set the API key and URL when provisioning a remote syncthing instance, the local instance is auto-configured. The `syncthing-macos` application bundle disables the auto-updater of `syncthing` as it has its own update mechanism using [Sparkle](https://sparkle-project.org/).
 
 The latest version is available at [GitHub Releases](https://github.com/syncthing/syncthing-macos/releases/latest), or it can also be installed using [homebrew](https://github.com/Homebrew/homebrew-cask) [`brew install --cask syncthing-app`](https://formulae.brew.sh/cask/syncthing-app)
 
@@ -218,9 +218,7 @@ defaults delete com.github.xor-gate.syncthing-macosx Executable
 
 ## Dependency management
 
-[CocoaPods](https://cocoapods.org/) is used for dependency management. It can be installed
-with [Homebrew](https://brew.sh/) package manager. For more information about CocoaPods read
-the [CocoaPods Guides](https://guides.cocoapods.org/).
+With [Homebrew](https://brew.sh/) package manager. And native XCode Swift packages (for Sparkle framework). 
 
 ## Versioning scheme
 
