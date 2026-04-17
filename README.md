@@ -218,9 +218,7 @@ defaults delete com.github.xor-gate.syncthing-macosx Executable
 
 ## Dependency management
 
-[CocoaPods](https://cocoapods.org/) is used for dependency management. It can be installed
-with [Homebrew](https://brew.sh/) package manager. For more information about CocoaPods read
-the [CocoaPods Guides](https://guides.cocoapods.org/).
+With [Homebrew](https://brew.sh/) package manager. And native XCode Swift packages (for Sparkle framework). 
 
 ## Versioning scheme
 
