@@ -79,6 +79,11 @@ The preferences window is used to point to a local running instance, a remote in
 It is possible to run your own instance and point to it for advanced/development purposes.
 You should only change the settings if you know what you are doing.
 
+The Syncthing process quality of service can be set to Normal, Utility, or Background in the
+preferences window. Background is the default for compatibility and reduces the process impact on
+foreground applications, but it can make large folder scans take longer. Changing this setting
+restarts the managed Syncthing process.
+
 Setting extra Syncthing command line parameters is a hidden feature. You need to write these using
 the application defaults configuration. The only current limitation the parameters cannot contain spaces!.
 In the example below the audit log is enabled:

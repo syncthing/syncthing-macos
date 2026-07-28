@@ -8,6 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="STPreferencesGeneralViewController">
             <connections>
+                <outlet property="DaemonQoSBackground" destination="QoS-Bg-A01" id="QoS-Bg-O01"/>
+                <outlet property="DaemonQoSDefault" destination="QoS-Df-A01" id="QoS-Df-O01"/>
+                <outlet property="DaemonQoSUtility" destination="QoS-Ut-A01" id="QoS-Ut-O01"/>
                 <outlet property="ProxyURL" destination="X8z-m3-H7F" id="Fn0-3o-LfW"/>
                 <outlet property="StartAtLogin" destination="tYl-sb-Hga" id="nUj-DN-esv"/>
                 <outlet property="Syncthing_ApiKey" destination="B0w-Uv-22O" id="DX5-97-308"/>
@@ -20,7 +23,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="457" height="248"/>
+            <rect key="frame" x="0.0" y="0.0" width="457" height="303"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SPp-6x-JiZ">
                     <rect key="frame" x="18" y="121" width="49" height="16"/>
@@ -120,6 +123,52 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QoS-Lb-A01">
+                    <rect key="frame" x="18" y="56" width="49" height="16"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Priority" id="QoS-Lb-C01">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="QoS-Df-A01">
+                    <rect key="frame" x="71" y="56" width="75" height="18"/>
+                    <buttonCell key="cell" type="radio" title="Normal" bezelStyle="regularSquare" imagePosition="left" inset="2" id="QoS-Df-C01">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedDaemonQualityOfService:" target="-2" id="QoS-Df-X01"/>
+                    </connections>
+                </button>
+                <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="QoS-Ut-A01">
+                    <rect key="frame" x="158" y="56" width="75" height="18"/>
+                    <buttonCell key="cell" type="radio" title="Utility" bezelStyle="regularSquare" imagePosition="left" inset="2" id="QoS-Ut-C01">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedDaemonQualityOfService:" target="-2" id="QoS-Ut-X01"/>
+                    </connections>
+                </button>
+                <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="QoS-Bg-A01">
+                    <rect key="frame" x="245" y="56" width="110" height="18"/>
+                    <buttonCell key="cell" type="radio" title="Background" bezelStyle="regularSquare" imagePosition="left" inset="2" id="QoS-Bg-C01">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedDaemonQualityOfService:" target="-2" id="QoS-Bg-X01"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QoS-Hp-A01">
+                    <rect key="frame" x="73" y="17" width="364" height="34"/>
+                    <textFieldCell key="cell" lineBreakMode="byWordWrapping" sendsActionOnEndEditing="YES" title="Background saves energy but can make large scans slower. Changes restart Syncthing automatically." id="QoS-Hp-C01">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="aC0-rw-4G1">
                     <rect key="frame" x="71" y="117" width="134" height="18"/>
                     <buttonCell key="cell" type="check" title="Show in menu bar" bezelStyle="regularSquare" imagePosition="left" inset="2" id="nB8-OA-X1F">
@@ -185,11 +234,22 @@
                 <constraint firstAttribute="trailing" secondItem="B0w-Uv-22O" secondAttribute="trailing" constant="20" symbolic="YES" id="lWZ-ef-Ed2"/>
                 <constraint firstItem="B0w-Uv-22O" firstAttribute="top" secondItem="kCf-gA-qTB" secondAttribute="bottom" constant="10" symbolic="YES" id="mg0-kD-bnu"/>
                 <constraint firstItem="N0T-mL-rWn" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="nfs-eY-QdR"/>
+                <constraint firstItem="QoS-Lb-A01" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="QoS-Lb-K01"/>
+                <constraint firstItem="QoS-Lb-A01" firstAttribute="firstBaseline" secondItem="QoS-Df-A01" secondAttribute="firstBaseline" id="QoS-Lb-K02"/>
+                <constraint firstItem="QoS-Df-A01" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="QoS-Df-K01"/>
+                <constraint firstItem="QoS-Df-A01" firstAttribute="top" secondItem="N0T-mL-rWn" secondAttribute="bottom" constant="14" id="QoS-Df-K02"/>
+                <constraint firstItem="QoS-Ut-A01" firstAttribute="leading" secondItem="QoS-Df-A01" secondAttribute="trailing" constant="12" id="QoS-Ut-K01"/>
+                <constraint firstItem="QoS-Ut-A01" firstAttribute="firstBaseline" secondItem="QoS-Df-A01" secondAttribute="firstBaseline" id="QoS-Ut-K02"/>
+                <constraint firstItem="QoS-Bg-A01" firstAttribute="leading" secondItem="QoS-Ut-A01" secondAttribute="trailing" constant="12" id="QoS-Bg-K01"/>
+                <constraint firstItem="QoS-Bg-A01" firstAttribute="firstBaseline" secondItem="QoS-Df-A01" secondAttribute="firstBaseline" id="QoS-Bg-K02"/>
+                <constraint firstItem="QoS-Hp-A01" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="QoS-Hp-K01"/>
+                <constraint firstAttribute="trailing" secondItem="QoS-Hp-A01" secondAttribute="trailing" constant="20" symbolic="YES" id="QoS-Hp-K02"/>
+                <constraint firstItem="QoS-Hp-A01" firstAttribute="top" secondItem="QoS-Df-A01" secondAttribute="bottom" constant="6" id="QoS-Hp-K03"/>
                 <constraint firstAttribute="trailing" secondItem="N0T-mL-rWn" secondAttribute="trailing" constant="20" symbolic="YES" id="uZa-6N-IxU"/>
                 <constraint firstItem="N0T-mL-rWn" firstAttribute="top" secondItem="X8z-m3-H7F" secondAttribute="bottom" constant="8" symbolic="YES" id="upT-DS-vcQ"/>
                 <constraint firstItem="bgQ-af-R3Y" firstAttribute="firstBaseline" secondItem="kCf-gA-qTB" secondAttribute="firstBaseline" id="r3e-1n-EcE"/>
                 <constraint firstItem="tYl-sb-Hga" firstAttribute="leading" secondItem="kCf-gA-qTB" secondAttribute="leading" id="tVU-d6-WRW"/>
-                <constraint firstItem="tYl-sb-Hga" firstAttribute="top" secondItem="N0T-mL-rWn" secondAttribute="bottom" constant="12" id="uMJ-HV-WQG"/>
+                <constraint firstItem="tYl-sb-Hga" firstAttribute="top" secondItem="QoS-Hp-A01" secondAttribute="bottom" constant="12" id="uMJ-HV-WQG"/>
                 <constraint firstItem="9Rm-9W-VFZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NQY-Se-yQr" secondAttribute="trailing" constant="7" id="ucj-yE-cmL"/>
                 <constraint firstItem="SPp-6x-JiZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="udY-T2-UbN"/>
                 <constraint firstItem="kCf-gA-qTB" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="xAJ-NF-i59"/>
