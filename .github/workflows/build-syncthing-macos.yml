@@ -94,18 +94,97 @@ jobs:
         with:
           name: syncthing-macos-v2-dmg-release
 
-      - name: Notarize binaries
+      - name: Notarize and staple binaries
         run: |
+          set -euo pipefail
           APPSTORECONNECT_API_KEY_PATH="$RUNNER_TEMP/apikey.p8"
           echo "$APPSTORECONNECT_API_KEY" | base64 -d -o "$APPSTORECONNECT_API_KEY_PATH"
           for file in Syncthing-*.dmg ; do
-            xcrun notarytool submit \
+            echo "-- Submitting $file for notarization"
+            result="$(xcrun notarytool submit "$file" \
               -k "$APPSTORECONNECT_API_KEY_PATH" \
               -d "$APPSTORECONNECT_API_KEY_ID" \
               -i "$APPSTORECONNECT_API_KEY_ISSUER" \
-              $file
+              --wait --output-format json)"
+            echo "$result"
+            status="$(echo "$result" | python3 -c 'import sys,json; print(json.load(sys.stdin)["status"])')"
+            if [ "$status" != "Accepted" ]; then
+              echo "::error::Notarization of $file failed with status: $status"
+              exit 1
+            fi
+            echo "-- Stapling notarization ticket into $file"
+            xcrun stapler staple "$file"
           done
         env:
           APPSTORECONNECT_API_KEY: ${{ secrets.APPSTORECONNECT_API_KEY }}
           APPSTORECONNECT_API_KEY_ID: ${{ secrets.APPSTORECONNECT_API_KEY_ID }}
           APPSTORECONNECT_API_KEY_ISSUER: ${{ secrets.APPSTORECONNECT_API_KEY_ISSUER }}
+
+      - name: Upload notarized DMG
+        uses: actions/upload-artifact@v4
+        with:
+          name: syncthing-macos-v2-dmg-notarized
+          path: Syncthing-*.dmg
+
+  publish-release:
+    name: Publish GitHub Release
+    if: github.event_name == 'push' && github.ref == 'refs/heads/v2'
+    needs:
+      - notarize
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      published: ${{ steps.publish.outputs.published }}
+    steps:
+      - name: Download notarized DMG
+        uses: actions/download-artifact@v4
+        with:
+          name: syncthing-macos-v2-dmg-notarized
+
+      - name: Create release when the bundled version is new
+        id: publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          dmg="$(ls Syncthing-*.dmg | head -1)"
+          if [ -z "$dmg" ]; then
+            echo "::error::No notarized DMG found to publish"
+            exit 1
+          fi
+          # create-dmg.sh names the file Syncthing-<CFBundleShortVersionString>.dmg,
+          # e.g. Syncthing-2.1.2-1.dmg -> app version 2.1.2-1, tag v2.1.2-1.
+          appver="$(basename "$dmg" .dmg | sed -E 's/^Syncthing-//')"
+          tag="v${appver}"
+          stver="${appver%-*}"   # upstream Syncthing version, e.g. 2.1.2
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists; nothing new to publish."
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          notes="Bundles Syncthing v${stver}.
+
+          Upstream release notes: https://github.com/syncthing/syncthing/releases/tag/v${stver}"
+          gh release create "$tag" \
+            --target "$GITHUB_SHA" \
+            --title "$tag" \
+            --notes "$notes" \
+            "$dmg"
+          echo "published=true" >> "$GITHUB_OUTPUT"
+
+  regenerate-appcast:
+    name: Regenerate appcast
+    if: needs.publish-release.result == 'success' && needs.publish-release.outputs.published == 'true'
+    needs:
+      - publish-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger appcast generation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        # workflow_dispatch triggered via GITHUB_TOKEN is exempt from GitHub's
+        # anti-recursion rule, so no PAT is needed here.
+        run: gh workflow run generate-appcast.yml --ref v2

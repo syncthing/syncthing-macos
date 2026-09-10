@@ -1,0 +1,93 @@
+name: Update from upstream Syncthing release
+
+# Detects a new upstream `syncthing/syncthing` stable v2 release and opens a
+# version-bump PR against `v2`. Merging that PR triggers
+# `build-syncthing-macos.yml`, which builds, notarizes and publishes the
+# release (see the `publish-release` job there).
+#
+# This job only opens a PR; it never touches the packaging/signing path
+# directly, so a human reviews the bump before any signed binary is built.
+
+on:
+  schedule:
+    # Daily at 06:00 UTC. Scheduled workflows only run from the default branch.
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    name: Bump bundled Syncthing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Update bundle to latest upstream stable v2 release
+        run: |
+          python3 -m pip install --upgrade pip semver
+          # update-release.py uses paths relative to its own directory.
+          cd cmd/update-release
+          python3 update-release.py
+
+      - name: Detect version change
+        id: detect
+        run: |
+          if git diff --quiet -- syncthing/Info.plist syncthing/Scripts/syncthing-resource.sh; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Already bundling the latest upstream stable v2 release; nothing to do."
+            exit 0
+          fi
+          version="$(grep -m1 '^SYNCTHING_VERSION=' syncthing/Scripts/syncthing-resource.sh \
+            | sed -E 's/^SYNCTHING_VERSION="?([^"]+)"?.*/\1/')"
+          if [ -z "$version" ]; then
+            echo "::error::Could not parse SYNCTHING_VERSION from syncthing-resource.sh"
+            exit 1
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Detected new upstream Syncthing version: v$version"
+
+      - name: Open version-bump PR
+        if: steps.detect.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.detect.outputs.version }}
+        run: |
+          set -euo pipefail
+          BRANCH="automation/bump-syncthing-v${VERSION}"
+          TITLE="Bump bundled Syncthing to v${VERSION}"
+          BODY="Automated bump of the bundled Syncthing binary to upstream stable release **v${VERSION}**.
+
+          Upstream release notes: https://github.com/syncthing/syncthing/releases/tag/v${VERSION}
+
+          Merging this PR to \`v2\` triggers the build, notarization and release
+          publishing pipeline (\`build-syncthing-macos.yml\`).
+
+          _Opened automatically by \`update-upstream-release.yml\`._"
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Deterministic branch per version; force-update if it already exists
+          # so re-runs refresh the same PR instead of failing.
+          git switch -C "$BRANCH"
+          git add syncthing/Info.plist syncthing/Scripts/syncthing-resource.sh
+          git commit -m "$TITLE"
+          git push --force-with-lease origin "$BRANCH"
+
+          # Create the PR only if one isn't already open for this branch.
+          if [ -n "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            echo "An open PR already exists for $BRANCH; it now points at the refreshed commit."
+          else
+            gh pr create --base v2 --head "$BRANCH" --title "$TITLE" --body "$BODY"
+          fi
