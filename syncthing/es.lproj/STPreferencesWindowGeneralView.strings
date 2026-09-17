@@ -25,3 +25,18 @@
 
 /* Class = "NSButtonCell"; title = "Show in menu bar"; ObjectID = "nB8-OA-X1F"; */
 "nB8-OA-X1F.title" = "Mostrar en la barra de menú";
+
+/* Class = "NSTextFieldCell"; title = "Priority"; ObjectID = "QoS-Lb-C01"; */
+"QoS-Lb-C01.title" = "Prioridad";
+
+/* Class = "NSButtonCell"; title = "Normal"; ObjectID = "QoS-Df-C01"; */
+"QoS-Df-C01.title" = "Normal";
+
+/* Class = "NSButtonCell"; title = "Utility"; ObjectID = "QoS-Ut-C01"; */
+"QoS-Ut-C01.title" = "Utilidad";
+
+/* Class = "NSButtonCell"; title = "Background"; ObjectID = "QoS-Bg-C01"; */
+"QoS-Bg-C01.title" = "Segundo plano";
+
+/* Class = "NSTextFieldCell"; title = "Background saves energy but can make large scans slower. Changes restart Syncthing automatically."; ObjectID = "QoS-Hp-C01"; */
+"QoS-Hp-C01.title" = "Segundo plano ahorra energía, pero puede ralentizar los análisis grandes. Los cambios reinician Syncthing automáticamente.";

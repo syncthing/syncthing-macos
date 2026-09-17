@@ -72,6 +72,19 @@ let MaxKeepLogLines = 200
         return environment
     }
 
+    private func launchQualityOfService() -> QualityOfService {
+        let value = UserDefaults.standard.string(forKey: "DaemonQualityOfService") ?? "background"
+
+        switch value {
+        case "default":
+            return .default
+        case "utility":
+            return .utility
+        default:
+            return .background
+        }
+    }
+
     @objc func launch() {
         queue.async {
             self.launchSync()
@@ -105,7 +118,7 @@ let MaxKeepLogLines = 200
         p.standardOutput = pipeIntoLineBuffer()
         p.standardError = pipeIntoLineBuffer()
         p.terminationHandler = { p in self.queue.async { self.didTerminate(p) } }
-        p.qualityOfService = QualityOfService.background
+        p.qualityOfService = launchQualityOfService()
         p.launch()
 
         DispatchQueue.main.async {
