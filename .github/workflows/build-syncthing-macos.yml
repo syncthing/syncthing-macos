@@ -164,13 +164,121 @@ jobs:
             echo "published=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          notes="Bundles Syncthing v${stver}.
+          # ------------------------------------------------------------------
+          # Release notes
+          #
+          # The GitHub release body is what users actually read:
+          # cmd/ghreleases2appcast renders it into the appcast <description>,
+          # which is exactly what the Sparkle update dialog shows. So inline the
+          # Syncthing changelog here rather than only linking to it.
+          # ------------------------------------------------------------------
 
-          Upstream release notes: https://github.com/syncthing/syncthing/releases/tag/v${stver}"
+          # True when version $1 is not newer than version $2.
+          ver_le() { [ "$(printf '%s\n%s\n' "$1" "$2" | sort -V | head -1)" = "$1" ]; }
+
+          # Syncthing version bundled by the latest release of this repository,
+          # empty when there is no previous release.
+          previously_bundled_version() {
+            local tag
+            tag="$(gh release list --repo "$GH_REPO" --limit 1 \
+              --json tagName --jq '.[0].tagName // ""' 2>/dev/null || true)"
+            tag="${tag#v}"
+            printf '%s' "${tag%-*}"
+          }
+
+          # Stable upstream versions newer than $1, up to and including $2,
+          # newest first. A bundle does not always advance by one version
+          # (v2.1.2-1 -> v2.1.5-1 skipped upstream v2.1.3), and the notes of a
+          # skipped release would otherwise never reach users.
+          upstream_versions_since() {
+            local prev="$1" cur="$2" v picked=""
+            for v in $(gh api --paginate repos/syncthing/syncthing/releases \
+              --jq '.[] | select(.draft == false and .prerelease == false) | .tag_name' \
+              2>/dev/null | sed 's/^v//' || true); do
+              ver_le "$v" "$cur" || continue
+              if [ -n "$prev" ] && ver_le "$v" "$prev"; then
+                continue
+              fi
+              picked="$picked $v"
+            done
+            printf '%s\n' $picked | sort -rV
+          }
+
+          # Release notes of upstream Syncthing $1, empty when unavailable.
+          upstream_release_body() {
+            gh release view "v$1" --repo syncthing/syncthing \
+              --json body --jq '.body // ""' 2>/dev/null || true
+          }
+
+          # Append a changelog link and the release notes of every version in $@
+          # to $links_file and $notes_file, then echo the versions that fit.
+          # GitHub caps a release body at 125 kB, so stop well short of that.
+          collect_changelogs() {
+            local v body per_version_headings=no included=""
+            if [ $# -gt 1 ]; then
+              per_version_headings=yes
+            fi
+            for v in "$@"; do
+              body="$(upstream_release_body "$v")"
+              [ -n "$body" ] || continue
+              if [ $(( $(wc -c < "$notes_file") + ${#body} )) -gt 100000 ]; then
+                printf '\n---\n\nOlder release notes: %s\n' \
+                  "https://github.com/syncthing/syncthing/releases" >> "$notes_file"
+                break
+              fi
+              {
+                printf '\n---\n\n'
+                # h1: upstream bodies use h2 as their top level.
+                if [ "$per_version_headings" = yes ]; then
+                  printf '# Syncthing v%s\n\n' "$v"
+                fi
+                printf '%s\n' "$body"
+              } >> "$notes_file"
+              printf -- '- [Syncthing v%s changelog](https://github.com/syncthing/syncthing/releases/tag/v%s)\n' \
+                "$v" "$v" >> "$links_file"
+              included="$included $v"
+            done
+            printf '%s\n' $included
+          }
+
+          links_file=changelog-links.md
+          notes_file=upstream-notes.md
+          : > "$links_file"
+          : > "$notes_file"
+
+          # Version lists are whitespace separated, hence the unquoted expansions.
+          versions="$(upstream_versions_since "$(previously_bundled_version)" "$stver")"
+          [ -n "$versions" ] || versions="$stver"
+          included="$(collect_changelogs $versions)"
+          newest="$(printf '%s\n' $included | head -1)"
+          oldest="$(printf '%s\n' $included | tail -1)"
+
+          # The DMG is already built, signed and notarized at this point, so an
+          # unreachable GitHub API must not fail the job: publish with a plain
+          # link to the release notes instead.
+          if [ ! -s "$notes_file" ]; then
+            echo "::warning::Could not read upstream release notes for v${stver}; publishing with the link only."
+          fi
+
+          {
+            echo "Bundles Syncthing v${stver}."
+            echo
+            if [ -s "$notes_file" ]; then
+              if [ "$newest" = "$oldest" ]; then
+                echo "Here is what's new in it:"
+              else
+                echo "Here is what's new in v${oldest}–v${newest}:"
+              fi
+              echo
+              cat "$links_file" "$notes_file"
+            else
+              echo "Release notes: https://github.com/syncthing/syncthing/releases/tag/v${stver}"
+            fi
+          } > release-notes.md
           gh release create "$tag" \
             --target "$GITHUB_SHA" \
             --title "$tag" \
-            --notes "$notes" \
+            --notes-file release-notes.md \
             "$dmg"
           echo "published=true" >> "$GITHUB_OUTPUT"
 
