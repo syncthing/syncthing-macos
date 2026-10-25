@@ -6,8 +6,11 @@
 	<string>en</string>
 	<key>CFBundleLocalizations</key>
 	<array>
+		<string>de</string>
 		<string>en</string>
 		<string>es</string>
+		<string>tr</string>
+		<string>zh-Hans</string>
 	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Syncthing</string>
