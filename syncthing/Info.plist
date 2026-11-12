@@ -11,6 +11,7 @@
 		<string>es</string>
 		<string>tr</string>
 		<string>bn</string>
+		<string>zh-Hans</string>
 	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Syncthing</string>
