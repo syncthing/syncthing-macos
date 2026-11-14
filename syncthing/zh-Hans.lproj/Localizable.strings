@@ -2,17 +2,3 @@
 "Folders" = "文件夹";
 "Pause" = "暂停";
 "Unavailable" = "不可用";
-"Pause All Devices" = "";
-"API (Online)" = "";
-"Running (Offline)" = "";
-"Synchronising" = "";
-"Syncthing Service (Running)" = "";
-"Unknown (Online)" = "";
-"Not running" = "";
-"Up to date" = "";
-"Online" = "";
-"Syncthing %@\n%@" = "";
-"Syncthing" = "";
-"Syncthing Service (Stopped)" = "";
-"Resume All Devices" = "";
-"API (Offline)" = "";
